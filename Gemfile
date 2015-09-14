@@ -32,4 +32,6 @@ group :development, :test do
   gem "pry"
   gem "letter_opener"
   gem "faker", "1.4.2"
+  gem "i18n-js", ">= 3.0.0.rc11"
+  gem "routing-filter"
 end
