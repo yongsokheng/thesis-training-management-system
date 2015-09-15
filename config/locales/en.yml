@@ -10,3 +10,12 @@ en:
     error: "Error"
   staticpages:
     framgia: "Framgia Trainning Management System"
+    about: "About"
+    help: "Help"
+    contact: "Contact"
+    banner: "Framgia TMS"
+    go: "Go!"
+    place_search: "Search for..."
+    profile: "Profile"
+    logout: "Logout"
+    login: "Sign in"
