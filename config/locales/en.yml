@@ -36,3 +36,7 @@ en:
       not_deleted: "%{model_name} couldn't be deleted!"
       updated: "%{model_name} was updated successfully!"
       not_updated: "%{model_name} couldn't be updated"
+  tasks:
+    update: "Update done task"
+  subjects:
+    subject: "Subject"
