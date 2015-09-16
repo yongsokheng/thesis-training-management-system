@@ -23,6 +23,7 @@ gem "delayed_job_active_record"
 gem "sidekiq"
 gem "rails_admin"
 gem "whenever", require: false
+gem "fabrication"
 
 group :development, :test do
   gem "fabrication"
