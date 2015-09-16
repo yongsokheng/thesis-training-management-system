@@ -16,7 +16,7 @@ class Ability
     else
       can [:index, :show], Course
       can [:index, :show], Subject
-      can [:edit, :update, :show], User
+      can [:edit, :update, :show], User, id: user.id
     end
   end
 end
