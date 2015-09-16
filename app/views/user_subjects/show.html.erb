@@ -1,0 +1,21 @@
+<% provide :title, t("subjects.subject") %>
+<h1><%= @user_subject.subject.name %></h1>
+
+<div class="left jumbotron">
+  <%= form_for [@course, @user_subject] do |f| %>
+     <div class="row">
+      <%= f.fields_for :user_tasks do |builder| %>
+        <div class="col-xs-6 col-sm-3">
+          <span> 
+            <%= builder.hidden_field :task_id %>
+            <%= builder.object.task.try :name %><br>
+            <%= builder.object.task.try :description %><br>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <div class="btn-input">
+      <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

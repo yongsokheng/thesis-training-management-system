@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     root "users#index"
     resources :users
   end
+
+  resources :courses do
+    resources :user_subjects, only: :show
+  end
 end
