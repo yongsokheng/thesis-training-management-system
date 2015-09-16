@@ -1,0 +1,7 @@
+en:
+  user:
+    login: "Log in"
+    logout: "Log out"
+    fields:
+      email: "Email"
+      password: "Password"

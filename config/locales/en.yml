@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  flash:
+    access_denied: "Permisstion denied"
+    user:
+      mustlogin: "You need to login to access!"
+  error:
+    form: "The form contains"
+    error: "Error"
