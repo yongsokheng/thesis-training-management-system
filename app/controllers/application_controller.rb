@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   include ApplicationHelper
-  
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
-    redirect_to root_url
+    redirect_to main_app.root_path
   end
 end
