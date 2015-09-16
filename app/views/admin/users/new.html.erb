@@ -1,0 +1,48 @@
+<% provide :title, t("user.new") %>
+
+<h1><%= t "user.new" %></h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for [:admin, @user] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("user.place_holder.enter_name") %>
+      </div>
+
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-envelope"></span>&nbsp;
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control",
+          placeholder: t("user.place_holder.enter_email") %>
+      </div>
+
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control",
+          placeholder: t("user.place_holder.enter_password") %>
+      </div>
+
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control",
+          placeholder: t("user.place_holder.password_confirmation") %>
+      </div>
+
+      <div class="input-group">
+        <h4><%= t "user.role" %></h4>
+        <%= f.select :role, User.roles.keys.map{|role| [role.titleize, role]} %>
+      </div>
+
+      <div class="input-group col-md-12">
+        <%= f.submit t("user.create"), class: "btn btn-success" %>
+      </div>
+    <% end %>
+    <br><br>
+  </div>
+</div>

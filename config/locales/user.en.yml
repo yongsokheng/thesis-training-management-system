@@ -5,3 +5,11 @@ en:
     fields:
       email: "Email"
       password: "Password"
+    new: "New User"
+    place_holder:
+      enter_name: "Enter Name"
+      enter_email: "Enter Email"
+      enter_password: "Enter passowrd"
+      password_confirmation: "Password Confirmation"
+    create: "Create User"
+    role: "Set role"
