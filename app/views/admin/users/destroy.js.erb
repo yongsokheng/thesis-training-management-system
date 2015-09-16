@@ -1,0 +1,4 @@
+$("#user-<%= @user.id%>").remove();
+$("#flash").children().remove();
+$("#flash").prepend("<%= j render partial: "shared/flash_banner" %>");
+$("#show_flash").fadeOut(1000);

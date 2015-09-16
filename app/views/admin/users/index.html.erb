@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="center">
+      <%= t "user.all" %>
+    </h1>
+    <h1 class="center">
+      <%= link_to t("buttons.user.create"), 
+        new_admin_user_path, class: "btn btn-success" %>
+    </h1>
+    <br>
+    <ul class="users">
+      <%= paginate @users %>
+      <div id="users"><%= render @users %></div>
+      <hr>
+    </ul>
+  </div>
+<div class="col-md-2"></div>
