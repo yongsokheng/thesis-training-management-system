@@ -8,8 +8,10 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render "layouts/header" if current_user.present? %>
+  <div class="container body_wrapper">
+    <%= yield %>
+  </div>
+  <%= render "layouts/footer" %>
 </body>
 </html>
