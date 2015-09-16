@@ -7,7 +7,7 @@ class Ability
     if user.admin?
       can :manage, User
     elsif user.supervisor?
-      can :manage, [Course, Subject, Tasks]
+      can :manage, [Course, Subject, Task]
     else
       can [:index, :show], Course
       can [:index, :show], Subject

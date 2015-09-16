@@ -13,3 +13,4 @@ en:
       password_confirmation: "Password Confirmation"
     create: "Create User"
     role: "Set role"
+    all: "User management"  

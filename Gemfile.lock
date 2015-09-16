@@ -296,7 +296,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   mini_magick (= 3.8.0)
-  mysql2 (~> 0.3.18)
+  mysql2 (~> 0.3.20)
   pry
   rails (= 4.2.3)
   ransack

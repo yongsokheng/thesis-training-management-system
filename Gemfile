@@ -18,7 +18,7 @@ gem "cancancan"
 gem "ransack"
 gem "draper"
 gem "kaminari"
-gem "mysql2", "~> 0.3.18"
+gem "mysql2", "~> 0.3.20"
 gem "delayed_job_active_record"
 gem "sidekiq"
 gem "whenever", require: false

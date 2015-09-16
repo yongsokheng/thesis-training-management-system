@@ -1,10 +1,6 @@
 en:
-  flash:
-    access_denied: "Permisstion denied"
-    user:
-      mustlogin: "You need to login to access!"
-      create_success: "Create user successfully"
-      create_fail: "Fail to crate new user"
+  staticpages:
+    framgia: "Framgia Trainning Management System"
   error:
     form: "The form contains"
     error: "Error"
@@ -19,3 +15,24 @@ en:
     profile: "Profile"
     logout: "Logout"
     login: "Sign in"
+  buttons:
+    user:
+      nomal: "Nomal"
+      supervisor: "Supervisr"
+      admin: "Admin"
+      create: "Create new user"
+    delete: "Delete"
+  messages:
+    delete:
+      confirm: "are you sure?"
+  flashs:
+    access_denied: "Permisstion denied"
+    user:
+      mustlogin: "You need to login to access!"
+    messages:
+      created: "%{model_name} was created successfully!"
+      not_created: "%{model_name} couldn't be created"
+      deleted: "%{model_name} was deleted successfully!"
+      not_deleted: "%{model_name} couldn't be deleted!"
+      updated: "%{model_name} was updated successfully!"
+      not_updated: "%{model_name} couldn't be updated"
