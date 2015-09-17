@@ -17,3 +17,7 @@
 //= require_tree .
 //= require i18n
 //= require i18n/translations
+
+$(document).on("ready", function() {
+  $("#hide-flash").delay(3000).slideUp()
+});

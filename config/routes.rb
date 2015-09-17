@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :courses do
     resources :user_subjects, only: :show
   end
+  resources :users, only: [:edit, :update, :show]
 end
