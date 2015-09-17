@@ -1,9 +1,11 @@
 require Rails.root.join("lib", "rails_admin", "show_subject.rb")
 require Rails.root.join("lib", "rails_admin", "start_course.rb")
 require Rails.root.join("lib", "rails_admin", "finish_course.rb")
+require Rails.root.join("lib", "rails_admin", "show_course.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourse)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowCourse)
 
 RailsAdmin.config do |config|
 
@@ -28,7 +30,7 @@ RailsAdmin.config do |config|
     bulk_delete
     show_subject
     show do
-      except "Subject"
+      except ["Subject", "Course"]
     end
     edit do
       except "Task"
@@ -41,7 +43,9 @@ RailsAdmin.config do |config|
     finish_course do
       only Course
     end
-
+    show_course do
+      only Course
+    end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
