@@ -1,2 +1,43 @@
 ja:
-  hello: "こんにちは"
+  error:
+    form: "フォームが含まれています"
+    error: "エラー"
+  staticpages:
+    framgia: "Framgia Trainning Management System"
+    about: "About"
+    help: "Help"
+    contact: "Contact"
+    banner: "Framgia TMS"
+    go: "Go!"
+    place_search: "検索する..."
+    profile: "プロフィール"
+    logout: "Logout"
+    login: "Sign in"
+  buttons:
+    submit: "提出します"
+    user:
+      nomal: "ノーマル"
+      supervisor: "監督者"
+      admin: "管理者"
+      create: "新しいユーザーを作成します。"
+    delete: "削除"
+  messages:
+    delete:
+      confirm: "本気ですか?"
+  flashs:
+    access_denied: "アクセス拒否"
+    user:
+      mustlogin: "あなたがアクセスするにはログインが必要です！"
+    messages:
+      created: "%{model_name} は作成されました!"
+      not_created: "%{model_name} 作成できませんでした!"
+      deleted: "%{model_name} は削除されました!"
+      not_deleted: "%{model_name} はまだ削除されません!"
+      updated: "%{model_name} は更新されました!"
+      not_updated: "%{model_name} はまだ更新しません!"
+  tasks:
+    update: "アップデート行っタスク"
+  subjects:
+    subject: "件名"
+  signins:
+    banner: "ログインしてください"

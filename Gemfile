@@ -23,7 +23,8 @@ gem "delayed_job_active_record"
 gem "sidekiq"
 gem "rails_admin"
 gem "whenever", require: false
-gem "fabrication"
+gem "i18n-js", ">= 3.0.0.rc11"
+gem "routing-filter"
 
 group :development, :test do
   gem "fabrication"
@@ -33,6 +34,4 @@ group :development, :test do
   gem "pry"
   gem "letter_opener"
   gem "faker", "1.4.2"
-  gem "i18n-js", ">= 3.0.0.rc11"
-  gem "routing-filter"
 end

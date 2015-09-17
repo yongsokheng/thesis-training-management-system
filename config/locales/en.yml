@@ -16,16 +16,16 @@ en:
   buttons:
     submit: "Submit"
     user:
-      nomal: "Nomal"
-      supervisor: "Supervisr"
+      nomal: "Normal"
+      supervisor: "Supervisor"
       admin: "Admin"
       create: "Create new user"
     delete: "Delete"
   messages:
     delete:
-      confirm: "are you sure?"
+      confirm: "Are you sure?"
   flashs:
-    access_denied: "Permisstion denied"
+    access_denied: "Permission denied"
     user:
       mustlogin: "You need to login to access!"
     messages:

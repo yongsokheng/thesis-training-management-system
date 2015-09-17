@@ -9,7 +9,7 @@ en:
     place_holder:
       enter_name: "Enter Name"
       enter_email: "Enter Email"
-      enter_password: "Enter passowrd"
+      enter_password: "Enter passoword"
       password_confirmation: "Password Confirmation"
     create: "Create User"
     role: "Set role"
