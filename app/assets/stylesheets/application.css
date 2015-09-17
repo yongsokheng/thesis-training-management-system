@@ -13,6 +13,7 @@
  *= require_self
  *= require custom
  *= require sign_in
+ *= require users
  */
 
 @import "bootstrap-sprockets";

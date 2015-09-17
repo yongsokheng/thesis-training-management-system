@@ -16,3 +16,7 @@ en:
     all: "User management"
     action:
       edit: "Edit"
+    profile:
+      name: "Name :"
+      email: "Email :"
+      role: "Role :"
