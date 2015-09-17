@@ -5,9 +5,14 @@ class Ability
     user ||= User.new
 
     if user.admin?
+      can :access, :rails_admin
+      can :dashboard
       can :manage, User
     elsif user.supervisor?
-      can :manage, [Course, Subject, Task]
+      can :access, :rails_admin
+      can :dashboard
+      can :manage, :all
+      cannot [:create, :update, :destroy], User
     else
       can [:index, :show], Course
       can [:index, :show], Subject
