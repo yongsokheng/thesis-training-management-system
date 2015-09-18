@@ -1,5 +1,10 @@
 require Rails.root.join("lib", "rails_admin", "show_subject.rb")
+require Rails.root.join("lib", "rails_admin", "start_course.rb")
+require Rails.root.join("lib", "rails_admin", "finish_course.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourse)
+
 RailsAdmin.config do |config|
 
   config.authenticate_with do
@@ -30,5 +35,15 @@ RailsAdmin.config do |config|
     end
     delete
     show_in_app
+    start_course do
+      only Course
+    end
+    finish_course do
+      only Course
+    end
+
+    ## With an audit adapter, you can add:
+    # history_index
+    # history_show
   end
 end

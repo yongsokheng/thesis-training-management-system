@@ -1,0 +1,7 @@
+en:
+  admin:
+    actions:
+      start_course:
+        menu: "Start Course"
+      finish_course:
+        menu: "Finish Course"
