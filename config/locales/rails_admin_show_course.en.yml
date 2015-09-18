@@ -5,9 +5,17 @@ en:
         title: "Course"
         breadcrumb: "Subjects"
         menu: "Show"
+      show_course_subject:
+        title: "Subjects"
+        menu: "Show"
+        breadcrumb: "Subjects"
+        start: "Start"
+        finished: "Finished"
+        progress: "Progress"
     tabs:
       overview: "Overview"
       members: "Members"
+      subjects: "Subjects"
     course:
       basic_info: "Basic info"
       name: "Name"

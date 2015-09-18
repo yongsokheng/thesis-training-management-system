@@ -10,6 +10,10 @@
         <%= t "admin.tabs.members" %>
       </a>
     </li>
+    <li>
+      <a data-toggle="tab" href="#subject"><%= t "admin.tabs.subjects" %>
+      </a>
+    </li>
   </ul>
 
   <div class="tab-content">
@@ -49,6 +53,30 @@
           <%= link_to member.name, rails_admin.show_path(User, member.id) %>
         </h4>
       <% end %>
+    </div>
+
+    <div id="subject" class="tab-pane fade">
+      <div class="row">
+        <% @course_subjects.each do |course_subject| %>
+          <div class="form-group">
+            <div class="col-md-6">
+              <%= course_subject.subject.name %>
+            </div>
+            <div class="col-md-6 btn-actions-<%= course_subject.id %>">
+              <% if course_subject.init? %>
+                <%= link_to t("admin.actions.show_course_subject.start"),
+                  start_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
+              <% elsif course_subject.progress? %>
+                <%= link_to t("admin.actions.show_course_subject.progress"),
+                  finish_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
+              <% elsif course_subject.finish? %>
+                <%= link_to t("admin.actions.show_course_subject.finished"),
+                  start_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
