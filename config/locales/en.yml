@@ -39,5 +39,7 @@ en:
     update: "Update done task"
   subjects:
     subject: "Subject"
+    coming_soon: "Coming Soon"
   signins:
     banner: "Please Login"
+  member: "Member"

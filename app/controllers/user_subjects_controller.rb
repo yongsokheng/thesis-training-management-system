@@ -9,8 +9,22 @@ class UserSubjectsController < ApplicationController
     end
   end
 
+  def update
+    if @user_subject.update_attributes user_subject_params
+      flash[:success] = flash_message "updated"
+    else
+      flash[:danger] = flash_message "not_updated"
+    end
+    redirect_to [@user_course, @user_subject]
+  end
+
   private
+  def user_subject_params
+    params.require(:user_subject).permit user_tasks_attributes: [:id, :task_id, :_destroy, :user_id]
+  end
+
   def load_course
     @course = @user_subject.course
+    @user_course = @user_subject.user_course
   end
 end

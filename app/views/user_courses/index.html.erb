@@ -1,0 +1,37 @@
+<% provide :title, t("subjects.subject") %>
+
+<% if @course.nil? %>
+  <%= t "subjects.coming_soon" %>
+<% else %>
+  <div class="container-fluid">
+    <div clss="row">
+      <div class="col-md-2 sidebar leftsidebar">
+        <ul class="nav">
+          <li><h1 class="title"><%= link_to @course.name, user_courses_path %><h1></li>
+          <% @user_subjects.each do |user_subject| %>
+            <li>
+              <%= link_to user_subject.subject.name,
+                user_course_user_subject_path(@user_course, user_subject) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-8 col-md-offset-1">
+        <div class="well sidebar main">
+          <h1 class="title"><%= @course.name %></h1>
+          <p><h5><%= @course.description %></h5></p>
+        </div> 
+      </div>
+
+      <div class="col-md-2 sidebar rightsidebar">
+        <ul class="nav">
+          <h1 class="title"><%= t "member" %></li></h1>
+          <% @course.user_courses.each do |user_course| %>
+            <li><%= link_to user_course.user.name, user_path(user_course.user) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
