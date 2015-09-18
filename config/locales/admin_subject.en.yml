@@ -1,0 +1,14 @@
+en:
+  admin:
+    subject:
+      name: "Name"
+      description: "Description"
+      tasks: "Tasks"
+      name_task: "Name"
+      description_task: "Description"
+      save: "Save"
+    actions:
+      show_subject:
+        title: "Subject %{object_label}"
+        menu: "Show"
+        breadcrumb: "%{object_label}"
