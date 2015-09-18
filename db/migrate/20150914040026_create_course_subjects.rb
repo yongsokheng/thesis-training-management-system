@@ -1,7 +1,7 @@
 class CreateCourseSubjects < ActiveRecord::Migration
   def change
     create_table :course_subjects do |t|
-      t.boolean :active
+      t.integer :active, default: 0
       t.references :subject, index: true, foreign_key: true
       t.references :course, index: true, foreign_key: true
 

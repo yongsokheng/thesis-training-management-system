@@ -1,7 +1,7 @@
 Fabricator(:user) do
-  name "Admin"
-  role 0
-  email "admin@tms.com"
+  name {sequence(:name) {|i| "User#{i}"}}
+  role {%w(admin supervisor trainee).sample}
+  email {sequence(:email) {|i| "email#{i}@gmail.com"}}
   password "12345678"
   password_confirmation "12345678"
 end
