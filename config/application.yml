@@ -3,7 +3,8 @@ defaults: &defaults
     en: "en"
     jp: "ja"
   flag_size: "20x15"
-
+  finish: "finish"
+  finished: "finished"
 development:
   <<: *defaults
   neat_setting: 800

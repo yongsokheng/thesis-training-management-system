@@ -41,6 +41,8 @@ en:
     update: "Update done task"
   subjects:
     subject: "Subject"
+    finish_subject: "Finish subject"
+    subject_finished: "Subject finished"
     coming_soon: "Coming Soon"
   signins:
     banner: "Please Login"
