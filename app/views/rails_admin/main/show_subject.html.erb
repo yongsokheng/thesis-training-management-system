@@ -1,0 +1,26 @@
+<div class="fieldset">
+  <dl>
+    <dt><span class="label label-info name_field suling_type">
+      <%= t "admin.subject.name" %>
+    </span></dt>
+    <dd class="well"><%= @object.name %></dd>
+    <dt><span class ="label label-info name_field suling_type">
+      <%= t "admin.subject.description" %>
+    </span></dt>
+    <dd class="well"><%= @object.description %></dd>
+    <dt><span class="label label-info name_field suling_type">
+      <%= t "admin.subject.tasks" %>
+    </span></dt>
+    <dd class="well">
+      <span><%= @tasks.count %><%= t "admin.subject.tasks"%></span><br>
+      <div class="col-md-6"><b><%= t "admin.subject.name_task" %></b></div>
+      <b><%= t "admin.subject.description_task" %></b></li>      
+      <% @tasks.each do |task| %>
+        <ul class="list-inline">
+          <div class="col-md-6"><li><%= task.name %></li></div>
+          <li><%= task.description %></li>
+        </ul>
+      <% end %>
+    </dd>
+  </dl>
+</div>
