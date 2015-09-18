@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require_tree .
 //= require i18n
 //= require i18n/translations
+//= require i18n.js
+//= require bootstrap-sprockets
 
 $(document).on("ready", function() {
   $("#hide-flash").delay(3000).slideUp()

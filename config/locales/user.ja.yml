@@ -1,0 +1,18 @@
+ja:
+  user:
+    login: "ログイン"
+    logout: "ログアウト"
+    fields:
+      email: "メール"
+      password: "パスワード"
+    new: "新しいユーザー"
+    place_holder:
+      enter_name: "名前を入力します。"
+      enter_email: "メールアドレスを入力して"
+      enter_password: "パスワードを入力します"
+      password_confirmation: "パスワードを確認"
+    create: "ユーザーの作成"
+    role: "セット役割"
+    all: "利用者管理"
+    action:
+      edit: "編集"
