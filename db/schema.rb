@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20150915024101) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "course_subjects", force: :cascade do |t|
-    t.boolean  "active"
+    t.integer  "active",     limit: 4, default: 0
     t.integer  "subject_id", limit: 4
     t.integer  "course_id",  limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id", using: :btree
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20150915024101) do
   create_table "courses", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
-    t.boolean  "status"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "status",      limit: 4,   default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -60,24 +60,24 @@ ActiveRecord::Schema.define(version: 20150915024101) do
   add_index "tasks", ["subject_id"], name: "index_tasks_on_subject_id", using: :btree
 
   create_table "user_courses", force: :cascade do |t|
-    t.boolean  "active"
+    t.boolean  "active",               default: false
     t.integer  "user_id",    limit: 4
     t.integer  "course_id",  limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "user_courses", ["course_id"], name: "index_user_courses_on_course_id", using: :btree
   add_index "user_courses", ["user_id"], name: "index_user_courses_on_user_id", using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
-    t.boolean  "status"
+    t.boolean  "status",                   default: false
     t.integer  "user_id",        limit: 4
     t.integer  "course_id",      limit: 4
     t.integer  "subject_id",     limit: 4
     t.integer  "user_course_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "user_subjects", ["course_id"], name: "index_user_subjects_on_course_id", using: :btree
