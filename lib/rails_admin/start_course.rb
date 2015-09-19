@@ -41,6 +41,7 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             object.update_attributes status: 1
+            object.create_activity :start_course
             redirect_to :back, notice: t("flashs.messages.start_course", course: object.name)
           end
         end

@@ -1,5 +1,8 @@
 class Course < ActiveRecord::Base
   include RailsAdminCourse
+  include PublicActivity::Model
+  tracked only: [:finish_course, :start_course],
+          owner: ->(controller, model) {controller.current_user}
 
   validates :name, presence: true
 

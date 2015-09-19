@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   filter :locale
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
-  root "static_pages#home"
+  root "user_courses#index"
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :user_courses, only: :index do
@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:edit, :update, :show]
+  resources :subjects, only: [:show]
+  resources :courses, only: [:show]
+  resources :tasks, onley: [:show]
 end

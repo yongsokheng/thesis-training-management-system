@@ -1,5 +1,9 @@
 class UserCourse < ActiveRecord::Base
   include RailsAdminUserCourse
+  include PublicActivity::Model
+  tracked only: [:create, :destroy],
+          owner: ->(controller, model) {controller.current_user},
+          recipient: ->(controller, model) {model && model.course}
 
   belongs_to :user
   belongs_to :course

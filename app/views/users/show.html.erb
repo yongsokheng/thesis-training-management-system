@@ -15,3 +15,10 @@
       </p>
     </div>
 </div>
+
+<div>
+  <h2><%= t "activity.activities" %></h2><br>
+  <% @activities.each do |activity| %>
+    <%= render "shared/activity", activity: activity %>
+  <% end %>
+</div>
