@@ -1,25 +1,26 @@
-module RailsAdminUser
+module RailsAdminUserSubject
   extend ActiveSupport::Concern
+
   included do
     rails_admin do
       list do
-        field :name do
-          label "Name"
+        field :user do
           formatted_value do
             bindings[:view].content_tag(:a, "#{bindings[:object].name}",
               href: "user/#{bindings[:object].id}")
           end
         end
-        field :email
-        field :role
+
+        field :course
+        field :subject
+        field :status
       end
 
       edit do
-        field :name
-        field :role
-        field :email
-        field :password
-        field :password_confirmation
+        field :user
+        field :course
+        field :subject
+        field :status
       end
     end
   end

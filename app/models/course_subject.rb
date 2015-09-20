@@ -1,5 +1,7 @@
 class CourseSubject < ActiveRecord::Base
   include PublicActivity::Model
+  include RailsAdminCourseSubject
+
   tracked only: [:create],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model && model.course}
@@ -7,5 +9,5 @@ class CourseSubject < ActiveRecord::Base
   belongs_to :subject
   belongs_to :course
 
-  enum active: [:init, :progress, :finish]
+  enum status: [:init, :progress, :finish]
 end

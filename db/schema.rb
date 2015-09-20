@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150919124148) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "course_subjects", force: :cascade do |t|
-    t.integer  "active",     limit: 4, default: 0
+    t.integer  "status",     limit: 4, default: 0
     t.integer  "subject_id", limit: 4
     t.integer  "course_id",  limit: 4
     t.datetime "created_at",                       null: false
