@@ -27,6 +27,7 @@ module RailsAdmin
           proc do
             @course = object
             @members = object.users
+            @course_subjects = @course.course_subjects
           end
         end
       end

@@ -2,10 +2,14 @@ require Rails.root.join("lib", "rails_admin", "show_subject.rb")
 require Rails.root.join("lib", "rails_admin", "start_course.rb")
 require Rails.root.join("lib", "rails_admin", "finish_course.rb")
 require Rails.root.join("lib", "rails_admin", "show_course.rb")
+require Rails.root.join("lib", "rails_admin", "start_course_subject.rb")
+require Rails.root.join("lib", "rails_admin", "finish_course_subject.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowCourse)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourseSubject)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourseSubject)
 
 RailsAdmin.config do |config|
 
@@ -21,8 +25,8 @@ RailsAdmin.config do |config|
   end
 
   config.actions do
-    dashboard                     # mandatory
-    index                      # mandatory
+    dashboard
+    index
     new do
       except "Task"
     end
@@ -37,6 +41,12 @@ RailsAdmin.config do |config|
     end
     delete
     show_in_app
+    finish_course_subject do
+      only [Course, CourseSubject]
+    end
+    start_course_subject do
+      only [Course, CourseSubject]
+    end
     start_course do
       only Course
     end
@@ -46,8 +56,5 @@ RailsAdmin.config do |config|
     show_course do
       only Course
     end
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
   end
 end
