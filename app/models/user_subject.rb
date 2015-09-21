@@ -10,6 +10,7 @@ class UserSubject < ActiveRecord::Base
   belongs_to :course
   belongs_to :subject
   belongs_to :user_course
+  belongs_to :course_subject
   has_many :user_tasks, dependent: :destroy
 
   accepts_nested_attributes_for :user_tasks

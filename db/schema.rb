@@ -78,16 +78,18 @@ ActiveRecord::Schema.define(version: 20150919124148) do
   add_index "user_courses", ["user_id"], name: "index_user_courses_on_user_id", using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
-    t.boolean  "status",                   default: false
-    t.integer  "user_id",        limit: 4
-    t.integer  "course_id",      limit: 4
-    t.integer  "subject_id",     limit: 4
-    t.integer  "user_course_id", limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.boolean  "status",                      default: false
+    t.integer  "user_id",           limit: 4
+    t.integer  "course_id",         limit: 4
+    t.integer  "subject_id",        limit: 4
+    t.integer  "user_course_id",    limit: 4
+    t.integer  "course_subject_id", limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "user_subjects", ["course_id"], name: "index_user_subjects_on_course_id", using: :btree
+  add_index "user_subjects", ["course_subject_id"], name: "index_user_subjects_on_course_subject_id", using: :btree
   add_index "user_subjects", ["subject_id"], name: "index_user_subjects_on_subject_id", using: :btree
   add_index "user_subjects", ["user_course_id"], name: "index_user_subjects_on_user_course_id", using: :btree
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id", using: :btree
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 20150919124148) do
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"
+  add_foreign_key "user_subjects", "course_subjects"
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "subjects"
   add_foreign_key "user_subjects", "user_courses"

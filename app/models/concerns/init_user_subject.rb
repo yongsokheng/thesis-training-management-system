@@ -1,0 +1,13 @@
+module InitUserSubject
+  def create_user_subjects user_courses, course_subjects, course_id, condition
+    unless condition
+      user_courses.each do |user_course|
+        course_subjects.each do |course_subject| 
+          user_course.user_subjects.create course_id: course_id,
+            user_id: user_course.user_id,
+            subject_id: course_subject.subject_id
+        end
+      end
+    end
+  end
+end
