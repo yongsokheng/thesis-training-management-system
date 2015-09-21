@@ -6,6 +6,7 @@ module RailsAdminCourse
         field :name
         field :description
         field :status
+        field :subjects
       end
       list do
         field :name

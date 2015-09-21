@@ -13,11 +13,11 @@
     </span></dt>
     <dd class="well">
       <span><%= @tasks.count %><%= t "admin.subject.tasks"%></span><br>
-      <div class="col-md-6"><b><%= t "admin.subject.name_task" %></b></div>
-      <b><%= t "admin.subject.description_task" %></b></li>      
+      <div class="col-md-3"><b><%= t "admin.subject.name_task" %></b></div>
+      <b><%= t "admin.subject.description_task" %></b></li>
       <% @tasks.each do |task| %>
         <ul class="list-inline">
-          <div class="col-md-6"><li><%= task.name %></li></div>
+          <div class="col-md-3"><li><%= task.name %></li></div>
           <li><%= task.description %></li>
         </ul>
       <% end %>
