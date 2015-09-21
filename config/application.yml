@@ -5,6 +5,7 @@ defaults: &defaults
   flag_size: "20x15"
   finish: "finish"
   finished: "finished"
+  date_format: "%H:%M:%S %-d %B %Y"
 development:
   <<: *defaults
   neat_setting: 800

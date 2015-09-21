@@ -4,10 +4,12 @@ class SubjectsController < ApplicationController
 
   def update
     if @user_subject.update_attributes status: true
+      @user_subject.create_activity :finish_subject
       flash[:success] = flash_message "updated"
     else
       flash[:danger] = flash_message "not_updated"
     end
+
     respond_to do |format|
       format.html{redirect_to [@user_course, @user_subject]}
       format.js

@@ -1,4 +1,8 @@
 class UserTask < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked only: [:create],
+          owner: ->(controller, model) {controller.current_user}
+
   belongs_to :task
   belongs_to :user_subject
   belongs_to :user

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :set_locale
 
   include ApplicationHelper
+  include PublicActivity::StoreController
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
