@@ -1,0 +1,15 @@
+en:
+  admin:
+    actions:
+      show_course:
+        title: "Course"
+        breadcrumb: "Subjects"
+        menu: "Show"
+    tabs:
+      overview: "Overview"
+      members: "Members"
+    course:
+      basic_info: "Basic info"
+      name: "Name"
+      description: "Description"
+      status: "Status"

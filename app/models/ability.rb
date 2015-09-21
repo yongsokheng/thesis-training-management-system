@@ -25,6 +25,7 @@ class Ability
       can :finish_course, Course do |course|
         course.progress?
       end
+      can :show_course, Course
     else
       can [:index, :show], Course
       can [:index, :show], Subject

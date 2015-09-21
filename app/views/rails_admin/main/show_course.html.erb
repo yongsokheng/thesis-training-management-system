@@ -1,0 +1,54 @@
+<div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">
+        <%= t "admin.tabs.overview" %>
+      </a>
+      </li>
+    <li role="presentation">
+      <a href="#members" aria-controls="members" role="tab" data-toggle="tab">
+        <%= t "admin.tabs.members" %>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="overview">
+      <h4><%= t "admin.course.basic_info" %></h4>
+      <dl>
+        <dt>
+          <span class="label label-info name_field string_type">
+            <%= t "admin.course.name" %>
+          </span>
+        </dt>
+        <dd class="well">
+          <%= @course.name %>
+        </dd>
+        <dt>
+          <span class="label label-info name_field string_type">
+            <%= t "admin.course.description" %>
+          </span>
+        </dt>
+        <dd class="well">
+          <%= @course.description %>
+        </dd>
+         <dt>
+          <span class="label label-info name_field ">
+            <%= t "admin.course.status" %>
+          </span>
+        </dt>
+        <dd class="well">
+          <%= @course.status %>
+        </dd>
+      </dl>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="members">
+      <% @members.each do |member| %>
+        <h4>
+          <%= link_to member.name, rails_admin.show_path(User, member.id) %>
+        </h4>
+      <% end %>
+    </div>
+  </div>
+</div>
