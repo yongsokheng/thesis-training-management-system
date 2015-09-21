@@ -26,7 +26,7 @@
                   <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
                     disabled: builder.object.persisted?}, "0" , "1" %>
                   <%= builder.hidden_field :task_id %>
-                  <%= builder.object.task.try :name %>        
+                  <%= builder.object.task.try :name %>
                 </li>
               </ul>
             <% end %>
@@ -36,7 +36,7 @@
             <%= render "finish_form" %>
           </div>
         <% end %>
-      </div> 
+      </div>
     </div>
 
     <div class="col-md-2 sidebar rightsidebar">

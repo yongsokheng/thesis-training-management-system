@@ -1,6 +1,8 @@
 class Course < ActiveRecord::Base
   include RailsAdminCourse
 
+  validates :name, presence: true
+
   has_many :course_subjects, dependent: :destroy
   has_many :user_courses, dependent: :destroy
   has_many :user_subjects, dependent: :destroy

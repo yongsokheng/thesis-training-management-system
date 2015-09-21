@@ -33,6 +33,9 @@ RailsAdmin.config do |config|
     export
     bulk_delete
     show_subject
+    show_course do
+      only Course
+    end
     show do
       except ["Subject", "Course"]
     end
@@ -51,9 +54,6 @@ RailsAdmin.config do |config|
       only Course
     end
     finish_course do
-      only Course
-    end
-    show_course do
       only Course
     end
   end

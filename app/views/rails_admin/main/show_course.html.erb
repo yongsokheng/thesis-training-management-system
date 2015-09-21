@@ -4,7 +4,7 @@
       <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">
         <%= t "admin.tabs.overview" %>
       </a>
-      </li>
+    </li>
     <li role="presentation">
       <a href="#members" aria-controls="members" role="tab" data-toggle="tab">
         <%= t "admin.tabs.members" %>
@@ -36,7 +36,7 @@
         <dd class="well">
           <%= @course.description %>
         </dd>
-         <dt>
+        <dt>
           <span class="label label-info name_field ">
             <%= t "admin.course.status" %>
           </span>
@@ -48,11 +48,41 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="members">
-      <% @members.each do |member| %>
-        <h4>
-          <%= link_to member.name, rails_admin.show_path(User, member.id) %>
-        </h4>
-      <% end %>
+      <table class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <th><%= t "admin.member.name" %></th>
+            <th><%= t "admin.member.email" %></th>
+            <th class="last shrink"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @members.each do |member| %>
+            <tr>
+              <td class="string_type">
+                <%= member.name %>
+              </td>
+              <td class="string_type">
+                <%= member.email %>
+              </td>
+              <td class="last links">
+                <ul class="inline list-inline">
+                  <li>
+                    <%= link_to "", rails_admin.show_path(User, member.id),
+                      class: "icon-info-sign",
+                      title: t("admin.actions.show_member.title") %>
+                  </li>
+                  <li>
+                    <%= link_to "", rails_admin.delete_path(UserCourse, member.user_courses.find_by(course: @course)),
+                      class: "icon-remove",
+                      title: t("admin.actions.remove_member.title") %>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
 
     <div id="subject" class="tab-pane fade">
