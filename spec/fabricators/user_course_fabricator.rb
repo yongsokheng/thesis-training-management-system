@@ -1,4 +1,5 @@
 Fabricator(:user_course) do
+  UserCourse.public_activity_off
   active {%w(0 1).sample}
   user {User.all.sample}
   course
