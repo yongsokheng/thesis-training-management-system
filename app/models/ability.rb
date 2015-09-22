@@ -29,11 +29,13 @@ class Ability
       can :finish_course_subject, Course
       can :start_course_subject, Course
       can [:index, :show, :update], UserSubject
+      can [:edit, :update], User, id: user.id
     else
       can [:index, :show], Course
       can [:index, :show], Subject
       can [:index, :show, :update], UserSubject
-      can [:edit, :update, :show], User, id: user.id
+      can [:edit, :update], User, id: user.id
+      can :show, User
     end
   end
 end

@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def after_sign_in_path_for user
+    user.trainee? ? root_path : rails_admin_path
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
