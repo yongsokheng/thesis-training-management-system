@@ -26,5 +26,7 @@ class UserSubjectsController < ApplicationController
   def load_course
     @course = @user_subject.course
     @user_course = @user_subject.user_course
+    @activities = PublicActivity::Activity.course_activities(@course.id).
+      recent.limit(20).decorate
   end
 end

@@ -11,4 +11,14 @@ class UserSubject < ActiveRecord::Base
   has_many :user_tasks, dependent: :destroy
 
   accepts_nested_attributes_for :user_tasks
+
+  after_update :create_user_tasks, if: :status?
+
+  private
+  def create_user_tasks
+    self.subject.tasks.each do |task|
+      UserTask.create_with(user_subject_id: self.id,
+        user_id: user_course.id).find_or_create_by task_id: task.id
+    end
+  end
 end

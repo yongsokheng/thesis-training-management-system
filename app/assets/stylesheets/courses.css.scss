@@ -1,36 +1,204 @@
-ul.nav {
-  list-style-type: none;
+.course_header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ccc;
+  h1 {
+    color: #6F6868;
+  }
+  p {
+    font-size: 18px;
+  }
+  button {
+    margin: 15px 0px;
+  }
 }
 
-.sidebar {
-  position: fixed;
-  top: 51px;
-  bottom: 0;
-  z-index: 1000;
+.col_subject {
+  padding: 5px 10px;
+  div {
+    box-shadow: 1px 1px 1px #ccc;
+    height: 40px;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+  }
+  div:last-child {
+    margin-bottom: 0;
+  }
+  div:hover {
+    background: #ddd;
+  }
+}
+
+.col_task {
+  div {
+    #task_member {
+      height: 110px;
+      width: 110px;
+      background: white;
+      float: left;
+      margin: 10px;
+      border-radius: 3px;
+      padding: 4px 8px;
+      position: relative;
+      box-shadow: 1px 1px 0px #ccc;
+      label {
+        font-weight: normal;
+      }
+      input {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+    div:hover {
+      background: #D6D6D6;
+    }
+  }
+  #subject_button_action {
+    text-align: center;
+    margin-top: 10px 0px;
+  }
+}
+
+.col_activity {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  h3 {
+    color: #A2A2A2;
+    margin-bottom: 8px;
+  }
+  #show_activity {
+    max-height: 350px;
+    overflow: auto;
+  }
+}.course_header {
+  margin-bottom: 30px;
+}
+
+.col_subject {
+  padding: 5px 10px;
+  div {
+    box-shadow: 1px 1px 1px #ccc;
+    height: 40px;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+  }
+  div:last-child {
+    margin-bottom: 0;
+  }
+  div:hover {
+    background: #ddd;
+  }
+}
+
+.col_task {
+  div {
+    div {
+      height: 110px;
+      width: 110px;
+      background: white;
+      float: left;
+      margin: 10px;
+      border-radius: 3px;
+      padding: 4px 8px;
+      position: relative;
+      box-shadow: 1px 1px 0px #ccc;
+      label {
+        font-weight: normal;
+      }
+      input {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+    div:hover {
+      background: #D6D6D6;
+    }
+  }
+  #subject_button_action {
+    text-align: center;
+    margin-top: 10px 0px;
+  }
+}
+
+.col_activity {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  #col_activity_header{
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    h3 {
+      float: left;
+      width: 50%;
+      text-align: center;
+      color: #A2A2A2;
+      margin-bottom: 8px;
+      margin: 10px 0px 16px 0px;
+    }
+  }
+  #show_activity {
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    max-height: 350px;
+    overflow: auto;
+  }
+  a {
+    text-decoration: none;
+  }
+  #show_member {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    max-height: 350px;
+    overflow: auto;
+    padding: 0px 15px;
+    #infor_member {
+      padding-top: 15px;
+      border-bottom: 1px solid #ccc;
+      img {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+      }
+      a {
+        margin: auto 20px;
+      }
+    }
+    #infor_member:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.title {
+  text-align:center;
+}
+
+.list-group-item {
+  position: relative;
   display: block;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-color: #f5f5f5;
-
-  &.leftsidebar {
-    left: 0px;
-    border-right: 1px solid #eee;
-  }
-
-  &.rightsidebar {
-    right: 0px;
-    border-left: 1px solid #eee;
-  }  
-
-  &.main {
-    top: 0px;
-    position: relative;
-    background-color: #fff;
-  }  
-}
-
-h1 {
-  &.title {
-    border-bottom: 1px solid #eee;
-  }
+  padding: 10px 15px;
+  margin-bottom: 1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
