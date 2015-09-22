@@ -22,10 +22,6 @@ RailsAdmin.config do |config|
 
   config.authorize_with :cancan
 
-  config.model "Task" do
-    parent Subject
-  end
-
   config.actions do
     dashboard
     index
@@ -45,7 +41,6 @@ RailsAdmin.config do |config|
       except "Task"
     end
     delete
-    show_in_app
     finish_course_subject do
       only [Course, CourseSubject]
     end
