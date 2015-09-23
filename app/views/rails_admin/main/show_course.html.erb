@@ -86,27 +86,42 @@
     </div>
 
     <div id="subject" class="tab-pane fade">
-      <div class="row">
-        <% @course_subjects.each do |course_subject| %>
-          <div class="form-group">
-            <div class="col-md-6">
-              <%= course_subject.subject.name %>
-            </div>
-            <div class="col-md-6 btn-actions-<%= course_subject.id %>">
-              <% if course_subject.init? %>
-                <%= link_to t("admin.actions.show_course_subject.start"),
-                  start_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
-              <% elsif course_subject.progress? %>
-                <%= link_to t("admin.actions.show_course_subject.progress"),
-                  finish_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
-              <% elsif course_subject.finish? %>
-                <%= link_to t("admin.actions.show_course_subject.finished"),
-                  start_course_subject_path(course_subject_id: course_subject.id), class: "btn btn-primary", remote: true %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <table class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <th><%= t "admin.actions.show_course_subject.subject_name" %></th>
+            <th><%= t "admin.actions.show_course_subject.action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @course_subjects.each do |course_subject| %>
+            <tr>
+              <td><%= course_subject.subject.name %></td>
+              <td>
+                <% if @course.init? %>
+                  <div class="btn btn-success"><%= t "admin.actions.show_course_subject.locked" %></div>
+                <% else %>
+                  <div class="btn-actions-<%= course_subject.id %>">
+                    <% if course_subject.init? %>
+                      <%= link_to t("admin.actions.show_course_subject.start"),
+                        start_course_subject_path(course_subject_id: course_subject.id),
+                        class: "btn btn-primary", remote: true %>
+                    <% elsif course_subject.progress? %>
+                      <%= link_to t("admin.actions.show_course_subject.progress"),
+                        finish_course_subject_path(course_subject_id: course_subject.id),
+                        class: "btn btn-primary", remote: true %>
+                    <% elsif course_subject.finish? %>
+                      <%= link_to t("admin.actions.show_course_subject.finished"),
+                        start_course_subject_path(course_subject_id: course_subject.id),
+                        class: "btn btn-primary", remote: true %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>  
+      </table>
     </div>
   </div>
 </div>

@@ -12,6 +12,9 @@ en:
         start: "Start"
         finished: "Finished"
         progress: "Progress"
+        locked: "Locked"
+        subject_name: "Subject Name"
+        action: "Action"
       show_member:
         title: "show"
       remove_member:
