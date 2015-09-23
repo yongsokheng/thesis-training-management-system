@@ -1,0 +1,13 @@
+<% activities.each do |activity| %>
+  <li class="list-group-item">
+    <small class="text-muted">
+      <%= activity.created_at.strftime Settings.date_format %> |||||
+      <%= time_ago_in_words activity.created_at %> <%= t "activity.ago" %>
+    </small><br/>
+    <strong><%= activity.owner_name %></strong>
+    <%= activity.verb %>
+    <strong><%= activity.object_name %></strong>
+    <%= activity.conjunction %>
+    <strong><%= activity.recipient_name %></strong>
+  </li>
+<% end %>

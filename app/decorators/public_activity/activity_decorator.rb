@@ -57,8 +57,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
     when "course.finish_course", "course.start_course"
       trackable
     when "user_course.create", "user_course.destroy"
-      trackable.user
-    when "user_subject.finish_subject", "course_subject.create", "course_subject.destroy"
+      parameters[:user]
+    when "user_subject.finish_subject", "course_subject.create"
       trackable.subject
     when "user_task.create"
       trackable.task
