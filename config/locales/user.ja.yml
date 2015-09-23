@@ -8,11 +8,15 @@ ja:
     new: "新しいユーザー"
     place_holder:
       enter_name: "名前を入力します。"
-      enter_email: "メールアドレスを入力して"
-      enter_password: "パスワードを入力します"
-      password_confirmation: "パスワードを確認"
+      enter_email: "メールアドレスを入力してください"
+      enter_password: "パスワードを入力してください"
+      password_confirmation: "確認パスワード"
     create: "ユーザーの作成"
-    role: "セット役割"
+    role: "役割をセットする"
     all: "利用者管理"
     action:
       edit: "編集"
+    profile:
+      name: "名前 :"
+      email: "メール :"
+      role: "役割 :"
