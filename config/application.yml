@@ -8,6 +8,7 @@ defaults: &defaults
   date_format: "%H:%M:%S %-d %B %Y"
   course_subject:
     finish: "finish"
+    start: "progress"
 development:
   <<: *defaults
   neat_setting: 800

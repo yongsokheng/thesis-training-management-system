@@ -5,11 +5,14 @@ module RailsAdminCourse
       edit do
         field :name
         field :description
-        field :status
-        field :subjects
       end
       list do
-        field :name
+        field :name do
+          formatted_value do
+            bindings[:view].content_tag(:a, "#{bindings[:object].name}",
+              href: "course/#{bindings[:object].id}/show_course")
+          end
+        end
         field :description
         field :status
       end

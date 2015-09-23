@@ -44,7 +44,7 @@ module RailsAdmin
             object.create_activity :finish_course, recipient: object
             @course_subjects = object.course_subjects
             @course_subjects.each do |course_subject|
-              course_subject.update_attributes active: Settings.course_subject.finish unless course_subject.finish?
+              course_subject.update_attributes status: Settings.course_subject.finish unless course_subject.finish?
             end
             redirect_to :back, notice: t("flashs.messages.finish_course", course: object.name)
           end
