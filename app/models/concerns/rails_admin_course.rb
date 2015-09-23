@@ -5,7 +5,6 @@ module RailsAdminCourse
       edit do
         field :name
         field :description
-        field :status
         field :users
         field :subjects
       end
