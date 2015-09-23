@@ -19,5 +19,5 @@
 //= require bootstrap-sprockets
 
 $(document).on("ready", function() {
-  $("#hide-flash").delay(3000).slideUp()
+  $(".alert").delay(3000).slideUp()
 });

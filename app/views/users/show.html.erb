@@ -1,19 +1,23 @@
 <% provide :title, @user.name %>
 <div class="row user-profile">
-    <div class="col-md-2">
+  <div class="col-md-2">
+    <div class="form-group">
       <%= image_tag "profile", class: "profile-image" %>
     </div>
-    <div class="col-md-10 info">
-      <p>
-        <b><%= t "user.profile.name" %></b><%= @user.name %>
-      </p>
-      <p>
-        <b><%= t "user.profile.email" %></b><%= @user.email %>
-      </p>
-      <p>
-        <b><%= t "user.profile.role" %></b><%= @user.role %>
-      </p>
+    <div class="col-md-9 pull-right form-group">
+      <% if can? :edit, @user %>
+        <%= link_to t("user.action.edit"), edit_user_path(@user), class: "btn btn-info" %>
+      <% end %>
     </div>
+  </div>
+  <div class="col-md-10 info">
+    <p>
+      <b><%= t "user.profile.name" %></b><%= @user.name %>
+    </p>
+    <p>
+      <b><%= t "user.profile.email" %></b><%= @user.email %>
+    </p>
+  </div>
 </div>
 
 <div>
