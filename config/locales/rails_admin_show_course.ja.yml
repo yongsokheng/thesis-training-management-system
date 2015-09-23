@@ -1,0 +1,30 @@
+ja:
+  admin:
+    actions:
+      show_course:
+        title: "コース"
+        breadcrumb: "件名"
+        menu: "ショー"
+      show_course_subject:
+        title: "件名"
+        menu: "ショー"
+        breadcrumb: "件名"
+        start: "スタート"
+        finished: "フィニッシュ"
+        progress: "進捗"
+      show_member:
+        title: "ショー"
+      remove_member:
+        title: "コースからメンバーを削除する"
+    tabs:
+      overview: "Overview"
+      members: "メンバー"
+      subjects: "件名"
+    course:
+      basic_info: "基礎な情報"
+      name: "名前"
+      description: "説明"
+      status: "状態"
+    member:
+      name: "名前"
+      email: "メール"

@@ -1,0 +1,7 @@
+ja:
+  admin:
+    actions:
+      start_course:
+        menu: "コースをスタートする"
+      finish_course:
+        menu: "コースをフィニッシュする"
