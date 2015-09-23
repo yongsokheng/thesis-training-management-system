@@ -42,6 +42,7 @@ module RailsAdmin
           Proc.new do
             object.update_attributes status: 1
             object.create_activity :start_course, recipient: object
+            object.create_user_subjects_when_start_course
             redirect_to :back, notice: t("flashs.messages.start_course", course: object.name)
           end
         end

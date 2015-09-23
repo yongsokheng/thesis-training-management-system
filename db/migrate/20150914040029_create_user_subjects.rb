@@ -6,6 +6,7 @@ class CreateUserSubjects < ActiveRecord::Migration
       t.references :course, index: true, foreign_key: true
       t.references :subject, index: true, foreign_key: true
       t.references :user_course, index: true, foreign_key: true
+      t.references :course_subject, index: true, foreign_key: true
 
       t.timestamps null: false
     end
