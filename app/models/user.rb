@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable, :validatable
   enum role: [:admin, :supervisor, :trainee]
 
+  scope :free_trainees, ->{self.trainee.where "id NOT IN (SELECT DISTINCT(user_id) FROM user_courses)"}
+
   private
   def password_required?
     new_record? ? super : false

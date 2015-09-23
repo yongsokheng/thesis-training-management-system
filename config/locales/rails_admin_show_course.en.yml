@@ -19,6 +19,13 @@ en:
         title: "show"
       remove_member:
         title: "remove member from course"
+      add_trainee_to_course:
+        title: "Add Trainees"
+        breadcrumb: "Trainees"
+        menu: "Add Trainees"
+        btn: "Add Trainees"
+      show_trainee:
+        title: "Show Trainee info"
     tabs:
       overview: "Overview"
       members: "Members"
