@@ -14,7 +14,7 @@
           <% if devise_mapping.rememberable? -%>
             <div class="checkbox">
               <span><%= f.check_box :remember_me, class: "character-checkbox" %></span>
-              <span><%= f.label :remember_me, class: "fixed-label" %></span>
+              <span><%= f.label :remember_me, t("signins.remember"), class: "fixed-label" %></span>
             </div>
           <% end -%>
           <%= f.submit t("user.login"), class: "btn btn-custom btn-lg btn-block" %>
