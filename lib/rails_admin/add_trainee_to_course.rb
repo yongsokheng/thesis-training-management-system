@@ -35,11 +35,11 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             @course = object
-            @trainees = User.free_trainees
+            @trainees = (User.free_trainees << object.users).flatten!
             if request.post?
               course_params = params.require(:course).permit user_ids: []
               if object.update_attributes course_params
-                flash[:success] = flash_message "Updated successfully"
+                flash[:success] = flash_message "updated"
                 redirect_to show_course_path(Course, @course)
               else
                 render "add_trainee_to_course"
