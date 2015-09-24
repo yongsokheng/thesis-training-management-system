@@ -1,5 +1,5 @@
-<div>
-  <ul class="nav nav-tabs" role="tablist">
+<div class="row">
+  <ul class="nav nav-pills nav-stacked col-md-1" role="tablist">
     <li role="presentation" class="active">
       <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">
         <%= t "admin.tabs.overview" %>
@@ -15,8 +15,7 @@
       </a>
     </li>
   </ul>
-
-  <div class="tab-content">
+  <div class="tab-content col-md-9 tab-in-courses">
     <div role="tabpanel" class="tab-pane active" id="overview">
       <h4><%= t "admin.course.basic_info" %></h4>
       <dl>

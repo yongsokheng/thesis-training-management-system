@@ -35,7 +35,7 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             @course_subject = CourseSubject.find params[:course_subject_id]
-            if @course_subject.update_attributes active: 2
+            if @course_subject.update_attributes status: Settings.course_subject.finish
               flash[:success] = flash_message "updated"
             else
               flash[:danger] = flash_message "not_updated"
