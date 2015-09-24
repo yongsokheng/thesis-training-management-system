@@ -4,8 +4,17 @@ module RailsAdminSubject
   included do
     rails_admin do
       list do
-        field :name
+        filters [:courses]
+        field :name do
+         formatted_value do
+            bindings[:view].content_tag(:a, "#{bindings[:object].name}",
+              href: "/admin/subject/#{bindings[:object].id}/show_subject")
+          end
+        end
         field :description
+        field :courses do
+          searchable :name
+        end
         field :tasks
       end
 
