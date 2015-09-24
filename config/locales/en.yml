@@ -38,12 +38,18 @@ en:
       start_course: "%{course} was successfully start"
       finish_course: "%{course} was successfully finish"
   tasks:
-    update: "Update done task"
+    update: "Update task"
   subjects:
     subject: "Subject"
     finish_subject: "Finish subject"
     subject_finished: "Subject finished"
     coming_soon: "Coming Soon"
+    infor: "Basic information"
+    start_date: "Start date:"
+    end_date: "End date:"
+    status: "Status:"
+    introduction: "Introduction"
+    tasks: "Tasks"
   signins:
     banner: "Please Login"
   member: "Member"
