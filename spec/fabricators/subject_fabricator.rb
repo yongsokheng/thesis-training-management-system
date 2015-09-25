@@ -3,6 +3,8 @@ Fabricator(:subject) do
   description {Faker::Lorem.sentence}
 
   after_create do |subject|
-    Fabricate :task, subject: subject
+    5.times do
+      Fabricate :task, subject: subject
+    end
   end
 end
