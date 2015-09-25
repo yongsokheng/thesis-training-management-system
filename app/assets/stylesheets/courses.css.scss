@@ -21,7 +21,6 @@
   }
 }
 
-
 ul.infor {
   list-style-type: none;
   margin-bottom: 20px;
@@ -58,6 +57,40 @@ ul.infor {
   overflow: auto;
   overflow-y: overlay;
   margin-bottom: 30px;
+}
+
+#user-profile-courses {
+  .tab-content {
+    height: 500px;
+    overflow: auto;
+    overflow-y: overlay;
+    margin-bottom: 0px;
+  }
+}
+
+.activities-tab-content {
+  height: 300px;
+  overflow: auto;
+  overflow-y: overlay;
+}
+
+.course_subject {
+  padding: 10px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  .subject_title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  dl {
+    margin: 8px 0px;
+  }
+}
+
+.course_subject:last-child {
+  margin-bottom: 0;
 }
 
 #show_member {

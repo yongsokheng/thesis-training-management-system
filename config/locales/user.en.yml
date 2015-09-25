@@ -17,6 +17,6 @@ en:
     action:
       edit: "Edit"
     profile:
-      name: "Name :"
-      email: "Email :"
-      role: "Role :"
+      name: "Name:"
+      email: "Email:"
+      role: "Role:"

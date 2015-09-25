@@ -1,9 +1,7 @@
 .user-profile {
-  margin-top: 20px;
   background: #F8F8F8;
   padding-top: 20px;
-  padding-bottom: 20px;
-
+  
   .profile-image {
     margin-left: 10px;
     width: 150px;
@@ -12,5 +10,13 @@
 
   .info {
     margin-top: 27px;
+  }
+}
+
+.finished_course {
+  dt {
+    strong {
+      float: left; 
+    }
   }
 }
