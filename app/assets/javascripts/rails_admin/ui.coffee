@@ -1,5 +1,24 @@
 $ = jQuery
 
+Locale = () ->
+  data = $("#flag-language-admin").find("a")
+  jQuery.grep(data, (element) ->
+    url = window.location.href
+    possible = url.indexOf("locale=")
+    if possible > -1
+      path = url.substring(0, possible)
+      url = url.substring(possible)
+      path = path+"locale="+element.id
+      if url.indexOf("&") > -1
+        path = path+url.substring(url.indexOf("&"))
+    else
+      if url.indexOf("?") > -1
+        path = url+"&locale="+element.id
+      else
+        path = url+"?locale="+element.id
+    $("#"+element.id).attr("href", path)
+  )
+
 $(document).on 'page:onchange', ->
   $('.alert').delay(3000).slideUp()
   return
@@ -17,14 +36,7 @@ $(document).on 'click', '.pjax', (event) ->
       url: $(this).data('href') || $(this).attr('href')
       timeout: 2000
   else if $(this).data('href') # not a native #href, need some help
-    window.location = $(this).data('href')
-  data = document.getElementById("flag-language-admin").getElementsByTagName("a")
-  url = $(this).data('href') || $(this).attr('href')
-  url = url.substring(0, url.lastIndexOf("="))
-  jQuery.grep(data, (element) ->
-    path = url+"="+element.id
-    $("#"+element.id).attr("href", path)
-  )
+    window.location = $(this).data('href') 
 
 $(document).on 'submit', '.pjax-form', (event) ->
   if $.support.pjax
@@ -69,6 +81,7 @@ $(document).on 'pjax:end', ->
   $(document).trigger('rails_admin.dom_ready')
 
 $(document).on 'rails_admin.dom_ready', ->
+  Locale()
   $('.animate-width-to').each ->
     length = $(this).data("animate-length")
     width = $(this).data("animate-width-to")
@@ -92,6 +105,7 @@ $(document).on 'click', '#fields_to_export label input#check_all', () ->
     $(elems).prop('checked',false)
 
 $(document).on 'pjax:popstate', () ->
+  myFunction(105)
   $(document).one 'pjax:end', (event) ->
     $(event.target).find('script').each () ->
       $.globalEval(this.text || this.textContent || this.innerHTML || '')
