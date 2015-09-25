@@ -1,6 +1,7 @@
 class UserSubjectsController < ApplicationController
   load_and_authorize_resource
   before_action :load_course
+  before_action :check_status_subject, only: :update
 
   def update
     if @user_subject.update_attributes user_subject_params
@@ -21,5 +22,9 @@ class UserSubjectsController < ApplicationController
     @user_course = @user_subject.user_course
     @activities = PublicActivity::Activity.course_activities(@course.id).
       recent.limit(20).decorate
+  end
+
+  def check_status_subject 
+    redirect_to :back unless @user_subject.course_subject.progress?
   end
 end

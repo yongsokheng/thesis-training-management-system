@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :load_course, only: :update
   before_action :check_status, only: :update
+  before_action :check_status_subject, only: :update
 
   def update
     if @user_subject.update_attributes status: true
@@ -24,5 +25,9 @@ class SubjectsController < ApplicationController
 
   def check_status
     redirect_to :back unless params[:status] == Settings.finish
+  end
+
+  def check_status_subject 
+    redirect_to :back unless @user_subject.course_subject.progress?
   end
 end
