@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
   tracked only: [:finish_course, :start_course],
     owner: ->(controller, model) {controller.current_user}
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   has_many :course_subjects, dependent: :destroy
   has_many :user_courses, dependent: :destroy
