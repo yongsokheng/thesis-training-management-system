@@ -3,6 +3,7 @@ module RailsAdminUserTask
 
   included do
     rails_admin do
+      visible false
       list do
         field :user do
           formatted_value do

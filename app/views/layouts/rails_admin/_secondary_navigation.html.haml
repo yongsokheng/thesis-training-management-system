@@ -2,7 +2,7 @@
   %li
     #flag-language-admin
       - Settings.languages.each do |_, val|
-        = link_to params.merge(locale: val) do
+        = link_to params.merge(local: val), id: val do
           = image_tag val, size: Settings.flag_size
   - actions(:root).each do |action|
     %li{class: "#{action.action_name}_root_link"}= link_to wording_for(:menu, action), {action: action.action_name, controller: "rails_admin/main"}, class: "pjax"

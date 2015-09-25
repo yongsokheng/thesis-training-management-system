@@ -3,6 +3,7 @@ module RailsAdminCourseSubject
 
   included do
     rails_admin do
+      visible false
       list do
         field :course
         field :subject
