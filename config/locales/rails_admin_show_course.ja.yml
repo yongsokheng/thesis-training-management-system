@@ -12,12 +12,22 @@ ja:
         start: "スタート"
         finished: "フィニッシュ"
         progress: "進捗"
+        locked: "美人"
+        subject_name: "件名の名前"
+        action: "アクション"
       show_member:
         title: "ショー"
       remove_member:
         title: "コースからメンバーを削除する"
+      add_trainee_to_course:
+        title: "ユーザーを加える"
+        breadcrumb: "ユーザー"
+        menu: "ユーザーを加える"
+        btn: "ユーザーを加える"
+      show_trainee:
+        title: "ユーザーの情報をショーする"
     tabs:
-      overview: "Overview"
+      overview: "概要"
       members: "メンバー"
       subjects: "件名"
     course:

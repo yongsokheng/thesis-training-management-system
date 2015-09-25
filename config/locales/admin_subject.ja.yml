@@ -1,0 +1,14 @@
+ja:
+  admin:
+    subject:
+      name: "名前"
+      description: "説明"
+      tasks: "タスク"
+      name_task: "名前"
+      description_task: "説明"
+      save: " セーブ"
+    actions:
+      show_subject:
+        title: "件名 %{object_label}"
+        menu: "ショー"
+        breadcrumb: "%{object_label}"
