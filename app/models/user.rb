@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :user_subjects
   has_many :tasks, through: :user_tasks
 
+  validates :name, presence: true, uniqueness: true
+  validates :role, presence: true
+
   devise :database_authenticatable, :rememberable, :trackable, :validatable
   enum role: [:admin, :supervisor, :trainee]
 
