@@ -55,12 +55,14 @@
               <%= builder.hidden_field :task_id %>
               <%= builder.object.task.try :name %>
               <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
-                disabled: builder.object.persisted?, class: "check_finish"}, "0", "1" %>
+                disabled: (!@user_subject.course_subject.progress? || builder.object.persisted?),
+                class: "check_finish"}, "0", "1" %>
             </div>
           <% end %>
         </div>
         <div class="col-md-12 subject_button_action" >
-          <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
+          <%= f.submit t("tasks.update"), {disabled: !@user_subject.course_subject.progress?,
+            class: "btn btn-primary"} %>
           <%= render "finish_form" %>
         </div>
       <% end %>
