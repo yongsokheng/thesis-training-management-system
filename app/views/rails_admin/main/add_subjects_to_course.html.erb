@@ -10,7 +10,7 @@
     <%= form_for @object, url: add_subjects_to_course_path, method: :post do |f| %>
       <%= hidden_field_tag "course[subject_ids][]", nil %>
       <% @subjects.each do |subject| %>
-          <tr>
+        <tr class="<%= "hidden" if @object.subjects.include?(subject) %>" >
           <td class="string_type">
             <%= subject.name %>
           </td>
@@ -25,7 +25,7 @@
                   title: t("admin.actions.add_subjects_to_course.title") %>
               </li>
               <li>
-                <%= f.check_box :subjects, name: {"course[subjet_ids][]"}, subject.id nil %>
+                <%= f.check_box :subject_ids, {name: "course[subject_ids][]"}, subject.id, nil %>
               </li>
             </ul>
           </td>
