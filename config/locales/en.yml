@@ -51,7 +51,7 @@ en:
     introduction: "Introduction"
     tasks: "Tasks"
   signins:
-    banner: "Please Login"
+    banner: "Login"
   member: "Member"
   activity:
     activities: "Activities"
@@ -67,3 +67,20 @@ en:
     to_course: "to course"
     from_course: "from course"
     ago: "ago."
+  courses:
+    name: "Name:"
+    description: "Description:"
+    status: "Status:"
+    score: "Score"
+    start_date: "Start date:"
+    end_date: "End date:" 
+    in_progress: "In-progress course"
+    finished: "Finish courses"
+  user_task:
+    name: "Name:"
+    description: "Description:"
+    status: "Status:"
+  status:
+    start: "start"
+    progress: "progress"
+    finished: "finished"

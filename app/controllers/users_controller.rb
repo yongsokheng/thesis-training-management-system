@@ -2,7 +2,18 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @activities = PublicActivity::Activity.user_activities(@user.id).recent.decorate
+    @activities = PublicActivity::Activity.user_activities(@user.id).recent.limit(20).decorate
+    if @user_course = @user.user_courses.actived.last
+      @user_subjects = @user_course.user_subjects
+      @inprogress_course = @user_course.course
+      @finished_courses = @user.courses.finish
+      @user_subjects.each do |user_subject|
+        user_subject.subject.tasks.each do |task|
+          user_subject.user_tasks.find_or_initialize_by task_id: task.id,
+            user_id: @user.id
+        end
+      end
+    end
   end
 
   def edit

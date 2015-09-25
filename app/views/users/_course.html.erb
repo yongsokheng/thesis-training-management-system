@@ -1,0 +1,19 @@
+<dl class="dl-horizontal">
+  <dt><strong><%= t "courses.name" %></strong></dt>
+  <dd><%= course.finish? ? course.name : (link_to course.name, root_path) %></dd>
+  
+  <dt><strong><%= t "courses.description" %></strong></dt>
+  <dd><%= course.description %></dd>
+  
+  <dt><strong><%= t "courses.status" %></strong></dt>
+  <dd><span class="label label-<%= course.progress? ? "info" : "success"%>">
+    <%= course.status %>
+  </span></dd>
+
+  <dt><strong><%= t "courses.start_date" %></strong></dt>
+  <dd>
+    <small class="text-muted">
+      <%= course.created_at.strftime Settings.date_format %>
+    </small>
+  </dd>
+</dl>

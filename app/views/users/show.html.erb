@@ -1,26 +1,65 @@
 <% provide :title, @user.name %>
 <div class="row user-profile">
-  <div class="col-md-2">
-    <div class="form-group">
-      <%= image_tag "profile", class: "profile-image" %>
+  <div class="col-md-4">
+    <div class="row list-group-item">
+      <div class="col-md-6 ">
+        <div class="form-group">
+          <%= image_tag "profile", class: "profile-image" %>
+        </div> 
+      </div>
+      <div class="col-md-6 info">
+        <p>
+          <b><%= t "user.profile.name" %></b><%= @user.name %>
+        </p>
+        <p>
+          <b><%= t "user.profile.email" %></b><%= @user.email %>
+        </p>
+        <div class="form-group">
+          <% if can? :edit, @user %>
+            <%= link_to t("user.action.edit"), edit_user_path(@user), 
+            class: "btn btn-info" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-9 pull-right form-group">
-      <% if can? :edit, @user %>
-        <%= link_to t("user.action.edit"), edit_user_path(@user), class: "btn btn-info" %>
-      <% end %>
+    <div class="row list-group-item center">
+      <h5><strong><%= t "activity.activities" %></strong></h5>
+    </div>
+    <div class="row activities-tab-content">
+      <%= render "shared/activities", activities: @activities %>
     </div>
   </div>
-  <div class="col-md-10 info">
-    <p>
-      <b><%= t "user.profile.name" %></b><%= @user.name %>
-    </p>
-    <p>
-      <b><%= t "user.profile.email" %></b><%= @user.email %>
-    </p>
+  
+  <div class="col-md-8">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#inprogress_course">
+          <%= t "courses.in_progress" %></a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#finished_course">
+          <%= t "courses.finished" %></a>
+      </li>
+    </ul>
+    <div id="user-profile-courses" >
+      <div class="tab-content">
+        <div id="inprogress_course" class="tab-pane active">
+          <li class="list-group-item finished_course">
+            <% if @inprogress_course.present? %>
+              <%= render "inprogress_course", course: @inprogress_course %>
+            <% end %>
+          </li>
+        </div>
+        <div id="finished_course" class="tab-pane fade">
+          <% unless @finished_courses.nil? %>
+            <% @finished_courses.each do |course| %>
+              <li class="list-group-item finished_course">
+                <%= render "course", course: course %>
+              </li>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<div>
-  <h2><%= t "activity.activities" %></h2><br>
-  <%= render "shared/activities", activities: @activities %>
 </div>

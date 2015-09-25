@@ -45,7 +45,7 @@ ja:
     subject_finished: "フィニッシュした件名"
     coming_soon: "お待ちください"
   signins:
-    banner: "Please Login"
+    banner: "Login"
   member: "Member"
   activity:
     activities: "アクティビティ"
