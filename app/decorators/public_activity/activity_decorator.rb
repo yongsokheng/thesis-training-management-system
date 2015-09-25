@@ -21,7 +21,7 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       I18n.t "activity.finish_task"
     when "course_subject.create"
       I18n.t "activity.assign_subject"
-    when "user_subject.destroy"
+    when "user_subject.destroy", "course_subject.destroy"
       I18n.t "activity.remove_subject"
     else
       key
@@ -58,8 +58,10 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       trackable
     when "user_course.create", "user_course.destroy"
       parameters[:user]
-    when "user_subject.finish_subject", "course_subject.create"
+    when "user_subject.finish_subject"
       trackable.subject
+    when "course_subject.create", "course_subject.destroy"
+      parameters[:subject]
     when "user_task.create"
       trackable.task
     else

@@ -5,9 +5,12 @@ class CourseSubject < ActiveRecord::Base
 
   after_create :create_user_subjects_when_add_new_subject
 
-  tracked only: [:create],
+  tracked only: [:create, :destroy],
     owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model && model.course}
+    recipient: ->(controller, model) {model && model.course},
+    params: {
+      subject: proc {|controller, model| model.subject}
+    }
 
   belongs_to :subject
   belongs_to :course
