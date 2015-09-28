@@ -16,9 +16,9 @@ en:
         subject_name: "Subject Name"
         action: "Action"
       show_member:
-        title: "show"
+        title: "Show"
       remove_member:
-        title: "remove member from course"
+        title: "Remove"
       add_trainee_to_course:
         title: "Add Trainees"
         breadcrumb: "Trainees"

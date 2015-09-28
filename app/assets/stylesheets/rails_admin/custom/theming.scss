@@ -1,9 +1,53 @@
-.tab-in-courses {
-  border: 1px solid #ddd;
-  margin-left: 30px;
-  box-shadow: 3px 3px 3px #ddd;
- }
 #flag-language-admin {
   height: 50px;
   padding: 13px 0px;
+}
+
+.tab-in-courses {
+  .tabs-left {
+    .nav-tabs {
+      border-bottom: 0;
+    }
+  }
+
+  .tab-content > .tab-pane {
+    display: none;
+  }
+
+  .tab-content > .active {
+    display: block;
+  }
+
+  .tabs-left {
+    > .nav-tabs > li {
+      float: none;
+      > a {
+        min-width: 74px;
+        margin-right: 0;
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  .tabs-left > .nav-tabs {
+    float: left;
+    margin-right: 19px;
+    border-right: 1px solid #ddd;
+    > li > a {
+      margin-right: -1px;
+      -webkit-border-radius: 4px 0 0 4px;
+         -moz-border-radius: 4px 0 0 4px;
+              border-radius: 4px 0 0 4px;
+
+      &:hover, &:focus {
+        border-color: #eee #ddd #eee #eee;
+      }
+    }
+    > .active a {
+      &, &:hover, &:focus {
+        border-color: #ddd transparent #ddd #ddd;
+        *border-right-color: #fff;
+      }
+    }
+  }
 }
