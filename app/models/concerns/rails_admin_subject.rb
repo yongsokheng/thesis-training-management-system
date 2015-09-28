@@ -15,7 +15,6 @@ module RailsAdminSubject
         field :courses do
           searchable :name
         end
-        field :tasks
       end
 
       edit do
