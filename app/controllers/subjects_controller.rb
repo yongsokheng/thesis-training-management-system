@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   before_action :check_status_subject, only: :update
 
   def update
-    if @user_subject.update_attributes status: true
+    if @user_subject.update_attributes finish: true
       @user_subject.create_activity :finish_subject
       flash[:success] = flash_message "updated"
     else

@@ -15,7 +15,7 @@ class UserSubject < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_tasks
 
-  after_update :create_user_tasks, if: :status?
+  after_update :create_user_tasks, if: :finish?
 
   private
   def create_user_tasks

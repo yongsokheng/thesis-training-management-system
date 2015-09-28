@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150919124148) do
   add_index "user_courses", ["user_id"], name: "index_user_courses_on_user_id", using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
-    t.boolean  "status",                      default: false
+    t.boolean  "finish",                      default: false
     t.integer  "user_id",           limit: 4
     t.integer  "course_id",         limit: 4
     t.integer  "subject_id",        limit: 4

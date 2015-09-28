@@ -39,7 +39,7 @@
           <%= @user_subject.created_at.strftime Settings.date_format %>
         </li>
         <li><%= t "subjects.end_date" %></li>
-        <li><%= t "subjects.status" %></li>
+        <li><%= t "subjects.status" %> <%= @user_subject.course_subject.status %></li>
       </ul>
       
       <h4><%= t "subjects.introduction" %></h4>
@@ -61,8 +61,8 @@
           <% end %>
         </div>
         <div class="col-md-12 subject_button_action" >
-          <%= f.submit t("tasks.update"), {disabled: !@user_subject.course_subject.progress?,
-            class: "btn btn-primary"} %>
+          <%= f.submit t("tasks.update"), {disabled: (@user_subject.finish? || !@user_subject.course_subject.progress?),
+            class: "btn btn-primary", id: "finish_task"} %>
           <%= render "finish_form" %>
         </div>
       <% end %>
@@ -80,15 +80,15 @@
     </ul>
 
     <div class="tab-content">
-      <div id="show_activity" class="tab-pane fade in active">
+      <div id="show_activity" class="tab-pane fade in active list_special">
         <%= render "shared/activities", activities: @activities %>
       </div>
-      <div id="show_member" class="tab-pane fade">
+      <div id="show_member" class="tab-pane fade list_special">
         <% @course.users.each do |user| %>
-          <div id="infor_member">
+          <li class="list-group-item" id="infor_member">
             <%= image_tag "profile.png" %>
             <%= link_to user.name, user_path(user) %>
-          </div>
+          </li>
         <% end %>
       </div>
     </div>

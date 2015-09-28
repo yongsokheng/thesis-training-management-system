@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    
     <div class="row list-group-item center">
       <h5><strong><%= t "activity.activities" %></strong></h5>
     </div>
@@ -43,14 +44,14 @@
     </ul>
     <div id="user-profile-courses" >
       <div class="tab-content">
-        <div id="inprogress_course" class="tab-pane active">
+        <div id="inprogress_course" class="tab-pane active list_special">
           <li class="list-group-item finished_course">
             <% if @inprogress_course.present? %>
               <%= render "inprogress_course", course: @inprogress_course %>
             <% end %>
           </li>
         </div>
-        <div id="finished_course" class="tab-pane fade">
+        <div id="finished_course" class="tab-pane fade list_special">
           <% unless @finished_courses.nil? %>
             <% @finished_courses.each do |course| %>
               <li class="list-group-item finished_course">
