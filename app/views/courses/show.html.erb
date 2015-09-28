@@ -2,7 +2,7 @@
 
 <% if @course.nil? %>
   <%= t "subjects.coming_soon" %>
-<% else %> 
+<% else %>
 
   <div class="title">
     <h1><%= @course.name %></h1>
@@ -12,9 +12,13 @@
     <%= link_to @course.name, course_path(@user_course.course), class: "list-group-item active"%>
     <div class="tab-content">
       <% @user_course.user_subjects.each do |user_subject| %>
-        <%= link_to user_subject.subject.name,
-          course_path(@course, subject: user_subject.id),
-          class: "list-group-item" %>
+        <%= link_to course_path(@course, subject: user_subject.id),
+          class: "list-group-item" do %>
+            <%= user_subject.subject.name %>
+            <span class="pull-right">
+              <%= "#{user_subject.user_tasks.count}/#{user_subject.subject.tasks.count}" %>
+            </span>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -26,7 +30,7 @@
         <%= @course.description %>
       </div>
     </div>
-  <% else %> 
+  <% else %>
     <div class="col-md-6 main">
       <div class="title_subject">
         <h4><%= t "subjects.subject" %>: <%= @user_subject.subject.name %></h4>
@@ -41,7 +45,7 @@
         <li><%= t "subjects.end_date" %></li>
         <li><%= t "subjects.status" %> <%= @user_subject.course_subject.status %></li>
       </ul>
-      
+
       <h4><%= t "subjects.introduction" %></h4>
       <div class="description">
         <%= @user_subject.subject.description %>

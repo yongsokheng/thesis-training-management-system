@@ -28,6 +28,8 @@ module RailsAdmin
             @course = object
             @members = object.users
             @course_subjects = @course.course_subjects
+
+            @total_tasks = @course.subjects.map(&:tasks).flatten.count
           end
         end
       end

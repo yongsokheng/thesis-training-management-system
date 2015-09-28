@@ -55,6 +55,7 @@
           <tr>
             <th><%= t "admin.member.name" %></th>
             <th><%= t "admin.member.email" %></th>
+            <th><%= t "admin.member.progress" %></th>
             <th class="last shrink"></th>
           </tr>
         </thead>
@@ -66,6 +67,9 @@
               </td>
               <td class="string_type">
                 <%= member.email %>
+              </td>
+              <td class="string_type">
+                <%= "#{member.total_done_tasks(member, @course)}/#{@total_tasks}" %>
               </td>
               <td class="last links">
                 <ul class="inline list-inline">

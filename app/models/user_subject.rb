@@ -16,6 +16,7 @@ class UserSubject < ActiveRecord::Base
   accepts_nested_attributes_for :user_tasks
 
   after_update :create_user_tasks, if: :finish?
+  scope :load_user_subject, ->(user_id, course_id){where "user_id = ? AND course_id = ?", user_id, course_id}
 
   private
   def create_user_tasks
