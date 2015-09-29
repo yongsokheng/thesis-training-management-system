@@ -73,7 +73,7 @@
                   </li>
                   <li>
                     <%= link_to "", rails_admin.delete_path(UserCourse, member.user_courses.find_by(course: @course)),
-                      class: "icon-remove",
+                      method: :delete, class: "icon-remove",
                       title: t("admin.actions.remove_member.title") %>
                   </li>
                 </ul>

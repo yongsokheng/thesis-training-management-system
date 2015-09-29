@@ -19,10 +19,6 @@ Locale = () ->
     $("#"+element.id).attr("href", path)
   )
 
-$(document).on 'page:onchange', ->
-  $('.alert').delay(3000).slideUp()
-  return
-  
 $(document).on "click", "#list input.toggle", ->
   $("#list [name='bulk_ids[]']").prop "checked", $(this).is(":checked")
 
