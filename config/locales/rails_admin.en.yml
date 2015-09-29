@@ -27,6 +27,7 @@ en:
       next: "Next &raquo;"
       truncate: "…"
     misc:
+      filter_date_format: "yy/mm/dd"
       search: "Search"
       filter: "Filter"
       refresh: "Refresh"

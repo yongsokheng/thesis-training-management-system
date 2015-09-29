@@ -2,7 +2,7 @@
   <li class="list-group-item">
     <small class="text-muted">
       <%= activity.created_at.strftime Settings.date_format %> |||||
-      <%= time_ago_in_words activity.created_at %> <%= t "activity.ago" %>
+      <%= time_ago_in_words activity.created_at %> <%= t "admin.misc.ago" %>
     </small><br/>
     <strong><%= activity.owner_name %></strong>
     <%= activity.verb %>

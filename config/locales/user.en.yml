@@ -1,22 +1,20 @@
 en:
   user:
     login: "Log in"
-    logout: "Log out"
     fields:
+      name: "Name"
       email: "Email"
       password: "Password"
-    new: "New User"
     place_holder:
-      enter_name: "Enter Name"
-      enter_email: "Enter Email"
-      enter_password: "Enter passoword"
       password_confirmation: "Password Confirmation"
-    create: "Create User"
-    role: "Set role"
-    all: "User management"
     action:
       edit: "Edit"
     profile:
-      name: "Name:"
-      email: "Email:"
-      role: "Role:"
+      name: "Name: "
+      email: "Email: "
+  signins:
+    banner: "Please Login"
+    remember: "Remember me"
+  member: "Member"
+  buttons:
+    submit: "Submit"

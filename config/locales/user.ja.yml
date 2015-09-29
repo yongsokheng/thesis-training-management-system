@@ -1,22 +1,20 @@
 ja:
   user:
     login: "ログイン"
-    logout: "ログアウト"
     fields:
+      name: "名前"
       email: "メール"
       password: "パスワード"
-    new: "新しいユーザー"
     place_holder:
-      enter_name: "名前を入力します。"
-      enter_email: "メールアドレスを入力してください"
-      enter_password: "パスワードを入力してください"
       password_confirmation: "確認パスワード"
-    create: "ユーザーの作成"
-    role: "役割をセットする"
-    all: "利用者管理"
     action:
       edit: "編集"
     profile:
-      name: "名前 :"
-      email: "メール :"
-      role: "役割 :"
+      name: "名前: "
+      email: "メール: "
+  signins:
+    banner: "ログインしてください"
+    remember: "私を覚えてますか"
+  member: "一員"
+  buttons:
+    submit: "提出します"

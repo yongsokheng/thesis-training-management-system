@@ -26,6 +26,13 @@ ja:
         btn: "ユーザーを加える"
       show_trainee:
         title: "ユーザーの情報をショーする"
+      add_subjects_to_course:
+        title: "件名をアップする"
+        breadcrumb: "件名"
+        menu: "件名をアップする"
+        btn: "件名をアップする"
+      updated: "成功にコースをアップデートした"
+      not_updated: "失敗にコッスをアップデートした"
     tabs:
       overview: "概要"
       members: "メンバー"

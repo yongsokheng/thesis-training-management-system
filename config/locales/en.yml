@@ -9,18 +9,11 @@ en:
     contact: "Contact"
     banner: "Framgia TMS"
     go: "Go!"
+    new: "New"
     place_search: "Search for..."
     profile: "Profile"
     logout: "Logout"
     login: "Sign in"
-  buttons:
-    submit: "Submit"
-    user:
-      nomal: "Normal"
-      supervisor: "Supervisor"
-      admin: "Admin"
-      create: "Create new user"
-    delete: "Delete"
   messages:
     delete:
       confirm: "Are you sure?"
@@ -73,7 +66,7 @@ en:
     status: "Status:"
     score: "Score"
     start_date: "Start date:"
-    end_date: "End date:" 
+    end_date: "End date:"
     in_progress: "In-progress course"
     finished: "Finish courses"
   user_task:

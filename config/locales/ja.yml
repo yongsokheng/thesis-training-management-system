@@ -9,18 +9,11 @@ ja:
     contact: "内容"
     banner: "Framgia TMS"
     go: "検索!"
+    new: "新た"
     place_search: "。。。に検索して"
     profile: "プロフィール"
     logout: "ログアウト"
     login: "ログイン"
-  buttons:
-    submit: "提出します"
-    user:
-      nomal: "ユーザー"
-      supervisor: "監督者"
-      admin: "管理者"
-      create: "新しいユーザーを作ります"
-    delete: "削除"
   messages:
     delete:
       confirm: "いいか?"

@@ -1,5 +1,25 @@
 ja:
   admin:
+    js:
+      true: 真
+      false: 偽
+      is_present: 存在している?
+      is_blank: 空白です?
+      date: た日 ...
+      between_and_: の間で ... と ...
+      today: 今日
+      yesterday: イエスタデイ
+      this_week: 今週
+      last_week: 先週
+      number: 多数 ...
+      contains: 含まれてい
+      is_exactly: まさにである
+      starts_with: で始まります
+      ends_with: で終わり
+      too_many_objects: "あまりにも多くのオブジェクト, 上記の検索ボックスを使用します"
+      no_objects: "オブジェクトが見つかりません"
+    loading: "荷積み..."
+    toggle_navigation: トグルナビゲーション
     home:
       name: "ホーム"
     pagination:
@@ -22,6 +42,7 @@ ja:
       up: "上"
       down: "下"
       navigation: "ナビゲーション"
+      navigation_static_label: "リンクス"
       log_out: "ログアウト"
       ago: "前"
     flash:
@@ -112,6 +133,7 @@ ja:
       confirmation: "%{name}としてエクスポート"
       select: "エクスポートするフィールドを選択してください"
       fields_from: "%{name}のフィールド"
+      select_all_fields: "すべてのフィールドを選択"
       fields_from_associated: "関連する%{name}のフィールド"
       display: "カラム:%{name} 型:%{type}"
       options_for: "%{name}の出力オプション"

@@ -1,0 +1,14 @@
+ja:
+  activity:
+    activities: "アクティビティ"
+    finish_course: "フィニッシュしたコース"
+    start_course: "スタートしたコース"
+    assign_trainee: "成功にユーザーを割り当てます"
+    assign_subject: "成功に件名を割り当てます"
+    remove_trainee: "成功にユーザーを削除"
+    finish_subject: "件名をフィニッシュした"
+    finish_task: "タスクをフィニッシュした"
+    remove_subject: "件名を削除"
+    deleted: "削除"
+    to_course: "コースまでに"
+    from_course: "コースから"
