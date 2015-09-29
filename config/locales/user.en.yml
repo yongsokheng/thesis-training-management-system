@@ -1,6 +1,7 @@
 en:
   user:
     login: "Log in"
+    edit_profile: "Edit profile"
     fields:
       name: "Name"
       email: "Email"
@@ -17,4 +18,4 @@ en:
     remember: "Remember me"
   member: "Member"
   buttons:
-    submit: "Submit"
+    submit: "Update profile"
