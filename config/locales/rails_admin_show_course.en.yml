@@ -45,3 +45,4 @@ en:
     member:
       name: "Name"
       email: "Email"
+      progress: "Progress(Done Tasks/Total Tasks)"

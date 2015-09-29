@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     FROM user_courses JOIN courses ON user_courses.course_id = courses.id
     WHERE courses.status = 0 OR courses.status = 1)"}
 
+  def total_done_tasks user, course
+    done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
+  end
+
   private
   def password_required?
     new_record? ? super : false
