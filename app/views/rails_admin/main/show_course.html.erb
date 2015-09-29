@@ -1,21 +1,24 @@
-<div class="row">
-  <ul class="nav nav-pills nav-stacked col-md-1" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">
-        <%= t "admin.tabs.overview" %>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#members" aria-controls="members" role="tab" data-toggle="tab">
-        <%= t "admin.tabs.members" %>
-      </a>
-    </li>
-    <li>
-      <a data-toggle="tab" href="#subject"><%= t "admin.tabs.subjects" %>
-      </a>
-    </li>
-  </ul>
-  <div class="tab-content col-md-9 tab-in-courses">
+<div class="row tab-in-courses">
+  <div class="tabbable tabs-left col-md-2">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">
+          <%= t "admin.tabs.overview" %>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#members" aria-controls="members" role="tab" data-toggle="tab">
+          <%= t "admin.tabs.members" %>
+        </a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#subject"><%= t "admin.tabs.subjects" %>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content col-md-9">
     <div role="tabpanel" class="tab-pane active" id="overview">
       <h4><%= t "admin.course.basic_info" %></h4>
       <dl>
@@ -67,14 +70,13 @@
               <td class="last links">
                 <ul class="inline list-inline">
                   <li>
-                    <%= link_to "", rails_admin.show_path(User, member.id),
-                      class: "icon-info-sign",
-                      title: t("admin.actions.show_member.title") %>
+                    <%= link_to t("admin.actions.show_member.title"),
+                      rails_admin.show_path(User, member.id),
+                      class: "icon-info-sign" %>
                   </li>
                   <li>
-                    <%= link_to "", rails_admin.delete_path(UserCourse, member.user_courses.find_by(course: @course)),
-                      method: :delete, class: "icon-remove",
-                      title: t("admin.actions.remove_member.title") %>
+                    <%= link_to t("admin.actions.remove_member.title"),
+                      rails_admin.delete_path(UserCourse, member.user_courses.find_by(course: @course)), method: :delete, class: "icon-remove" %>
                   </li>
                 </ul>
               </td>
@@ -89,7 +91,6 @@
         <thead>
           <tr>
             <th><%= t "admin.actions.show_course_subject.subject_name" %></th>
-            <th><%= t "admin.actions.show_course_subject.action" %></th>
           </tr>
         </thead>
         <tbody>

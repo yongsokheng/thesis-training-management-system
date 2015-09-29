@@ -140,7 +140,7 @@ module RailsAdmin
       actions = actions(parent, abstract_model, object).select { |a| a.http_methods.include?(:get) }
       actions.collect do |action|
         wording = wording_for(:menu, action)
-         next if ["Show", "Add Trainees"].include?(wording) && location == :index
+         next if course_actions.include?(wording) && location == :index
         %(
           <li title="#{wording if only_icon}" rel="#{'tooltip' if only_icon}" class="icon #{action.key}_#{parent}_link #{'active' if current_action?(action)}">
             <a class="#{action.pjax? ? 'pjax' : ''}" href="#{url_for(action: action.action_name, controller: 'rails_admin/main', model_name: abstract_model.try(:to_param), id: (object.try(:persisted?) && object.try(:id) || nil))}">
@@ -175,6 +175,12 @@ module RailsAdmin
       when "notice" then "alert-info"
       else "alert-#{flash_key}"
       end
+    end
+
+    def course_actions
+      [t("admin.actions.show_course.menu"),
+        t("admin.actions.add_trainee_to_course.title"),
+        t("admin.actions.add_subjects_to_course.title")]
     end
   end
 end
