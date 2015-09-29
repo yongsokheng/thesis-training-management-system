@@ -4,7 +4,6 @@ module RailsAdminSubject
   included do
     rails_admin do
       list do
-        filters [:courses]
         field :name do
          formatted_value do
             bindings[:view].content_tag(:a, "#{bindings[:object].name}",

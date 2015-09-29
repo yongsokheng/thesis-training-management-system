@@ -3,7 +3,7 @@ en:
     subject:
       name: "Name"
       description: "Description"
-      tasks: "Tasks"
+      tasks: "Task"
       name_task: "Name"
       description_task: "Description"
       save: "Save"

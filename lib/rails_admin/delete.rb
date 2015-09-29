@@ -33,8 +33,15 @@ module RailsAdmin
                 @abstract_model, _current_user)
               if @object.destroy
                 flash[:success] = t "admin.flash.successful",
-                  name: @model_config.label, action: t("admin.actions.delete.done")         
-                redirect_to object.class.to_s == "UserCourse" ? request.referer : index_path
+                  name: @model_config.label, action: t("admin.actions.delete.done")
+                case object.class.to_s
+                  when "UserCourse"
+                    redirect_to request.referer
+                  when "CourseSubject"
+                    redirect_to request.referer
+                  else
+                    redirect_to back_or_index
+                end
               else
                 flash[:error] = t "admin.flash.error",
                   name: @model_config.label, action: t("admin.actions.delete.done")

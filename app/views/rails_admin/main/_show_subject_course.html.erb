@@ -1,0 +1,64 @@
+<% if @course_subjects.any? %>
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th><%= t "admin.actions.show_course_subject.subject_name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @course_subjects.each do |course_subject| %>
+        <tr>
+          <td><%= course_subject.subject.name %></td>
+          <td>
+            <div class="<%= @course.init? ? "btn btn-xs btn-danger" : "hidden" %>">
+              <%= t "admin.actions.show_course_subject.locked" %>
+            </div>
+            <div class="<%= @course.finish? ? "btn btn-danger" : "hidden" %>">
+              <%= t "admin.actions.show_course_subject.finished" %>
+            </div>
+            <% if @course.progress? %>
+              <div class="btn-actions-<%= course_subject.id %>">
+                <% if course_subject.init? %>
+                  <%= link_to t("admin.actions.show_course_subject.start"),
+                    start_course_subject_path(course_subject_id: course_subject.id),
+                    class: "btn btn-primary", remote: true %>
+                <% elsif course_subject.progress? %>
+                  <%= link_to t("admin.actions.show_course_subject.progress"),
+                    finish_course_subject_path(course_subject_id: course_subject.id),
+                    class: "btn btn-primary", remote: true %>
+                <% elsif course_subject.finish? %>
+                  <%= link_to t("admin.actions.show_course_subject.finished"),
+                    start_course_subject_path(course_subject_id: course_subject.id),
+                    class: "btn btn-primary", remote: true %>
+                <% end %>
+              </div>
+            <% end %>
+          </td>
+          <td class="last links">
+            <ul class="inline list-inline pull-right">
+              <li>
+                <%= link_to t("admin.actions.show_member.title"),
+                  show_subject_path(Subject, course_subject.subject.id),
+                  class: "icon-info-sign" %>
+              </li>
+              <li>
+                <%= link_to t("admin.actions.remove_member.title"),
+                  rails_admin.delete_path(CourseSubject, course_subject),
+                  method: :delete, class: "icon-remove" %>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= pluralize @course_subjects.count,
+    t("admin.actions.show_course_subject.subject") %>
+<% else %>
+  <%= t "admin.actions.show_member.no_subject" %>
+<% end %>
+
+<% unless @object.finish? %>
+  <%= link_to t("admin.actions.add_subjects_to_course.btn"),
+    add_subjects_to_course_path(id: @object.id), class: "btn btn-primary pull-right" %>
+<% end %>

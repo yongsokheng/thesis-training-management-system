@@ -32,7 +32,6 @@ RailsAdmin.config do |config|
     new do
       except "Task"
     end
-    export
     bulk_delete
     show_subject
     show_course do
