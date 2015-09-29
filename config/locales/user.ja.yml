@@ -1,6 +1,7 @@
 ja:
   user:
     login: "ログイン"
+    edit_profile: "プロファイル編集"
     fields:
       name: "名前"
       email: "メール"

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :role, presence: true
+  validates_confirmation_of :password
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
   enum role: [:admin, :supervisor, :trainee]

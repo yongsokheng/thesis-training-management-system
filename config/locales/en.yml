@@ -1,7 +1,7 @@
 en:
   error:
-    form: "The form contains"
-    error: "Error"
+    form: "The form contains "
+    error: "error"
   staticpages:
     framgia: "Framgia Trainning Management System"
     about: "About"
