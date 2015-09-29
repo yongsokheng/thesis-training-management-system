@@ -25,6 +25,6 @@ class UserSubjectsController < ApplicationController
   end
 
   def check_status_subject 
-    redirect_to :back unless @user_subject.course_subject.progress?
+    redirect_to :back if @user_subject.finish? || !@user_subject.course_subject.progress?
   end
 end

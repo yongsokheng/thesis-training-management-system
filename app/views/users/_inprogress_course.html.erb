@@ -6,8 +6,8 @@
       <dl class="dl-horizontal">
         <dt><strong><%= user_subject.subject.name %></strong></dt>
         <dd>
-          <span class="label label-<%= user_subject.status ? "success" : "info"%>">
-            <%= user_subject.status ? t("status.finished") : t("status.progress") %>
+          <span class="label label-<%= user_subject.finish? ? "success" : "info"%>">
+            <%= user_subject.finish? ? t("status.finished") : t("status.progress") %>
           </span>
         </dd>
       </dl>

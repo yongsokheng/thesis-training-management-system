@@ -1,5 +1,5 @@
 .user-profile {
-  background: #F8F8F8;
+  background: white;
   padding-top: 20px;
   
   .profile-image {
@@ -19,4 +19,15 @@
       float: left; 
     }
   }
+}
+
+.list_special .list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top: 0;
+}
+
+.label {
+  float: right;
+  margin-right: 50px;
 }
