@@ -14,7 +14,8 @@
 }
 
 .finished_course {
-  dt {
+  dt, dd {
+    padding: 3px;
     strong {
       float: left; 
     }
@@ -30,4 +31,8 @@
 .label {
   float: right;
   margin-right: 50px;
+}
+
+.activities {
+  margin-top: 20px;
 }

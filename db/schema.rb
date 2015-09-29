@@ -43,25 +43,25 @@ ActiveRecord::Schema.define(version: 20150919124148) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "description", limit: 255
-    t.integer  "status",      limit: 4,   default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.text     "description", limit: 65535
+    t.integer  "status",      limit: 4,     default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.text     "description", limit: 65535
     t.integer  "subject_id",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "tasks", ["subject_id"], name: "index_tasks_on_subject_id", using: :btree
