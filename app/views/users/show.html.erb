@@ -1,6 +1,6 @@
 <% provide :title, @user.name %>
 <div class="row user-profile">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="row list-group-item">
       <div class="col-md-6 ">
         <div class="form-group">
@@ -17,13 +17,13 @@
         <div class="form-group">
           <% if can? :edit, @user %>
             <%= link_to t("user.action.edit"), edit_user_path(@user), 
-            class: "btn btn-info" %>
+            class: "btn btn-info btn-sm" %>
           <% end %>
         </div>
       </div>
     </div>
     
-    <div class="row list-group-item center">
+    <div class="row list-group-item center activities">
       <h5><strong><%= t "activity.activities" %></strong></h5>
     </div>
     <div class="row activities-tab-content">
@@ -31,7 +31,7 @@
     </div>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-7">
     <ul class="nav nav-tabs">
       <li class="active">
         <a data-toggle="tab" href="#inprogress_course">

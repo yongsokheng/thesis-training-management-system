@@ -94,10 +94,13 @@ ul.infor {
   width: 50%;
 }
 
-.list_special .list-group-item:first-child {
-  border-top-right-radius: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-top: 0;
+.list_special {
+  margin-bottom: 30px;
+  .list-group-item:first-child {
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top: 0;
+  }
 }
 
 .nav-tabs > li > a {
