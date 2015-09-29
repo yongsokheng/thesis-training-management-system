@@ -50,86 +50,11 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="members">
-      <table class="table table-condensed table-striped">
-        <thead>
-          <tr>
-            <th><%= t "admin.member.name" %></th>
-            <th><%= t "admin.member.email" %></th>
-            <th><%= t "admin.member.progress" %></th>
-            <th class="last shrink"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @members.each do |member| %>
-            <tr>
-              <td class="string_type">
-                <%= member.name %>
-              </td>
-              <td class="string_type">
-                <%= member.email %>
-              </td>
-              <td class="string_type">
-                <%= "#{member.total_done_tasks(member, @course)}/#{@total_tasks}" %>
-              </td>
-              <td class="last links">
-                <ul class="inline list-inline">
-                  <li>
-                    <%= link_to t("admin.actions.show_member.title"),
-                      rails_admin.show_path(User, member.id),
-                      class: "icon-info-sign" %>
-                  </li>
-                  <li>
-                    <%= link_to t("admin.actions.remove_member.title"),
-                      rails_admin.delete_path(UserCourse, member.user_courses.find_by(course: @course)), method: :delete, class: "icon-remove" %>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render "rails_admin/main/show_member" %>
     </div>
 
     <div id="subject" class="tab-pane fade">
-      <table class="table table-condensed table-striped">
-        <thead>
-          <tr>
-            <th><%= t "admin.actions.show_course_subject.subject_name" %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @course_subjects.each do |course_subject| %>
-            <tr>
-              <td><%= course_subject.subject.name %></td>
-              <td>
-                <div class="<%= @course.init? ? "btn btn-danger" : "hidden" %>">
-                  <%= t "admin.actions.show_course_subject.locked" %>
-                </div>
-                <div class="<%= @course.finish? ? "btn btn-danger" : "hidden" %>">
-                  <%= t "admin.actions.show_course_subject.finished" %>
-                </div>
-                <% if @course.progress? %>
-                  <div class="btn-actions-<%= course_subject.id %>">
-                    <% if course_subject.init? %>
-                      <%= link_to t("admin.actions.show_course_subject.start"),
-                        start_course_subject_path(course_subject_id: course_subject.id),
-                        class: "btn btn-primary", remote: true %>
-                    <% elsif course_subject.progress? %>
-                      <%= link_to t("admin.actions.show_course_subject.progress"),
-                        finish_course_subject_path(course_subject_id: course_subject.id),
-                        class: "btn btn-primary", remote: true %>
-                    <% elsif course_subject.finish? %>
-                      <%= link_to t("admin.actions.show_course_subject.finished"),
-                        start_course_subject_path(course_subject_id: course_subject.id),
-                        class: "btn btn-primary", remote: true %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render "rails_admin/main/show_subject_course" %>
     </div>
   </div>
 </div>

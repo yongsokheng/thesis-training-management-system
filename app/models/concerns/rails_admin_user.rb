@@ -21,6 +21,14 @@ module RailsAdminUser
         field :password
         field :password_confirmation
       end
+
+      show do
+        field :name
+        field :role
+        field :email
+        field :courses
+        field :subjects
+      end
     end
   end
 end

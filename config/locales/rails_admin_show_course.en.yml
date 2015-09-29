@@ -8,6 +8,8 @@ en:
       show_course_subject:
         title: "Subjects"
         menu: "Show"
+        no_subject: "This course has no subject"
+        subject: "Subject"
         breadcrumb: "Subjects"
         start: "Start"
         finished: "Finished"
@@ -16,6 +18,7 @@ en:
         subject_name: "Subject Name"
         action: "Action"
       show_member:
+        no_member: "This course has no member"
         title: "Show"
       remove_member:
         title: "Remove"
