@@ -10,6 +10,7 @@ require Rails.root.join("lib", "rails_admin", "delete.rb")
 require Rails.root.join("lib", "rails_admin", "base.rb")
 require Rails.root.join("lib", "rails_admin", "show_user.rb")
 require Rails.root.join("lib", "rails_admin", "config", "actions", "new.rb")
+require Rails.root.join("lib", "rails_admin", "edit_course.rb")
 
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
@@ -23,6 +24,7 @@ RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Delete)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Base)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowUser)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::New)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditCourse)
 
 RailsAdmin.config do |config|
 
@@ -45,11 +47,14 @@ RailsAdmin.config do |config|
     show_course do
       only Course
     end
+    edit_course do
+      only Course
+    end
     show do
       except ["Subject", "Course" ,"User"]
     end
     edit do
-      except "Task"
+      except ["Task", "Course"]
     end
     delete
     finish_course_subject do
