@@ -7,7 +7,7 @@ module RailsAdminUser
           label "Name"
           formatted_value do
             bindings[:view].content_tag(:a, "#{bindings[:object].name}",
-              href: "user/#{bindings[:object].id}")
+              href: "user/#{bindings[:object].id}/show_user")
           end
         end
         field :email
