@@ -7,6 +7,7 @@ require Rails.root.join("lib", "rails_admin", "finish_course_subject.rb")
 require Rails.root.join("lib", "rails_admin", "add_trainee_to_course.rb")
 require Rails.root.join("lib", "rails_admin", "add_subjects_to_course.rb")
 require Rails.root.join("lib", "rails_admin", "delete.rb")
+require Rails.root.join("lib", "rails_admin", "base.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourse)
@@ -16,6 +17,7 @@ RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourseSu
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::AddTraineeToCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::AddSubjectsToCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Delete)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Base)
 
 RailsAdmin.config do |config|
 

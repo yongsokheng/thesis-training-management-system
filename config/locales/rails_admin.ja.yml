@@ -70,7 +70,7 @@ ja:
         menu: "一覧"
         breadcrumb: "%{model_label_plural}"
       show:
-        title: "%{model_label} '%{object_label}'の詳細"
+        title: "%{object_label}"
         menu: "詳細"
         breadcrumb: "%{object_label}"
       show_in_app:
@@ -191,3 +191,8 @@ ja:
           short: "%e %b"
           long: "%d. %M %Y"
           only_day: "%e"
+  activerecord:
+    models:
+      course: "コース"
+      subject: "科目"
+      user: "ユーザー"

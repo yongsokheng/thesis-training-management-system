@@ -9,6 +9,6 @@ ja:
       save: " セーブ"
     actions:
       show_subject:
-        title: "件名 %{object_label}"
+        title: "%{object_label}"
         menu: "ショー"
         breadcrumb: "%{object_label}"
