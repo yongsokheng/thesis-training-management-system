@@ -1,108 +1,86 @@
 .title {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   text-align: center;
-  color: #3b5998;
+  color: red;
 }
 
-.main {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 30px;
-
-  .title_subject {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.status {
+  padding: 14px;
+  width: 120px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  a {
+    color: white;
   }
-
-  h4 {
-    color: #3b5998;
+  &.init {
+    background: #55acee;
   }
-}
-
-ul.infor {
-  list-style-type: none;
-  margin-bottom: 20px;
-  li {
-    margin-left: -20px;
+  &.inprogress {
+    background: #f69c55;
+  }
+  &.finish {
+    background: #9ea3a9;
   }
 }
 
-.description {
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
-
-.task_member {
-  margin-top: 10px;
-  padding-right: 40px;
-}
-
-.check_finish {
+.course-status {
+  padding: 3px;
+  width: 80px;
+  margin-top: 80px;
   float: right;
 }
 
-.subject_button_action {
-  margin-top: 30px;
-  text-align: center;
+.list-subject {
+  margin-top: 40px;
 }
 
-#finish_form {
-  margin-left: 50px;
-}
-
-.course_subject {
-  padding: 20px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 0px;
-  margin-bottom: 15px;
-  .subject_title {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
-  dl {
-    margin: 8px 0px;
+.information {
+  margin-top: 50px;
+  padding-left: 15px;
+  .description {
+    margin-top: 20px;
   }
 }
 
-.course_subject:last-child {
-  margin-bottom: 0;
-}
-
-#show_member {
-  border-radius: 5px;
-  background-color: white;
-  #infor_member {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ccc;
-    img {
-      height: 70px;
-      width: 70px;
-      border-radius: 50%;
-    }
-    a {
-      margin: auto 20px;
+.rightbar {
+  margin-top: 80px;
+  #show_member {
+    border-radius: 5px;
+    background-color: white;
+    #infor_member {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+      img {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+      }
+      a {
+        margin: auto 20px;
+      }
     }
   }
-}
-
-.nav-tabs > li {
-  width: 50%;
-}
-
-.list_special {
-  margin-bottom: 30px;
-  .list-group-item:first-child {
-    border-top-right-radius: 0 !important;
-    border-top-left-radius: 0 !important;
-    border-top: 0;
+  .nav-tabs > li {
+    width: 50%;
   }
-}
-
-.nav-tabs > li > a {
-  margin-right: 0;
+  .list_special {
+    margin-bottom: 30px;
+    .list-group-item:first-child {
+      border-top-right-radius: 0 !important;
+      border-top-left-radius: 0 !important;
+      border-top: 0;
+    }
+    .list-group-item:last-child {
+      margin-bottom: 0;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+  .nav-tabs > li > a {
+    margin-right: 0;
+    border-radius: 0;
+  }
 }

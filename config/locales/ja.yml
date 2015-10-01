@@ -33,10 +33,11 @@ ja:
   tasks:
     update: "タスクをアップデータ"
   subjects:
+    finish: "フィニッシュ"
     subject: "件名"
     finish_subject: "件名にフィニッシュする"
     subject_finished: "フィニッシュした件名"
-    coming_soon: "お待ちください"
+    coming_soon: "あなたは、アクティブなコースを持っていません"
     infor: "基礎な情報"
     start_date: "スタートデーツ:"
     end_date: "フィニッシュデーツ:"

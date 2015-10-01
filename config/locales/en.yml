@@ -31,12 +31,13 @@ en:
       start_course: "%{course} was successfully start"
       finish_course: "%{course} was successfully finish"
   tasks:
-    update: "Update task"
+    update: "Update"
   subjects:
+    finish: "Finish"
     subject: "Subject"
     finish_subject: "Finish subject"
     subject_finished: "Subject finished"
-    coming_soon: "Coming Soon"
+    coming_soon: "You don't have active course"
     infor: "Basic information"
     start_date: "Start date:"
     end_date: "End date:"
