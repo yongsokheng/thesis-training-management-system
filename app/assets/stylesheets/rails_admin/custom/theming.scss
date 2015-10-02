@@ -96,3 +96,10 @@
     }
   }
 }
+.body-rails-admin {
+  display:none; 
+  position:fixed; 
+  right:20px; 
+  bottom:20px; 
+  z-index:100000
+}

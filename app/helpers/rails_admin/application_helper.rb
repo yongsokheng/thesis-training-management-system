@@ -180,7 +180,11 @@ module RailsAdmin
     def course_actions
       [t("admin.actions.show_course.menu"),
         t("admin.actions.add_trainee_to_course.title"),
-        t("admin.actions.add_subjects_to_course.title")]
+        t("admin.actions.add_subjects_to_course.title"),
+        t("admin.actions.edit.menu"),
+        t("admin.actions.delete.menu"),
+        t("admin.actions.start_course.menu"),
+        t("admin.actions.finish_course.menu")]
     end
   end
 end
