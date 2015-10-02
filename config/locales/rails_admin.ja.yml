@@ -113,6 +113,10 @@ ja:
         title: "%{model_label} '%{object_label}'の履歴"
         menu: "履歴"
         breadcrumb: "履歴"
+      edit_course:
+        title: "編集 %{model_label} '%{object_label}'"
+        menu: "編集"
+        breadcrumb: "編集"
     form:
       cancel: "キャンセル"
       basic_info: "基本情報"

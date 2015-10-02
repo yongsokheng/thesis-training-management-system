@@ -21,6 +21,7 @@ class Ability
       can [:index, :show, :update], UserSubject
       can :show_subject, Subject
       can :show_user, User
+      can :show_course_subject, Course
 
       cannot [:create, :update, :destroy], User
       cannot [:edit, :destroy], Course
