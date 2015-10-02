@@ -1,7 +1,8 @@
 .task {
-  padding: 15px;
+  padding: 10px;
   width: 120px;
   color: white;
+  height: 100px;
   display: inline-block;
   text-align: center;
   margin: 10px;
@@ -34,4 +35,15 @@
 
 .information {
   margin-bottom: 20px;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;     
+  max-height: 64px;
+  min-height: 64px;    
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }

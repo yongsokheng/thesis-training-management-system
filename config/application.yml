@@ -6,6 +6,7 @@ defaults: &defaults
   finish: "finish"
   finished: "finished"
   date_format: "%H:%M:%S %-d %B %Y"
+  date_course_format: "%-d %B %Y"
   course_subject:
     finish: "finish"
     start: "progress"

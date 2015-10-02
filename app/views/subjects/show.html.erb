@@ -26,10 +26,14 @@
           <%= f.fields_for :user_tasks do |builder| %>
             <div class="col-md-2 task <%= builder.object.persisted? ? "finish" : "inprogress" %>">
               <%= builder.hidden_field :task_id %>
-              <strong><%= builder.object.task.try :name %></strong><br>
-              <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
-                disabled: (!@user_subject.course_subject.progress? || builder.object.persisted?),
-                class: "check_finish"}, "0", "1" %> <%= t "subjects.finish" %>
+              <div class="text">
+                <strong><%= builder.object.task.try :name %></strong>
+              </div>
+              <div class="check">
+                <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
+                  disabled: (!@user_subject.course_subject.progress? || builder.object.persisted?),
+                  class: "check_finish"}, "0", "1" %><%= t "subjects.finish" %>
+              </div>
             </div>
           <% end %>
         </div>
