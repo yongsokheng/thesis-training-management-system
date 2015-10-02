@@ -2,7 +2,52 @@
   height: 50px;
   padding: 13px 0px;
 }
+.profile-image {
+  margin-left: 10px;
+  width: 150px;
+  border-radius: 50%;
+}
+#show-courses {
+  ul, li {
+    list-style-type: none;
+  }
+  .nav-tabs {
+    margin: 0;
+  }
+  .list_special .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top: 0;
+  }
+  .list_special {
+    margin-bottom: 30px;
+    .list-group-item {
+      padding-top: 0px;
+      border: solid 1px #ddd;
+    }
+    .list-group-item:first-child {
+      border-top-right-radius: 0 !important;
+      border-top-left-radius: 0 !important;
+      border-top: 0;
+    }
+  }
+  .finished_course {
+    padding-left: 10px;
+    dt, dd {
+      padding: 3px;
+      strong {
+        float: left;
+      }
+    }
+  }
 
+}
+.border-course {
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+}
 .tab-in-courses {
   .tabs-left {
     .nav-tabs {

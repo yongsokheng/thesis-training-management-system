@@ -1,8 +1,7 @@
 <li class="list-group-item finished_course">
   <dl class="dl-horizontal">
     <dt><strong><%= t "courses.name" %></strong></dt>
-    <dd><%= course.finish? ? course.name :
-      (link_to course.name, root_path) %></dd>
+    <dd><%= course.name %></dd>
 
     <dt><strong><%= t "courses.description" %></strong></dt>
     <dd><%= course.description %></dd>

@@ -17,12 +17,13 @@
       <dl class="dl-horizontal">
         <dt><strong><%= user_task.task.name %></strong></dt>
         <dd>
-          <span class="label label-<%= user_task.persisted? ? "success" 
+          <span class="label label-<%= user_task.persisted? ? "success"
             : "default"%> full-right">
-            <%= user_task.persisted? ? t("status.finished") : t("status.start") %>
+            <%= user_task.persisted? ? t("status.finished") :
+              t("status.start") %>
           </span>
         </dd>
       </dl>
     <% end %>
   </div>
-<% end %> 
+<% end %>
