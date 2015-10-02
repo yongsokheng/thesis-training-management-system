@@ -28,7 +28,7 @@
       <div class="row">
         <div class="list-subject">
           <% @user_course.user_subjects.each do |user_subject| %>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-md-2 task">
               <% if user_subject.finish? %>
                 <div class="status finish">
               <% elsif user_subject.course_subject.init? %>
@@ -48,8 +48,10 @@
 
       <div class="row">
         <div class="information">
-          <strong><%= t "subjects.start_date" %></strong><br>
-          <strong><%= t "subjects.end_date" %></strong>
+          <strong><%= t "subjects.start_date" %></strong>
+          <%= @course.start_date.strftime Settings.date_course_format %><br>
+          <strong><%= t "subjects.end_date" %></strong> 
+          <%= @course.end_date.strftime Settings.date_course_format %>
           <div class="description">
             <%= @course.description %>
           </div>

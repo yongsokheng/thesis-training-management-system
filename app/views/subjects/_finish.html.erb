@@ -1,4 +1,5 @@
 <%= link_to t("subjects.finish_subject"),
   course_subject_finish_subject_path(@user_subject.user_course.course, 
   @user_subject, Settings.finish), {disabled: !@user_subject.course_subject.progress?,
-  class: "btn btn-primary update-task finish", method: :patch} %>
+  class: "btn btn-primary update-task finish", method: :patch,
+  data: {confirm: t("messages.delete.confirm")}} %>
