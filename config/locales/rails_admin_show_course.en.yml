@@ -2,8 +2,8 @@ en:
   admin:
     actions:
       show_course:
-        title: "Course"
-        breadcrumb: "Subjects"
+        title: "%{object_label}"
+        breadcrumb: "%{object_label}"
         menu: "Show"
       show_course_subject:
         title: "Subjects"

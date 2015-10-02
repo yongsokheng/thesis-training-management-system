@@ -15,6 +15,10 @@ module RailsAdmin
           [:get, :post]
         end
 
+        register_instance_option :breadcrumb_parent do
+          [:index, bindings[:abstract_model]]
+        end
+
         register_instance_option :pjax? do
           false
         end

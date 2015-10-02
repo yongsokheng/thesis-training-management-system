@@ -70,7 +70,7 @@ en:
         menu: "List"
         breadcrumb: "%{model_label_plural}"
       show:
-        title: "Details for %{model_label} '%{object_label}'"
+        title: "%{object_label}"
         menu: "Show"
         breadcrumb: "%{object_label}"
       show_in_app:
@@ -149,3 +149,8 @@ en:
         default_col_sep: ","
         col_sep: "Column separator"
         col_sep_help: "Leave blank for default ('%{value}')" # value is default_col_sep
+  activerecord:
+    models:
+      course: "Courses"
+      subject: "Subjects"
+      user: "Users"

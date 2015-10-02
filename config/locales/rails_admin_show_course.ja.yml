@@ -2,8 +2,8 @@ ja:
   admin:
     actions:
       show_course:
-        title: "コース"
-        breadcrumb: "件名"
+        title: "%{object_label}"
+        breadcrumb: "%{object_label}"
         menu: "ショー"
       show_course_subject:
         title: "件名"

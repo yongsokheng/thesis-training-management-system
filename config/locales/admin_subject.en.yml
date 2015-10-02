@@ -9,6 +9,6 @@ en:
       save: "Save"
     actions:
       show_subject:
-        title: "Subject %{object_label}"
+        title: "%{object_label}"
         menu: "Show"
         breadcrumb: "%{object_label}"
