@@ -1,6 +1,7 @@
 en:
   admin:
     actions:
+      save: "Save"
       show_course:
         title: "%{object_label}"
         breadcrumb: "%{object_label}"
@@ -12,6 +13,7 @@ en:
         subject: "Subject"
         breadcrumb: ""
         start: "Start"
+        finish: "Finish"
         finished: "Finished"
         progress: "Progress"
         locked: "Locked"
@@ -57,4 +59,7 @@ en:
     member:
       name: "Name"
       email: "Email"
-      progress: "Progress(Done Tasks/Total Tasks)"
+      progress: "Progress"
+    confirm:
+      start_subject: "Are you sure start subject ?"
+      finish_subject: "Are you sure finish subject ?"

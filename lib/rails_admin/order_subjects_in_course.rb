@@ -1,7 +1,7 @@
 module RailsAdmin
   module Config
     module Actions
-      class StartCourseSubject < RailsAdmin::Config::Actions::Base
+      class OrderSubjectsInCourse < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
 
         register_instance_option :visible? do
@@ -17,7 +17,7 @@ module RailsAdmin
         end
 
         register_instance_option :http_methods do
-          [:get, :post]
+          [:get, :post, :put]
         end
 
         register_instance_option :route_fragment do
@@ -34,13 +34,10 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
-            @course_subject = CourseSubject.find params[:course_subject_id]
-            if @course_subject.update_attributes status: Settings.course_subject.start
-              flash[:success] = flash_message "updated"
-            else
-              flash[:danger] = flash_message "not_updated"
+            object.course_subjects.each do |course_subject|
+              course_subject.position = params["course_subject"].index(course_subject.id.to_s) + 1
+              course_subject.save
             end
-            redirect_to :back
           end
         end
 

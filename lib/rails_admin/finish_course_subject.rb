@@ -40,11 +40,7 @@ module RailsAdmin
             else
               flash[:danger] = flash_message "not_updated"
             end
-
-            respond_to do |format|
-              format.html {redirect_to root_path}
-              format.js {render "rails_admin/main/start"}
-            end
+            redirect_to :back
           end
         end
 

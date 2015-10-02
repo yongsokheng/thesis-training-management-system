@@ -52,6 +52,7 @@ class Ability
       can [:edit, :destroy], CourseSubject do |course_subject|
         user.owner_course(course_subject.course) || user.leader_course(course_subject.course)
       end
+      can :order_subjects_in_course, Course
     else
       can [:index, :show], Course
       can [:index, :show], Subject
