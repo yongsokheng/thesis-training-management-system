@@ -1,4 +1,7 @@
 defaults: &defaults
+  update_supervisor_params:
+    - supervisor
+    - leader
   languages:
     en: "en"
     jp: "ja"

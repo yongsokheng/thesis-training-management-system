@@ -184,7 +184,8 @@ module RailsAdmin
         t("admin.actions.edit.menu"),
         t("admin.actions.delete.menu"),
         t("admin.actions.start_course.menu"),
-        t("admin.actions.finish_course.menu")]
+        t("admin.actions.finish_course.menu"),
+        t("admin.actions.edit_supervisor_to_course.menu")]
     end
   end
 end

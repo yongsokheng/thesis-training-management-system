@@ -42,6 +42,9 @@ class Ability
       can [:add_trainee_to_course, :add_subjects_to_course], Course do |course|
         !course.finish? && (user.owner_course(course) || user.leader_course(course))
       end
+      can :edit_supervisor_to_course, Course do |course|
+        user.leader_course course
+      end
       can [:edit, :destroy], UserCourse do |user_course|
         user.owner_course(user_course.course) || user.leader_course(user_course.course)
       end

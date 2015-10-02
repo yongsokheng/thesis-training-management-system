@@ -13,7 +13,7 @@
   <div class="form-group">
     <% if (can? :edit, @user) && @user.trainee? %>
       <%= link_to t("user.action.edit"), edit_user_path(@user),
-        class: "btn btn-info btn-sm" %>
+        class: "btn btn-info btn-sm" unless @user.supervisor? %>
     <% end %>
   </div>
 </div>

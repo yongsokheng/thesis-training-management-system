@@ -22,7 +22,7 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
-            if request.get? 
+            if request.get?
               respond_to do |format|
                 format.html {render @action.template_name}
                 format.js {render @action.template_name, layout: false}
@@ -40,7 +40,7 @@ module RailsAdmin
                   when "CourseSubject"
                     redirect_to request.referer
                   else
-                    redirect_to back_or_index
+                    redirect_to index_path
                 end
               else
                 flash[:error] = t "admin.flash.error",
