@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :courses, only: :show do
-    resources :user_subjects, only: [:show, :update] do
+    resources :subjects, only: [:show, :update] do
       patch "/:status" => "subjects#update", as: :finish_subject
     end
+    resources :user_subjects, only: :update
   end
   resources :users, only: [:edit, :update, :show]
   resources :subjects, only: [:show]

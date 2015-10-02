@@ -1,0 +1,74 @@
+<% provide :title, t("subjects.subject") %>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 title">
+        <h1><%= @user_subject.subject.name %></h1>
+      </div>
+
+      <div class="col-md-2">
+        <% if @user_subject.course_subject.finish? %>
+          <div class="status course-status finish">
+        <% elsif @user_subject.course_subject.init? %>
+          <div class="status course-status init">
+        <% else @user_subject.course_subject.progress? %>
+          <div class="status course-status inprogress">
+        <% end %>
+          <%= @user_subject.course_subject.status %>
+        </div>
+      </div>
+    </div>
+
+    <%= form_for @user_subject, url: course_user_subject_path do |f| %>
+      <div class="row">
+        <div class="list-subject">
+          <%= f.fields_for :user_tasks do |builder| %>
+            <div class="col-md-2 task <%= builder.object.persisted? ? "finish" : "inprogress" %>">
+              <%= builder.hidden_field :task_id %>
+              <strong><%= builder.object.task.try :name %></strong><br>
+              <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
+                disabled: (!@user_subject.course_subject.progress? || builder.object.persisted?),
+                class: "check_finish"}, "0", "1" %> <%= t "subjects.finish" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit t("tasks.update"), {disabled: (@user_subject.finish? || !@user_subject.course_subject.progress?),
+        class: "btn btn-primary update-task update", id: "finish_task"} %>
+    <% end %>
+
+    <div class="row">
+      <div class="information">
+        <div class="description">
+          <%= @user_subject.subject.description %>
+        </div>
+      </div>
+      <%= render "finish_form" %>
+    </div>
+  </div>
+
+  <div class="col-md-4 rightbar">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#show_member"><%= t "member" %></a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#show_activity"><%= t "activity.activities" %></a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="show_member" class="tab-pane fade in active list_special">
+        <% @course.users.each do |user| %>
+          <li class="list-group-item" id="infor_member">
+            <%= image_tag "profile.png" %>
+            <%= link_to user.name, user_path(user) %>
+          </li>
+        <% end %>
+      </div>
+      <div id="show_activity" class="tab-pane fade list_special">
+        <%= render "shared/activities", activities: @activities %>
+      </div>
+    </div>
+  </div>
+</div>
