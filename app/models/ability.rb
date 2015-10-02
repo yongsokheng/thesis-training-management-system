@@ -35,6 +35,7 @@ class Ability
       end
       can :show_subject, Subject
       can :show_user, User
+      can :edit_course, Course
     else
       can [:index, :show], Course
       can [:index, :show], Subject
