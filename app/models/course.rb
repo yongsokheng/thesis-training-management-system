@@ -12,10 +12,30 @@ class Course < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
+  
+  has_many :course_leaders, class_name: UserCourse.name,
+                            dependent: :destroy,
+                            foreign_key: :course_id,
+                            inverse_of: :course
+  has_many :leaders, through: :course_leaders
+
+  has_many :course_supervisors, class_name: UserCourse.name,
+                                dependent: :destroy,
+                                foreign_key: :course_id,
+                                inverse_of: :course
+  has_many :supervisors, through: :course_supervisors
 
   enum status: [:init, :progress, :finish]
 
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
+  end
+
+  def create_course_leader user
+    course_leaders.create leader_id: user.id, course_id: id
+  end
+
+  def create_course_supervisor user
+    course_supervisors.create supervisor_id: user.id, course_id: id
   end
 end

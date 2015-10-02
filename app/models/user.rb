@@ -7,6 +7,18 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :user_subjects
   has_many :tasks, through: :user_tasks
 
+  has_many :course_leaders, class_name: UserCourse.name,
+                            dependent: :destroy,
+                            foreign_key: :leader_id,
+                            inverse_of: :leader
+  has_many :leading_courses, through: :course_leaders
+
+  has_many :course_supervisors, class_name: UserCourse.name,
+                                dependent: :destroy,
+                                foreign_key: :supervisor_id,
+                                inverse_of: :supervisor
+  has_many :supervising_courses, through: :course_supervisors
+
   validates :name, presence: true, uniqueness: true
   validates :role, presence: true
   validates_confirmation_of :password
