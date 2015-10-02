@@ -34,6 +34,14 @@ class User < ActiveRecord::Base
     done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
   end
 
+  def owner_course course
+    return course.user_courses.find_by(supervisor_id: self.id) ? true :false
+  end
+
+  def leader_course course
+    return course.user_courses.find_by(leader_id: self.id) ? true :false
+  end
+
   private
   def password_required?
     new_record? ? super : false
