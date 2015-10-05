@@ -41,6 +41,7 @@ en:
         breadcrumb: "Subjects"
         menu: "Add Subjects"
         btn: "Add Subjects"
+        btn_save: "Save"
       updated: "Course updated successfully"
       not_updated: "Course update fail"
     tabs:
