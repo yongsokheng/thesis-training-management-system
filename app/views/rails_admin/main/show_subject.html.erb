@@ -20,15 +20,15 @@
           </tr>
         </thead>
         <tbody>     
-          <% @tasks.each do |task| %>
+          <% @task_masters.each do |task_master| %>
             <tr>
-              <td><%= task.name %></td>
-              <td><%= task.description %></td>
+              <td><%= task_master.name %></td>
+              <td><%= task_master.description %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <%= pluralize @tasks.count, t("admin.subject.tasks") %>
+      <%= pluralize @task_masters.count, t("admin.subject.tasks") %>
     </dd>
   </dl>
 </div>

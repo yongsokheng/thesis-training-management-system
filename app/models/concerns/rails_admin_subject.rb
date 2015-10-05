@@ -19,7 +19,7 @@ module RailsAdminSubject
       edit do
         field :name
         field :description
-        field :tasks
+        field :task_masters
       end
     end
   end

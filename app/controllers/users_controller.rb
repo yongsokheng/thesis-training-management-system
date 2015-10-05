@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @inprogress_course = @user_course.course
       @finished_courses = @user.courses.finish
       @user_subjects.each do |user_subject|
-        user_subject.subject.tasks.each do |task|
+        user_subject.course_subject.tasks.each do |task|
           user_subject.user_tasks.find_or_initialize_by task_id: task.id,
             user_id: @user.id
         end

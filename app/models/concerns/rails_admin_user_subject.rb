@@ -13,14 +13,14 @@ module RailsAdminUserSubject
         end
 
         field :course
-        field :subject
+        field :course_subject
         field :status
       end
 
       edit do
         field :user
         field :course
-        field :subject
+        field :course_subject
         field :status
       end
     end
