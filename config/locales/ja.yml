@@ -80,26 +80,3 @@ ja:
     start: "スタート"
     progress: "プログレス"
     finished: "フィニッシュした"
-  activerecord:
-    attributes:
-      user:
-        name: "名前"
-        email: "Eメール"
-        password: "パスワード"
-        password_confirmation: "パスワードを確認"
-    errors:
-      models:
-        user:
-          attributes:
-            name:
-              taken: "すでに使用されている"
-              blank: "真っ白ではありません"
-            email:
-              taken: "すでに使用されている"
-              blank: "真っ白ではありません"
-              invalid: "正しくありません"
-            password:
-              blank: "真っ白ではありません"
-              too_short: "短すぎます"
-            password_confirmation:
-              confirmation: "不一致"

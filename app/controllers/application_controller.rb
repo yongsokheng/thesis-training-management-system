@@ -32,5 +32,17 @@ class ApplicationController < ActionController::Base
     User.human_attribute_name "email"
     User.human_attribute_name "password"
     User.human_attribute_name "password_confirmation"
+    User.human_attribute_name "role"
+    User.human_attribute_name "courses"
+    User.human_attribute_name "course_leaders"
+    Course.human_attribute_name "name"
+    Course.human_attribute_name "start_date"
+    Course.human_attribute_name "end_date"
+    Course.human_attribute_name "status"
+    Course.human_attribute_name "leaders"
+    Subject.human_attribute_name "name"
+    Subject.human_attribute_name "description"
+    Subject.human_attribute_name "courses"
+    Subject.human_attribute_name "task_masters"
   end
 end

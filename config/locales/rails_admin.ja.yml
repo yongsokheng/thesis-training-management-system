@@ -113,6 +113,10 @@ ja:
         title: "%{model_label} '%{object_label}'の履歴"
         menu: "履歴"
         breadcrumb: "履歴"
+      show_user:
+        menu: "ショー"
+        title: "%{model_label}"
+        breadcrumb: "%{object_label}"
       edit_course:
         title: "編集 %{model_label} '%{object_label}'"
         menu: "編集"
@@ -200,3 +204,40 @@ ja:
       course: "コース"
       subject: "科目"
       user: "ユーザー"
+      task_master: "仕事"
+    attributes:
+      user:
+        name: "名前"
+        email: "メール"
+        password: "パスワード"
+        password_confirmation: "パスワードを確認"
+        role: "役割"
+        courses: "コース"
+        course_leaders: "リーダー"
+      course:
+        name: "名前"
+        start_date: "開始日"
+        end_date: "終了日"
+        status: "状態"
+        leaders: "リーダー"
+      subject:
+        name: "名前"
+        description: "説明"
+        courses: "コース"
+        task_masters: "仕事"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              taken: "すでに使用されている"
+              blank: "真っ白ではありません"
+            email:
+              taken: "すでに使用されている"
+              blank: "真っ白ではありません"
+              invalid: "正しくありません"
+            password:
+              blank: "真っ白ではありません"
+              too_short: "短すぎます"
+            password_confirmation:
+              confirmation: "不一致"

@@ -158,3 +158,24 @@ en:
       course: "Courses"
       subject: "Subjects"
       user: "Users"
+      task_master: "Task"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        role: "Role"
+        courses: "Courses"
+        course_leaders: "Leaders"
+      course:
+        name: "Name"
+        start_date: "Start date"
+        end_date: "End date"
+        status: "Status"
+        leaders: "Leaders"
+      subject:
+        name: "Name"
+        description: "Description"
+        courses: "Courses"
+        task_masters: "Tasks"

@@ -54,3 +54,4 @@ ja:
     member:
       name: "名前"
       email: "メール"
+      progress: "進捗 (完了タスク / 全タスク)"

@@ -4,7 +4,6 @@ module RailsAdminUser
     rails_admin do
       list do
         field :name do
-          label "Name"
           formatted_value do
             bindings[:view].content_tag :a, "#{bindings[:object].name}",
               href: "user/#{bindings[:object].id}/show_user?locale=#{I18n.locale}"
