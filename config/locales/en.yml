@@ -2,6 +2,8 @@ en:
   error:
     form: "The form contains "
     error: "error"
+    supervisor: "Must has at least one supervisor"
+    leader: "Must has one leader"
   staticpages:
     framgia: "Framgia Trainning Management System"
     about: "About"

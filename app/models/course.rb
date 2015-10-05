@@ -12,7 +12,7 @@ class Course < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
-  
+
   has_many :course_leaders, class_name: UserCourse.name,
                             dependent: :destroy,
                             foreign_key: :course_id,

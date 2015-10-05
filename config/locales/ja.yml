@@ -2,6 +2,8 @@ ja:
   error:
     form: "内容フォーム"
     error: "エラー"
+    supervisor: "必要があり、少なくとも1つのスーパーバイザがあります"
+    leader: "必要があります1リーダーを持っています"
   staticpages:
     framgia: "Framgia Trainning Management System"
     about: "当社情報"
@@ -81,7 +83,7 @@ ja:
   activerecord:
     attributes:
       user:
-        name: "名前" 
+        name: "名前"
         email: "Eメール"
         password: "パスワード"
         password_confirmation: "パスワードを確認"
