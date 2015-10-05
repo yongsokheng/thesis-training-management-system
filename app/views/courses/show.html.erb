@@ -37,7 +37,7 @@
                 <div class="status inprogress">
               <% end %>
                 <strong>
-                  <%= link_to user_subject.subject.name, course_subject_path(@course, user_subject),
+                  <%= link_to user_subject.course_subject.subject.name, course_subject_path(@course, user_subject),
                     {title: user_subject.course_subject.status} %>
                 </strong>
               </div>

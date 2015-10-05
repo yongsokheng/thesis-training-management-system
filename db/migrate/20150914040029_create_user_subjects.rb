@@ -4,7 +4,6 @@ class CreateUserSubjects < ActiveRecord::Migration
       t.boolean :finish, default: 0
       t.references :user, index: true, foreign_key: true
       t.references :course, index: true, foreign_key: true
-      t.references :subject, index: true, foreign_key: true
       t.references :user_course, index: true, foreign_key: true
       t.references :course_subject, index: true, foreign_key: true
 

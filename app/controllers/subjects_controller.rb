@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
 
   def show
     @user_subject = UserSubject.find params[:id]
-    @user_subject.subject.tasks.each do |task|
+    @user_subject.course_subject.tasks.each do |task|
       @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
         user_id: current_user.id
     end

@@ -12,7 +12,7 @@ module RailsAdminTask
           end
         end
         field :description
-        field :subject
+        field :course_subject
       end
 
       edit do

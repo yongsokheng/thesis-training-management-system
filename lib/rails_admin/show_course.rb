@@ -33,7 +33,7 @@ module RailsAdmin
             @members = object.users
             @course_subjects = @course.course_subjects
 
-            @total_tasks = @course.subjects.map(&:tasks).flatten.count
+            @total_tasks = @course.course_subjects.map(&:tasks).flatten.count
           end
         end
       end

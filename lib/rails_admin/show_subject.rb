@@ -41,7 +41,7 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
-            @tasks = object.tasks
+            @task_masters = object.task_masters
           end
         end
       end
