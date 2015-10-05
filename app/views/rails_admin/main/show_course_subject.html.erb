@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="show-subject">
+      <h2><%= t "admin.actions.show_course_subject.subject_info" %></h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="col-md-2"><strong>
+              <%= t "admin.actions.show_course_subject.subject" %>
+            </strong></td>
+            <td><%= @subject.name %></td>
+          </tr>
+
+          <tr> 
+            <td><strong>
+              <%= t "admin.actions.show_course_subject.description" %>
+            </strong></td>
+            <td><%= @subject.description %></td>
+          </tr>
+
+          <tr>
+            <td><strong>
+              <%= t "admin.actions.show_course_subject.status" %>
+            </strong></td>
+            <td>
+              <% if @course_subject.finish? %>
+                <div class="status course-subject-status finish">
+              <% elsif @course_subject.init? %>
+                <div class="status course-subject-status init">
+              <% else @course_subject.progress? %>
+                <div class="status course-subject-status inprogress">
+              <% end %>
+                <%= @course_subject.status %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>
+              <%= t "admin.actions.show_course_subject.task" %>
+            </strong></td>
+            <td>
+              <% @tasks.each do |task| %>
+                <li><%= task.name %></li>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>    
+      </table>
+    </div>
+
+    <div class="activity">
+      <h2><%= t "activity.activities" %></h2>
+    </div>
+  </div>
+
+  <div class="col-md-3 member">
+  <h2><%= t "member" %></h2>
+    <% @course.users.each do |user| %>
+      <li class="list-group-item" id="infor_member">
+        <%= image_tag "profile.png" %>
+        <%= link_to user.name, "/admin/user/#{user.id}/show_user" %>
+      </li>
+    <% end %>
+  </div>
+</div>

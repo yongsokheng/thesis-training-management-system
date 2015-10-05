@@ -12,6 +12,7 @@ require Rails.root.join("lib", "rails_admin", "show_user.rb")
 require Rails.root.join("lib", "rails_admin", "config", "actions", "new.rb")
 require Rails.root.join("lib", "rails_admin", "edit_course.rb")
 require Rails.root.join("lib", "rails_admin", "edit_supervisor_to_course.rb")
+require Rails.root.join("lib", "rails_admin", "show_course_subject.rb")
 
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
@@ -27,6 +28,7 @@ RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowUser)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::New)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditSupervisorToCourse)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowCourseSubject)
 
 RailsAdmin.config do |config|
 
@@ -78,6 +80,9 @@ RailsAdmin.config do |config|
       only Course
     end
     edit_supervisor_to_course do
+      only Course
+    end
+    show_course_subject do
       only Course
     end
   end

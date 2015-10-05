@@ -8,6 +8,8 @@ ja:
       show_course_subject:
         title: "件名"
         menu: "ショー"
+        no_subject: "このコースは、件名を持っていません"
+        subject: "件名"
         breadcrumb: "件名"
         start: "スタート"
         finished: "フィニッシュ"
@@ -15,6 +17,10 @@ ja:
         locked: "美人"
         subject_name: "件名の名前"
         action: "アクション"
+        course: "コース"
+        description: "説明"
+        status: "状態"
+        task: "仕事"
       show_member:
         title: "ショー"
       remove_member:
@@ -37,6 +43,9 @@ ja:
       overview: "概要"
       members: "メンバー"
       subjects: "件名"
+      edit_basic_info: "編集の基本情報"
+      edit_members: "編集メンバー"
+      edit_subjects: "編集対象"
     course:
       basic_info: "基礎な情報"
       name: "名前"
