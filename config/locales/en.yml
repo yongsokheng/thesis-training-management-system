@@ -77,6 +77,6 @@ en:
     description: "Description:"
     status: "Status:"
   status:
-    start: "Start"
-    progress: "Progress"
-    finished: "Finished"
+    start: "start"
+    progress: "progress"
+    finished: "finished"
