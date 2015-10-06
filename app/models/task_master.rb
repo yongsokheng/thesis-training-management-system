@@ -1,4 +1,5 @@
 class TaskMaster < ActiveRecord::Base
+  include RailsAdminTaskMaster
   belongs_to :subject
 
   validates :name, presence: true
