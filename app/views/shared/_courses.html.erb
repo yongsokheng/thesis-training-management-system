@@ -13,8 +13,8 @@
     <div id="user-profile-courses" >
       <div class="tab-content">
         <div id="inprogress_course" class="tab-pane active list_special">
-            <%= render "course", course:
-              @inprogress_course if @inprogress_course.present?%>
+          <%= render "users/inprogress_course", course:
+            @inprogress_course if @inprogress_course.present? %>
         </div>
         <div id="finished_course" class="tab-pane fade list_special">
           <% unless @finished_courses.nil? %>
