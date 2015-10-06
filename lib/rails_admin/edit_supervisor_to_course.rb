@@ -5,7 +5,7 @@ module RailsAdmin
         RailsAdmin::Config::Actions.register(self)
 
         register_instance_option :visible? do
-          authorized? && bindings[:object].class == Course
+         false
         end
 
         register_instance_option :member do
@@ -42,13 +42,13 @@ module RailsAdmin
                   object.errors.add(:base, t("error.#{param}")) if
                     course_params["#{param}_ids"].nil?
                 end
-                render "edit_supervisor_to_course"
+                render "edit_course"
               else
                 if object.update_attributes course_params
                   flash[:success] = t "admin.actions.updated"
                   redirect_to show_course_path "course", object
                 else
-                  render "edit_supervisor_to_course"
+                  render "edit_course"
                 end
               end
             end

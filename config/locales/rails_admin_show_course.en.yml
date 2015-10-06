@@ -48,6 +48,7 @@ en:
       edit_basic_info: "Edit Basic Info"
       edit_members: "Edit Members"
       edit_subjects: "Edit Subjects"
+      edit_supervisors: "Edit Supervisors"
     course:
       basic_info: "Basic info"
       name: "Name"

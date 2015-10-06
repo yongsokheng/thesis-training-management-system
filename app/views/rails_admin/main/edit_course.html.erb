@@ -15,6 +15,11 @@
         <a data-toggle="tab" href="#subject"><%= t "admin.tabs.edit_subjects" %>
         </a>
       </li>
+      <li role="presentation">
+        <a href="#supervisors" aria-controls="members" role="tab" data-toggle="tab">
+          <%= t "admin.tabs.edit_supervisors" %>
+        </a>
+      </li>
     </ul>
   </div>
 
@@ -51,6 +56,10 @@
 
     <div id="subject" class="tab-pane fade">
 
+    </div>
+
+    <div id="supervisors" class="tab-pane fade">
+      <%= render "rails_admin/main/edit_supervisor" %>
     </div>
   </div>
 </div>
