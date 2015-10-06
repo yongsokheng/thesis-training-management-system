@@ -108,8 +108,6 @@ module RailsAdmin
               [:show_course, bindings[:abstract_model], bindings[:object]]
             elsif bindings[:object].class.to_s == Subject.name
               [:show_subject, bindings[:abstract_model], bindings[:object]]
-            elsif bindings[:object].class.to_s == User.name
-              [:show_user, bindings[:abstract_model], bindings[:object]]
             else
               [:show, bindings[:abstract_model], bindings[:object]]
             end
