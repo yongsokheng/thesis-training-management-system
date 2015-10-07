@@ -34,9 +34,21 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
+            a = params[:course_subject]
             object.course_subjects.each do |course_subject|
-              course_subject.position = params["course_subject"].index(course_subject.id.to_s) + 1
+              a.unshift "#{course_subject.id}" unless course_subject.init?
+            end
+            object.course_subjects.each do |course_subject|
+              course_subject.position = a.index(course_subject.id.to_s) + 1
               course_subject.save
+            end
+            respond_to do |format|
+              format.html
+              format.js do
+                render "rails_admin/main/order",
+                  locals: {course_subjects: object.course_subjects.order(position: :asc),
+                  course: object}
+              end
             end
           end
         end

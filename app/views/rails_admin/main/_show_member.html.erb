@@ -1,5 +1,5 @@
-<% if @members.any? %>
-  <div id="box-members">
+<div id="box-members">
+  <% if @members.any? %>
     <label class="members-count">
       <%= pluralize @members.count, t("member") %>
     </label>
@@ -26,9 +26,7 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-<% else %>
-  <div id="box-members">
+  <% else %>
     <%= t "admin.actions.show_member.no_member" %>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -40,7 +40,14 @@ module RailsAdmin
             else
               flash[:danger] = flash_message "not_updated"
             end
-            redirect_to :back
+            respond_to do |format|
+              format.html {redirect_to :back}
+              format.js do
+                render "rails_admin/main/order",
+                  locals: {course_subjects: object.course_subjects.order(position: :asc),
+                  course: object}
+              end
+            end
           end
         end
 

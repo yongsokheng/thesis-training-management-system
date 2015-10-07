@@ -37,7 +37,7 @@ module RailsAdmin
               @object_name = "course"
               @course = object
               @members = object.users
-              @course_subjects = @course.course_subjects
+              @course_subjects = @course.course_subjects.order position: :asc
               @total_tasks = @course.course_subjects.map(&:tasks).flatten.count
             when "Subject"
               @object_name = "subject"
