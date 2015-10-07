@@ -247,3 +247,9 @@
     overflow: hidden;
   }
 }
+
+#non-border {
+  td, th, tr {
+    border: none;
+  }
+}

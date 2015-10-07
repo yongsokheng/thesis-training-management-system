@@ -1,11 +1,11 @@
 class TaskDecorator < Draper::Decorator
   delegate_all
 
-  def get_name
-    name || TaskMaster.find(task_master_id).name
+  def display_name
+    name || (task_master_id.nil? ? "" : TaskMaster.find(task_master_id).name)
   end
 
-  def get_description
-    description || TaskMaster.find(task_master_id).description
+  def display_description
+    description || (task_master_id.nil? ? "" : TaskMaster.find(task_master_id).description)
   end
 end

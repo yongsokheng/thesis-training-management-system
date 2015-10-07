@@ -12,6 +12,7 @@ require Rails.root.join("lib", "rails_admin", "edit_course.rb")
 require Rails.root.join("lib", "rails_admin", "edit_supervisor_to_course.rb")
 require Rails.root.join("lib", "rails_admin", "show_course_subject.rb")
 require Rails.root.join("lib", "rails_admin", "order_subjects_in_course.rb")
+require Rails.root.join("lib", "rails_admin", "edit_tasks_course_subject.rb")
 
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::StartCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourse)
@@ -26,6 +27,7 @@ RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditSupervisorToCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowCourseSubject)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::OrderSubjectsInCourse)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditTasksCourseSubject)
 
 RailsAdmin.config do |config|
 
@@ -80,5 +82,6 @@ RailsAdmin.config do |config|
     order_subjects_in_course do
       only [Course, CourseSubject]
     end
+    edit_tasks_course_subject
   end
 end

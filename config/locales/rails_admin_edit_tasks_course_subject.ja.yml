@@ -1,0 +1,11 @@
+ja:
+  admin:
+    actions:
+      edit_tasks_course_subject:
+        edit_task: "編集タスク"
+        add_other_task: "他のタスクを追加します。"
+        remove_task: "このタスクを削除します"
+        cancel: "キャンセル"
+        save: "セーブ"
+        name: "名前"
+        description: "説明"

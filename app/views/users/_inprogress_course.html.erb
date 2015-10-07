@@ -14,7 +14,7 @@
     </div>
     <% user_subject.user_tasks.each do |user_task| %>
       <dl class="dl-horizontal">
-        <dt><strong><%= user_task.task.decorate.get_name %></strong></dt>
+        <dt><strong><%= user_task.task.decorate.display_name %></strong></dt>
         <dd>
           <span class="label label-<%= user_task.persisted? ? "success"
             : "default"%> full-right">
