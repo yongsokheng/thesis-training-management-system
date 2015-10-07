@@ -5,8 +5,11 @@ namespace :db do
     puts "Creating User"
     Fabricate :user, email: "admin@tms.com", role: "admin"
     Fabricate :user, email: "supervisor@tms.com", role: "supervisor"
-    15.times do
+    30.times do
       Fabricate :user
+    end
+    10.times do
+      Fabricate :subject
     end
   end
 end

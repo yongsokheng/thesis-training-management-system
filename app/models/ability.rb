@@ -17,7 +17,7 @@ class Ability
       can :edit, :all
       can :show, :all
       can :show_course, Course
-     
+
       can [:index, :show, :update], UserSubject
       can :show_subject, Subject
       can :show_user, User
@@ -55,7 +55,8 @@ class Ability
       end
       can :order_subjects_in_course, Course
       can :edit_tasks_course_subject, CourseSubject do |course_subject|
-        user.owner_course(course_subject.course) || user.leader_course(course_subject.course)
+        !course_subject.finish? &&
+          (user.owner_course(course_subject.course) || user.leader_course(course_subject.course))
       end
     else
       can [:index, :show], Course

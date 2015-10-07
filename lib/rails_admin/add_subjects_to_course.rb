@@ -48,7 +48,7 @@ module RailsAdmin
 
               subject_removed_ids.each do |id|
                 course_subject = CourseSubject.find_by subject_id: id, course_id: object.id
-                course_subject.destroy
+                course_subject.destroy if course_subject.init?
               end
 
               flash[:success] = t "admin.actions.updated"
