@@ -40,15 +40,27 @@
               <%= t "admin.actions.show_course_subject.task" %>
             </strong></td>
             <td>
-              <% @tasks.each do |task| %>
-                <tr class="task-<%= task.id %>">
-                  <td><%= task.decorate.get_name %></td>
-                  <td>
-                    <%= link_to t("admin.actions.remove_member.title"),
-                      rails_admin.delete_path(Task, task), method: :delete,
-                      data: {confirm: t("messages.delete.confirm")}, remote: true %>
-                  </td>
-                </tr>
+              <table class="table", id="non-border">
+                <th><%= t "admin.actions.edit_tasks_course_subject.name" %></th>
+                <th><%= t "admin.actions.edit_tasks_course_subject.description" %></th>
+                <% @tasks.each do |task| %>
+                  <tr class="task-<%= task.id %>">
+                    <td><%= task.decorate.display_name %></td>
+                    <td><%= task.decorate.display_description %></td>
+                    <td>
+                      <%= link_to t("admin.actions.remove_member.title"),
+                        rails_admin.delete_path(Task, task), method: :delete,
+                        data: {confirm: t("messages.delete.confirm")}, remote: true %>
+                    </td>
+                  </tr>
+                <% end %>
+              </table>
+              <% unless @course.finish? %>
+                <button type="button" class="btn btn-primary pull-right" data-toggle="modal"
+                  data-target="#addTask">
+                  <%= t "admin.actions.edit_tasks_course_subject.edit_task" %>
+                </button>
+                <%= render "form_edit_tasks_course_subject" %>
               <% end %>
             </td>
           </tr>

@@ -27,7 +27,7 @@
             <div class="col-md-2 task <%= builder.object.persisted? ? "finish" : "inprogress" %>">
               <%= builder.hidden_field :task_id %>
               <div class="text">
-                <strong><%= builder.object.task.decorate.get_name %></strong>
+                <strong><%= builder.object.task.decorate.display_name %></strong>
               </div>
               <div class="check">
                 <%= builder.check_box :_destroy, {checked: builder.object.persisted?,

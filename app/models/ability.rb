@@ -53,6 +53,9 @@ class Ability
         user.owner_course(course_subject.course) || user.leader_course(course_subject.course)
       end
       can :order_subjects_in_course, Course
+      can :edit_tasks_course_subject, CourseSubject do |course_subject|
+        user.owner_course(course_subject.course) || user.leader_course(course_subject.course)
+      end
     else
       can [:index, :show], Course
       can [:index, :show], Subject
