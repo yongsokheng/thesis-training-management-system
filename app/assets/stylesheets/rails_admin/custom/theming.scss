@@ -188,7 +188,7 @@
   border: 1px solid #ccc;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-left: 825px;
+  margin-left: 900px;
   width: 220px;
   height: auto;
   position: absolute;
@@ -240,5 +240,10 @@
 
   .text-center {
     margin-bottom: 10px;
+  }
+  dd {
+    width: 750px;
+    height: auto;
+    overflow: hidden;
   }
 }

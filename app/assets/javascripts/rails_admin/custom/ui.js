@@ -25,18 +25,15 @@ $(document).on("ready", function() {
       opacity: 0.4,
       scroll: true,
       update: function(){
-        $("#save-order-subject").click(function(){
-          $.ajax({
-            type: "post",
-            data: $("#course_subjects").sortable("serialize"),
-            dataType: "script",
-            complete: function(request){
-              $("#course_subjects").effect("highlight");
-            },
-            url: link
-          })
-          location.reload();
-        });
+        $.ajax({
+          type: "post",
+          data: $("#course_subjects").sortable("serialize"),
+          dataType: "script",
+          complete: function(request){
+            $("#course_subjects").effect("highlight");
+          },
+          url: link
+        })
       }
     });
   });

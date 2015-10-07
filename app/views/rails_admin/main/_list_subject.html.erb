@@ -1,59 +1,11 @@
-<% if @course_subjects.any? %>
-  <div id="box-subjects">
+<div id="box-subjects">
+  <% if @course_subjects.any? %>
     <div class="row" id="course_subjects" data-id="<%= params[:id] %>">
-      <% @course_subjects.order(position: :asc).each do |course_subject| %>
-        <div class="box-subject status <%= course_subject.init? ? "init order"
-          : (course_subject.progress? ? "inprogress" : "finish") %> col-md-1"
-          id="course_subject_<%= course_subject.id %>">
-          <span class="<%= "handle icon-move col-md-1" if course_subject.init? %>"></span>
-          <div class="subject-name text-center col-md-9">
-            <%= link_to course_subject.subject.name,
-              show_course_subject_path(subject: course_subject.id) %>
-          </div>
-          <div class="<%= @course.init? ? "btn btn-xs btn-danger" : "hidden" %>">
-            <%= t "admin.actions.show_course_subject.locked" %>
-          </div>
-          <div class="<%= @course.finish? ? "btn btn-xs btn-danger" : "hidden" %>">
-            <%= t "admin.actions.show_course_subject.finished" %>
-          </div>
-          <% if @course.progress? %>
-            <div class="btn-actions-<%= course_subject.id %>">
-              <% if @course.course_subjects.order_by_position(course_subject.position).first.nil? || @course.course_subjects.order_by_position(course_subject.position).first.finish? %>
-                <% if course_subject.init? %>
-                  <%= link_to t("admin.actions.show_course_subject.start"),
-                    start_course_subject_path(course_subject_id: course_subject.id), data:{confirm: t("admin.confirm.start_subject")},
-                    class: "btn btn-xs btn-default" %>
-                <% elsif course_subject.progress? %>
-                  <%= link_to t("admin.actions.show_course_subject.finish"),
-                    finish_course_subject_path(course_subject_id: course_subject.id), data:{confirm: t("admin.confirm.finish_subject")},
-                    class: "btn btn-xs btn-primary" %>
-                <% elsif course_subject.finish? %>
-                  <label class="btn btn-xs btn-danger">
-                    <%= t "admin.actions.show_course_subject.finished" %>
-                  </label>
-                <% end %>
-              <% else %>
-                <div class="btn btn-xs btn-danger">
-                  <%= t "admin.actions.show_course_subject.locked" %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <%= render "subject_in_order", course_subjects: @course_subjects, course: @course %>
     </div>
-    <button class="btn btn-primary" id="save-order-subject"><%= t "admin.actions.save" %></button>
     <dt><strong><%= t "courses.description" %></strong></dt>
     <dd><%= @course.description %></dd>
-  </div>
-<% else %>
-
-  <div id="box-subjects">
+  <% else %>
     <%= t "admin.actions.show_member.no_subject" %>
-  </div>
-<% end %>
-
-<% unless @object.finish? %>
-  <%= link_to t("admin.actions.add_subjects_to_course.btn"),
-    "#{edit_course_path(id: @object.id)}#subject", class: "btn btn-primary pull-right" %>
-<% end %>
+  <% end %>
+</div>
