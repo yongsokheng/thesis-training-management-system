@@ -17,7 +17,7 @@ class Ability
       can :edit, :all
       can :show, :all
       can :show_course, Course
-      can [:edit, :update], User, id: user.id
+     
       can [:index, :show, :update], UserSubject
       can :show_subject, Subject
       can :show_user, User
@@ -28,6 +28,7 @@ class Ability
       cannot [:edit, :destroy], CourseSubject
       cannot [:edit, :destroy], UserCourse
 
+      can [:edit, :update], User, id: user.id
       can :start_course, Course do |course|
         course.init? && (user.owner_course(course) || user.leader_course(course))
       end

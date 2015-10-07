@@ -5,7 +5,6 @@ require Rails.root.join("lib", "rails_admin", "finish_course_subject.rb")
 require Rails.root.join("lib", "rails_admin", "add_trainee_to_course.rb")
 require Rails.root.join("lib", "rails_admin", "add_subjects_to_course.rb")
 require Rails.root.join("lib", "rails_admin", "delete.rb")
-require Rails.root.join("lib", "rails_admin", "base.rb")
 require Rails.root.join("lib", "rails_admin", "config", "actions", "new.rb")
 require Rails.root.join("lib", "rails_admin", "config", "actions", "show.rb")
 require Rails.root.join("lib", "rails_admin", "edit_course.rb")
@@ -21,7 +20,6 @@ RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FinishCourseSu
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::AddTraineeToCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::AddSubjectsToCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Delete)
-RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Base)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::New)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditCourse)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::EditSupervisorToCourse)
@@ -45,15 +43,13 @@ RailsAdmin.config do |config|
       except "Task"
     end
     bulk_delete
-
+    show
     edit_course do
       only Course
     end
-    show
     edit do
       except ["Task", "Course"]
     end
-    delete
     finish_course_subject do
       only [Course, CourseSubject]
     end
@@ -83,5 +79,6 @@ RailsAdmin.config do |config|
       only [Course, CourseSubject]
     end
     edit_tasks_course_subject
+    delete
   end
 end
