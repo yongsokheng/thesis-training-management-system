@@ -6,6 +6,7 @@ defaults: &defaults
     en: "en"
     jp: "ja"
   flag_size: "20x15"
+  image_user_size: "30x30"
   finish: "finish"
   finished: "finished"
   date_format: "%H:%M:%S %-d %B %Y"
@@ -15,6 +16,9 @@ defaults: &defaults
     start: "progress"
   form:
     field_size: 50
+  position:
+    check_position: 0
+    index: 1
 development:
   <<: *defaults
   neat_setting: 800

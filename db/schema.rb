@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20151005035849) do
 
   create_table "course_subjects", force: :cascade do |t|
     t.integer  "status",     limit: 4, default: 0
-    t.integer  "position",   limit: 4
+    t.integer  "position",   limit: 4, default: 0
     t.integer  "subject_id", limit: 4
     t.integer  "course_id",  limit: 4
     t.datetime "created_at",                       null: false

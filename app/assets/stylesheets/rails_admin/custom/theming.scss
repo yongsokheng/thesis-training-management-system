@@ -128,7 +128,7 @@
   display: inline-block;
   text-align: center;
   a {
-    color: white;
+    color: black;
   }
   &.init {
     background: #55acee;
@@ -182,4 +182,63 @@
   margin: 10px 20px 10px 30px;
   padding: 10px;
   border: 1px solid #ccc;
+}
+
+#box-members {
+  border: 1px solid #ccc;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 825px;
+  width: 220px;
+  height: auto;
+  position: absolute;
+
+  .members-count {
+    padding: 2px 0px 0px 7px;
+    color: #9197a3;
+    font-size: 14px;
+  }
+
+  .profile-image {
+    width: 35px;
+  }
+}
+
+#box-subjects {
+  margin-left: 50px;
+  width: 822px;
+  height: auto;
+  position: relative;
+  .box-subject {
+    width: 162px;
+    margin-left: 20px;
+    height: 80px;
+    padding-top: 10px;
+    position: relative;
+    margin-bottom: 20px;
+
+    .subject-name {
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .handle:hover{
+      cursor: move;
+    }
+
+    span {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  #save-order-subject {
+    margin: 0px 0px 15px 5px;
+  }
+
+  .text-center {
+    margin-bottom: 10px;
+  }
 }

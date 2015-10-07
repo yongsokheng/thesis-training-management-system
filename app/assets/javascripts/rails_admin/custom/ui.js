@@ -1,5 +1,29 @@
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp()
+  $(function () {
+    $("#course_subjects").sortable({
+      dropOnEmpty: false,
+      handle: ".handle",
+      cursor: "crosshair",
+      items: "div.order",
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $("#save-order-subject").click(function(){
+          $.ajax({
+            type: "post",
+            data: $("#course_subjects").sortable("serialize"),
+            dataType: "script",
+            complete: function(request){
+              $("#course_subjects").effect("highlight");
+            },
+            url: "order_subjects_in_course"
+          })
+          location.reload();
+        });
+      }
+    });
+  });
 });
 
 $(document).on("click", ".checkbox-options", function () {
