@@ -24,7 +24,8 @@
       <div class="row">
         <div class="list-subject">
           <%= f.fields_for :user_tasks do |builder| %>
-            <div class="col-md-2 task <%= builder.object.persisted? ? "finish" : "inprogress" %>">
+            <div class="col-md-2 task <%= (builder.object.persisted? ||
+              @user_subject.course_subject.finish?) ? "finish" : "inprogress" %>">
               <%= builder.hidden_field :task_id %>
               <div class="text">
                 <strong><%= builder.object.task.decorate.get_name %></strong>
@@ -39,7 +40,8 @@
         </div>
       </div>
       <%= f.submit t("tasks.update"), {disabled: (@user_subject.finish? || !@user_subject.course_subject.progress?),
-        class: "btn btn-primary update-task update", id: "finish_task"} %>
+        class: "btn btn-primary update-task update",
+        id: "finish_task"} unless @user_subject.finish? || @user_subject.course_subject.finish? %>
     <% end %>
 
     <div class="row">
@@ -48,7 +50,7 @@
           <%= @user_subject.course_subject.subject.description %>
         </div>
       </div>
-      <%= render "finish_form" %>
+      <%= render "finish_form" unless @user_subject.finish? || @user_subject.course_subject.finish? %>
     </div>
   </div>
 
