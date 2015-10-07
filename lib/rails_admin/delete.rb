@@ -39,6 +39,11 @@ module RailsAdmin
                     redirect_to request.referer
                   when "CourseSubject"
                     redirect_to request.referer
+                  when "Task"
+                    respond_to do |format|
+                      format.html {redirect_to request.referer}
+                      format.js {render "rails_admin/main/delete_task"}
+                    end
                   else
                     redirect_to index_path
                 end

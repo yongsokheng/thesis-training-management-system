@@ -41,7 +41,14 @@
             </strong></td>
             <td>
               <% @tasks.each do |task| %>
-                <li><%= task.name %></li>
+                <tr class="task-<%= task.id %>">
+                  <td><%= task.decorate.get_name %></td>
+                  <td>
+                    <%= link_to t("admin.actions.remove_member.title"),
+                      rails_admin.delete_path(Task, task), method: :delete,
+                      data: {confirm: t("messages.delete.confirm")}, remote: true %>
+                  </td>
+                </tr>
               <% end %>
             </td>
           </tr>
