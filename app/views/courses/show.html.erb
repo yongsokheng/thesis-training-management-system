@@ -27,9 +27,9 @@
 
       <div class="row">
         <div class="list-subject">
-          <% @user_course.user_subjects.each do |user_subject| %>
+          <% @user_subjects.each do |user_subject| %>
             <div class="col-md-2 task">
-              <% if user_subject.finish? %>
+              <% if user_subject.finish? || user_subject.course_subject.finish? %>
                 <div class="status finish">
               <% elsif user_subject.course_subject.init? %>
                 <div class="status init">
