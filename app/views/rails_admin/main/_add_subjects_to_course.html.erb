@@ -7,10 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_for @object, url: add_subjects_to_course_path, method: :post do |f| %>
+    <%= form_for @object, url: add_subjects_to_course_path, method: :post do
+      |f| %>
       <%= hidden_field_tag "course[subject_ids][]", nil %>
       <% @subjects.each do |subject| %>
-        <tr class="<%= "hidden" if @object.subjects.include?(subject) %>" >
+        <tr>
           <td class="string_type">
             <%= subject.name %>
           </td>
@@ -20,12 +21,13 @@
           <td class="last links">
             <ul class="inline list-inline">
               <li>
-                <%= link_to "", rails_admin.show_path(Subject, subject.id),
+                <%= link_to "", rails_admin.show_path("subject", subject),
                   class: "icon-info-sign",
                   title: t("admin.actions.add_subjects_to_course.title") %>
               </li>
               <li>
-                <%= f.check_box :subject_ids, {name: "course[subject_ids][]"}, subject.id, nil %>
+                <%= f.check_box :subject_ids, {name: "course[subject_ids][]"},
+                  subject.id, nil %>
               </li>
             </ul>
           </td>
@@ -33,7 +35,7 @@
       <% end %>
       <tr>
         <td colspan="3">
-          <%= f.submit t("admin.actions.add_subjects_to_course.btn"),
+          <%= f.submit t("admin.actions.add_subjects_to_course.btn_save"),
             class: "btn btn-primary pull-right" %>
         </td>
       </tr>
