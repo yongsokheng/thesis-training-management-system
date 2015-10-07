@@ -38,7 +38,7 @@ module RailsAdmin
               @course_subject = CourseSubject.find params[:subject]
               @course = @course_subject.course
               @subject = @course_subject.subject
-              @tasks = @subject.tasks
+              @tasks = @course_subject.tasks
             end
           end
         end
