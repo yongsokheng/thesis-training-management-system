@@ -1,6 +1,6 @@
 <% if @course_subjects.any? %>
   <div id="box-subjects">
-    <div class="row" id="course_subjects">
+    <div class="row" id="course_subjects" data-id="<%= params[:id] %>">
       <% @course_subjects.order(position: :asc).each do |course_subject| %>
         <div class="box-subject status <%= course_subject.init? ? "init order"
           : (course_subject.progress? ? "inprogress" : "finish") %> col-md-1"

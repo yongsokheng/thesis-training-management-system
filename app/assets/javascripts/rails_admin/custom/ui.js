@@ -1,5 +1,7 @@
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp()
+  var id = $("#course_subjects").data("id")
+  var link = "/admin/course/" + id + "/order_subjects_in_course"
   $(function () {
     $("#course_subjects").sortable({
       dropOnEmpty: false,
@@ -17,7 +19,7 @@ $(document).on("ready", function() {
             complete: function(request){
               $("#course_subjects").effect("highlight");
             },
-            url: "order_subjects_in_course"
+            url: link
           })
           location.reload();
         });
