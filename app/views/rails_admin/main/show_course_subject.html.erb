@@ -11,7 +11,7 @@
             <td><%= @subject.name %></td>
           </tr>
 
-          <tr> 
+          <tr>
             <td><strong>
               <%= t "admin.actions.show_course_subject.description" %>
             </strong></td>
@@ -64,12 +64,15 @@
               <% end %>
             </td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
     </div>
 
     <div class="activity">
       <h2><%= t "activity.activities" %></h2>
+      <div id="show_activity">
+        <%= render "shared/activities", activities: @activities %>
+      </div>
     </div>
   </div>
 

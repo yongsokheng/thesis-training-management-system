@@ -53,7 +53,7 @@ en:
     activities: "Activities"
     finish_course: "has finished course "
     start_course: "has started course "
-    assign_trainee: "assign trainee"
+    assign_trainee: "assign"
     assign_subject: "assign subject"
     remove_trainee: "remove trainee"
     finish_subject: "has finished subject"
@@ -61,6 +61,7 @@ en:
     remove_subject: "remove subject"
     deleted: "Deleted."
     to_course: "to course"
+    as_supervisor: "as supervisor of course"
     from_course: "from course"
     ago: "ago."
   courses:

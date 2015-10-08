@@ -39,6 +39,8 @@ module RailsAdmin
               @course = @course_subject.course
               @subject = @course_subject.subject
               @tasks = @course_subject.tasks
+              @activities = PublicActivity::Activity.subject_activities(@course_subject.id).
+                recent.limit(20).decorate
             end
           end
         end

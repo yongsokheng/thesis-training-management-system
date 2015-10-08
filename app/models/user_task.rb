@@ -4,7 +4,8 @@ class UserTask < ActiveRecord::Base
 
   tracked only: [:create],
     owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model.user_subject.course}
+    recipient: ->(controller, model) {model.user_subject.course_subject}
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :task
   belongs_to :user_subject
