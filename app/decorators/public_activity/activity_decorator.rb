@@ -17,6 +17,10 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       I18n.t "activity.remove_trainee"
     when "user_subject.finish_subject"
       I18n.t "activity.finish_subject"
+    when "course_subject.start_subject"
+      I18n.t "activity.start_subject"
+    when "course_subject.close_subject"
+      I18n.t "activity.close_subject"
     when "user_task.create"
       I18n.t "activity.finish_task"
     when "course_subject.create"
@@ -62,6 +66,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       parameters[:user].nil? ? owner : parameters[:user]
     when "user_subject.finish_subject"
       trackable.course_subject.subject
+    when "course_subject.start_subject", "course_subject.close_subject"
+      trackable.subject
     when "course_subject.create", "course_subject.destroy"
       parameters[:subject]
     when "user_task.create"

@@ -55,6 +55,8 @@ en:
     activities: "Activities"
     finish_course: "has finished course "
     start_course: "has started course "
+    start_subject: "has started subject"
+    close_subject: "closed subject"
     assign_trainee: "assign"
     assign_subject: "assign subject"
     remove_trainee: "remove trainee"

@@ -8,12 +8,10 @@ class CourseSubject < ActiveRecord::Base
   before_create :init_position
   after_destroy :reorder_position
 
-  tracked only: [:create, :destroy],
+  tracked only: [:create, :destroy, :start_subject, :close_subject],
     owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model && model.course},
-    params: {
-      subject: proc {|controller, model| model.subject}
-    }
+    recipient: ->(controller, model) {model && model.course}
+
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :subject
