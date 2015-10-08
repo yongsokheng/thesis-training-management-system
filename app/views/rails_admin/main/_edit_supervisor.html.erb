@@ -21,7 +21,7 @@
               <%= index + 1 %>
             </td>
             <td>
-              <%= supervisor.name %>
+              <%= link_to supervisor.name, show_path("user", supervisor) %>
             </td>
             <td>
               <%= supervisor.email %>

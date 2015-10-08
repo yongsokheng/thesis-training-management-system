@@ -13,18 +13,13 @@
       <% @subjects.each do |subject| %>
         <tr>
           <td class="string_type">
-            <%= subject.name %>
+            <%= link_to subject.name, show_path("subject", subject) %>
           </td>
           <td class="string_type">
             <%= subject.description %>
           </td>
           <td class="last links">
             <ul class="inline list-inline">
-              <li>
-                <%= link_to "", rails_admin.show_path("subject", subject),
-                  class: "icon-info-sign",
-                  title: t("admin.actions.add_subjects_to_course.title") %>
-              </li>
               <li>
                 <%= f.check_box :subject_ids, {name: "course[subject_ids][]"},
                   subject.id, nil %>
