@@ -39,6 +39,8 @@ module RailsAdmin
               @members = object.users
               @course_subjects = @course.course_subjects.order position: :asc
               @total_tasks = @course.course_subjects.map(&:tasks).flatten.count
+              @activities = PublicActivity::Activity.course_activities(@course.id).
+                recent.limit(20).decorate
             when "Subject"
               @object_name = "subject"
               @task_masters = object.task_masters

@@ -10,7 +10,7 @@ class SubjectsController < ApplicationController
         user_id: current_user.id
     end
     @course = @user_subject.user_course.course
-    @activities = PublicActivity::Activity.course_activities(@course.id).
+    @activities = PublicActivity::Activity.subject_activities(@user_subject.course_subject.id).
       recent.limit(20).decorate
   end
 
@@ -34,7 +34,7 @@ class SubjectsController < ApplicationController
     redirect_to :back unless params[:status] == Settings.finish
   end
 
-  def check_status_subject 
+  def check_status_subject
     redirect_to :back unless @user_subject.course_subject.progress?
   end
 end

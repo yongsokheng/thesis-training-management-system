@@ -1,2 +1,10 @@
 <%= render "show_member" %>
 <%= render "list_subject" %>
+<div class="col-md-8">
+  <div class="course_activity">
+    <h2><%= t "activity.activities" %></h2>
+    <div id="show_activity">
+      <%= render "shared/activities", activities: @activities %>
+    </div>
+  </div>
+</div>

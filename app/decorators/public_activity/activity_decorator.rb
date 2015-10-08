@@ -34,7 +34,9 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
 
   def conjunction
     case key
-    when "user_course.create", "course_subject.create"
+    when "user_course.create"
+      parameters[:user].nil? ? I18n.t("activity.as_supervisor") : I18n.t("activity.to_course")
+    when "course_subject.create"
       I18n.t "activity.to_course"
     when "user_course.destroy", "course_subject.destroy"
       I18n.t "activity.from_course"
@@ -57,13 +59,13 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
     when "course.finish_course", "course.start_course"
       trackable
     when "user_course.create", "user_course.destroy"
-      parameters[:user]
+      parameters[:user].nil? ? owner : parameters[:user]
     when "user_subject.finish_subject"
       trackable.course_subject.subject
     when "course_subject.create", "course_subject.destroy"
       parameters[:subject]
     when "user_task.create"
-      trackable.task
+      trackable.task unless trackable.nil?
     else
       key
     end
@@ -71,7 +73,7 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
 
   def link object
     unless object.nil?
-      link_name = object.class.name == "Task" ? object.decorate.display_name : object.name 
+      link_name = object.class.name == "Task" ? object.decorate.display_name : object.name
       if h.current_user.supervisor? || h.current_user.admin?
         h.link_to link_name, h.rails_admin.show_path(object.class, object)
       else

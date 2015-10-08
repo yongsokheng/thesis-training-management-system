@@ -5,6 +5,7 @@ class UserSubject < ActiveRecord::Base
   tracked only: [:finish_subject],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model && model.course}
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :user
   belongs_to :course

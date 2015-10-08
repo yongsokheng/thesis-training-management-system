@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
   include InitUserSubject
   tracked only: [:finish_course, :start_course],
     owner: ->(controller, model) {controller.current_user}
-
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
   validates :name, presence: true, uniqueness: true
 
   has_many :course_subjects, dependent: :destroy

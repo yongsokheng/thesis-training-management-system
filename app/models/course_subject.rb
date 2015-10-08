@@ -14,6 +14,7 @@ class CourseSubject < ActiveRecord::Base
     params: {
       subject: proc {|controller, model| model.subject}
     }
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :subject
   belongs_to :course
