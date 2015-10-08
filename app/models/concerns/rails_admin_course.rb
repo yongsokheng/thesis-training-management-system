@@ -28,7 +28,13 @@ module RailsAdminCourse
             %{<div class="#{class_label}">#{status.status}</div>}.html_safe
           end
         end
-        field :leaders
+        field :leaders do
+          pretty_value do
+            value = bindings[:object].leaders.first.name
+            %{<div><a href= user/#{bindings[:object].leaders.first.id}?locale=#{I18n.locale}>
+              #{value}<a></div>}.html_safe
+          end
+        end
       end
     end
   end

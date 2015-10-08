@@ -26,7 +26,7 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             @supervisor = User.supervisor
-            @subjects = Subject.all
+            @subjects = Subject.subject_not_start_course object
             @trainees = (User.free_trainees << object.users).flatten!.sort
             if request.post?
               course_params = params.require(:course).permit :name, :description

@@ -6,6 +6,7 @@ class CourseSubject < ActiveRecord::Base
   after_create :create_user_subjects_when_add_new_subject
   after_create :create_course_subject_tasks
   before_create :init_position
+  after_destroy :reorder_position
 
   tracked only: [:create, :destroy],
     owner: ->(controller, model) {controller.current_user},
@@ -43,6 +44,14 @@ class CourseSubject < ActiveRecord::Base
     else
       @max = course.course_subjects.pluck(:position).max
       self.position = @max + Settings.position.index
+    end
+  end
+
+  def reorder_position
+    a = course.course_subjects.order(position: :asc).map &:id
+    course.course_subjects.order(position: :asc).each do |course_subject|
+      course_subject.position = a.index(course_subject.id) + 1
+      course_subject.save
     end
   end
 end

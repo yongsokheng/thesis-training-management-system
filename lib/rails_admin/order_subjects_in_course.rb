@@ -35,7 +35,7 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             a = params[:course_subject]
-            object.course_subjects.each do |course_subject|
+            object.course_subjects.order(position: :desc).each do |course_subject|
               a.unshift "#{course_subject.id}" unless course_subject.init?
             end
             object.course_subjects.each do |course_subject|

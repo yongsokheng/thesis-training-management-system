@@ -11,7 +11,7 @@
             <td><%= @subject.name %></td>
           </tr>
 
-          <tr> 
+          <tr>
             <td><strong>
               <%= t "admin.actions.show_course_subject.description" %>
             </strong></td>
@@ -55,7 +55,7 @@
                   </tr>
                 <% end %>
               </table>
-              <% unless @course.finish? %>
+              <% if can? :edit_tasks_course_subject, @course_subject %>
                 <button type="button" class="btn btn-primary pull-right" data-toggle="modal"
                   data-target="#addTask">
                   <%= t "admin.actions.edit_tasks_course_subject.edit_task" %>
@@ -64,7 +64,7 @@
               <% end %>
             </td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
     </div>
 
