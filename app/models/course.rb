@@ -6,6 +6,11 @@ class Course < ActiveRecord::Base
     owner: ->(controller, model) {controller.current_user}
 
   validates :name, presence: true, uniqueness: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+
+  validate :check_day_present, on: [:create, :update]
+  validate :check_end_date, on: [:create, :update]
 
   has_many :course_subjects, dependent: :destroy
   has_many :user_courses, dependent: :destroy
@@ -33,5 +38,15 @@ class Course < ActiveRecord::Base
 
   def create_course_owner user
     course_supervisors.create supervisor_id: user.id, course_id: id, leader_id: user.id
+  end
+
+  def check_day_present
+    self.errors.add :start_date, I18n.t("error.wrong_date") if 
+      self.start_date.to_date < Date.today
+  end
+
+  def check_end_date
+    errors.add :end_date, I18n.t("error.wrong_end_date") if
+      self.end_date < self.start_date
   end
 end

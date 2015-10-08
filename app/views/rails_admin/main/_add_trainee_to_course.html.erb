@@ -12,18 +12,13 @@
       <% @trainees.each do |trainee| %>
         <tr>
           <td class="string_type">
-            <%= trainee.name %>
+            <%= link_to trainee.name, show_path("user", trainee.id) %>
           </td>
           <td class="string_type">
             <%= trainee.email %>
           </td>
           <td class="last links">
             <ul class="inline list-inline">
-              <li>
-                <%= link_to "", rails_admin.show_path(User, trainee.id),
-                  class: "icon-info-sign",
-                  title: t("admin.actions.show_trainee.title") %>
-              </li>
               <li>
                 <%= f.check_box :user_ids, {name: "course[user_ids][]"}, trainee.id, nil %>
               </li>
