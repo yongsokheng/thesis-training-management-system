@@ -37,6 +37,7 @@ module RailsAdmin
             @course_subject = CourseSubject.find params[:course_subject_id]
             if @course_subject.update_attributes status: Settings.course_subject.finish
               flash[:success] = flash_message "updated"
+              @course_subject.create_activity :close_subject
             else
               flash[:danger] = flash_message "not_updated"
             end
