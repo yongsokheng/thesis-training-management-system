@@ -15,7 +15,7 @@
       <% if current_user.trainee? %>
         <%= link_to t("user.action.edit"), edit_user_path(@user),
           class: "btn btn-info btn-sm" %>
-      <% elsif _current_user.admin? %>
+      <% elsif current_user.admin? %>
         <%= link_to t("user.action.edit"), edit_path(User, @user),
           class: "btn btn-info btn-sm" %>
       <% end %>

@@ -81,9 +81,9 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
     unless object.nil?
       link_name = object.class.name == "Task" ? object.decorate.display_name : object.name
       if h.current_user.supervisor? || h.current_user.admin?
-        h.link_to link_name, h.rails_admin.show_path(object.class, object)
+        h.link_to link_name, object
       else
-        h.link_to(link_name, object)
+        h.link_to link_name, object
       end
     else
       I18n.t "activity.deleted"

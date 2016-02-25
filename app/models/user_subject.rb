@@ -1,6 +1,5 @@
 class UserSubject < ActiveRecord::Base
   include PublicActivity::Model
-  include RailsAdminUserSubject
 
   tracked only: [:finish_subject],
     owner: ->(controller, model) {controller.current_user},

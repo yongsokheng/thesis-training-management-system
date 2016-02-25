@@ -1,5 +1,4 @@
 class UserTask < ActiveRecord::Base
-  include RailsAdminUserTask
   include PublicActivity::Model
 
   tracked only: [:create],
