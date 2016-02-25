@@ -1,5 +1,4 @@
 class Course < ActiveRecord::Base
-  include RailsAdminCourse
   include PublicActivity::Model
   include InitUserSubject
   tracked only: [:finish_course, :start_course],
@@ -41,7 +40,7 @@ class Course < ActiveRecord::Base
   end
 
   def check_day_present
-    self.errors.add :start_date, I18n.t("error.wrong_date") if 
+    self.errors.add :start_date, I18n.t("error.wrong_date") if
       self.start_date.to_date < Date.today
   end
 

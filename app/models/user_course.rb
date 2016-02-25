@@ -1,5 +1,4 @@
 class UserCourse < ActiveRecord::Base
-  include RailsAdminUserCourse
   include PublicActivity::Model
   include InitUserSubject
 

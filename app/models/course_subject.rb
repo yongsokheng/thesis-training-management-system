@@ -1,6 +1,5 @@
 class CourseSubject < ActiveRecord::Base
   include PublicActivity::Model
-  include RailsAdminCourseSubject
   include InitUserSubject
 
   after_create :create_user_subjects_when_add_new_subject

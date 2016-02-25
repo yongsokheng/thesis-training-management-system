@@ -1,5 +1,5 @@
 class Subject < ActiveRecord::Base
-  include RailsAdminSubject
+
 
   has_many :task_masters, dependent: :destroy
   has_many :course_subjects, dependent: :destroy

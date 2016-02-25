@@ -1,7 +1,0 @@
-en:
-  admin:
-    actions:
-      show_user:
-        title: "User"
-        breadcrumb: "%{object_label}"
-        menu: "Show"
