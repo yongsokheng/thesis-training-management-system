@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005035849) do
+ActiveRecord::Schema.define(version: 20160225030820) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -52,6 +52,101 @@ ActiveRecord::Schema.define(version: 20151005035849) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "evaluation_details", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "point",         limit: 4
+    t.integer  "evaluation_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "evaluation_details", ["evaluation_id"], name: "index_evaluation_details_on_evaluation_id", using: :btree
+
+  create_table "evaluation_templates", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "min_point",  limit: 4
+    t.integer  "max_point",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.string   "assessment",   limit: 255
+    t.integer  "total_point",  limit: 4
+    t.float    "current_rank", limit: 24
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "evaluations", ["user_id"], name: "index_evaluations_on_user_id", using: :btree
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "evaluation_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "notes", ["evaluation_id"], name: "index_notes_on_evaluation_id", using: :btree
+
+  create_table "permissions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "permissions", ["role_id"], name: "index_permissions_on_role_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",              limit: 4
+    t.date     "start_training_date"
+    t.date     "leave_date"
+    t.date     "finish_training_date"
+    t.boolean  "ready_for_project"
+    t.date     "contract_date"
+    t.string   "naitei_company",       limit: 255
+    t.integer  "trainer_id",           limit: 4
+    t.date     "graduation"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "programming_languages", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "ranks", force: :cascade do |t|
+    t.integer  "begin_point", limit: 4
+    t.integer  "end_point",   limit: 4
+    t.float    "rank",        limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
@@ -80,6 +175,18 @@ ActiveRecord::Schema.define(version: 20151005035849) do
 
   add_index "tasks", ["course_subject_id"], name: "index_tasks_on_course_subject_id", using: :btree
 
+  create_table "types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "user_courses", force: :cascade do |t|
     t.boolean  "active",                  default: true
     t.integer  "user_id",       limit: 4
@@ -89,6 +196,16 @@ ActiveRecord::Schema.define(version: 20151005035849) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
     t.boolean  "finish",                      default: false
@@ -109,6 +226,8 @@ ActiveRecord::Schema.define(version: 20151005035849) do
     t.integer  "task_id",         limit: 4
     t.integer  "user_subject_id", limit: 4
     t.integer  "user_id",         limit: 4
+    t.integer  "spent_time",      limit: 4
+    t.integer  "status",          limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -119,7 +238,6 @@ ActiveRecord::Schema.define(version: 20151005035849) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
-    t.integer  "role",                   limit: 4,   default: 2
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false
@@ -139,8 +257,15 @@ ActiveRecord::Schema.define(version: 20151005035849) do
 
   add_foreign_key "course_subjects", "courses"
   add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "evaluation_details", "evaluations"
+  add_foreign_key "evaluations", "users"
+  add_foreign_key "notes", "evaluations"
+  add_foreign_key "permissions", "roles"
+  add_foreign_key "profiles", "users"
   add_foreign_key "task_masters", "subjects"
   add_foreign_key "tasks", "course_subjects"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
   add_foreign_key "user_subjects", "course_subjects"
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "user_courses"

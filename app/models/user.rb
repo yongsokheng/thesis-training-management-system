@@ -1,17 +1,27 @@
 class User < ActiveRecord::Base
+  belongs_to :programming_language
+  belongs_to :progress
+  belongs_to :status
+  belongs_to :trainer, class_name: User.name, foreign_key: :trainer_id
+  belongs_to :type
+  belongs_to :university
+
   has_many :user_courses, dependent: :destroy
   has_many :user_subjects, dependent: :destroy
   has_many :user_tasks, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :course_subjects, through: :user_subjects
   has_many :tasks, through: :user_tasks
-
+  has_one :profile
+  has_many :user_roles, dependent: :destroy
+  has_many :roles, through: :user_roles
+  has_one :evaluations
+  has_many :trainees, class_name: User.name
   has_many :course_leaders, class_name: UserCourse.name,
                             dependent: :destroy,
                             foreign_key: :leader_id,
                             inverse_of: :leader
   has_many :leading_courses, through: :course_leaders
-
   has_many :course_supervisors, class_name: UserCourse.name,
                                 dependent: :destroy,
                                 foreign_key: :supervisor_id,
