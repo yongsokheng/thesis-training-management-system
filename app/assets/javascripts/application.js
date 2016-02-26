@@ -17,7 +17,12 @@
 //= require i18n/translations
 //= require i18n.js
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
+//= require datepicker
 
 $(document).on("ready", function() {
-  $(".alert").delay(3000).slideUp()
+  $(".alert").delay(3000).slideUp();
+  $("#error_explanation").delay(3000).slideUp();
 });
