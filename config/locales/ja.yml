@@ -74,6 +74,7 @@ ja:
     end_date: "フィニッシュデーツ:"
     in_progress: "プログレスしているコース"
     finished: "フィニッシュしたコース"
+    create: "作ります"
   user_task:
     name: "名前:"
     description: "説明:"
@@ -82,3 +83,13 @@ ja:
     start: "スタート"
     progress: "プログレス"
     finished: "フィニッシュした"
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+      month_year: "%m-%Y"
+      year_month: "%Y-%m"
+  datepicker:
+    time:
+      format: "yyyy/mm/dd"

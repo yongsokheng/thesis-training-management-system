@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root "courses#show"
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
 
+  namespace :admin do
+    resources :courses
+  end
+
   resources :courses, only: :show do
     resources :subjects, only: [:show, :update] do
       patch "/:status" => "subjects#update", as: :finish_subject

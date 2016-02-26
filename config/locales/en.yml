@@ -77,6 +77,7 @@ en:
     end_date: "End date:"
     in_progress: "In-progress course"
     finished: "Finish courses"
+    create: "Create"
   user_task:
     name: "Name:"
     description: "Description:"
@@ -85,3 +86,13 @@ en:
     start: "start"
     progress: "progress"
     finished: "finished"
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+      month_year: "%m-%Y"
+      year_month: "%Y-%m"
+  datepicker:
+    time:
+      format: "yyyy/mm/dd"
