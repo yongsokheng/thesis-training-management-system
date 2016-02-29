@@ -1,0 +1,9 @@
+en:
+  subjects:
+    dynamic_form:
+      add: "Add task master"
+      remove: "Remove"
+    buttons:
+      admin:
+        create: "Create subject"
+    create_subject: "Create subject"

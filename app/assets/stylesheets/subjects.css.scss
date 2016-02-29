@@ -1,49 +1,6 @@
-.task {
-  padding: 10px;
-  width: 120px;
-  color: white;
-  height: 100px;
-  display: inline-block;
-  text-align: center;
-  margin: 10px;
-  a {
-    color: white;
+#subjects{
+  #new_subject{
+    padding: 20px;
+    margin-top: 50px;
   }
-  &.init {
-    background: #55acee;
-  }
-  &.inprogress {
-    background: #f69c55;
-  }
-  &.finish {
-    background: #9ea3a9;
-  }
-}
-
-.update-task {
-  border-radius: 0px;
-  &.update {
-    margin-left: -5px;
-  }
-  &.finish {
-    margin-left: 10px;
-    background-color: red;
-    border-color: red;
-    margin-bottom: 20px;
-  }
-}
-
-.information {
-  margin-bottom: 20px;
-}
-
-.text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-height: 16px;     
-  max-height: 64px;
-  min-height: 64px;    
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
 }
