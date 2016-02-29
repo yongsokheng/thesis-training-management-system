@@ -7,8 +7,10 @@ class Admin::CoursesController < ApplicationController
       @course.create_course_owner current_user
       flash[:success] = flash_message "created"
       redirect_to admin_courses_path
+    else
+      flash[:failed] = flash_message "not created"
+      render :new
     end
-    render :new
   end
 
   private
