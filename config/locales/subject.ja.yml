@@ -1,0 +1,9 @@
+ja:
+  subjects:
+    dynamic_form:
+      add: "タスクマスターを追加します"
+      remove: "削除します"
+    buttons:
+      admin:
+        create: "件名を作成します"
+    create_subject: "件名を作成します"

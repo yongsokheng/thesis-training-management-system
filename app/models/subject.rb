@@ -1,6 +1,5 @@
 class Subject < ActiveRecord::Base
 
-
   has_many :task_masters, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
   has_many :courses, through: :course_subjects
@@ -10,6 +9,9 @@ class Subject < ActiveRecord::Base
   scope :subject_not_start_course, ->course{where "id NOT IN (SELECT subject_id
     FROM course_subjects WHERE course_id = ? AND status <> 0)", course.id}
 
+  scope :recent, ->{order created_at: :desc}
+
   accepts_nested_attributes_for :task_masters, allow_destroy: true,
-    reject_if: proc {|attributes| attributes["name"].blank?}
+    reject_if: proc {|attributes| attributes[:name].blank?}
+
 end
