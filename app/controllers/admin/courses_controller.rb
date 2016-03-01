@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
+  before_action :load_subjects, only: [:new, :edit]
 
   def index
     @courses = @courses.recent
@@ -17,6 +18,16 @@ class Admin::CoursesController < ApplicationController
     end
   end
 
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = flash_message "updated"
+      redirect_to admin_courses_path
+    else
+      flash[:failed] = flash_message "not updated"
+      render :edit
+    end
+  end
+
   def show
     @subjects = @course.subjects
   end
@@ -24,6 +35,11 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit :name, :description, :start_date, :end_date
+    params.require(:course).permit :name, :description, :start_date,
+      :end_date, subject_ids: []
+  end
+
+  def load_subjects
+    @subjects = Subject.all
   end
 end
