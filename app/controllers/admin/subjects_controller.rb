@@ -1,10 +1,9 @@
 class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :init_subject, only: [:show]
 
   def index
     @subject = Subject.new
-    @subjects = Subject.all.recent
+    @subjects = @subjects.recent
   end
 
   def show
@@ -50,9 +49,5 @@ class Admin::SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit :name, :description,
       task_masters_attributes: [:id, :name, :description, :_destroy]
-  end
-
-  def init_subject
-    @subject = Subject.find params[:id]
   end
 end

@@ -31,6 +31,8 @@ class Course < ActiveRecord::Base
 
   enum status: [:init, :progress, :finish]
 
+  scope :recent, ->{order created_at: :desc}
+
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
   end

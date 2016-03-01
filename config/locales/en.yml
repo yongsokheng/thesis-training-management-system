@@ -69,6 +69,7 @@ en:
     from_course: "from course"
     ago: "ago."
   courses:
+    course: "Course"
     name: "Name:"
     description: "Description:"
     status: "Status:"
@@ -96,3 +97,7 @@ en:
   datepicker:
     time:
       format: "yyyy/mm/dd"
+  layouts:
+    admin:
+      courses: "Courses"
+      subjects: "Subjects"

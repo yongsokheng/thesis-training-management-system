@@ -66,6 +66,7 @@ ja:
     from_course: "コースから"
     ago: "前に."
   courses:
+    courses: "コース"
     name: "名前:"
     description: "説明:"
     status: "状態:"
@@ -93,3 +94,7 @@ ja:
   datepicker:
     time:
       format: "yyyy/mm/dd"
+  layouts:
+    admin:
+      courses: "コース"
+      subjects: "科目"
