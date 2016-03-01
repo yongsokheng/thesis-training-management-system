@@ -1,0 +1,6 @@
+<h1><%= t "titles.admin.course.show" %></h1>
+<h4><b class="text-success"><%= @course.name %></b></h4>
+<h4><b><%= @course.description %></b></h4>
+<% @subjects.each do |subject| %>
+  <div><%= subject.name %></div>
+<% end %>

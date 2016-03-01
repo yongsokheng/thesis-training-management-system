@@ -1,0 +1,10 @@
+en:
+  courses:
+    buttons:
+      admin:
+        create: "Create"
+        edit: "Edit"
+        update: "Update"
+        delete: "Delete"
+        delete_confirm: "Are you sure"
+    create_course: "Create course"
