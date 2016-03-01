@@ -38,7 +38,7 @@ class Course < ActiveRecord::Base
   end
 
   def create_course_owner user
-    course_supervisors.create supervisor_id: user.id, course_id: id, leader_id: user.id
+    UserCourse.create user_id: user.id, course_id: id
   end
 
   def check_day_present

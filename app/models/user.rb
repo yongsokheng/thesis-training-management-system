@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+  QUERY = "id NOT IN (SELECT user_id
+    FROM user_courses WHERE user_courses.course_id = :course_id AND
+    user_courses.user_id IS NOT NULL)"
   belongs_to :programming_language
   belongs_to :progress
   belongs_to :status
@@ -33,9 +37,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
-  scope :free_trainees, ->{self.trainee.where "id NOT IN (SELECT user_id
-    FROM user_courses JOIN courses ON user_courses.course_id = courses.id
-    WHERE (courses.status = 0 OR courses.status = 1) AND user_courses.user_id IS NOT NULL)"}
+  scope :free_trainees, ->(course_id){where QUERY, course_id: course_id}
 
   def total_done_tasks user, course
     done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
