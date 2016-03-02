@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_subjects, only: [:new, :edit]
+  before_action :load_subjects, only: [:new, :create, :edit]
 
   def index
     @courses = @courses.recent
@@ -32,8 +32,16 @@ class Admin::CoursesController < ApplicationController
     @subjects = @course.subjects
   end
 
-  private
+  def destroy
+    if @course.destroy
+      flash[:success] = flash_message "deleted"
+    else
+      flash[:failed] = flash_message "not deleted"
+    end
+    redirect_to :back
+  end
 
+  private
   def course_params
     params.require(:course).permit :name, :description, :start_date,
       :end_date, subject_ids: []
