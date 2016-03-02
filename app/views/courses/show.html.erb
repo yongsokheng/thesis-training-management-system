@@ -11,7 +11,6 @@
         <div class="col-md-8 col-md-offset-2 title">
           <h1><%= @course.name %></h1>
         </div>
-
         <div class="col-md-2">
           <% if @course.finish? %>
             <div class="status course-status finish">
@@ -24,7 +23,6 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="list-subject">
           <% @user_subjects.each do |user_subject| %>
@@ -47,14 +45,20 @@
       </div>
 
       <div class="row">
-        <div class="information">
+        <div class="information col-md-6">
           <strong><%= t "subjects.start_date" %></strong>
           <%= @course.start_date.strftime Settings.date_course_format unless @course.start_date.nil? %><br>
-          <strong><%= t "subjects.end_date" %></strong> 
+          <strong><%= t "subjects.end_date" %></strong>
           <%= @course.end_date.strftime Settings.date_course_format unless @course.end_date.nil? %>
           <div class="description">
             <%= @course.description %>
           </div>
+        </div>
+        <div class="information col-md-6">
+          <% @subjects.each_with_index do |subject, index| %>
+            <strong><%= index +1 %>.&nbsp;<%= link_to subject.name, subject_path(subject) %></strong>
+            <hr>
+          <% end %>
         </div>
       </div>
     </div>
@@ -78,7 +82,7 @@
           <% end %>
         </div>
         <div id="show_activity" class="tab-pane fade list_special">
-          <%= render "shared/activities", activities: @activities %>
+          <%#= render "shared/activities", activities: @activities %>
         </div>
       </div>
     </div>

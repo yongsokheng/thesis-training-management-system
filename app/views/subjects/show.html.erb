@@ -6,7 +6,6 @@
       <div class="col-md-8 col-md-offset-2 title">
         <h1><%= @user_subject.course_subject.subject.name %></h1>
       </div>
-
       <div class="col-md-2">
         <% if @user_subject.course_subject.finish? %>
           <div class="status course-status finish">
@@ -20,37 +19,20 @@
       </div>
     </div>
 
-    <%= form_for @user_subject, url: course_user_subject_path do |f| %>
-      <div class="row">
-        <div class="list-subject">
-          <%= f.fields_for :user_tasks do |builder| %>
-            <div class="col-md-2 task <%= (builder.object.persisted? ||
-              @user_subject.course_subject.finish?) ? "finish" : "inprogress" %>">
-              <%= builder.hidden_field :task_id %>
-              <div class="text">
-                <strong><%= builder.object.task.decorate.display_name %></strong>
-              </div>
-              <div class="check">
-                <%= builder.check_box :_destroy, {checked: builder.object.persisted?,
-                  disabled: (!@user_subject.course_subject.progress? || builder.object.persisted?),
-                  class: "check_finish"}, "0", "1" %><%= t "subjects.finish" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit t("tasks.update"), {disabled: (@user_subject.finish? || !@user_subject.course_subject.progress?),
-        class: "btn btn-primary update-task update",
-        id: "finish_task"} unless @user_subject.finish? || @user_subject.course_subject.finish? %>
-    <% end %>
-
     <div class="row">
-      <div class="information">
+      <div class="information col-md-6">
         <div class="description">
           <%= @user_subject.course_subject.subject.description %>
         </div>
+        <%= render "finish_form" unless @user_subject.finish? || @user_subject.course_subject.finish? %>
       </div>
-      <%= render "finish_form" unless @user_subject.finish? || @user_subject.course_subject.finish? %>
+      <div class="information col-md-6">
+        <% @user_subject.course_subject.tasks.each_with_index do |task, index| %>
+          <h4><%= index +1 %>.&nbsp;<%= task.name %></h4>
+          <p><%= task.description %></p>
+          <hr>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -71,9 +53,6 @@
             <%= link_to user.name, user_path(user) %>
           </li>
         <% end %>
-      </div>
-      <div id="show_activity" class="tab-pane fade list_special">
-        <%= render "shared/activities", activities: @activities %>
       </div>
     </div>
   </div>

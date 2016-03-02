@@ -10,13 +10,11 @@ class SubjectsController < ApplicationController
         user_id: current_user.id
     end
     @course = @user_subject.user_course.course
-    @activities = PublicActivity::Activity.subject_activities(@user_subject.course_subject.id).
-      recent.limit(20).decorate
   end
 
   def update
     if @user_subject.update_attributes finish: true
-      @user_subject.create_activity :finish_subject
+      # @user_subject.create_activity :finish_subject
       flash[:success] = flash_message "updated"
     else
       flash[:danger] = flash_message "not_updated"

@@ -55,6 +55,7 @@ class Course < ActiveRecord::Base
 
   def start_course
     self.update_attributes status: :progress
+    create_user_subjects_when_start_course
   end
 
   def finish_course
