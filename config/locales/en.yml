@@ -101,3 +101,6 @@ en:
     admin:
       courses: "Courses"
       subjects: "Subjects"
+  button:
+    edit: "Edit"
+    delete: "Delete"

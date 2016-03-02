@@ -5,5 +5,12 @@
       <h4><%= link_to course.name, admin_course_path(course) %></h4>
       <p><%= course.description %></p>
     </div>
+    <div class="col-md-2">
+      <%= link_to t("button.edit"), edit_admin_course_path(course),
+        class: "btn btn-default btn-success" %>
+      <%= link_to t("button.delete"), admin_course_path(course),
+        method: :delete, data: {confirm: t("messages.delete.confirm")},
+        class: "btn btn-default btn-danger" %>
+    </div>
   </div>
 </div>
