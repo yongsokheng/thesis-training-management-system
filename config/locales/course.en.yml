@@ -7,4 +7,8 @@ en:
         update: "Update"
         delete: "Delete"
         delete_confirm: "Are you sure"
+        start: "Start"
+        finish: "Finish"
+        finished: "Finished"
     create_course: "Create course"
+    no_course: "No course to display"

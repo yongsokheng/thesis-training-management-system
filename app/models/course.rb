@@ -33,6 +33,8 @@ class Course < ActiveRecord::Base
 
   scope :recent, ->{order created_at: :desc}
 
+  scope :active_course, ->{where status: "progress"}
+
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
   end
@@ -49,5 +51,13 @@ class Course < ActiveRecord::Base
   def check_end_date
     errors.add :end_date, I18n.t("error.wrong_end_date") if
       self.end_date < self.start_date
+  end
+
+  def start_course
+    self.update_attributes status: :progress
+  end
+
+  def finish_course
+    self.update_attributes status: :finish
   end
 end

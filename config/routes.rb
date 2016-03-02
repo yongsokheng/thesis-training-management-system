@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :courses do
       resource :assign_trainees
+      resource :change_status_courses, only: :update
     end
     resources :subjects
   end
