@@ -30,8 +30,9 @@ ja:
       not_deleted: "%{model_name}は削除できませんでした!"
       updated: "%{model_name}は成功にアップデートした！"
       not_updated: "%{model_name}はアップデートできません！"
-      start_course: "%{course}は成功にスターとする"
-      finish_course: "%{course}は成功にフィニッシュした"
+      start_course: "コース は成功にスターとする"
+      finish_course: "コース は成功にフィニッシュした"
+      course_not_upate: "コースは正常に更新できませんでした"
   tasks:
     update: "タスクをアップデータ"
   subjects:
@@ -66,7 +67,7 @@ ja:
     from_course: "コースから"
     ago: "前に."
   courses:
-    courses: "コース"
+    course: "コース"
     name: "名前:"
     description: "説明:"
     status: "状態:"
