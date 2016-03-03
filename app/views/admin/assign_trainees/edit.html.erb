@@ -1,0 +1,24 @@
+<h1><%= t("users.assign_trainees") %></h1>
+
+<%= form_for @course, url: admin_course_assign_trainees_path, method: :patch do |f| %>
+  <%= render "shared/error_messages", object: @course %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.collection_check_boxes :user_ids, @users, :id, :email do |user| %>
+        <tr>
+          <%= user.label do %>
+            <td><%= user.check_box %> &nbsp; <%= user.text %> </td>
+          <% end %>
+        </tr>
+      <% end %>
+      <%= f.submit :submit, class: "btn btn-primary" %>
+      <%= paginate @users %>
+    </tbody>
+  </table>
+<% end %>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users, path: "auth", path_names: {sign_in: "login", sign_out: "logout"}
 
   namespace :admin do
-    resources :courses
+    resources :courses do
+      resource :assign_trainees
+    end
     resources :subjects
   end
 
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
     resources :subjects, only: [:show, :update] do
       patch "/:status" => "subjects#update", as: :finish_subject
     end
+
     resources :user_subjects, only: :update
   end
   resources :users, only: [:edit, :update, :show]
