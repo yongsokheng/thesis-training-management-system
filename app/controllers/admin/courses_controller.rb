@@ -29,7 +29,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @subjects = @course.subjects
+    @course_subjects = @course.course_subjects
   end
 
   def destroy

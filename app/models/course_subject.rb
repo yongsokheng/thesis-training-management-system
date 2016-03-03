@@ -24,6 +24,10 @@ class CourseSubject < ActiveRecord::Base
     reject_if: proc {|attributes| attributes["name"].blank?}
   enum status: [:init, :progress, :finish]
 
+  def start_subject
+    self.update_attributes status: :progress
+  end
+
   private
   def create_user_subjects_when_add_new_subject
     create_user_subjects course.user_courses, [self], course_id, course.init?
