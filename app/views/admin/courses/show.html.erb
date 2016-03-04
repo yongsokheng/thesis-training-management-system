@@ -36,15 +36,31 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="list-subject">
-          <% @subjects.each do |subject| %>
-            <div class="col-md-2">
-              <strong><%=link_to subject.name, admin_subject_path(subject) %></strong>
+      <div class="list-subject">
+        <% @course_subjects.each_with_index do |course_subject, index| %>
+          <div class="row">
+            <hr>
+            <div class="col-md-10">
+              <strong><%= index +1  %>.&nbsp;
+              <%=link_to course_subject.subject.name, admin_subject_path(course_subject.subject) %></strong>
             </div>
-          <% end %>
-        </div>
+             <div class="col-md-2">
+              <% if course_subject.init? %>
+                <%= link_to "Start", admin_course_subject_path(course_subject), method: :patch, class: "btn btn-success" %>
+              <% elsif course_subject.progress? %>
+                <div class="status course-subject-status inprogress">
+                  <%= course_subject.status %>
+                </div>
+              <% else %>
+                <div class="status course-subject-status finish">
+                  <%= course_subject.status %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
+
     </div>
     <div class="col-md-4 rightbar">
       <ul class="nav nav-tabs">
