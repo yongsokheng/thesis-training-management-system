@@ -16,10 +16,9 @@ Rails.application.routes.draw do
     resources :subjects, only: [:show, :update] do
       patch "/:status" => "subjects#update", as: :finish_subject
     end
-
     resources :user_subjects, only: :update
   end
   resources :users, only: [:edit, :update, :show]
   resources :subjects, only: [:show]
-  resources :tasks, only: [:show]
+  resources :user_tasks
 end
