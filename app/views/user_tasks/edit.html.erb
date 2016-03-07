@@ -1,0 +1,11 @@
+<%= form_for @user_task do |f| %>
+  <div class="row">
+    <%= render "shared/error_messages", object: @user_task %>
+    <div class="col-md-6">
+      <%= f.label :spent_time %>
+      <%= f.text_field :spent_time, class: "form-control", required: true %>
+      <br>
+      <%= f.submit t("tasks.date"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

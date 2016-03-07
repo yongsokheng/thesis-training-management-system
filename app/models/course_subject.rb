@@ -3,7 +3,7 @@ class CourseSubject < ActiveRecord::Base
   include InitUserSubject
 
   after_create :create_user_subjects_when_add_new_subject
-  after_create :create_course_subject_tasks
+  after_create :create_tasks
   before_create :init_position
   after_destroy :reorder_position
 
@@ -33,10 +33,10 @@ class CourseSubject < ActiveRecord::Base
     create_user_subjects course.user_courses, [self], course_id, course.init?
   end
 
-  def create_course_subject_tasks
+  def create_tasks
     subject.task_masters.each do |task_master|
-      Task.create course_subject_id: id,
-        task_master_id: task_master.id
+      Task.create course_subject_id: id, name: task_master.name,
+        description: task_master.description, task_master_id: task_master.id
     end
   end
 
