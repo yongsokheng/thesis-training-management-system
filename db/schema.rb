@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 20160225030820) do
     t.integer  "task_id",         limit: 4
     t.integer  "user_subject_id", limit: 4
     t.integer  "user_id",         limit: 4
+    t.integer  "progress",        limit: 4
     t.integer  "spent_time",      limit: 4
     t.integer  "status",          limit: 4
     t.datetime "created_at",                null: false
