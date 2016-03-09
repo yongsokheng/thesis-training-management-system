@@ -46,6 +46,13 @@
               <span class="text-danger"><%= user_task.redmine_task_id %>
               </span>
             </p>
+            <p><%= t "tasks.progress" %>
+              <div class="progress">
+                <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" style="width:<%= user_task.progress %>%">
+                  <%= user_task.progress %> %
+                </div>
+              </div>
+            </p>
           <% end %>
           <hr>
         <% end %>
