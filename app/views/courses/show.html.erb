@@ -13,33 +13,35 @@
           <p><%= @course.description %></p>
         </div>
         <div class="col-md-2">
-          <% if @course.finish? %>
-            <div class="status course-status finish">
-          <% elsif @course.init? %>
-            <div class="status course-status init">
-          <% else @course.progress? %>
-            <div class="status course-status inprogress">
+          <% if @course.init? %>
+            <div class="status course-status init"><%= t "courses.status.new" %></div>
+          <% elsif @course.progress? %>
+            <div class="status course-status inprogress"><%= @course.status %></div>
+          <% else @course.finish? %>
+            <div class="status course-status finish"><%= @course.status %></div>
           <% end %>
-            <%= @course.status %>
-          </div>
         </div>
       </div>
       <div class="row">
         <div class="list-subject">
           <% @user_subjects.each do |user_subject| %>
             <div class="col-md-2 task">
-              <% if user_subject.finish? || user_subject.course_subject.finish? %>
-                <div class="status finish">
-              <% elsif user_subject.course_subject.init? %>
+              <% if user_subject.init? %>
                 <div class="status init">
+                  <strong><%= user_subject.course_subject.subject.name %></strong>
+                </div>
               <% else %>
-                <div class="status inprogress">
-              <% end %>
+                <% if user_subject.progress? %>
+                  <div class="status inprogress">
+                <% elsif user_subject.finish? %>
+                  <div class="status finish">
+                <% end %>
                 <strong>
-                  <%= link_to user_subject.course_subject.subject.name, course_subject_path(@course, user_subject),
-                    {title: user_subject.course_subject.status} %>
+                  <%= link_to user_subject.course_subject.subject.name, course_user_subject_path(@course, user_subject),
+                    {title: user_subject.status} %>
                 </strong>
-              </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -53,8 +55,8 @@
           <%= @course.end_date.strftime Settings.date_course_format unless @course.end_date.nil? %>
         </div>
         <div class="information col-md-6">
-          <% @subjects.each_with_index do |subject, index| %>
-            <strong><%= index +1 %>.&nbsp;<%= link_to subject.name, subject_path(subject) %></strong>
+          <% @user_subjects.each_with_index do |user_subject, index| %>
+            <strong><%= index + 1 %>.&nbsp;<%= link_to user_subject.course_subject.subject.name, course_user_subject_path(@course, user_subject) %></strong>
             <hr>
           <% end %>
         </div>

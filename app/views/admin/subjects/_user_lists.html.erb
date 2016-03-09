@@ -1,0 +1,11 @@
+<%= render partial: "admin/subjects/user_subject", collection: @user_subjects, as: :user_subject %>
+<hr>
+<% if @course.progress? %>
+  <%= link_to t("admin.actions.show_subject.finish_all"),
+    admin_status_subject_path(@course_subject, "finish"), method: :patch, remote: true,
+    class: "btn btn-success pull-right" unless @user_subjects.count == @user_subjects.load_users(UserSubject.statuses[:finish]).count %>
+
+  <%= link_to t("admin.actions.show_subject.start_all"),
+    admin_status_subject_path(@course_subject, "start"), method: :patch, remote: true,
+    class: "btn btn-primary pull-right btn-start-all" if @user_subjects.load_users(UserSubject.statuses[:init]).any? %>
+<% end %>

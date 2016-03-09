@@ -8,6 +8,9 @@ class Admin::SubjectsController < ApplicationController
 
   def show
     @task_masters = @subject.task_masters
+    @course = Course.find params[:course_id]
+    @course_subject = CourseSubject.find_by course_id: @course.id, subject_id: @subject.id
+    @user_subjects = @course_subject.user_subjects
   end
 
   def create

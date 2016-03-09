@@ -14,3 +14,5 @@ ja:
     create_course: "コースを作成"
     no_course: "求償権は表示されませんします"
     course_masters: "コースマスターズ"
+    status:
+        new: "新しい"

@@ -7,15 +7,13 @@
         <h1><%= @user_subject.course_subject.subject.name %></h1>
       </div>
       <div class="col-md-2">
-        <% if @user_subject.course_subject.finish? %>
-          <div class="status course-status finish">
-        <% elsif @user_subject.course_subject.init? %>
-          <div class="status course-status init">
-        <% else @user_subject.course_subject.progress? %>
-          <div class="status course-status inprogress">
+        <% if @user_subject.init? %>
+          <div class="status course-status init"><%= t "courses.status.new" %></div>
+        <% elsif @user_subject.progress? %>
+          <div class="status course-status inprogress"><%= @course.status %></div>
+        <% else @user_subject.finish? %>
+          <div class="status course-status finish"><%= @course.status %></div>
         <% end %>
-          <%= @user_subject.course_subject.status %>
-        </div>
       </div>
     </div>
 
@@ -24,7 +22,6 @@
         <div class="description">
           <%= @user_subject.course_subject.subject.description %>
         </div>
-        <%= render "finish_form" unless @user_subject.finish? || @user_subject.course_subject.finish? %>
       </div>
       <div class="information col-md-6">
         <% @user_subject.user_tasks.each_with_index do |user_task, index| %>

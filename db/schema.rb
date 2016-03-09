@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160225030820) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "course_subjects", force: :cascade do |t|
-    t.integer  "status",     limit: 4, default: 0
     t.integer  "position",   limit: 4, default: 0
     t.integer  "subject_id", limit: 4
     t.integer  "course_id",  limit: 4
@@ -209,13 +208,13 @@ ActiveRecord::Schema.define(version: 20160225030820) do
   add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
-    t.boolean  "finish",                      default: false
+    t.integer  "status",            limit: 4, default: 0
     t.integer  "user_id",           limit: 4
     t.integer  "course_id",         limit: 4
     t.integer  "user_course_id",    limit: 4
     t.integer  "course_subject_id", limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "user_subjects", ["course_id"], name: "index_user_subjects_on_course_id", using: :btree

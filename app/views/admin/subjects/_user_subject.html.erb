@@ -1,0 +1,23 @@
+<div class="user-list">
+  <span><%= user_subject.user.name %></span>
+  <% if @course.progress? %>
+    <span class="pull-right">
+      <% if user_subject.init? %>
+        <div><%= link_to t("admin.actions.show_subject.start"),
+          admin_course_subject_user_subject_path(@course_subject, user_subject),
+          method: :patch, remote: true, class: "btn btn-primary" %></div>
+      <% elsif user_subject.progress? %>
+        <span class="status inprogress">
+          <%= user_subject.status %>
+        </span>
+        <span><%= link_to t("admin.actions.show_subject.finish"),
+          admin_course_subject_user_subject_path(@course_subject, user_subject),
+          method: :patch, remote: true, class: "btn btn-success" %></span>
+      <% else %>
+        <div class="status finish">
+          <%= user_subject.status %>
+        </div>
+      <% end %>
+    </span>
+  <% end %>
+</div>

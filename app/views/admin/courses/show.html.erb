@@ -45,21 +45,11 @@
           <div class="row">
             <hr>
             <div class="col-md-10">
-              <strong><%= index +1  %>.&nbsp;
-              <%=link_to course_subject.subject.name, admin_subject_path(course_subject.subject) %></strong>
-            </div>
-             <div class="col-md-2">
-              <% if course_subject.init? %>
-                <%= link_to "Start", admin_course_subject_path(course_subject), method: :patch, class: "btn btn-success" %>
-              <% elsif course_subject.progress? %>
-                <div class="status course-subject-status inprogress">
-                  <%= course_subject.status %>
-                </div>
-              <% else %>
-                <div class="status course-subject-status finish">
-                  <%= course_subject.status %>
-                </div>
-              <% end %>
+              <strong>
+                <%= index + 1 %>.&nbsp;
+                <%= link_to course_subject.subject.name,
+                  admin_course_subject_path(@course, course_subject.subject) %>
+              </strong>
             </div>
           </div>
         <% end %>

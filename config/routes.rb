@@ -5,20 +5,25 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :course_masters
-    resources :course_subjects, only: :update
     resources :courses do
+      resources :subjects
       resource :assign_trainees
       resource :change_status_courses, only: :update
     end
     resources :roles
     resources :subjects
+    resources :course_subjects do
+      resources :user_subjects, only: :update do
+      end
+    end
+
+    patch "status_subject/:course_subject_id/:status" => "status_subjects#update",
+      as: :status_subject
   end
 
   resources :courses, only: :show do
-    resources :subjects, only: [:show, :update] do
-      patch "/:status" => "subjects#update", as: :finish_subject
-    end
-    resources :user_subjects, only: :update
+    resources :subjects, only: [:show]
+    resources :user_subjects, only: [:update, :show]
   end
   resources :users, only: [:edit, :update, :show]
   resources :subjects, only: [:show]

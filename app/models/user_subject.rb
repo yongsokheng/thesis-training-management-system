@@ -16,6 +16,23 @@ class UserSubject < ActiveRecord::Base
 
   after_create :create_user_tasks
   scope :load_user_subject, ->(user_id, course_id){where "user_id = ? AND course_id = ?", user_id, course_id}
+  scope :load_users, ->status {where status: status}
+
+  enum status: [:init, :progress, :finish]
+
+  class << self
+    def update_all_status status
+      if status == "start"
+        load_users(statuses[:init]).update_all status: statuses[:progress]
+      else
+        load_users(statuses[:progress]).update_all status: statuses[:finish]
+      end
+    end
+  end
+
+  def update_status
+    init? ? update_attributes(status: :progress) :  update_attributes(status: :finish)
+  end
 
   private
   def create_user_tasks

@@ -3,6 +3,15 @@ class UserSubjectsController < ApplicationController
   before_action :load_course
   before_action :check_status_subject, only: :update
 
+  def show
+    @user_subject = UserSubject.find params[:id]
+    @user_subject.course_subject.tasks.each do |task|
+      @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
+        user_id: current_user.id
+    end
+    @course = @user_subject.user_course.course
+  end
+
   def update
     if @user_subject.update_attributes user_subject_params
       flash[:success] = flash_message "updated"
@@ -24,7 +33,7 @@ class UserSubjectsController < ApplicationController
       recent.limit(20).decorate
   end
 
-  def check_status_subject 
+  def check_status_subject
     redirect_to :back if @user_subject.finish? || !@user_subject.course_subject.progress?
   end
 end
