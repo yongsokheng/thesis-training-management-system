@@ -4,3 +4,4 @@ en:
     hours: "営業時間"
     estimate_time: "予定時刻"
     update: "更新"
+    redmine_task_id: "RedmineのタスクID"

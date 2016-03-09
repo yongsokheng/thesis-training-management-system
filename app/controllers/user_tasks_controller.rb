@@ -14,7 +14,8 @@ class UserTasksController < ApplicationController
 
   private
   def user_task_params
-    params.require(:user_task).permit :spent_time
+    params.require(:user_task).permit :spent_time, :estimated_time,
+      :redmine_task_id, :status
   end
 
   def load_subject
