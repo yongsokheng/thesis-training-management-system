@@ -28,17 +28,24 @@
       </div>
       <div class="information col-md-6">
         <% @user_subject.course_subject.tasks.each_with_index do |task, index| %>
-          <h4><%= index +1 %>.&nbsp;<%= task.name %></h4>
+          <h4><%= index + 1 %>.&nbsp;<%= task.name %></h4>
           <p><%= task.description %></p>
+          <p><b><%= link_to t("tasks.update"), edit_user_task_path(task) %></b></p>
           <% task.user_tasks.each do |user_task| %>
-            <% if user_task.spent_time.nil? %>
-              <%= link_to t("tasks.estimate_time"), edit_user_task_path(task) %>
-            <% else %>
-              <i><%= t "tasks.spent_time" %></i>:
+            <p><%= t "tasks.estimated_time" %>:
+              <span class="text-danger"><%= user_task.estimated_time %>
+                &nbsp;<%= t "tasks.hours" %>
+              </span>
+            </p>
+            <p><%= t "tasks.spent_time" %>:
               <span class="text-danger"><%= user_task.spent_time %>
                 &nbsp;<%= t "tasks.hours" %>
               </span>
-            <% end %>
+            </p>
+            <p><%= t "tasks.redmine_task_id" %>:
+              <span class="text-danger"><%= user_task.redmine_task_id %>
+              </span>
+            </p>
           <% end %>
           <hr>
         <% end %>

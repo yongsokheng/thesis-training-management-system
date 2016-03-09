@@ -6,6 +6,8 @@ class CreateUserTasks < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.integer :progress
       t.integer :spent_time
+      t.integer :estimated_time
+      t.integer :redmine_task_id
       t.integer :status
 
       t.timestamps null: false
