@@ -189,14 +189,14 @@ ActiveRecord::Schema.define(version: 20160225030820) do
   end
 
   create_table "user_courses", force: :cascade do |t|
-    t.boolean  "active",                  default: true
-    t.integer  "user_id",       limit: 4
-    t.integer  "supervisor_id", limit: 4
-    t.integer  "leader_id",     limit: 4
-    t.integer  "course_id",     limit: 4
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.boolean  "active",               default: true
+    t.integer  "user_id",    limit: 4
+    t.integer  "course_id",  limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "user_courses", ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true, using: :btree
 
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

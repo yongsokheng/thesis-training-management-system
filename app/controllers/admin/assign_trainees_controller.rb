@@ -2,21 +2,23 @@ class Admin::AssignTraineesController < ApplicationController
   load_and_authorize_resource :course
 
   def edit
-    @users = User.free_trainees(@course.id).page params[:page]
+    @users = User.all
+    @users.each do |user|
+      @course.user_courses.new user: user unless @course.user_ids.include? user.id
+    end
   end
 
   def update
-    if @course.update_attributes assign_users_params
+    if @course.update_attributes course_params
       flash[:success] = flash_message "updated"
     else
       flash[:danger] = flash_message "not updated"
     end
-    redirect_to :back
+    redirect_to edit_admin_course_assign_trainees_path @course
   end
 
   private
-  def assign_users_params
-    params.require(:course).permit user_ids: []
+  def course_params
+    params.require(:course).permit user_courses_attributes: [:id, :user_id, :_destroy]
   end
-
 end

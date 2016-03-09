@@ -20,8 +20,8 @@ class UserSubject < ActiveRecord::Base
   private
   def create_user_tasks
     course_subject.tasks.each do |task|
-      UserTask.create_with(user_subject_id: id,
-        user_id: user_course.id).find_or_create_by task_id: task.id
+      UserTask.find_or_create_by(user_subject_id: id,
+        user_id: user_course.user_id, task_id: task.id)
     end
   end
 end
