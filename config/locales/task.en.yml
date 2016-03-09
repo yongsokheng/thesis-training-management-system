@@ -5,3 +5,4 @@ en:
     estimated_time: "Estimated time"
     update: "Update"
     redmine_task_id: "Remine task id"
+    progress: "Progress:"
