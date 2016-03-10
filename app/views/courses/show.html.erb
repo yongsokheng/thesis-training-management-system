@@ -10,6 +10,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 title">
           <h1><%= @course.name %></h1>
+          <p><%= @course.description %></p>
         </div>
         <div class="col-md-2">
           <% if @course.finish? %>
@@ -50,9 +51,6 @@
           <%= @course.start_date.strftime Settings.date_course_format unless @course.start_date.nil? %><br>
           <strong><%= t "subjects.end_date" %></strong>
           <%= @course.end_date.strftime Settings.date_course_format unless @course.end_date.nil? %>
-          <div class="description">
-            <%= @course.description %>
-          </div>
         </div>
         <div class="information col-md-6">
           <% @subjects.each_with_index do |subject, index| %>
