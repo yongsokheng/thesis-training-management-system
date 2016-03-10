@@ -1,0 +1,12 @@
+<%= form_for [:admin, @role] do |f| %>
+  <div class="row">
+    <%= render "shared/error_messages", object: @role %>
+    <div class="col-md-10">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", required: true %>
+      <br>
+      <%= f.submit (f.object.new_record? ? t("roles.buttons.admin.create")
+        : t("roles.buttons.admin.update")), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
