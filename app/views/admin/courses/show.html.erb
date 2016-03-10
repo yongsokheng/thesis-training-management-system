@@ -31,11 +31,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="information">
+        <div class="information col-md-6">
           <strong><%= t "subjects.start_date" %></strong>
           <%= @course.start_date.strftime Settings.date_course_format unless @course.start_date.nil? %><br>
           <strong><%= t "subjects.end_date" %></strong>
           <%= @course.end_date.strftime Settings.date_course_format unless @course.end_date.nil? %>
+        </div>
+        <div class="information col-md-6">
+          <%= link_to t("courses.buttons.admin.assigntrainee"), edit_admin_course_assign_trainees_path(@course),
+            class: "btn btn-info" %>
         </div>
       </div>
       <div class="list-subject">
@@ -62,7 +66,6 @@
           </div>
         <% end %>
       </div>
-
     </div>
     <div class="col-md-4 rightbar">
       <ul class="nav nav-tabs">

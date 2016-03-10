@@ -8,6 +8,7 @@ en:
         delete: "Delete"
         delete_confirm: "Are you sure"
         start: "Start"
+        assigntrainee: "Assign Trainee"
         finish: "Finish"
         finished: "Finished"
         create_course: "Create course"

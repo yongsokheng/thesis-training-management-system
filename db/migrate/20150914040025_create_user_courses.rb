@@ -3,11 +3,10 @@ class CreateUserCourses < ActiveRecord::Migration
     create_table :user_courses do |t|
       t.boolean :active, default: 1
       t.integer :user_id
-      t.integer :supervisor_id
-      t.integer :leader_id
       t.integer :course_id
-      
+
       t.timestamps null: false
     end
+    add_index :user_courses, [:user_id, :course_id], unique: true
   end
 end
