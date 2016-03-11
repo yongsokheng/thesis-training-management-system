@@ -11,6 +11,8 @@ class Course < ActiveRecord::Base
   validates :start_date, presence: true unless :master?
   validates :end_date, presence: true unless :master?
 
+  before_destroy :back_up_master if :master?
+
   has_many :childrens, class_name: Course.name, foreign_key: :parent_id
   belongs_to :parent, class_name: Course.name
 
@@ -71,6 +73,21 @@ class Course < ActiveRecord::Base
 
   def finish_course
     self.update_attributes status: :finish
+  end
+
+  def back_up_master
+    self.childrens.each do |course|
+      course.update_attributes name: self.name, description: self.description
+      course.save
+    end
+  end
+
+  def name
+    self[:name] || parent.name unless self.new_record?
+  end
+
+  def description
+    self[:description] || parent.description unless self.new_record?
   end
 
   private
