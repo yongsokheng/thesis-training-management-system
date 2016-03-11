@@ -106,3 +106,9 @@ en:
   button:
     edit: "Edit"
     delete: "Delete"
+tasks:
+    statuses:
+      new: New 
+      in_progress: In progress
+      closed: Closed
+      resolved: Resolved

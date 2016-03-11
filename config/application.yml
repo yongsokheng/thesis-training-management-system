@@ -5,6 +5,12 @@ defaults: &defaults
   languages:
     en: "en"
     jp: "ja"
+  tasks:
+    statuses:
+      new: 0
+      in_progress: 1
+      resolved: 2
+      closed: 3
   flag_size: "20x15"
   image_user_size: "30x30"
   finish: "finish"
