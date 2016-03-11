@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resource :assign_trainees
       resource :change_status_courses, only: :update
     end
+    resources :roles
     resources :subjects
   end
 

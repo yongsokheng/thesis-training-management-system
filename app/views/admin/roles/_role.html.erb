@@ -1,0 +1,17 @@
+<div class="row">
+  <hr>
+  <div id="role-<%= role.id %>">
+    <div class="col-md-6">
+      <p>
+        <%= role.name %>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <%= link_to t("button.edit"), edit_admin_role_path(role),
+        class: "btn btn-default btn-success" %>
+      <%= link_to t("button.delete"), admin_role_path(role),
+        method: :delete, data: {confirm: t("messages.delete.confirm")},
+        class: "btn btn-default btn-danger" %>
+    </div>
+  </div>
+</div>

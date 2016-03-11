@@ -103,6 +103,7 @@ en:
       courses: "Courses"
       subjects: "Subjects"
       course_masters: "Course Masters"
+      roles: "Roles"
   button:
     edit: "Edit"
     delete: "Delete"

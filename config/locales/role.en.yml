@@ -1,0 +1,13 @@
+en:
+  roles:
+    buttons:
+      admin:
+        create: "Create"
+        edit: "Edit"
+        update: "Update"
+        delete: "Delete"
+        delete_confirm: "Are you sure"
+        assignuser: "Assign User"
+    create_role: "Create role"
+    no_role: "No role to display"
+    name: "Name"
