@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :task_master_id
-      t.references :course_subject, index: true, foreign_key: true
+      t.references :course_subject, index: true, foreign_key: {on_delete: :cascade}
 
       t.timestamps null: false
     end
