@@ -16,6 +16,7 @@
  *= require users
  *= require courses
  *= require subjects
+ *= require admin/user_subjects
  *= require bootstrap-datepicker3
  */
 

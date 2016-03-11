@@ -17,3 +17,5 @@ en:
     course_masters: "Course Masters"
     start_date: "Start date"
     end_date: "End date"
+    status:
+      new: "New"

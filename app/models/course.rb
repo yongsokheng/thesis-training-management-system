@@ -13,7 +13,7 @@ class Course < ActiveRecord::Base
 
   before_destroy :back_up_master if :master?
 
-  has_many :childrens, class_name: Course.name, foreign_key: :parent_id
+  has_many :children, class_name: Course.name, foreign_key: :parent_id
   belongs_to :parent, class_name: Course.name
 
   has_many :course_subjects, dependent: :destroy

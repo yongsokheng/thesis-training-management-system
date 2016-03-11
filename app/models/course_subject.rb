@@ -22,11 +22,6 @@ class CourseSubject < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|attributes| attributes["name"].blank?}
-  enum status: [:init, :progress, :finish]
-
-  def start_subject
-    self.update_attributes status: :progress
-  end
 
   private
   def create_user_subjects_when_add_new_subject
