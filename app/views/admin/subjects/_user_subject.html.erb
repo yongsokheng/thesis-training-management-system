@@ -1,5 +1,5 @@
 <div class="user-list">
-  <span><%= user_subject.user.name %></span>
+  <span><h3><%= user_subject.user.name %></h3></span>
   <% if @course.progress? %>
     <span class="pull-right">
       <% if user_subject.init? %>
@@ -20,4 +20,7 @@
       <% end %>
     </span>
   <% end %>
+  <div class="user_tasks">
+    <%= render user_subject.user_tasks %>
+  </div>
 </div>
