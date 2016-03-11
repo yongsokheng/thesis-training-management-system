@@ -14,7 +14,7 @@ class Admin::AssignTraineesController < ApplicationController
     else
       flash[:danger] = flash_message "not updated"
     end
-    redirect_to redirect_to admin_course_path @course
+    redirect_to admin_course_path @course
   end
 
   private
