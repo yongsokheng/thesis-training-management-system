@@ -7,7 +7,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def new
-    @parent_id = params[:parent_id]
+    @course = Course.new parent_id: params[:parent_id]
   end
 
   def create
