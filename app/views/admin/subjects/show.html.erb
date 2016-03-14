@@ -1,13 +1,8 @@
 <div id="user-subject" class="row">
   <div class="col-md-10">
-    <h1><%= t "admin.subject.labels.show" %></h1>
-    <h4><b class="text-success"><%= @subject.name %></b></h4>
-    <h4><b><%= @subject.description %></b></h4>
-    <% @task_masters.each do |task_master| %>
-      <div><%= task_master.name %></div>
-    <% end %>
-
-    <h1><%= t "admin.subject.labels.user_lists" %></h1>
+    <h2><b class="text-success"><%= @subject.name %></b></h2>
+    <p><i><%= @subject.description %></i></p>
+    <h3><%= t "admin.subject.labels.user_lists" %></h3>
     <div class="user-lists">
       <%= render "user_lists" %>
     </div>

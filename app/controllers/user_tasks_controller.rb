@@ -6,7 +6,7 @@ class UserTasksController < ApplicationController
   def update
     if @user_task.update_attributes user_task_params
       flash[:success] = flash_message "updated"
-      redirect_to course_subject_path @user_course, @user_subject
+      redirect_to course_user_subject_path @user_course, @user_subject
     else
       flash[:failed] = flash_message "not updated"
       render :edit

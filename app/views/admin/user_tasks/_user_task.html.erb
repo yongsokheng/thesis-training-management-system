@@ -11,6 +11,9 @@
     </div>
   </div>
   <div class="col-md-3">
-    <%= t "subjects.status" %>&nbsp;<%= user_task.status %>
+    <%= t "subjects.status" %>&nbsp;
+    <span class="text-danger">
+      <i><%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %></i>
+    </span>
   </div>
 </div>
