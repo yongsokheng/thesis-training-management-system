@@ -76,7 +76,7 @@ class Course < ActiveRecord::Base
   end
 
   def back_up_master
-    self.childrens.each do |course|
+    self.children.each do |course|
       course.update_attributes name: self.name, description: self.description
       course.save
     end
