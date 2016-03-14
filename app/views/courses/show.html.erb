@@ -54,12 +54,6 @@
           <strong><%= t "subjects.end_date" %></strong>
           <%= @course.end_date.strftime Settings.date_course_format unless @course.end_date.nil? %>
         </div>
-        <div class="information col-md-6">
-          <% @user_subjects.each_with_index do |user_subject, index| %>
-            <strong><%= index + 1 %>.&nbsp;<%= link_to user_subject.course_subject.subject.name, course_user_subject_path(@course, user_subject) %></strong>
-            <hr>
-          <% end %>
-        </div>
       </div>
     </div>
 
