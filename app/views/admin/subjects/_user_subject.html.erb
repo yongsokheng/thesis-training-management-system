@@ -1,7 +1,12 @@
-<div class="user-list">
+<div class="row">
   <span><h3><%= user_subject.user.name %></h3></span>
-  <% if @course.progress? %>
-    <span class="pull-right">
+  <div class="col-md-8">
+    <div class="user_tasks">
+      <%= render user_subject.user_tasks %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <% if @course.progress? %>
       <% if user_subject.init? %>
         <div><%= link_to t("admin.actions.show_subject.start"),
           admin_course_subject_user_subject_path(@course_subject, user_subject),
@@ -18,9 +23,18 @@
           <%= user_subject.status %>
         </div>
       <% end %>
-    </span>
-  <% end %>
-  <div class="user_tasks">
-    <%= render user_subject.user_tasks %>
+      <p>
+        <%= t "subjects.fields.start_date" %>&nbsp;:
+        <span class="text-danger">
+          <%= user_subject.start_date %>
+        </span>
+      </p>
+      <p>
+        <%= t "subjects.fields.end_date" %>&nbsp;:
+        <span class="text-danger">
+          <%= user_subject.end_date %>
+        </span>
+      </p>
+    <% end %>
   </div>
 </div>

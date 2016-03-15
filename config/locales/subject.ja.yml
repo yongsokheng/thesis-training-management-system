@@ -12,3 +12,10 @@ ja:
         delete_confirm: "本気ですか？"
     create_subject: "件名を作成します"
     subject_mangement: "件名の管理"
+    fields:
+      name: "名"
+      description: "説明"
+      during_time: "この間（就業日）"
+      days: "日々）"
+      start_date: "開始日"
+      end_date: "終了日"

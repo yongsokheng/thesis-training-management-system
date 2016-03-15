@@ -12,3 +12,10 @@ en:
         delete_confirm: "Are you sure"
     create_subject: "Create subject"
     subject_mangement: "Subject Managament"
+    fields:
+      name: "Name"
+      description: "Description"
+      during_time: "During time (working day)"
+      days: "day(s)"
+      start_date: "Start date"
+      end_date: "End date"

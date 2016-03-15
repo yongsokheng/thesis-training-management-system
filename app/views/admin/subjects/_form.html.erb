@@ -8,6 +8,8 @@
         <%= f.text_field :name, class: "form-control", required: true%>
         <%= f.label :description %>
         <%= f.text_area :description, class: "form-control" %>
+        <%= f.label :during_time %>
+        <%= f.number_field :during_time, min: 0, class: "form-control" %>
       </div>
       <div class="col-md-6">
         <%= f.fields_for :task_masters do |builder| %>
