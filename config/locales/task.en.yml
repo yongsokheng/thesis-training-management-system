@@ -6,3 +6,5 @@ en:
     update: "Update"
     redmine_task_id: "Remine task id"
     progress: "Progress:"
+    assign_for: "Assign for:"
+    task_not_assign: "Task hadn't assigned yet"

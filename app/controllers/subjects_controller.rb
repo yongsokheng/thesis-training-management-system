@@ -1,12 +1,23 @@
 class SubjectsController < ApplicationController
   load_and_authorize_resource :user
-  load_and_authorize_resource :course
+  load_and_authorize_resource :course, only: [:index, :show]
+  load_and_authorize_resource :subject, only: :show
+
   before_action :load_course, only: :update
   before_action :check_status, only: :update
   before_action :check_status_subject, only: :update
 
   def index
     @user_subjects = UserSubject.load_user_subject(@user, @course)
+  end
+
+  def show
+    @task_masters = @subject.task_masters
+    @course_subject = CourseSubject.find_by course_id: @course.id,
+      subject_id: @subject.id
+    @user_subjects = @course_subject.user_subjects
+    @users = @course.users
+    @unassign_tasks = @course_subject.tasks.not_assigned_trainee
   end
 
   private

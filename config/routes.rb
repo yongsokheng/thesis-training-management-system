@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: :show do
-    resources :subjects, only: [:show]
+    resources :subjects, only: :show
+    resources :tasks
     resources :user_subjects, only: [:update, :show]
   end
   resources :users, only: [:edit, :update, :show]

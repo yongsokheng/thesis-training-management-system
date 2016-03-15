@@ -167,12 +167,13 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_index "task_masters", ["subject_id"], name: "index_task_masters_on_subject_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.text     "description",       limit: 65535
-    t.integer  "task_master_id",    limit: 4
-    t.integer  "course_subject_id", limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "task_master_id",      limit: 4
+    t.integer  "assigned_trainee_id", limit: 4
+    t.integer  "course_subject_id",   limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "tasks", ["course_subject_id"], name: "index_tasks_on_course_subject_id", using: :btree

@@ -1,7 +1,6 @@
-
 class UserTasksController < ApplicationController
   load_and_authorize_resource
-  before_action :load_user_subject_course, only: [:update]
+  before_action :load_user_subject_course, only: :update
 
   def update
     if @user_task.update_attributes user_task_params

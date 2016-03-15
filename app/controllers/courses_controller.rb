@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   before_action :load_course, only: :show
 
   def show
+    @course_subjects = @course.course_subjects
   end
 
   private
