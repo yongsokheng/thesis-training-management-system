@@ -31,6 +31,7 @@ defaults: &defaults
       - "read"
       - "update"
       - "destroy"
+  hours_working_day: 8
 development:
   <<: *defaults
   neat_setting: 800
