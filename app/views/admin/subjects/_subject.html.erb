@@ -4,6 +4,7 @@
     <div class="col-md-5">
       <h4><%= subject.name %></h4>
       <p><%= subject.description %></p>
+      <p class="text-danger"><%= subject.during_time %>&nbsp;<%= t "subjects.fields.days" %></p>
     </div>
     <div class="col-md-5">
       <% subject.task_masters.each_with_index do |task_master, index|%>

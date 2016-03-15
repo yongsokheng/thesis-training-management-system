@@ -23,15 +23,15 @@ class UserSubject < ActiveRecord::Base
   class << self
     def update_all_status status
       if status == "start"
-        load_users(statuses[:init]).update_all status: statuses[:progress]
+        load_users(statuses[:init]).update_all(status: statuses[:progress], start_date: Time.now)
       else
-        load_users(statuses[:progress]).update_all status: statuses[:finish]
+        load_users(statuses[:progress]).update_all(status: statuses[:finish], end_date: Time.now)
       end
     end
   end
 
   def update_status
-    init? ? update_attributes(status: :progress) :  update_attributes(status: :finish)
+    init? ? update_attributes(status: :progress, start_date: Time.now) :  update_attributes(status: :finish, end_date: Time.now)
   end
 
   private
