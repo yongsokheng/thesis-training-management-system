@@ -1,7 +1,13 @@
 class SubjectsController < ApplicationController
+  load_and_authorize_resource :user
+  load_and_authorize_resource :course
   before_action :load_course, only: :update
   before_action :check_status, only: :update
   before_action :check_status_subject, only: :update
+
+  def index
+    @user_subjects = UserSubject.load_user_subject(@user, @course)
+  end
 
   private
   def load_course
