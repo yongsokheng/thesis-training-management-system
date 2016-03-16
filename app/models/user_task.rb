@@ -11,9 +11,19 @@ class UserTask < ActiveRecord::Base
   belongs_to :user
 
   before_create :init_relation_user
+  after_update :subject_progress
 
   private
   def init_relation_user
     self.user_id = self.user_subject.user_id
+  end
+
+  def subject_progress
+    if self.status == Settings.tasks.statuses.closed
+      total_time = self.user_subject.total_time_task_closed
+      total_time += self.estimated_time.to_f
+      self.user_subject.update_attributes(total_time_task_closed: total_time, progress: total_time * 100 /
+        (self.user_subject.during_time * Settings.hours_working_day))
+    end
   end
 end

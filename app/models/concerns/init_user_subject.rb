@@ -5,7 +5,8 @@ module InitUserSubject
         course_subjects.each do |course_subject|
           user_course.user_subjects.create course_id: course_id,
             user_id: user_course.user_id,
-            course_subject_id: course_subject.id
+            course_subject_id: course_subject.id,
+            during_time: course_subject.subject.during_time
         end
       end
     end

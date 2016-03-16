@@ -200,15 +200,18 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_index "user_courses", ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true, using: :btree
 
   create_table "user_subjects", force: :cascade do |t|
-    t.integer  "status",            limit: 4, default: 0
-    t.integer  "user_id",           limit: 4
-    t.integer  "course_id",         limit: 4
-    t.integer  "user_course_id",    limit: 4
-    t.integer  "course_subject_id", limit: 4
+    t.integer  "status",                 limit: 4, default: 0
+    t.integer  "user_id",                limit: 4
+    t.integer  "course_id",              limit: 4
+    t.integer  "user_course_id",         limit: 4
+    t.integer  "course_subject_id",      limit: 4
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "during_time",            limit: 4, default: 0
+    t.integer  "total_time_task_closed", limit: 4, default: 0
+    t.integer  "progress",               limit: 4, default: 0
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   add_index "user_subjects", ["course_id"], name: "index_user_subjects_on_course_id", using: :btree
