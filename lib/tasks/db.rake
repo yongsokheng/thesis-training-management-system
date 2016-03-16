@@ -3,9 +3,14 @@ namespace :db do
   task remake_data: :environment do
     Rake::Task["db:migrate:reset"].invoke
 
+    puts "Creating Role"
+    ["admin", "trainer", "trainee"].each do |name|
+      Fabricate :role, name: name
+    end
+
     puts "Creating User"
-    Fabricate :user, email: "admin@tms.com"
-    Fabricate :user, email: "supervisor@tms.com"
+    Fabricate :user, email: "admin@tms.com", role_id: 1
+    Fabricate :user, email: "supervisor@tms.com", role_id: 2
     30.times do
       Fabricate :user
     end
@@ -13,12 +18,6 @@ namespace :db do
     puts "Creating Subject"
     10.times do
       Fabricate :subject
-    end
-
-    puts "Creating Role"
-    Fabricate :role, name: "admin"
-    3.times do
-      Fabricate :role
     end
 
     puts "Creating Evaluation Template"

@@ -27,7 +27,6 @@
               <% if user_subject.init? %>
                 <div class="status init">
                   <strong><%= user_subject.course_subject.subject.name %></strong>
-                </div>
               <% elsif user_subject.progress? %>
                 <div class="status inprogress">
               <% elsif user_subject.finish? %>

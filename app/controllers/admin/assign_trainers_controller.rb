@@ -1,8 +1,8 @@
-class Admin::AssignTraineesController < ApplicationController
+class Admin::AssignTrainersController < ApplicationController
   load_and_authorize_resource :course
 
   def edit
-    @trainees = Role.find_by(name: "trainee").users
+    @trainers = Role.find_by(name: "trainer").users
   end
 
   def update
