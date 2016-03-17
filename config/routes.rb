@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resource :assign_trainees, only: [:edit, :update]
       resource :change_status_courses, only: :update
     end
-    resources :roles
+    resources :roles do
+      resource :allocate_permissions
+    end
     resources :subjects
     resources :course_subjects do
       resources :user_subjects, only: :update do

@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
     return course.user_courses.find_by(leader_id: self.id) ? true :false
   end
 
+  def is_admin?
+    self.role.name == "admin"
+  end
+
   private
   def password_required?
     new_record? ? super : false
