@@ -45,6 +45,8 @@ class Course < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_courses, allow_destroy: true
 
+  ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
+
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
   end

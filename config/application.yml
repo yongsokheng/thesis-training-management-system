@@ -26,6 +26,7 @@ defaults: &defaults
     check_position: 0
     index: 1
   roles:
+    trainer: "trainer"
     actions:
       - "create"
       - "read"
