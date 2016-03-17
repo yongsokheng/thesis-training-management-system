@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
+  protected
+  def current_ability
+    @current_ability ||= Ability.new current_user
+  end
+
   private
   def after_sign_in_path_for user
     root_path
