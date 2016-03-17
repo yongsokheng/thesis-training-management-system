@@ -10,6 +10,8 @@ class UserTask < ActiveRecord::Base
   belongs_to :user_subject
   belongs_to :user
 
+  delegate :name, to: :task
+
   before_create :init_relation_user
   after_update :subject_progress
 

@@ -20,3 +20,11 @@ en:
       start_date: "Start date"
       end_date: "End date"
       progress: "Progress"
+    label:
+      user_lists: "User List"
+    submit:
+      create_task: "Create"
+    create_new_task: "Create new task"
+    task:
+      finish_all: "Finish all"
+  assignee: "Assign for"
