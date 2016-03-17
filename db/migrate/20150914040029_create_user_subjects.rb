@@ -11,6 +11,7 @@ class CreateUserSubjects < ActiveRecord::Migration
       t.integer :during_time, default: 0
       t.integer :total_time_task_closed, default: 0
       t.integer :progress, default: 0
+      t.references :group_subject, index: true, foreign_key: true
 
       t.timestamps null: false
     end
