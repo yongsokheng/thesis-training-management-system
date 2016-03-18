@@ -32,6 +32,9 @@ namespace :db do
     
     puts "Creating Permissions"
     Fabricate :permission, model_class: "CourseMaster", role_id: 1
+    ["Course", "CourseSubject", "Subject", "UserSubject"].each do |name|
+      Fabricate :permission, model_class: name, action: "manage", role_id: 2
+    end
     ["update", "show"].each do |name|
       Fabricate :permission, model_class: "UserSubject", action: name
       Fabricate :permission, model_class: "UserTask", action: name
