@@ -3,7 +3,11 @@ class Admin::CoursesController < ApplicationController
   before_action :load_subjects, only: [:new, :create, :edit]
 
   def index
-    @courses = @courses.normal.recent
+    if current_user.is_admin?
+      @courses = @courses.normal.recent
+    else
+      @courses = current_user.courses
+    end
   end
 
   def new

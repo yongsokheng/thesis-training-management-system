@@ -5,7 +5,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <% if permission_course_master %>
+        <% if current_user.decorate.permission_course_master %>
           <li>
             <%= link_to t("courses.course_masters"), admin_course_masters_path %>
           </li>
@@ -15,8 +15,12 @@
           <li>
             <%= link_to t("subjects.subject"), admin_subjects_path %>
           </li>
+        <% elsif current_user.decorate.permission_course %>
+          <li>
+            <%= link_to t("courses.course"), admin_courses_path %>
+          </li>
         <% else %>
-            <li><%= link_to t("courses.course"), user_course_last_actived %></li>
+          <li><%= link_to t("courses.course"), current_user.decorate.user_course_last_actived %></li>
         <% end %>
         <li>
           <div id="flag-language">
