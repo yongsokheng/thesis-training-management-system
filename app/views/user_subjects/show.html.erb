@@ -100,10 +100,10 @@
     </ul>
     <div class="tab-content">
       <div id="show_member" class="tab-pane fade in active list_special">
-        <% @course.users.each do |user| %>
+        <% @users.each do |user| %>
           <li class="list-group-item" id="infor_member">
             <%= image_tag "profile.png" %>
-            <%= link_to user.name, user_path(user) %>
+            <%= link_to user.name, user %>
           </li>
         <% end %>
       </div>

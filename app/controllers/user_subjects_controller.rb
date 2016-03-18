@@ -6,6 +6,8 @@ class UserSubjectsController < ApplicationController
   def show
     @user_subject = UserSubject.find params[:id]
     @course = @user_subject.user_course.course
+    @group_subject = @user_subject.group_subject
+    @users = @group_subject ? @group_subject.users : []
   end
 
   def update
