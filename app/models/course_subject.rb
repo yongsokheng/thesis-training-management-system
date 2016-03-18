@@ -2,8 +2,8 @@ class CourseSubject < ActiveRecord::Base
   include PublicActivity::Model
   include InitUserSubject
 
-  after_create :create_user_subjects_when_add_new_subject
   after_create :create_tasks
+  after_create :create_user_subjects_when_add_new_subject
   before_create :init_position
   after_destroy :reorder_position
 
