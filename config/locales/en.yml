@@ -107,9 +107,11 @@ en:
   button:
     edit: "Edit"
     delete: "Delete"
+  roles:
+    allocate: "Allocate"
 tasks:
     statuses:
-      new: New 
+      new: New
       in_progress: In progress
       closed: Closed
       resolved: Resolved
