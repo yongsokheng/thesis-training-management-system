@@ -5,15 +5,19 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to t("courses.course_masters"), admin_course_masters_path %>
-        </li>
-        <li>
-          <%= link_to t("courses.course"), admin_courses_path %>
-        </li>
-        <li>
-          <%= link_to t("subjects.subject"), admin_subjects_path %>
-        </li>
+        <% if permission_course_master %>
+          <li>
+            <%= link_to t("courses.course_masters"), admin_course_masters_path %>
+          </li>
+          <li>
+            <%= link_to t("courses.course"), admin_courses_path %>
+          </li>
+          <li>
+            <%= link_to t("subjects.subject"), admin_subjects_path %>
+          </li>
+        <% else %>
+            <li><%= link_to t("courses.course"), user_course_last_actived %></li>
+        <% end %>
         <li>
           <div id="flag-language">
             <% Settings.languages.each do |_, val| %>

@@ -29,5 +29,14 @@ namespace :db do
     5.times do
       Fabricate :task_master
     end
+    
+    puts "Creating Permissions"
+    Fabricate :permission, model_class: "CourseMaster", role_id: 1
+    ["update", "show"].each do |name|
+      Fabricate :permission, model_class: "UserSubject", action: name
+      Fabricate :permission, model_class: "UserTask", action: name
+      Fabricate :permission, model_class: "User", action: name
+    end
+    
   end
 end
