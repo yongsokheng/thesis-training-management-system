@@ -1,4 +1,14 @@
-<%= render partial: "admin/subjects/user_subject", collection: @user_subjects, as: :user_subject %>
+<% @group_subjects.each do |key, value| %>
+  <% unless key.nil? %>
+    <h2 class="center text-success"><%= link_to key.name,
+      edit_admin_course_subject_group_subject_path(@course_subject, key.id) %>
+    </h2>
+  <% else %>
+    <h2 class="center text-danger"><%= t "subjects.no_group" %></h2>
+  <% end %>
+  <%= render partial: "admin/subjects/user_subject", collection: value, as: :user_subject %>
+<% end %>
+
 <hr>
 <% if @course.progress? %>
   <%= link_to t("admin.actions.show_subject.finish_all"),

@@ -4,6 +4,7 @@ class Admin::UserSubjectsController < ApplicationController
 
   def update
     @user_subject.update_status
+    @group_subjects = @course_subject.user_subjects.group_by(&:group_subject)
     respond_to do |format|
       format.js
     end

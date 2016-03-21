@@ -20,3 +20,5 @@ ja:
       start_date: "開始日"
       end_date: "終了日"
       progress: "進捗"
+      crete_group: "グループを作成"
+      no_group: "いいえグループはありません"

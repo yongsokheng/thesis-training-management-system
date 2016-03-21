@@ -39,7 +39,7 @@
           <%= link_to t("courses.buttons.admin.assigntrainee"),
             edit_admin_course_assign_trainees_path(@course),
             class: "btn btn-info" %>
-          <%= link_to t("courses.buttons.admin.assigntrainer"), 
+          <%= link_to t("courses.buttons.admin.assigntrainer"),
             edit_admin_course_assign_trainers_path(@course),
             class: "btn btn-info" %>
         </div>
@@ -48,12 +48,17 @@
         <% @course_subjects.each_with_index do |course_subject, index| %>
           <div class="row">
             <hr>
-            <div class="col-md-10">
+            <div class="col-md-8">
               <strong>
                 <%= index + 1 %>.&nbsp;
                 <%= link_to course_subject.subject.name,
                   admin_course_subject_path(@course, course_subject.subject) %>
               </strong>
+            </div>
+            <div class="col-md-4">
+              <%= link_to t("subjects.crete_group"),
+                new_admin_course_subject_group_subject_path(course_subject.id),
+                class: "btn btn-success" %>
             </div>
           </div>
         <% end %>
