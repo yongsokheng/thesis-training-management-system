@@ -27,6 +27,7 @@ en:
     create_new_task: "Create new task"
     task:
       finish_all: "Finish all"
+      assignee: "Assign for"
+      had_not_assigned: "Task had not assigned yet"
     crete_group: "Create group"
     no_group: "No group"
-  assignee: "Assign for"

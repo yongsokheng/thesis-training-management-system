@@ -16,7 +16,6 @@ class SubjectsController < ApplicationController
     @course_subject = CourseSubject.find_by course_id: @course.id,
       subject_id: @subject.id
     @user_subjects = @course_subject.user_subjects
-    @users = @course.users
     @unassign_tasks = @course_subject.tasks.not_assigned_trainee
   end
 

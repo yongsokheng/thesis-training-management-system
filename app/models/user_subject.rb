@@ -16,6 +16,7 @@ class UserSubject < ActiveRecord::Base
   accepts_nested_attributes_for :user_tasks
 
   after_create :create_user_tasks
+
   scope :load_user_subject, ->(user_id, course_id){where "user_id = ? AND course_id = ?", user_id, course_id}
   scope :load_users, ->status {where status: status}
   scope :not_in_group, ->{where group_subject_id: nil}
