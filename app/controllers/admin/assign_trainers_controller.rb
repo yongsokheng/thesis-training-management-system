@@ -6,7 +6,7 @@ class Admin::AssignTrainersController < ApplicationController
   end
 
   def update
-    if @course.update_attributes course_params
+    if params[:course] && @course.update_attributes(course_params)
       flash[:success] = flash_message "updated"
     else
       flash[:danger] = flash_message "not updated"
@@ -16,6 +16,6 @@ class Admin::AssignTrainersController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit Course::ATTRIBUTES_PARAMS 
+    params.require(:course).permit Course::ATTRIBUTES_PARAMS
   end
 end
