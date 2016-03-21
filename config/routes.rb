@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   resources :subjects, only: [:show]
   resources :user_tasks
+  resources :user_courses, :show
 end
