@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @activities = PublicActivity::Activity.user_activities(@user.id).recent.limit(20).decorate
     if @user_course = @user.user_courses.actived.last
       @user_subjects = @user_course.user_subjects
-      @user_subject = UserSubject.find params[:id]
       @inprogress_course = @user_course.course
       @finished_courses = @user.courses.finish
       @user_subjects.each do |user_subject|
