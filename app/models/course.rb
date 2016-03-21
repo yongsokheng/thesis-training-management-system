@@ -51,10 +51,6 @@ class Course < ActiveRecord::Base
     create_user_subjects user_courses, course_subjects, id, false
   end
 
-  def create_course_owner user
-    UserCourse.create user_id: user.id, course_id: id
-  end
-
   def check_day_present
     unless self.start_date.nil?
       self.errors.add :start_date, I18n.t("error.wrong_date") if
