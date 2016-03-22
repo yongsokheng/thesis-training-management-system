@@ -41,4 +41,8 @@ module ApplicationHelper
     href = html_options[:href] || '#'
     content_tag :a, name, html_options.merge(href: href, onclick: onclick)
   end
+
+  def tab_active tab_name, current_tab
+    current_tab == tab_name ? "active" : nil
+  end
 end

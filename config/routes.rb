@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :course_masters
     resources :courses do
-      resources :subjects
+      resources :subjects, only: :show
       resource :assign_trainers, only: [:edit, :update]
       resource :assign_trainees, only: [:edit, :update]
       resource :change_status_courses, only: :update
