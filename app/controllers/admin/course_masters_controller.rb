@@ -9,6 +9,10 @@ class Admin::CourseMastersController < ApplicationController
     @course_master = Course.new
   end
 
+  def show
+    @courses = @course_master.children
+  end
+
   def create
     @course_master = Course.new course_master_params
     if @course_master.save

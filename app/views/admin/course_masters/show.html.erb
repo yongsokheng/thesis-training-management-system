@@ -7,10 +7,47 @@
 <% else %>
   <div class="row">
     <div class="col-md-8 center">
-      <h1><%= @course_master.name %></h1>
+      <h1 class="text-success"><%= @course_master.name %></h1>
       <div class="description">
         <%= @course_master.description %>
       </div>
     </div>
+  </div>
+  <br>
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <th class="col-md-3"><%= t "courses.table.name" %></th>
+        <th class="col-md-5"><%= t "courses.table.description" %></th>
+        <th class="col-md-1"><%= t "courses.start_date" %></th>
+        <th class="col-md-1"><%= t "courses.end_date" %></th>
+        <th class="col-md-2 center"><%= t "courses.table.action" %></th>
+      </tr>
+      <% @courses.each do |course| %>
+        <tr>
+          <td class="col-md-3">
+            <p><strong><%= link_to course.name,
+              admin_course_path(course) %></strong>
+            </p>
+          </td>
+          <td class="col-md-5">
+            <p><%= course.description %></p>
+          </td>
+          <td class="col-md-1">
+            <p><%= course.start_date %></p>
+          </td>
+          <td class="col-md-1">
+            <p><%= course.end_date %></p>
+          </td>
+          <td class="col-md-2 center">
+            <%= link_to t("button.edit"), edit_admin_course_path(course),
+              class: "btn btn-default btn-success" %>
+            <%= link_to t("button.delete"), admin_course_path(course),
+              method: :delete, data: {confirm: t("messages.delete.confirm")},
+              class: "btn btn-default btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 <% end %>
