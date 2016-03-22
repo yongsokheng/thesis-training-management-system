@@ -1,10 +1,17 @@
 class UserTask < ActiveRecord::Base
   include PublicActivity::Model
 
+  ATTRIBUTES_PARAMS = [
+    :spent_time, :estimated_time, :redmine_task_id, :status, :progress,
+      :user_id, :user_subject_id, :task_id
+  ]
+
   tracked only: [:create],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model.user_subject.course_subject}
-  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
+
+  has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
+    dependent: :destroy
 
   belongs_to :task
   belongs_to :user_subject
@@ -14,6 +21,14 @@ class UserTask < ActiveRecord::Base
 
   before_create :init_relation_user
   after_update :subject_progress
+
+  def has_group_subject?
+    self.user_subject.group_subject.present?
+  end
+
+  def group_subject
+      self.user_subject.group_subject.users
+  end
 
   private
   def init_relation_user

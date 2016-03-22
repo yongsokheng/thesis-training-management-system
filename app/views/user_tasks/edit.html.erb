@@ -22,7 +22,6 @@
         <%= f.select :status, options_for_select(Settings.tasks.statuses,
           selected: params[:user_task_status]) %>
       </div>
-
     </div>
     <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
   </div>

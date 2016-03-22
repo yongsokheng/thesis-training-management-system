@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :course_subject
   has_many :user_tasks, dependent: :destroy
+  belongs_to :assigned_trainee, class_name: User.name
 
   ATTRIBUTES_PARAMS = [
     :name, :description, :assigned_trainee_id, :course_subject_id
@@ -8,16 +9,27 @@ class Task < ActiveRecord::Base
 
   scope :not_assigned_trainee, ->{where assigned_trainee_id: nil}
 
-  after_create :create_user_task
+  after_save :change_user_task
 
   private
-  def create_user_task
-    unless self.assigned_trainee_id.nil?
-      @course_subject = self.course_subject
-      @user_subject = @course_subject.user_subjects.find_by(user_id: self.
-        assigned_trainee_id)
-      UserTask.create task_id: self.id, user_id: self.assigned_trainee_id,
-        user_subject_id: @user_subject.id
+  def change_user_task
+    return if assigned_trainee.nil?
+    user_task = user_task_of_trainee
+    if user_task.nil?
+      self.user_tasks.create user: assigned_trainee,
+        user_subject: user_subject
+    else
+      user_task.update_attributes user: assigned_trainee,
+        user_subject: user_subject
     end
+  end
+
+  def user_task_of_trainee
+    UserTask.find_by user: self.changed_attributes["assigned_trainee_id"],
+      task: self
+  end
+
+  def user_subject
+    self.course_subject.user_subjects.find_by user: assigned_trainee
   end
 end
