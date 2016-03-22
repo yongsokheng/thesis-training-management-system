@@ -1,0 +1,12 @@
+en:
+  table:
+    thead:
+      name: "Name"
+      min_point: "Min_point"
+      max_point: "Max_point"
+  evaluation_template:
+    buttons: 
+      create: "Create"
+      update: "Update"
+  layouts:
+    evaluation_template: "Evaluation Templates"
