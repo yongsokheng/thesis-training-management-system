@@ -2,6 +2,7 @@ class Admin::GroupSubjectsController < ApplicationController
   load_and_authorize_resource
   load_and_authorize_resource :course_subject
 
+  before_action :load_data
   before_action :load_user_subjects_not_in_course, only: [:new, :create]
   before_action :load_user_subjects_in_course, only: [:edit, :update]
 
@@ -27,6 +28,11 @@ class Admin::GroupSubjectsController < ApplicationController
   end
 
   private
+
+  def load_data
+    @course = @course_subject.course
+  end
+
   def group_subject_params
     params.require(:group_subject).permit :name, user_subject_ids: []
   end

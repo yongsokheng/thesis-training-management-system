@@ -22,3 +22,6 @@ ja:
       progress: "進捗"
       crete_group: "グループを作成"
       no_group: "いいえグループはありません"
+    label:
+      user_lists: "ユーザーリスト"
+      action: "アクション"
