@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     end
     resources :subjects
     resources :course_subjects do
-      resources :user_subjects, only: :update do
-      end
+      resources :user_subjects, only: :update
+      resources :group_subjects
     end
 
     patch "status_subject/:course_subject_id/:status" => "status_subjects#update",

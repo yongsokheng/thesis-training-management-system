@@ -11,6 +11,7 @@ class Admin::SubjectsController < ApplicationController
     @course = Course.find params[:course_id]
     @course_subject = CourseSubject.find_by course_id: @course.id, subject_id: @subject.id
     @user_subjects = @course_subject.user_subjects
+    @group_subjects = @course_subject.user_subjects.group_by(&:group_subject)
   end
 
   def create
@@ -19,7 +20,7 @@ class Admin::SubjectsController < ApplicationController
       flash[:success] = flash_message "created"
       redirect_to admin_subjects_path
     else
-      flash[:failed] = flash_message "not created"
+      flash[:failed] = flash_message "not_created"
       render :new
     end
   end
@@ -32,7 +33,7 @@ class Admin::SubjectsController < ApplicationController
       flash[:success] = flash_message "updated"
       redirect_to admin_subjects_path
     else
-      flash[:failed] = flash_message "not updated"
+      flash[:failed] = flash_message "not_updated"
       render :edit
     end
   end
@@ -41,7 +42,7 @@ class Admin::SubjectsController < ApplicationController
     if @subject.destroy
       flash[:success] = flash_message "deleted"
     else
-      flash.now[:failed] = flash_message "not deleted"
+      flash.now[:failed] = flash_message "not_deleted"
     end
     respond_to do |format|
       format.html {redirect_to admin_subjects_path}

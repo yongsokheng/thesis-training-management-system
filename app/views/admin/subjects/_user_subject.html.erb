@@ -1,5 +1,9 @@
 <div class="row">
-  <span><h3><%= user_subject.user.name %></h3></span>
+  <div class="col-md-2">
+    <span><h3><%= user_subject.user.name %></h3></span>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-8">
     <div class="user_tasks">
       <%= render user_subject.user_tasks %>
