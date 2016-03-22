@@ -38,6 +38,10 @@ class UserSubject < ActiveRecord::Base
     init? ? update_attributes(status: :progress, start_date: Time.now) :  update_attributes(status: :finish, end_date: Time.now)
   end
 
+  def subject
+    self.course_subject.subject
+  end
+
   private
   def create_user_tasks
     course_subject.tasks.each do |task|
