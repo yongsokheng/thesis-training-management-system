@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   create_table "ranks", force: :cascade do |t|
     t.integer  "begin_point", limit: 4
     t.integer  "end_point",   limit: 4
-    t.float    "rank",        limit: 24
+    t.float    "rank_value",  limit: 24
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
