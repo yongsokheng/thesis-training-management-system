@@ -33,6 +33,11 @@ defaults: &defaults
       - "update"
       - "destroy"
   hours_working_day: 8
+  tabs:
+    overview: "overview"
+    subjects: "subjects"
+    trainees: "trainees"
+    trainers: "trainers"
 development:
   <<: *defaults
   neat_setting: 800

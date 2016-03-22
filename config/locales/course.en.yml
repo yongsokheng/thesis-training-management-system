@@ -10,7 +10,7 @@ en:
         start: "Start"
         assigntrainee: "Assign Trainee"
         assigntrainer: "Assign Trainer"
-        assignusers: "Assign Users" 
+        assignusers: "Assign Users"
         finish: "Finish"
         finished: "Finished"
         create_course: "Create course"
@@ -21,3 +21,9 @@ en:
     end_date: "End date"
     status:
       new: "New"
+    tabs:
+      overview: "Overview"
+      subjects: "Subjects"
+      trainees: "Trainees"
+      trainers: "Trainers"
+
