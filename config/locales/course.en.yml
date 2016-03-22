@@ -26,4 +26,7 @@ en:
       subjects: "Subjects"
       trainees: "Trainees"
       trainers: "Trainers"
-
+    table:
+      name: "Name"
+      description: "Description"
+      action: "Action"

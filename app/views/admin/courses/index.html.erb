@@ -1,6 +1,17 @@
 <div id="courses">
   <h1 class="center"><%= t "layouts.admin.courses" %></h1>
   <div id="course_section">
-    <%= render @courses %>
+    <div class="course_record row">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-md-3"><%= t "courses.table.name" %></th>
+          <th class="col-md-5"><%= t "courses.table.description" %></th>
+          <th class="col-md-1"><%= t "courses.start_date" %></th>
+          <th class="col-md-1"><%= t "courses.end_date" %></th>
+          <th class="col-md-2 center"><%= t "courses.table.action" %></th>
+        </tr>
+        <%= render @courses %>
+      </table>
+    </div>
   </div>
 </div>

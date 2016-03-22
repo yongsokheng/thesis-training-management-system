@@ -6,9 +6,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.decorate.permission_course_master %>
-          <li>
-            <%= link_to t("layouts.admin.roles"), admin_roles_path %>
-          </li>
+
           <li>
             <%= link_to t("courses.course_masters"), admin_course_masters_path %>
           </li>
