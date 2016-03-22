@@ -19,6 +19,9 @@
           <li>
             <%= link_to t("layouts.evaluation_template"), admin_evaluation_templates_path %>
           </li>
+          <li>
+            <%= link_to t("layouts.ranks"), admin_ranks_path %>
+          </li>
         <% elsif current_user.decorate.permission_course %>
           <li>
             <%= link_to t("courses.course"), admin_courses_path %>

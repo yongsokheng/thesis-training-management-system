@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     patch "status_subject/:course_subject_id/:status" => "status_subjects#update",
       as: :status_subject
     resources :evaluation_templates
+    resources :ranks
   end
 
   resources :courses, only: :show do

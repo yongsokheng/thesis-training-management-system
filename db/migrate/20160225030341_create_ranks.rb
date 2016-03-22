@@ -3,7 +3,7 @@ class CreateRanks < ActiveRecord::Migration
     create_table :ranks do |t|
       t.integer :begin_point
       t.integer :end_point
-      t.float :rank
+      t.float :rank_value
 
       t.timestamps null: false
     end
