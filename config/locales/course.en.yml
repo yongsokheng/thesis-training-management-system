@@ -38,3 +38,6 @@ en:
       admin: "Admin"
       trainer: "Trainers : "
       trainee: "Trainees : "
+    users:
+      name: "Name"
+      email: "Email"

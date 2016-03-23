@@ -78,19 +78,23 @@ select {
   text-indent: 5px;
 }
 
-.table thead tr th {
-  background-color: #F2F2F2;
-  padding: 4px;
-  border: none;
-}
+.table {
+  margin-top: 20px;
 
-.table tbody tr td {
-  border: none;
-  padding: 4px;
-}
+  thead tr th {
+    background-color: #F2F2F2;
+    padding: 4px;
+    border: none;
+  }
 
-.table tbody tr:hover td {
-  background-color: #FFFFD1;
+  tbody tr td {
+    border: none;
+    padding: 4px;
+  }
+
+  tbody tr:hover td {
+    background-color: #FFFFD1;
+  }
 }
 
 .title {
@@ -98,8 +102,6 @@ select {
   color: black;
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: 20px;
-
   .name {
     color: blue;
   }
