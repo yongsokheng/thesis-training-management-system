@@ -7,7 +7,9 @@ class Task < ActiveRecord::Base
     :name, :description, :assigned_trainee_id, :course_subject_id
   ]
 
-  scope :not_assigned_trainee, ->{where assigned_trainee_id: nil}
+  scope :not_assigned_trainee, -> do
+    where assigned_trainee_id: nil, task_master_id: nil
+  end
 
   after_save :change_user_task
 
