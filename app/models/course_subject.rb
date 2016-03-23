@@ -23,6 +23,8 @@ class CourseSubject < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|attributes| attributes["name"].blank?}
 
+  delegate :name, :description, to: :subject, prefix: true, allow_nil: true
+
   private
   def create_user_subjects_when_add_new_subject
     create_user_subjects course.user_courses, [self], course_id, course.init?
