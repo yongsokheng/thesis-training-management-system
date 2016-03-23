@@ -4,7 +4,7 @@
   </div>
 <% else %>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="title">
         <span><%= @course.name %></span>
         <span class="pull-right">
@@ -26,7 +26,7 @@
         <li role="presentation" class="<%= tab_active Settings.tabs.overview, active_tab %>">
           <%= link_to t("courses.tabs.overview"), admin_course_path(course) %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.subjects, active_tab %>">
-          <%= link_to t("courses.tabs.subjects"), "#" %></li>
+          <%= link_to t("courses.tabs.subjects"), admin_course_course_subjects_path(course) %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.trainees, active_tab %>">
           <%= link_to t("courses.tabs.trainees"), "#" %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.trainers, active_tab %>">
