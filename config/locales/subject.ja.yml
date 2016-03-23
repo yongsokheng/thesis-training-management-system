@@ -15,8 +15,8 @@ ja:
     fields:
       name: "名"
       description: "説明"
-      during_time: "この間（就業日）"
-      days: "日々）"
+      during_time: "就業日"
+      days: "(日々)"
       start_date: "開始日"
       end_date: "終了日"
       progress: "進捗"
@@ -24,4 +24,6 @@ ja:
       no_group: "いいえグループはありません"
     label:
       user_lists: "ユーザーリスト"
+      action: "アクション"
+      task: "仕事"
       action: "アクション"

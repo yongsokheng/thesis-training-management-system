@@ -4,7 +4,17 @@
     <span class="pull-right"><%= link_to t("subjects.buttons.admin.create"),
       new_admin_subject_path, class: "btn btn-success" %></span>
   </div>
-  <div id="subject_section">
-    <%= render @subjects %>
-  </div>
+  <table class="table table-striped tbl-subject">
+    <thead>
+      <tr>
+        <th class="name"><%= t "subjects.fields.name" %></th>
+        <th class="description"><%= t "subjects.fields.description" %></th>
+        <th class="during_time"><%= t "subjects.fields.during_time" %>&nbsp;<%= t "subjects.fields.days" %></th>
+        <th class="action"><%= t "subjects.label.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @subjects %>
+    </tbody>
+  </table>
 </div>

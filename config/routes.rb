@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :roles do
       resource :allocate_permissions
     end
-    resources :subjects
+    resources :subjects do
+      resources :task_masters, only: :index
+    end
     resources :course_subjects do
       resources :user_subjects, only: :update
       resources :group_subjects
