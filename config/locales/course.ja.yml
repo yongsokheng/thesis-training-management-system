@@ -32,3 +32,6 @@ ja:
       members: "メンバー"
       trainers: "トレーナー : "
       trainees: "研修生 : "
+    users:
+      name: "名"
+      email: "Eメール"
