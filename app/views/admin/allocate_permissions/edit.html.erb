@@ -1,7 +1,7 @@
 <%= form_for @role, url: admin_role_allocate_permissions_path, method: :patch do |f| %>
   <%= render "shared/error_messages", object: @role %>
 
-  <h2><%= @role.name %></h2>
+  <h2 class="center"><%= @role.name %></h2>
   <div class="row">
     <div class="col-md-6">
       <table class="table table-striped">

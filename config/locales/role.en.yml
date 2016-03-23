@@ -1,5 +1,9 @@
 en:
   roles:
+    table:
+        thread:
+            name: "Name"
+            action: "Action"
     buttons:
       admin:
         create: "Create"
