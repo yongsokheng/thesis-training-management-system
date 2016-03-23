@@ -8,10 +8,11 @@ class Admin::RanksController < ApplicationController
   def create
     if @rank.save
       flash[:success] = flash_message "created"
+      redirect_to admin_ranks_path
     else
       flash[:failed] = flash_message "not_created"
+      render :new
     end
-    redirect_to :back 
   end
 
   def update

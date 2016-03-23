@@ -1,33 +1,30 @@
-<h1 class="center"><%= t("layouts.evaluation_template") %></h1>
-<div class="row">
-  <div class="col-md-5">
-    <%= render "form" %>
+<div id="evaluation-templates">
+  <div class="title">
+    <span><%= t("layouts.evaluation_template") %></span>
+    <span class="pull-right"><%= link_to t("evaluation_template.buttons.create"),
+      new_admin_evaluation_template_path, class: "btn btn-success" %></span>
   </div>
-  <div class="col-md-7">
-    <table class="table table-hover">
-      <thead>
-        <tr class="info">
-          <th><%= t "table.thead.name" %></th>
-          <th><%= t "table.thead.min_point" %></th>
-          <th><%= t "table.thead.max_point" %></th>
-          <th></th>
-          <th></th>
+  <table class="table table-striped tbl-evaluation-template">
+    <thead>
+      <tr>
+        <th class="name"><%= t "table.thead.name" %></th>
+        <th class="min-point"><%= t "table.thead.min_point" %></th>
+        <th class="max-point"><%= t "table.thead.max_point" %></th>
+        <th class="action"><%= t "table.thead.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @evaluation_templates.each do |evaluation_template| %>
+        <tr>
+          <td class="name"><%= evaluation_template.name %></td>
+          <td class="min-point"><%= evaluation_template.min_point %></td>
+          <td class="max-point"><%= evaluation_template.max_point %></td>
+          <td class="action"><%= link_to t("button.edit"), edit_admin_evaluation_template_path(evaluation_template) %> &nbsp;
+            <%= link_to t("button.delete"),
+              admin_evaluation_template_path(evaluation_template),
+              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @evaluation_templates.each do |evaluation_template| %>
-          <tr>
-            <td><%= evaluation_template.name %></td>
-            <td><%= evaluation_template.min_point %></td>
-            <td><%= evaluation_template.max_point %></td>
-            <td><%= link_to t("button.edit"), edit_admin_evaluation_template_path(evaluation_template),
-              class: "btn btn-default btn-success" %></td>
-            <td><%= link_to t("button.delete"), admin_evaluation_template_path(evaluation_template),
-              method: :delete, data: {confirm: t("messages.delete.confirm")},
-              class: "btn btn-default btn-danger" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>

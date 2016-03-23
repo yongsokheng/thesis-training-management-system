@@ -1,24 +1,10 @@
-<tr id="course-<%= course.id %>">
-    <td class="col-md-3">
-      <p><strong><%= link_to course.name,
-        admin_course_path(course) %></strong>
-      </p>
-    </td>
-    <td class="col-md-5">
-      <p><%= course.description %></p>
-    </td>
-    <td class="col-md-1">
-      <p><%= course.start_date %></p>
-    </td>
-    <td class="col-md-1">
-      <p><%= course.end_date %></p>
-    </td>
-    <td class="col-md-2 center">
-      <%= link_to t("button.edit"), edit_admin_course_path(course),
-        class: "btn btn-default btn-success" %>
-      <%= link_to t("button.delete"), admin_course_path(course),
-        method: :delete, data: {confirm: t("messages.delete.confirm")},
-        class: "btn btn-default btn-danger" %>
-    </td>
-  </tr>
-
+<tr>
+  <td class="name"><%= link_to course.name, admin_course_path(course) %></td>
+  <td class="start-date"><%= course.start_date %></td>
+  <td class="end-date"><%= course.end_date %></td>
+  <td class="action">
+    <%= link_to t("button.edit"), edit_admin_course_path(course) %> &nbsp;
+    <%= link_to t("button.delete"), admin_course_path(course),
+      method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+  </td>
+</tr>

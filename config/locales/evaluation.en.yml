@@ -2,10 +2,11 @@ en:
   table:
     thead:
       name: "Name"
-      min_point: "Min_point"
-      max_point: "Max_point"
+      min_point: "Min point"
+      max_point: "Max point"
+      action: "Action"
   evaluation_template:
-    buttons: 
+    buttons:
       create: "Create"
       update: "Update"
   layouts:

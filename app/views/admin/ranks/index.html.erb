@@ -1,33 +1,30 @@
-<h1 class="center"><%= t("layouts.rank") %></h1>
-<div class="row">
-  <div class="col-md-5">
-    <%= render "form" %>
+<div id="ranks">
+  <div class="title">
+    <span><%= t "layouts.rank" %></span>
+    <span class="pull-right"><%= link_to t("rank.buttons.create"),
+      new_admin_rank_path, class: "btn btn-success" %></span>
   </div>
-  <div class="col-md-7">
-    <table class="table table-hover">
-      <thead>
-        <tr class="info">
-          <th><%= t "table.thead.begin_point" %></th>
-          <th><%= t "table.thead.end_point" %></th>
-          <th><%= t "table.thead.rank" %></th>
-          <th></th>
-          <th></th>
+  <table class="table table-striped tbl-rank">
+    <thead>
+      <tr>
+        <th class="begin-point"><%= t "table.thead.begin_point" %></th>
+        <th class="end-point"><%= t "table.thead.end_point" %></th>
+        <th class="rank"><%= t "table.thead.rank" %></th>
+        <th class="action"><%= t "table.thead.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ranks.each do |rank| %>
+        <tr>
+          <td class="begin-point"><%= rank.begin_point %></td>
+          <td class="end-point"><%= rank.end_point %></td>
+          <td class="rank"><%= rank.rank_value %></td>
+          <td class="action"><%= link_to t("button.edit"),
+            edit_admin_rank_path(rank) %> &nbsp;
+            <%= link_to t("button.delete"), admin_rank_path(rank),
+              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @ranks.each do |rank| %>
-          <tr>
-            <td><%= rank.begin_point %></td>
-            <td><%= rank.end_point %></td>
-            <td><%= rank.rank_value %></td>
-            <td><%= link_to t("button.edit"), edit_admin_rank_path(rank),
-              class: "btn btn-default btn-success" %></td>
-            <td><%= link_to t("button.delete"), admin_rank_path(rank),
-              method: :delete, data: {confirm: t("messages.delete.confirm")},
-              class: "btn btn-default btn-danger" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>

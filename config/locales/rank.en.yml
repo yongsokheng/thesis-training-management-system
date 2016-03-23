@@ -2,10 +2,10 @@ en:
   table:
     thead:
       rank: "Rank"
-      begin_point: "Begin_point"
-      end_point: "End_point"
+      begin_point: "Begin point"
+      end_point: "End point"
   rank:
-    buttons: 
+    buttons:
       create: "Create"
       update: "Update"
   layouts:

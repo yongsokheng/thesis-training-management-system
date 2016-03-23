@@ -17,7 +17,11 @@
  *= require courses
  *= require subjects
  *= require tab
+ *= require admin/course
+ *= require admin/subject
  *= require admin/user_subjects
+ *= require admin/rank
+ *= require admin/evaluation_template
  *= require bootstrap-datepicker3
  */
 
