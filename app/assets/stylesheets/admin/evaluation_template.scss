@@ -1,0 +1,11 @@
+#evaluation-templates {
+  .tbl-evaluation-template {
+    .name {
+      width: 40%;
+    }
+    .min-point, .max-point, .action {
+      width: 20%;
+      text-align: center;
+    }
+  }
+}

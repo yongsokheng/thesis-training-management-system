@@ -8,10 +8,11 @@ class Admin::EvaluationTemplatesController < ApplicationController
   def create
     if @evaluation_template.save
       flash[:success] = flash_message "created"
+      redirect_to admin_evaluation_templates_path
     else
       flash[:failed] = flash_message "not_created"
+      render :new
     end
-    redirect_to :back 
   end
 
   def update

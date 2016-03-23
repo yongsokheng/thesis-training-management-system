@@ -1,13 +1,12 @@
 <%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.subjects  %>
 
-<div class="list-subject">
-  <table class="table table-hover">
+<div id="subjects">
+  <table class="table table-striped tbl-subject">
     <thead>
       <tr>
-        <th><%= t "subjects.fields.name" %></th>
-        <th><%= t "subjects.fields.description" %></th>
-        <th><%= t "subjects.fields.during_time" %></th>
-        <th><%= t "subjects.label.action" %></th>
+        <th class="name"><%= t "subjects.fields.name" %></th>
+        <th class="during-time"><%= t "subjects.fields.during_time" %></th>
+        <th class="action"><%= t "subjects.label.action" %></th>
       </tr>
     </thead>
     <%= render partial: "subject_list", collection: @course_subjects, as: :course_subject %>

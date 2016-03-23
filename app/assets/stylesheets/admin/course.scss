@@ -1,0 +1,11 @@
+#courses {
+  .tbl-course {
+    .name {
+      width: 40%;
+    }
+    .start-date, .end-date, .action {
+      width: 20%;
+      text-align: center;
+    }
+  }
+}
