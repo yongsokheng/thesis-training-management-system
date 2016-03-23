@@ -37,6 +37,9 @@ class Admin::CoursesController < ApplicationController
 
   def show
     @course_subjects = @course.course_subjects
+    @users = @course.users
+    @roles = Role.not_admin
+    @count_task = @course_subjects.joins(:tasks).count
   end
 
   def destroy
