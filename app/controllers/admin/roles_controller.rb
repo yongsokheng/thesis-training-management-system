@@ -2,17 +2,17 @@ class Admin::RolesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @role ||= Role.new
     @roles = Role.all
   end
 
   def create
     if @role.save
       flash[:success] = flash_message "created"
+      redirect_to admin_roles_path
     else
       flash[:failed] = flash_message "not_created"
+      redirect_to :new
     end
-    redirect_to :back
   end
 
   def edit
