@@ -1,0 +1,16 @@
+<div id="tasks">
+  <div class="title">
+    <%= t "subjects.label.task" %>
+  </div>
+  <table class="table table-striped tbl-task">
+    <thead>
+      <tr>
+        <th class="name"><%= t "subjects.fields.name" %></th>
+        <th class="description"><%= t "subjects.fields.description" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @task_masters %>
+    </tbody>
+  </table>
+</div>

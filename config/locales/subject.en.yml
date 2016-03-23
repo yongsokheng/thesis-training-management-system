@@ -15,13 +15,15 @@ en:
     fields:
       name: "Name"
       description: "Description"
-      during_time: "During time (working day)"
-      days: "day(s)"
+      during_time: "Working day"
+      days: "(days)"
       start_date: "Start date"
       end_date: "End date"
       progress: "Progress"
     label:
       user_lists: "User List"
+      action: "Action"
+      task: "Task"
       action: "Action"
     submit:
       create_task: "Create"

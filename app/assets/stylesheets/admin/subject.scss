@@ -1,11 +1,14 @@
 #subjects {
-  margin-top: 20px;
-
   .tbl-subject {
     .name {
+      width: 20%;
+    }
+
+    .description {
       width: 40%;
     }
-    .during-time, .action {
+
+    .during_time, .action {
       width: 20%;
       text-align: center;
     }

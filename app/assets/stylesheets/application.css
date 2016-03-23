@@ -24,6 +24,7 @@
  *= require admin/trainee
  *= require admin/roles
  *= require admin/evaluation_template
+ *= require admin/task
  *= require bootstrap-datepicker3
  */
 
