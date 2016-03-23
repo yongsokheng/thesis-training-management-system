@@ -99,11 +99,12 @@ en:
     time:
       format: "yyyy/mm/dd"
   layouts:
-    admin:
-      courses: "Courses"
-      subjects: "Subjects"
-      course_masters: "Course Masters"
-      roles: "Roles"
+    courses: "Courses"
+    subjects: "Subjects"
+    course_masters: "Course Masters"
+    roles: "Roles"
+    evaluation_templates: Evaluation Templates
+    ranks: "Ranks"
   button:
     edit: "Edit"
     delete: "Delete"
