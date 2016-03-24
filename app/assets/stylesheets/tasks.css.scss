@@ -1,0 +1,28 @@
+#tasks {
+  .tbl-task {
+    .task_name {
+      width: 140px;
+      text-align: left;
+    }
+
+    .estimated_time, .spent_time {
+      width: 60px;
+      text-align: center;
+    }
+
+     .task_progress, .update, .task_status, .assign {
+      width: 30px;
+      text-align: center;
+    }
+
+    .redmine_id {
+      width: 15px;
+      text-align: left;
+    }
+
+    .select-assign {
+      width: 100px;
+      height: 20px;
+    }
+  }
+}

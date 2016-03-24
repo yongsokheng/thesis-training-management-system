@@ -30,6 +30,10 @@ class UserTask < ActiveRecord::Base
       self.user_subject.group_subject.users
   end
 
+  def subject_in_progress?
+    self.user_subject.progress?
+  end
+
   private
   def init_relation_user
     self.user_id = self.user_subject.user_id

@@ -27,3 +27,23 @@ ja:
       action: "アクション"
       task: "仕事"
       action: "アクション"
+      issues: "問題"
+    submit:
+      create_task: "作ります"
+    create_new_task: "新しいタスクを作成"
+    task:
+      assignee: "割り当てます"
+      name: "名"
+      description: "説明"
+      had_not_assigned: "タスクがまだ割り当てられていませんでした"
+      finish_all: "すべて終えます"
+      submit: "提出します"
+    table:
+      task_name: "名"
+      task_progress: "進捗"
+      task_status: "状態"
+      task_update: "更新"
+      task_assign: "サイン"
+      task_estimated_time: "見積もり"
+      task_redmine_id: "レドマイナ"
+      task_spent_time: "費やした時間"

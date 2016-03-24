@@ -17,6 +17,7 @@
  *= require courses
  *= require subjects
  *= require tab
+ *= require tasks
  *= require admin/course
  *= require admin/subject
  *= require admin/user_subjects
