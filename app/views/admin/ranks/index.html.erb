@@ -1,9 +1,8 @@
+<%= render "shared/evaluation_tab", active_tab: Settings.tabs.rank %>
+
 <div id="ranks">
-  <div class="title">
-    <span><%= t "layouts.rank" %></span>
-    <span class="pull-right"><%= link_to t("rank.buttons.create"),
-      new_admin_rank_path, class: "btn btn-success" %></span>
-  </div>
+  <p class="pull-right"><%= link_to t("rank.buttons.create"),
+    new_admin_rank_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-rank">
     <thead>
       <tr>

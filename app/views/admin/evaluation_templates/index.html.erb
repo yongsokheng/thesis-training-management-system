@@ -1,9 +1,8 @@
+<%= render "shared/evaluation_tab", active_tab: Settings.tabs.evaluation_templete %>
+
 <div id="evaluation-templates">
-  <div class="title">
-    <span><%= t("layouts.evaluation_template") %></span>
-    <span class="pull-right"><%= link_to t("evaluation_template.buttons.create"),
-      new_admin_evaluation_template_path, class: "btn btn-success" %></span>
-  </div>
+  <p class="pull-right"><%= link_to t("evaluation_template.buttons.create"),
+    new_admin_evaluation_template_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-evaluation-template">
     <thead>
       <tr>

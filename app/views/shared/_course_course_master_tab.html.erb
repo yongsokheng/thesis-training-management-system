@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="<%= tab_active Settings.tabs.course, active_tab %>">
+        <%= link_to t("course.tabs.course"), admin_courses_path %></li>
+      <li role="presentation" class="<%= tab_active Settings.tabs.course_master, active_tab %>">
+        <%= link_to t("course.tabs.course_master"), admin_course_masters_path %></li>
+    </ul>
+  </div>
+</div>

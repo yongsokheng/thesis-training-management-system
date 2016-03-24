@@ -1,3 +1,5 @@
+<%= render "shared/course_course_master_tab", active_tab: Settings.tabs.course_master %>
+
 <% provide :title, t("courses.course_masters") %>
 <div id="courses">
   <% if @course_master.nil? %>

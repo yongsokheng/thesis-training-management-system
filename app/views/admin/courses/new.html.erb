@@ -1,3 +1,5 @@
+<%= render "shared/course_course_master_tab", active_tab: Settings.tabs.course_master %>
+
 <%= form_for [:admin, @course] do |f| %>
   <div class="row">
     <%= render "shared/error_messages", object: @course %>

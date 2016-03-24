@@ -100,3 +100,11 @@ ja:
       courses: "コース"
       subjects: "科目"
       roles: "役柄"
+      course_masters: "コースのマスター"
+      evaluation_templates: "評価テンプレート"
+      ranks: "ランク"
+      evaluation: "評価"
+  button:
+    edit: "編集"
+    delete: "削除"
+    new: "新しい"
