@@ -6,4 +6,28 @@
   .btn-start-all {
     margin-right: 10px;
   }
+
+  .tbl-user-task {
+    .status-task {
+      width: 10%;
+    }
+    .name {
+      width: 30%;
+    }
+
+    .estimate-time, .spent-time, .progress-value {
+      width: 20%;
+      text-align: center;
+    }
+  }
+
+  .subject-status {
+    padding: 3px;
+    width: 80px;
+  }
+
+  .user-task-info {
+    font-size: 15px;
+    padding-top: 15px;
+  }
 }

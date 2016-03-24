@@ -1,0 +1,8 @@
+en:
+  user_subjects:
+    fields:
+      status: "Status"
+      name: "Name"
+      estimate_time: "Estimate time"
+      spent_time: "Spent time"
+      progress: "Progress"

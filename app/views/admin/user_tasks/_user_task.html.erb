@@ -1,19 +1,8 @@
-<div class="row">
-  <div class="col-md-2">
-    <%= user_task.task.name %>
-  </div>
-  <div class="col-md-4">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuemin="0"
-        aria-valuemax="100" style="width:<%= user_task.progress %>%">
-        <%= user_task.progress %>%
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <%= t "subjects.status" %>&nbsp;
-    <span class="text-danger">
-      <i><%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %></i>
-    </span>
-  </div>
-</div>
+<tr>
+  <td class="status-task"><%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %></td>
+  <td class="name"><%= user_task.task.name %></td>
+  <td class="estimate-time"><%= user_task.estimated_time %></td>
+  <td class="spent-time"><%= user_task.spent_time %></td>
+  <td class="progress-value"><%= "#{user_task.progress} %" %></span>
+  </td>
+</tr>
