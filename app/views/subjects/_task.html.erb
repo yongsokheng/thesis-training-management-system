@@ -14,7 +14,7 @@
     <div class="col-md-3">
       <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assignee") %>
       <%= f.select :assigned_trainee_id, @user_subjects.collect{|u| [u.user.name, u.user_id]}, {prompt: ""}, {class: "form-control"} %>
-    </div>
+    </div><br>
     <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
     <div class="col-md-3">
       <%= f.submit t("subjects.submit.create_task"), class: "btn btn-success"

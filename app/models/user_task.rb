@@ -18,9 +18,14 @@ class UserTask < ActiveRecord::Base
   belongs_to :user
 
   delegate :name, to: :task
+  delegate :name, to: :user, prefix: true, allow_nil: true
 
   before_create :init_relation_user
   after_update :subject_progress
+
+  def nil_master?
+    task.task_master_id.nil?
+  end
 
   def has_group_subject?
     self.user_subject.group_subject.present?
