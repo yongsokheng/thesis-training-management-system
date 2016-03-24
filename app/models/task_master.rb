@@ -8,7 +8,7 @@ class TaskMaster < ActiveRecord::Base
   private
   def create_course_tasks
     subject.course_subjects.each do |course_subject|
-      Task.create name: task_master.name, description: task_master.description, course_subject_id: course_subject.id,
+      Task.create name: name, description: description, course_subject_id: course_subject.id,
         task_master_id: id
     end
   end
