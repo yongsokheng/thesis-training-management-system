@@ -1,9 +1,14 @@
 en:
   roles:
+    layouts:
+        create_role: "Create role"
+        edit_role: "Edit role"
+        allocate_permission: "Allocate permission"
     table:
         thread:
             name: "Name"
             action: "Action"
+            allow_access_admin: "Allow access admin"
     buttons:
       admin:
         create: "Create"

@@ -1,7 +1,10 @@
 #roles {
   .tbl-role {
     .name {
-      width: 70%;
+      width: 30%;
+    }
+    .allow_access_admin {
+      width: 40%;
     }
     .action {
       width: 30%;

@@ -1,4 +1,4 @@
-$(document).on("page:load", function() {
+$(document).on("page:change", function() {
   $("#select-permission-all").click(function() {
     if(this.checked) {
       $("input[type='checkbox']").each(function() {

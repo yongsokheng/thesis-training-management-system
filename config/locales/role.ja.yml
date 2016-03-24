@@ -1,5 +1,14 @@
 ja:
   roles:
+    layouts:
+        create_role: "ロールを作成します"
+        edit_role: "ロールを作成します"
+        allocate_permission: "許可を割り当てます"
+    table:
+        thread:
+            name: "名"
+            action: "アクション"
+            allow_access_admin: "管理"
     buttons:
       admin:
         create: "作ります"

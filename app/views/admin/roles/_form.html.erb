@@ -4,6 +4,8 @@
     <div class="col-md-10">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control", required: true %>
+      <%= f.check_box :allow_access_admin, {}, 1, 0 %>
+      <%= f.label :allow_access_admin %>
       <br>
       <%= f.submit (f.object.new_record? ? t("roles.buttons.admin.create")
         : t("roles.buttons.admin.update")), class: "btn btn-primary" %>

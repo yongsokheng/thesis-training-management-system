@@ -143,9 +143,10 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",               limit: 255
+    t.boolean  "allow_access_admin"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "statuses", force: :cascade do |t|
