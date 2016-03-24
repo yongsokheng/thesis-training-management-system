@@ -112,6 +112,14 @@ en:
     new: "New"
   roles:
     allocate: "Allocate"
+    roles: "Roles"
+  evaluations:
+    evaluate: "Evaluate"
+    edit: "Edit"
+    add: "Add"
+    remove: "Remove"
+    create: "Create"
+    update: "Update"
 tasks:
     statuses:
       new: New

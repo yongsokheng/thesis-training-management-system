@@ -108,3 +108,10 @@ ja:
     edit: "編集"
     delete: "削除"
     new: "新しい"
+  evaluations:
+    evaluate: "評価する"
+    edit: " エディット"
+    add: "加える"
+    remove: "削除する"
+    create: "作る"
+    update: "アップデイト"
