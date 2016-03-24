@@ -24,6 +24,8 @@ ja:
       subjects: "科目"
       trainees: "研修生"
       trainers: "トレーナー"
+      course: "コース"
+      course_master: "コースのマスター"
     labels:
       about_course: "コース"
       description: "説明"

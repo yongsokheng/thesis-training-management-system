@@ -11,6 +11,7 @@ ja:
         delete: "削除"
         delete_confirm: "本気ですか？"
     create_subject: "件名を作成します"
+    edit_subject: "編集対象"
     subject_mangement: "件名の管理"
     fields:
       name: "名"

@@ -38,6 +38,10 @@ defaults: &defaults
     subjects: "subjects"
     trainees: "trainees"
     trainers: "trainers"
+    course: "courses"
+    course_master: "course_masters"
+    evaluation_templete: "evaluation_templetes"
+    rank: "ranks"
 development:
   <<: *defaults
   neat_setting: 800

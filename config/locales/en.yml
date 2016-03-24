@@ -105,9 +105,11 @@ en:
     roles: "Roles"
     evaluation_templates: Evaluation Templates
     ranks: "Ranks"
+    evaluation: "Evaluation"
   button:
     edit: "Edit"
     delete: "Delete"
+    new: "New"
   roles:
     allocate: "Allocate"
 tasks:

@@ -7,9 +7,6 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.decorate.permission_course_master %>
           <li>
-            <%= link_to t("layouts.course_masters"), admin_course_masters_path %>
-          </li>
-          <li>
             <%= link_to t("layouts.courses"), admin_courses_path %>
           </li>
           <li>
@@ -19,11 +16,9 @@
             <%= link_to t("layouts.roles"), admin_roles_path %>
           </li>
           <li>
-            <%= link_to t("layouts.evaluation_templates"), admin_evaluation_templates_path %>
+            <%= link_to t("layouts.evaluation"), admin_evaluation_templates_path %>
           </li>
-          <li>
-            <%= link_to t("layouts.ranks"), admin_ranks_path %>
-          </li>
+
         <% elsif current_user.decorate.permission_course %>
           <li>
             <%= link_to t("layouts.courses"), admin_courses_path %>

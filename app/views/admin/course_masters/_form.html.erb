@@ -1,5 +1,10 @@
+<%= render "shared/course_course_master_tab", active_tab: Settings.tabs.course_master %>
+
 <div class="row">
   <%= render "shared/error_messages", object: @course_master %>
+   <div class="col-md-12">
+    <div class="title"><%= @course_master.name %></div>
+  </div>
   <div class="col-md-6">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", required: true %>

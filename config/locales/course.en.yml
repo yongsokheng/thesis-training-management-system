@@ -26,6 +26,8 @@ en:
       subjects: "Subjects"
       trainees: "Trainees"
       trainers: "Trainers"
+      course: "Course"
+      course_master: "Course Master"
     table:
       name: "Name"
       description: "Description"

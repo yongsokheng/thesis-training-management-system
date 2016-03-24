@@ -11,6 +11,7 @@ en:
         delete: "Delete"
         delete_confirm: "Are you sure"
     create_subject: "Create subject"
+    edit_subject: "Edit subject"
     subject_mangement: "Subject Managament"
     fields:
       name: "Name"
