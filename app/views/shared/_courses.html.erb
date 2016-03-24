@@ -13,13 +13,13 @@
     <div id="user-profile-courses" >
       <div class="tab-content">
         <div id="inprogress_course" class="tab-pane active list_special">
-            <%= render "course", course:
+            <%= render "course", user_course:
               @inprogress_course if @inprogress_course.present?%>
         </div>
         <div id="finished_course" class="tab-pane fade list_special">
           <% unless @finished_courses.nil? %>
             <% @finished_courses.each do |course| %>
-              <%= render "users/course", course: course %>
+              <%= render "users/course", user_course: course %>
             <% end %>
           <% end %>
         </div>

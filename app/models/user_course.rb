@@ -21,9 +21,15 @@ class UserCourse < ActiveRecord::Base
   belongs_to :leading_course, class_name: Course.name,
                               foreign_key: :course_id
 
+  delegate :name, :description, :start_date, :end_date, :status, to: :course, prefix: true, allow_nil: true
+
   has_many :user_subjects, dependent: :destroy
 
   scope :actived, ->{where active: true}
+  scope :course_progress, ->{joins(:course)
+    .where("courses.status = ?", Course.statuses[:progress]).order :updated_at}
+  scope :course_finished, ->{joins(:course)
+    .where("courses.status = ?", Course.statuses[:finish])}
 
   private
   def create_user_subjects_when_assign_new_user

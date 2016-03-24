@@ -3,19 +3,10 @@ class UsersController < ApplicationController
 
   def show
     @activities = PublicActivity::Activity.user_activities(@user.id).recent.limit(20).decorate
-    if @user_course = @user.user_courses.actived.last
-      @user_subjects = @user_course.user_subjects
-      @inprogress_course = @user_course.course
-      @finished_courses = @user.courses.finish
-      @user_subjects.each do |user_subject|
-        user_subject.course_subject.tasks.each do |task|
-          user_subject.user_tasks.find_or_initialize_by task_id: task.id,
-            user_id: @user.id
-        end
-      end
-    end
+    @user_courses = @user.user_courses
+    @inprogress_course = @user_courses.course_progress.last
+    @finished_courses = @user_courses.course_finished
   end
-
   def edit
   end
 
