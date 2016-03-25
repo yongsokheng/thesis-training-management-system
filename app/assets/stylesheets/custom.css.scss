@@ -129,3 +129,7 @@ select {
 .label-danger {
   background: #9ea3a9;
 }
+
+.nav-tabs li.active a:hover, .nav-tabs li.active a:focus {
+  cursor: pointer;
+}
