@@ -1,14 +1,12 @@
-<% @users.each do |user| %>
-  <tr>
-    <td class="name"><%= user.name %></td>
-    <td class="action">
-      <% if user.evaluation.nil? %>
-        <%= link_to t("evaluations.evaluate"),
-          new_admin_user_evaluations_path(user) %>
-      <% else %>
-        <%= link_to t("evaluations.evaluate"),
-          edit_admin_user_evaluations_path(user) %>
-      <% end %>
-    </td>
-  </tr>
-<% end %>
+<tr>
+  <td class="name"><%= user.name %></td>
+  <td class="action">
+    <% if user.evaluation.nil? %>
+      <%= link_to t("evaluations.evaluate"),
+        new_admin_user_evaluations_path(user) %>
+    <% else %>
+      <%= link_to t("evaluations.evaluate"),
+        edit_admin_user_evaluations_path(user) %>
+    <% end %>
+  </td>
+</tr>
