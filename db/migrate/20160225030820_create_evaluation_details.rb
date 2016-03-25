@@ -4,6 +4,7 @@ class CreateEvaluationDetails < ActiveRecord::Migration
       t.string :name
       t.integer :point
       t.references :evaluation, index: true, foreign_key: true
+      t.references :evaluation_template, index: true, foreign_key: true
 
       t.timestamps null: false
     end

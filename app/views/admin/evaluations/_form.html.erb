@@ -1,0 +1,32 @@
+<%= form_for @evaluation, url: admin_user_evaluations_path do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= @user.name %>
+    </div>
+    <div class="col-md-4">
+      <%= f.submit (f.object.new_record? ? t("evaluations.create")
+        : t("evaluations.update")), class: "btn btn-" %>
+    </div>
+    <%= render "shared/error_messages", object: @evaluation %>
+  </div>
+  <div>
+    <div class="col-md-6">
+      <%= f.label :assessment %>
+      <%= f.text_field :assessment, class: "form-control" %>
+
+      <%= f.label :total_point %>
+      <%= f.number_field :total_point, class: "form-control", readonly: true %>
+
+      <%= f.label :current_rank %>
+      <%= f.text_field :current_rank, class: "form-control" %>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.fields_for :evaluation_details do |builder| %>
+        <%= render "evaluation_details", f: builder %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

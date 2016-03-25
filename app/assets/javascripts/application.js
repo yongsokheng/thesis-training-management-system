@@ -22,6 +22,7 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require datepicker
 //= require admin/role_permission
+//= require admin/evaluation
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();

@@ -53,14 +53,16 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   end
 
   create_table "evaluation_details", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "point",         limit: 4
-    t.integer  "evaluation_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",                   limit: 255
+    t.integer  "point",                  limit: 4
+    t.integer  "evaluation_id",          limit: 4
+    t.integer  "evaluation_template_id", limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "evaluation_details", ["evaluation_id"], name: "index_evaluation_details_on_evaluation_id", using: :btree
+  add_index "evaluation_details", ["evaluation_template_id"], name: "index_evaluation_details_on_evaluation_template_id", using: :btree
 
   create_table "evaluation_templates", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -269,6 +271,7 @@ ActiveRecord::Schema.define(version: 20160315030506) do
 
   add_foreign_key "course_subjects", "courses"
   add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "evaluation_details", "evaluation_templates"
   add_foreign_key "evaluation_details", "evaluations"
   add_foreign_key "evaluations", "users"
   add_foreign_key "notes", "evaluations"

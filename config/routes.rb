@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       resources :user_subjects, only: :update
       resources :group_subjects
     end
+    resources :users do
+      resource :evaluations
+    end
 
     patch "status_subject/:course_subject_id/:status" => "status_subjects#update",
       as: :status_subject

@@ -1,0 +1,8 @@
+<div class="table">
+  <%= f.text_field :name, class: "form-control", readonly: true %>
+
+  <%= f.label :point %>
+  <%= f.number_field :point, class: "form-control evaluation-detail-point" %>
+
+  <%= f.hidden_field :evaluation_template_id %>
+</div>
