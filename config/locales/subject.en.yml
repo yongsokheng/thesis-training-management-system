@@ -43,7 +43,7 @@ en:
       task_progress: "Progress"
       task_status: "Status"
       task_update: "Update"
-      task_assign: "Assign_for"
+      task_assign: "Assign for"
       task_estimated_time: "Estimated Time"
       task_redmine_id: "ID"
       task_spent_time: "Spent time"

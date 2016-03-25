@@ -15,22 +15,22 @@
   <td class="spent_time">
     <span class="text-danger"><%= user_task.spent_time %></span>
   </td>
+  <td class="update">
+    <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
+      user_task.status != Settings.tasks.statuses.closed %>
+      <%= link_to t("subjects.table.task_update"), edit_user_task_path(user_task, user_task_status: user_task.status) %>
+    <% end %>
+  </td>
   <%= form_for user_task.task, url: course_task_path(@course.id,user_task.
     task.id), html: {method: :put} do |f| %>
-    <td class="assign">
-      <% if user_task.nil_master? && user_task.has_group_subject?  %>
+    <td class="assign_user">
+      <% if user_task.nil_master? && user_task.has_group_subject? && user_task.subject_in_progress? %>
         <%= f.collection_select :assigned_trainee_id, user_task.
           group_subject, :id, :name, {prompt: "", selected: user_task.user_id
-          }, onchange: "this.form.submit()", class: "select-assign" %>
+          }, onchange: "this.form.submit()", class: "select-assign form-control" %>
       <% else %>
         <%= user_task.user_name %>
       <% end %>
     </td>
   <% end %>
-  <td class="update">
-    <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
-      user_task.status != Settings.tasks.statuses.closed %>
-      <p><b><%= link_to t("subjects.table.task_update"), edit_user_task_path(user_task, user_task_status: user_task.status)%></b></p>
-    <% end %>
-  </td>
 </tr>

@@ -71,6 +71,7 @@ class Course < ActiveRecord::Base
 
   def finish_course
     self.update_attributes status: :finish
+    self.user_subjects.update_all(status: Course.statuses[:finish])
   end
 
   def back_up_master
