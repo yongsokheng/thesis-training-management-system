@@ -1,5 +1,5 @@
 class Evaluation < ActiveRecord::Base
-  before_save :cal_total_point
+  before_save :cal_total_point, :cal_rank_value
 
   belongs_to :user
 
@@ -17,5 +17,11 @@ class Evaluation < ActiveRecord::Base
   def cal_total_point
     points = self.evaluation_details.map{|detail| detail.point}
     self.total_point = points.inject(0){|sum, x| sum + x}
+  end
+
+  def cal_rank_value
+    unless Rank.rank_around(self.total_point).empty?
+      self.current_rank = Rank.rank_around(self.total_point).take!.id
+    end
   end
 end
