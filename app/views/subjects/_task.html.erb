@@ -1,25 +1,27 @@
 <div class="row">
-  <div class="title"><%= t "subjects.create_new_task" %></div>
-  <%= form_for :task, url: course_tasks_path(@course.id,
-    @course_subject.id), html: {method: :post}  do |f| %>
-    <%= render "shared/error_messages", object: @subject %>
-    <div class="col-md-3">
-      <%= f.label :name, I18n.t("subjects.task.name") %>
-      <%= f.text_field :name, class: "form-control", required: true %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :description, I18n.t("subjects.task.description") %>
-      <%= f.text_field :description, class: "form-control" %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assignee") %>
-      <%= f.select :assigned_trainee_id, @user_subjects.collect{|u| [u.user.name, u.user_id]}, {prompt: ""}, {class: "form-control"} %>
-    </div><br>
-    <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
-    <div class="col-md-3">
-      <%= f.submit t("subjects.submit.create_task"), class: "btn btn-success"
-        %>
-    </div>
+  <% if @course_subject.course.progress? %>
+    <div class="title"><%= t "subjects.create_new_task" %></div>
+    <%= form_for :task, url: course_tasks_path(@course.id,
+      @course_subject.id), html: {method: :post}  do |f| %>
+      <%= render "shared/error_messages", object: @subject %>
+      <div class="col-md-3">
+        <%= f.label :name, I18n.t("subjects.task.name") %>
+        <%= f.text_field :name, class: "form-control", required: true %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :description, I18n.t("subjects.task.description") %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assignee") %>
+        <%= f.select :assigned_trainee_id, @user_subjects.collect{|u| [u.user.name, u.user_id]}, {prompt: ""}, {class: "form-control"} %>
+      </div><br>
+      <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
+      <div class="col-md-3">
+        <%= f.submit t("subjects.submit.create_task"), class: "btn btn-success"
+          %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <hr />

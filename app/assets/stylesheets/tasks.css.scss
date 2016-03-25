@@ -1,27 +1,27 @@
 #tasks {
   .tbl-task {
-    .task_name {
-      width: 140px;
-      text-align: left;
-    }
-
-    .estimated_time, .spent_time {
-      width: 60px;
-      text-align: center;
-    }
-
-     .task_progress, .update, .task_status, .assign {
-      width: 30px;
-      text-align: center;
-    }
-
     .redmine_id {
-      width: 15px;
+      width: 10%;
       text-align: left;
     }
+
+    .task_name {
+      width: 20%;
+      text-align: left;
+    }
+
+    .task_progress, .update, .task_status, .estimated_time, .spent_time {
+      width: 10%;
+      text-align: center;
+    }
+
+    .assign_user {
+      width: 20%;
+    }    
 
     .select-assign {
-      width: 100px;
+      padding: 0px !important;
+      width: 100%;
       height: 20px;
     }
   }
