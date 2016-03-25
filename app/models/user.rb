@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
 
   QUERY = "id NOT IN (SELECT user_id
-    FROM user_courses WHERE user_courses.course_id = :course_id AND
-    user_courses.user_id IS NOT NULL)"
+    FROM user_courses, courses WHERE user_courses.course_id = courses.id
+    AND (courses.status = 0 OR courses.status = 1)
+    AND courses.id <> :course_id) AND role_id = 3"
+
   belongs_to :programming_language
   belongs_to :progress
   belongs_to :status
@@ -36,7 +38,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
-  scope :free_trainees, ->(course_id){where QUERY, course_id: course_id}
+  scope :available_of_course, ->course_id{where QUERY, course_id: course_id}
   scope :find_by_role, -> role{where role: role}
 
   def total_done_tasks user, course

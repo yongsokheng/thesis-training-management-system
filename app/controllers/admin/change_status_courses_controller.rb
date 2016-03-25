@@ -11,6 +11,6 @@ class Admin::ChangeStatusCoursesController < ApplicationController
     else
       flash[:failed] = flash_message "course_not_upate"
     end
-    redirect_to :back
+    redirect_to admin_course_path @course
   end
 end
