@@ -40,6 +40,12 @@ en:
       admin: "Admin"
       trainer: "Trainers : "
       trainee: "Trainees : "
+      name: "Name"
+      description: "Description"
+      status:
+        new: "New"
+        progress: "Progress"
+        finish: "Finish"
     users:
       name: "Name"
       email: "Email"

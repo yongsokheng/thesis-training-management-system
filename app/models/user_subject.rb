@@ -23,6 +23,7 @@ class UserSubject < ActiveRecord::Base
   enum status: [:init, :progress, :finish]
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :name, to: :subject, prefix: true, allow_nil: true
 
   class << self
     def update_all_status status

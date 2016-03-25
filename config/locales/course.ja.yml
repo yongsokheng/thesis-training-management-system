@@ -17,6 +17,9 @@ ja:
     create_course: "コースを作成"
     no_course: "求償権は表示されませんします"
     course_masters: "コースマスターズ"
+    start_date: "開始日"
+    end_date: "終了日"
+
     status:
         new: "新しい"
     tabs:
@@ -34,6 +37,12 @@ ja:
       members: "メンバー"
       trainers: "トレーナー : "
       trainees: "研修生 : "
+      name: "名"
+      description: "説明"
+      status:
+        new: "新しい"
+        progress: "進捗"
+        finish: "仕上げ"
     users:
       name: "名"
       email: "Eメール"

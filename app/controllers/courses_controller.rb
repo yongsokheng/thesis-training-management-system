@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
 
   def show
     @course_subjects = @course.course_subjects
+    @users = @course.users
+    @roles = Role.not_admin
   end
 
   private
