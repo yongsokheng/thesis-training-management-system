@@ -9,7 +9,7 @@ class Admin::AssignTrainersController < ApplicationController
     if params[:course] && @course.update_attributes(course_params)
       flash[:success] = flash_message "updated"
     else
-      flash[:danger] = flash_message "not updated"
+      flash[:danger] = flash_message "not_updated"
     end
     redirect_to admin_course_path @course
   end

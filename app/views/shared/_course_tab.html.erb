@@ -1,4 +1,4 @@
-<% if @course.nil? %>
+<% if course.nil? %>
   <div class="title">
     <h2><%= t "courses.no_course" %></h2>
   </div>
@@ -6,15 +6,15 @@
   <div class="row">
     <div class="col-md-12">
       <div class="title">
-        <span class="name"><%= @course.name %></span>
+        <span class="name"><%= course.name %></span>
         <span class="pull-right">
-          <% if @course.init? %>
-            <%= link_to t("courses.buttons.admin.start"), admin_course_change_status_courses_path(@course),
+          <% if course.init? %>
+            <%= link_to t("courses.buttons.admin.start"), admin_course_change_status_courses_path(course),
               method: :patch, class: "btn btn-info" %>
-          <% elsif @course.progress? %>
-            <%= link_to t("courses.buttons.admin.finish"),admin_course_change_status_courses_path(@course),
+          <% elsif course.progress? %>
+            <%= link_to t("courses.buttons.admin.finish"),admin_course_change_status_courses_path(course),
               method: :patch, class: "btn btn-success" %>
-          <% elsif @course.finish? %>
+          <% elsif course.finish? %>
             <label class="btn btn-xs btn-danger">
               <%= t "courses.buttons.admin.start.finished" %>
             </label>
@@ -27,9 +27,11 @@
           <%= link_to t("courses.tabs.overview"), admin_course_path(course) %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.subjects, active_tab %>">
           <%= link_to t("courses.tabs.subjects"), admin_course_course_subjects_path(course) %></li>
-        <li role="presentation" class="<%= tab_active Settings.tabs.trainees, active_tab %>">
-          <%= link_to t("courses.tabs.trainees"),
-            edit_admin_course_assign_trainees_path(course) %></li>
+        <% unless course.finish? %>
+          <li role="presentation" class="<%= tab_active Settings.tabs.trainees, active_tab %>">
+            <%= link_to t("courses.tabs.trainees"),
+              edit_admin_course_assign_trainees_path(course) %></li>
+        <% end %>
         <li role="presentation" class="<%= tab_active Settings.tabs.trainers, active_tab %>">
           <%= link_to t("courses.tabs.trainers"),
             edit_admin_course_assign_trainers_path(course) %></li>
