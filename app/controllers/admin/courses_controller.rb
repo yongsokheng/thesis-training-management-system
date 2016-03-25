@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_subjects, only: [:new, :create, :edit]
+  before_action :load_subjects, except: [:index, :show, :destroy]
 
   def index
     if current_user.is_admin?

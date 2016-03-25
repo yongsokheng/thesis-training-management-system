@@ -5,6 +5,7 @@ en:
       min_point: "Min point"
       max_point: "Max point"
       action: "Action"
+      point: "Point"
   evaluation_template:
     buttons:
       create: "Create"
