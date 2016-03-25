@@ -1,2 +1,4 @@
-<%= t "evaluations.edit" %>
+<%= render "shared/evaluation_tab", active_tab: Settings.tabs.evaluation %>
+
+<div class="title"><%= t "evaluations.edit" %></div>
 <%= render "form" %>

@@ -1,16 +1,14 @@
 <% @users.each do |user| %>
-  <div class="col-md-6">
-    <%= user.name %>
-  </div>
-  <div class="col-md-6">
-    <% if user.evaluation.nil? %>
-      <%= link_to t("evaluations.evaluate"),
-        new_admin_user_evaluations_path(user),
-        class: "btn btn-default btn-success" %>
-    <% else %>
-      <%= link_to t("evaluations.edit"),
-        edit_admin_user_evaluations_path(user),
-        class: "btn btn-default btn-success" %>
-    <% end %>
-  </div>
+  <tr>
+    <td class="name"><%= user.name %></td>
+    <td class="action">
+      <% if user.evaluation.nil? %>
+        <%= link_to t("evaluations.evaluate"),
+          new_admin_user_evaluations_path(user) %>
+      <% else %>
+        <%= link_to t("evaluations.evaluate"),
+          edit_admin_user_evaluations_path(user) %>
+      <% end %>
+    </td>
+  </tr>
 <% end %>

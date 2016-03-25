@@ -1,5 +1,12 @@
-<div class="row">
-  <div class="col-md-6">
-    <%= render @users %>
-  </div>
+<%= render "shared/evaluation_tab", active_tab: Settings.tabs.evaluation %>
+<div id="evaluations">
+  <table class="table table-striped tbl-evaluation">
+    <thead>
+      <tr>
+        <th class="name"><%= t "evaluation.table.thread.name" %></th>
+        <th class="action"><%= t "evaluation.table.thread.action" %></th>
+      </tr>
+    </thead>
+  <%= render @users %>
+  </table>
 </div>

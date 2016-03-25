@@ -42,6 +42,7 @@ defaults: &defaults
     course_master: "course_masters"
     evaluation_templete: "evaluation_templetes"
     rank: "ranks"
+    evaluation: "evaluations"
 development:
   <<: *defaults
   neat_setting: 800
