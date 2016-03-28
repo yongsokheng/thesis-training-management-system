@@ -1,5 +1,5 @@
 <div class="row">
-  <% if @course_subject.course.progress? %>
+  <% unless @user_subject.finish? %>
     <div class="title"><%= t "subjects.create_new_task" %></div>
     <%= form_for :task, url: course_tasks_path(@course.id,
       @course_subject.id), html: {method: :post}  do |f| %>
