@@ -22,18 +22,6 @@ class Course < ActiveRecord::Base
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
 
-  has_many :course_leaders, class_name: UserCourse.name,
-                            dependent: :destroy,
-                            foreign_key: :course_id,
-                            inverse_of: :course
-  has_many :leaders, through: :course_leaders
-
-  has_many :course_supervisors, class_name: UserCourse.name,
-                                dependent: :destroy,
-                                foreign_key: :course_id,
-                                inverse_of: :course
-  has_many :supervisors, through: :course_supervisors
-
   enum status: [:init, :progress, :finish]
 
   scope :recent, ->{order created_at: :desc}
