@@ -1,0 +1,15 @@
+<div class="title"><%= t "notes.title" %></div>
+<div id="notes">
+  <%= form_for :note, url: admin_user_notes_path(@user), html: {method: :post} do |f| %>
+    <p class="pull-right">
+      <%= f.submit t("evaluations.create"), class: "btn btn-success" %>
+    </p>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <%= f.hidden_field :evaluation_id, value: @evaluation.id %>
+    </div>
+  <% end %>
+</div>

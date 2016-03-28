@@ -4,6 +4,7 @@ class Admin::EvaluationsController < ApplicationController
 
   before_action :load_template, only: [:new, :create, :edit, :update]
   before_action :load_evaluation, only: [:edit, :update]
+  before_action :load_notes, only: :edit
 
   def new
     @evaluation_templates.each do |template|
@@ -43,5 +44,9 @@ class Admin::EvaluationsController < ApplicationController
 
   def load_evaluation
     @evaluation = @user.evaluation
+  end
+
+  def load_notes
+    @notes = @evaluation.notes
   end
 end
