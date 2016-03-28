@@ -29,7 +29,6 @@ gem "public_activity"
 
 group :development, :test do
   gem "fabrication"
-  gem "rspec-rails", "~> 3.0"
   gem "web-console", "~> 2.0"
   gem "spring"
   gem "pry"

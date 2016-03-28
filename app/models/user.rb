@@ -22,16 +22,6 @@ class User < ActiveRecord::Base
   has_one :profile
   has_one :evaluation
   has_many :trainees, class_name: User.name
-  has_many :course_leaders, class_name: UserCourse.name,
-                            dependent: :destroy,
-                            foreign_key: :leader_id,
-                            inverse_of: :leader
-  has_many :leading_courses, through: :course_leaders
-  has_many :course_supervisors, class_name: UserCourse.name,
-                                dependent: :destroy,
-                                foreign_key: :supervisor_id,
-                                inverse_of: :supervisor
-  has_many :supervising_courses, through: :course_supervisors
 
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password

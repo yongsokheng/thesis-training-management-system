@@ -11,15 +11,7 @@ class UserCourse < ActiveRecord::Base
       user: proc {|controller, model| model.user}
     }
   belongs_to :user
-  belongs_to :supervisor, class_name: User.name,
-                          foreign_key: :supervisor_id
-  belongs_to :leader, class_name: User.name,
-                      foreign_key: :leader_id
   belongs_to :course
-  belongs_to :supervising_course, class_name: Course.name,
-                                  foreign_key: :course_id
-  belongs_to :leading_course, class_name: Course.name,
-                              foreign_key: :course_id
 
   delegate :name, :description, :start_date, :end_date, :status, to: :course, prefix: true, allow_nil: true
 

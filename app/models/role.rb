@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  has_many :users
+  has_many :users, dependent: :destroy
   has_many :permissions, dependent: :destroy
 
   accepts_nested_attributes_for :permissions, allow_destroy: true
