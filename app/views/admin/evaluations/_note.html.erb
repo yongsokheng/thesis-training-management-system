@@ -1,24 +1,26 @@
-<table class="table table-striped tbl-note">
-  <thead>
-    <th><%= t "notes.table.index" %></th>
-    <th><%= t "notes.table.note_name" %></th>
-    <th><%= t "notes.table.created_at" %></th>
-    <th><%= t "notes.table.updated_at" %></th>
-    <th><%= t "notes.table.action" %></th>
-  </thead>
-  <tbody>
-    <% @notes.each_with_index do |note, index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= note.name %></td>
-        <td><%= note.created_at %></td>
-        <td><%= note.updated_at %></td>
-        <td class="action">
-          <%= link_to t("button.edit"), edit_admin_user_note_path(@user, note) %> &nbsp;
-          <%= link_to t("button.delete"), admin_user_note_path(@user, note),
-            method: :delete, data: {confirm: t("messages.delete.confirm")} %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="notes">
+  <table class="table table-striped tbl-note">
+    <thead>
+      <th class="index"><%= t "notes.table.index" %></th>
+      <th class="name"><%= t "notes.table.note_name" %></th>
+      <th class="created_at"><%= t "notes.table.created_at" %></th>
+      <th class="updated_at"><%= t "notes.table.updated_at" %></th>
+      <th class="action"><%= t "notes.table.action" %></th>
+    </thead>
+    <tbody>
+      <% @notes.each_with_index do |note, index| %>
+        <tr>
+          <td class="index"><%= index + 1 %></td>
+          <td class="name"><%= note.name %></td>
+          <td class="created_at"><%= note.created_at %></td>
+          <td class="updated_at"><%= note.updated_at %></td>
+          <td class="action">
+            <%= link_to t("button.edit"), edit_admin_user_note_path(@user, note) %> &nbsp;
+            <%= link_to t("button.delete"), admin_user_note_path(@user, note),
+              method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
