@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :users do
       resource :evaluations
+      resources :notes
     end
 
     patch "status_subject/:course_subject_id/:status" => "status_subjects#update",

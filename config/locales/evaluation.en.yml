@@ -12,3 +12,14 @@ en:
       update: "Update"
   layouts:
     evaluation_template: "Evaluation Templates"
+  notes:
+    title: "Notes"
+    edit: "Edit"
+    delete: "Delete"
+    update: "Update"
+    panel_update: "Update Note"
+    table:
+      index: "Index"
+      note_name: "Name"
+      created_at: "Created at"
+      updated_at: "Updated at"
