@@ -7,6 +7,6 @@
         <th class="action"><%= t "evaluation.table.thread.action" %></th>
       </tr>
     </thead>
-  <%= render @users %>
+  <%= render partial: "user", collection: @users, as: :user %>
   </table>
 </div>

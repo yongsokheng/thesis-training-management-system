@@ -7,4 +7,5 @@ class Role < ActiveRecord::Base
   ATTRIBUTES_PARAMS = [permissions_attributes: [:id, :model_class, :action, :_destroy]]
 
   scope :not_admin, ->{where.not name: "admin"}
+  scope :trainee, ->{where name: "trainee"}
 end
