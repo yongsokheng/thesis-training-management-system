@@ -23,3 +23,6 @@ en:
       note_name: "Name"
       created_at: "Created at"
       updated_at: "Updated at"
+    dynamic_form:
+      add: "Add New Note"
+      remove: "Remove"

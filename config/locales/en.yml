@@ -107,6 +107,7 @@ en:
     ranks: "Ranks"
     evaluation: "Evaluation"
     university: "University"
+    status: "Status"
   button:
     edit: "Edit"
     delete: "Delete"
