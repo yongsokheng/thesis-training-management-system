@@ -45,6 +45,7 @@ defaults: &defaults
     evaluation: "evaluations"
     university: "university"
     status: "status"
+    type: "user_type"
 development:
   <<: *defaults
   neat_setting: 800
