@@ -1,9 +1,9 @@
 <%= form_for [:admin, @university] do |f| %>
   <div class="row">
     <%= render "shared/error_messages", object: @university %>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control", required: true %>
+      <%= f.text_field :name, class: "form-control", required: true %><br>
 
       <%= f.submit (f.object.new_record? ? t("buttons.create")
         : t("buttons.update")), class: "btn btn-primary" %>

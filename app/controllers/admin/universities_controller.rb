@@ -1,5 +1,5 @@
 class Admin::UniversitiesController < ApplicationController
-  load_and_authorize_resource, except: :show
+  load_and_authorize_resource except: :show
 
   def index
     @university = University.new
