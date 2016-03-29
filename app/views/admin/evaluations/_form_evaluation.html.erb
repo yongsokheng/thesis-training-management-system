@@ -38,6 +38,17 @@
       <% end %>
     </table>
   </div>
+  <hr />
+
+  <div class="title"><%= t "notes.title" %></div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.fields_for :notes do |builder| %>
+        <%= render "note_fields", f: builder %>
+      <% end %>
+      <p><%= link_to_add_fields t("subjects.dynamic_form.add"), f, :notes %></p>
+    </div>
+  </div>
 <% end %>
 
 <hr />

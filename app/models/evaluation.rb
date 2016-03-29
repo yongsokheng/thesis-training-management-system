@@ -9,9 +9,14 @@ class Evaluation < ActiveRecord::Base
 
   accepts_nested_attributes_for :evaluation_details, allow_destroy: true
 
+  accepts_nested_attributes_for :notes, allow_destroy: true,
+    reject_if: proc {|attributes| attributes[:name].blank?}
+
   ATTRIBUTES_PARAMS = [:assessment, :total_point, :current_rank,
     :rank_id, :user_id, evaluation_details_attributes:
-      [:id, :name, :point, :evaluation_id, :evaluation_template_id]]
+      [:id, :name, :point, :evaluation_id, :evaluation_template_id],
+      notes_attributes: [:id, :name, :evaluation_id, :_destroy]
+  ]
 
   private
   def cal_total_point
