@@ -3,6 +3,9 @@
     <ul class="nav nav-tabs">
       <li role="presentation" class="<%= tab_active Settings.tabs.university, active_tab %>">
         <%= link_to t("layouts.university"), admin_universities_path %></li>
+      <li role="presentation" class="<%= tab_active Settings.tabs.status, active_tab %>">
+        <%= link_to t("layouts.status"), admin_statuses_path %>
+      </li>
     </ul>
   </div>
 </div>

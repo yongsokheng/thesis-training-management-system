@@ -1,0 +1,30 @@
+<%= render "shared/category_tab", active_tab: Settings.tabs.status %>
+
+<div id="statuses">
+  <p class="pull-right">
+    <%= link_to t("button.new"), new_admin_status_path, class: "btn btn-success" %>
+  </p>
+
+  <table class="table table-striped tbl-status">
+    <thead>
+      <th class="index"><%= t "statuses.table.index" %></th>
+      <th class="name"><%= t "statuses.table.name" %></th>
+      <th class="action"><%= t "statuses.table.action" %></th>
+    </thead>
+    <tbody>
+      <% unless @statuses.nil? %>
+        <% @statuses.each_with_index do |status, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= status.name %></td>
+            <td class="action">
+              <%= link_to t("button.edit"), edit_admin_status_path(status) %> &nbsp;
+              <%= link_to t("button.delete"), admin_status_path(status),
+                method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :ranks
     resources :universities, except: :show
     resources :programming_languages, except: :show
+    resources :statuses, except: :show
   end
 
   resources :courses, only: :show do
