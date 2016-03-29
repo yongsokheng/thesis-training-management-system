@@ -1,0 +1,9 @@
+en:
+  buttons:
+    new: "New"
+    create: "Create"
+    update: "Update"
+  table:
+    thead:
+      name: "Name"
+      action: "Action"

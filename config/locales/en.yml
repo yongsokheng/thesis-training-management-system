@@ -106,6 +106,7 @@ en:
     evaluation_templates: Evaluation Templates
     ranks: "Ranks"
     evaluation: "Evaluation"
+    university: "University"
   button:
     edit: "Edit"
     delete: "Delete"

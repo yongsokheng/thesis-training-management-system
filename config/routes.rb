@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       as: :status_subject
     resources :evaluation_templates
     resources :ranks
+    resources :universities, except: :show
   end
 
   resources :courses, only: :show do
