@@ -46,6 +46,7 @@ defaults: &defaults
     university: "university"
     status: "status"
     type: "user_type"
+    user_profile: "User profiles"
 development:
   <<: *defaults
   neat_setting: 800

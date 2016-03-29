@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :programming_languages, except: :show
     resources :statuses, except: :show
     resources :user_types, except: :show
+    resources :profiles
   end
 
   resources :courses, only: :show do
@@ -45,7 +46,9 @@ Rails.application.routes.draw do
     resources :tasks
     resources :user_subjects, only: [:update, :show]
   end
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show] do
+    resource :profiles
+  end
   resources :subjects, only: [:show]
   resources :user_tasks
   resources :user_courses, :show

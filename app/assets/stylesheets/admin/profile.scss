@@ -1,0 +1,19 @@
+#profiles {
+  .text-right {
+    text-align: right;
+  }
+  .tbl-profile {
+    .name {
+      width: 20%
+    }
+    .start_training_date, .finish_training_date, .leave_date,.ready_for_project {
+      width: 10%
+    }
+    .type, .programming_language, .progress_training, .status, .action {
+      width: 5%;
+    }
+    .university {
+      width: 15%;
+    }
+  }
+}

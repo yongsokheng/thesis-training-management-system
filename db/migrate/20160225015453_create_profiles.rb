@@ -10,6 +10,11 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :naitei_company
       t.integer :trainer_id
       t.date :graduation
+      t.integer :user_type_id
+      t.integer :university_id
+      t.integer :programming_language_id
+      t.integer :progress_id
+      t.integer :status_id
       t.timestamps null: false
     end
   end

@@ -109,17 +109,22 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_index "permissions", ["role_id"], name: "index_permissions_on_role_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id",              limit: 4
+    t.integer  "user_id",                 limit: 4
     t.date     "start_training_date"
     t.date     "leave_date"
     t.date     "finish_training_date"
     t.boolean  "ready_for_project"
     t.date     "contract_date"
-    t.string   "naitei_company",       limit: 255
-    t.integer  "trainer_id",           limit: 4
+    t.string   "naitei_company",          limit: 255
+    t.integer  "trainer_id",              limit: 4
     t.date     "graduation"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "user_type_id",            limit: 4
+    t.integer  "university_id",           limit: 4
+    t.integer  "programming_language_id", limit: 4
+    t.integer  "progress_id",             limit: 4
+    t.integer  "status_id",               limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

@@ -13,6 +13,21 @@ en:
     profile:
       name: "Name: "
       email: "Email: "
+    basic_info: "Basic information"
+    table:
+      name: "Name"
+      email: "Email"
+      start_training_date: "Start training"
+      finish_training_date: "Finish training"
+      leave_date: "Leave"
+      contract_date: "Contract"
+      trainer: "Trainer"
+      ready_for_project: "Ready for project"
+      type: "Type"
+      university: "University"
+      progress: "Progress"
+      status: "Status"
+      action: "Action"
   signins:
     banner: "Please Login"
     remember: "Remember me"
