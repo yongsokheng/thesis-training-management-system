@@ -6,6 +6,11 @@ class Admin::EvaluationsController < ApplicationController
   before_action :load_evaluation, only: [:edit, :update]
   before_action :load_notes, only: :edit
 
+  def index
+    role_trainee = Role.trainee
+    @users = User.find_by_role role_trainee
+  end
+
   def new
     @evaluation_templates.each do |template|
       @evaluation.evaluation_details.build(name: template.name,
