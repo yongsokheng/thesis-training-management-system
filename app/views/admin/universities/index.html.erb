@@ -1,0 +1,25 @@
+<%= render "shared/category_tab", active_tab: Settings.tabs.university %>
+
+<div id="universities">
+  <p class="pull-right"><%= link_to t("buttons.new"),
+    new_admin_university_path, class: "btn btn-success" %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="name"><%= t "table.thead.name" %></th>
+        <th class="action"><%= t "table.thead.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @universities.each do |university| %>
+        <tr>
+          <td class="name"><%= university.name %></td>
+          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university) %> &nbsp;
+            <%= link_to t("button.delete"),
+              admin_university_path(university),
+              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
