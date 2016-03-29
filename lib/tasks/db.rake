@@ -60,13 +60,11 @@ namespace :db do
     Fabricate :programming_language, name: "Java"
     Fabricate :programming_language, name: "C"
 
-    puts "Create Types"
-    Fabricate :type, name: "Intern"
-    Fabricate :type, name: "VPG"
-    Fabricate :type, name: "JPG"
-    Fabricate :type, name: "New dev"
-    Fabricate :type, name: "Tester"
-
+    puts "Create User Types"
+    ["Intern", "VPG", "JPG", "New dev", "Tester"].each do |name|
+        Fabricate :user_type, name: name
+    end
+    
     puts "Create Progress"
     Fabricate :progress, name: "Tutorial"
     Fabricate :progress, name: "Project demo"
