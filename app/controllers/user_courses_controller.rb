@@ -3,6 +3,8 @@ class UserCoursesController < ApplicationController
 
   def show
     @course = @user_course.course
-    @user_subjects = @user_course.user_subjects
+    @users = @course.users
+    @course_subjects = @user_course.user_subjects
+    @roles = Role.not_admin
   end
 end

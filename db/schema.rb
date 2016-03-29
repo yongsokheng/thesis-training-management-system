@@ -285,7 +285,7 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_foreign_key "user_subjects", "user_courses"
   add_foreign_key "user_subjects", "users"
   add_foreign_key "user_tasks", "tasks", on_delete: :cascade
-  add_foreign_key "user_tasks", "user_subjects"
+  add_foreign_key "user_tasks", "user_subjects", on_delete: :cascade
   add_foreign_key "user_tasks", "users"
   add_foreign_key "users", "roles"
 end
