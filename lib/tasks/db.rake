@@ -48,35 +48,29 @@ namespace :db do
     end
 
     puts "Create Universities"
-    Fabricate :university, name: "Vietnam National University, Hanoi"
-    Fabricate :university, name: "Hanoi University of Science and Technology"
-    Fabricate :university, name: "Foreign Trade University"
-    Fabricate :university, name: "Hanoi University of Industry"
+    ["Vietnam National University, Hanoi", "Hanoi University of Science and Technology",
+      "Foreign Trade University", "Hanoi University of Industry"].each do |name|
+      Fabricate :university, name: name
+    end
 
     puts "Create Programming Languages"
-    Fabricate :programming_language, name: "Ruby"
-    Fabricate :programming_language, name: "PHP"
-    Fabricate :programming_language, name: "Android"
-    Fabricate :programming_language, name: "Java"
-    Fabricate :programming_language, name: "C"
+    ["Ruby", "PHP", "Android", "Java", "C"].each do |name|
+      Fabricate :programming_language, name: name
+    end
 
     puts "Create User Types"
     ["Intern", "VPG", "JPG", "New dev", "Tester"].each do |name|
-        Fabricate :user_type, name: name
+      Fabricate :user_type, name: name
     end
-    
+
     puts "Create Progress"
-    Fabricate :progress, name: "Tutorial"
-    Fabricate :progress, name: "Project demo"
-    Fabricate :progress, name: "Project 1"
-    Fabricate :progress, name: "Project 2"
-    Fabricate :progress, name: "Git"
+    ["Tutorial", "Project demo", "Project 1", "Project 2", "Git"].each do |name|
+      Fabricate :progress, name: name
+    end
 
     puts "Create Status"
-    Fabricate :status, name: "Inprogress"
-    Fabricate :status, name: "Finish"
-    Fabricate :status, name: "Prepare project"
-    Fabricate :status, name: "Jointed project"
-
+    ["Inprogress", "Finish", "Prepare project", "Jointed project"].each do |name|
+      Fabricate :status, name: name
+    end
   end
 end

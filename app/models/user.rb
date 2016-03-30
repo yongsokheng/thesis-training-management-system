@@ -5,12 +5,7 @@ class User < ActiveRecord::Base
     AND (courses.status = 0 OR courses.status = 1)
     AND courses.id <> :course_id) AND role_id = 3"
 
-  belongs_to :programming_language
-  belongs_to :progress
-  belongs_to :status
   belongs_to :trainer, class_name: User.name, foreign_key: :trainer_id
-  belongs_to :type
-  belongs_to :university
   belongs_to :role
 
   has_many :user_courses, dependent: :destroy
@@ -30,6 +25,9 @@ class User < ActiveRecord::Base
 
   scope :available_of_course, ->course_id{where QUERY, course_id: course_id}
   scope :find_by_role, -> role{where role: role}
+  scope :trainers, ->{joins(:role).where("roles.name = 'trainer'")}
+
+  after_create :create_user_profile, if: :is_trainee?
 
   def total_done_tasks user, course
     done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
@@ -50,5 +48,13 @@ class User < ActiveRecord::Base
   private
   def password_required?
     new_record? ? super : false
+  end
+
+  def create_user_profile
+    create_profile user_id: id
+  end
+
+  def is_trainee?
+    role.name == "trainee"
   end
 end

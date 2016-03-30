@@ -16,7 +16,10 @@
             <%= link_to t("layouts.roles"), admin_roles_path %>
           </li>
           <li>
-            <%= link_to t("layouts.evaluation"), admin_evaluation_templates_path %>
+            <%= link_to t("layouts.evaluations"), admin_evaluation_templates_path %>
+          </li>
+          <li>
+            <%= link_to t("layouts.user_profiles"), admin_profiles_path %>
           </li>
         <% else %>
           <li><%= link_to t("layouts.courses"), current_user.decorate.user_course_last_actived %></li>

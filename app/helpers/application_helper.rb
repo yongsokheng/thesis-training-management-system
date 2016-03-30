@@ -49,4 +49,11 @@ module ApplicationHelper
   def member_list members
     members.map {|member| link_to member.name, member}.join(", ").html_safe
   end
+
+  def select_profile_field target, target_array, builder
+    builder.select "#{target}_id".to_sym,
+      options_for_select(target_array.collect {|t|
+      [t.name, t.id ]}, builder.object.send("#{target}_id")),
+      {include_blank: true}, class: "form-control"
+  end
 end

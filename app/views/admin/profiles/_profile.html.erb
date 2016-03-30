@@ -1,0 +1,13 @@
+<tr>
+  <td class="name"><%= profile.user_name %></td>
+  <td class="start_training_date"><%= profile.start_training_date %></td>
+  <td class="finish_training_date"><%= profile.finish_training_date %></td>
+  <td class="leave_date"><%= profile.leave_date %></td>
+  <td class="ready_for_project"><%= profile.ready_for_project %></td>
+  <td class="type"><%= profile.user_type_name %></td>
+  <td class="university"><%= profile.university_name %></td>
+  <td class="programming_language"><%= profile.programming_language_name %></td>
+  <td class="progress"><%= profile.progress_name %></td>
+  <td class="status"><%= profile.status_name %></td>
+  <td class="action"><%= link_to t("button.edit"), edit_admin_profile_path(profile) %></td>
+</tr>
