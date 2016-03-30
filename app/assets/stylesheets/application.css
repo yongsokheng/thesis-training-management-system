@@ -30,6 +30,7 @@
  *= require admin/programming_language
  *= require admin/status
  *= require admin/profile
+ *= require admin/user_progress
  *= require bootstrap-datepicker3
  */
 

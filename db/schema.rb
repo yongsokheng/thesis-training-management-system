@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20160315030506) do
     t.integer  "user_type_id",            limit: 4
     t.integer  "university_id",           limit: 4
     t.integer  "programming_language_id", limit: 4
-    t.integer  "progress_id",             limit: 4
+    t.integer  "user_progress_id",        limit: 4
     t.integer  "status_id",               limit: 4
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -130,12 +130,6 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "programming_languages", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "progresses", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -207,6 +201,12 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   end
 
   add_index "user_courses", ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true, using: :btree
+
+  create_table "user_progresses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "user_subjects", force: :cascade do |t|
     t.integer  "status",                 limit: 4, default: 0

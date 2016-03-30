@@ -63,9 +63,9 @@ namespace :db do
       Fabricate :user_type, name: name
     end
 
-    puts "Create Progress"
+    puts "Create User Progresses"
     ["Tutorial", "Project demo", "Project 1", "Project 2", "Git"].each do |name|
-      Fabricate :progress, name: name
+      Fabricate :user_progress, name: name
     end
 
     puts "Create Status"
