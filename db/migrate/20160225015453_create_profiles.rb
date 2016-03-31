@@ -13,7 +13,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.integer :user_type_id
       t.integer :university_id
       t.integer :programming_language_id
-      t.integer :progress_id
+      t.integer :user_progress_id
       t.integer :status_id
       t.timestamps null: false
     end

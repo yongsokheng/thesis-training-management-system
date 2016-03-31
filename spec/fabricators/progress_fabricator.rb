@@ -1,2 +1,0 @@
-Fabricator(:progress) do
-end

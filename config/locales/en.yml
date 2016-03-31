@@ -110,6 +110,7 @@ en:
     status: "Status"
     evaluations: "Evaluations"
     user_profiles: "User profiles"
+    user_progresses: "User Progresses"
   button:
     edit: "Edit"
     delete: "Delete"

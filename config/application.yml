@@ -47,6 +47,7 @@ defaults: &defaults
     status: "status"
     type: "user_type"
     user_profile: "User profiles"
+    user_progress: "User progress"
 development:
   <<: *defaults
   neat_setting: 800
