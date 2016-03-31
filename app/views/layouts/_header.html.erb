@@ -1,52 +1,102 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="header">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to t("staticpages.banner"), root_path, class: "navbar-brand" %>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user.role.allow_access_admin %>
+<div id="header">
+  <% if current_user.decorate.allow_access_admin %>
+    <header class="main-header">
+      <a href="#" class="logo">
+      <span class="logo-lg"><%= t :name_system %></span></a>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li>
+              <div class="flag-language">
+                <% Settings.languages.each do |_, val| %>
+                  <%= link_to params.merge(locale: val) do %>
+                    <%= image_tag val, size: Settings.flag_size %>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= image_tag("profile.png", alt: "User Image", class: "user-image") %>
+                <span class="hidden-xs"><%= current_user.name %></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="user-header">
+                  <%= image_tag("profile.png", alt: "User Image", class: "img-circle") %>
+                  <p><%= current_user.name %></p>
+                </li>
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <%= link_to t("staticpages.profile"), user_path(current_user), class: "btn btn-default btn-flat" %>
+                  </div>
+                  <div class="pull-right">
+                    <%= link_to t("staticpages.logout"), destroy_user_session_path,
+                      method: :delete, class: "btn btn-default btn-flat" %>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <div class="user-panel">
+          <div class="pull-left image">
+            <%= image_tag("profile.png", alt: "User Image", class: "img-circle") %>
+          </div>
+          <div class="pull-left info">
+            <p><%= current_user.name %></p>
+            <a href="#"><i class="fa fa-circle text-success"></i><%= t :online %></a>
+          </div>
+        </div>
+        <ul class="sidebar-menu">
           <li>
             <%= link_to t("layouts.courses"), admin_courses_path %>
           </li>
           <li>
             <%= link_to t("layouts.subjects"), admin_subjects_path %>
           </li>
-          <li>
+          <li >
             <%= link_to t("layouts.roles"), admin_roles_path %>
           </li>
           <li>
             <%= link_to t("layouts.evaluations"), admin_evaluation_templates_path %>
           </li>
           <li>
-            <%= link_to t("layouts.user_profiles"), admin_profiles_path %>
-          </li>
-        <% else %>
-          <li><%= link_to t("layouts.courses"), current_user.decorate.user_course_last_actived %></li>
-        <% end %>
-        <li>
-          <div id="flag-language">
-            <% Settings.languages.each do |_, val| %>
-              <%= link_to params.merge(locale: val) do %>
-                <%= image_tag val, size: Settings.flag_size %>
-              <% end %>
+          <%= link_to t("layouts.user_profiles"), admin_profiles_path %>
+         </li>
+        </ul>
+      </section>
+    </aside>
+  <% else %>
+    <ul>
+      <li><%= link_to t("layouts.courses"), current_user.decorate.user_course_last_actived %></li>
+      <li>
+        <div class="flag-language">
+          <% Settings.languages.each do |_, val| %>
+            <%= link_to params.merge(locale: val) do %>
+              <%= image_tag val, size: Settings.flag_size %>
             <% end %>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-            role="button" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.name %>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to t("staticpages.profile"), user_path(current_user) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to t("staticpages.logout"), destroy_user_session_path,
-              method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+          <% end %>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+          role="button" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t("staticpages.profile"), user_path(current_user) %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to t("staticpages.logout"), destroy_user_session_path,
+            method: :delete %></li>
+        </ul>
+      </li>
+    </ul>
+  <% end %>
+</div>

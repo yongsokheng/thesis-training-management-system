@@ -6,17 +6,28 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": true %>
     <%= javascript_include_tag "application", "data-turbolinks-track": true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <script type="text/javascript">
       I18n.defaultLocale = "<%= I18n.default_locale %>";
       I18n.locale = "<%= I18n.locale %>";
     </script>
   </head>
-  <body>
-    <%= render "layouts/header" if current_user.present? %>
-    <div class="container body_wrapper">
-      <%= render "layouts/flash" %>
-      <%= yield %>
-    </div>
-  </body>
+  <% if current_user.present? && current_user.decorate.allow_access_admin %>
+    <body class="hold-transition skin-blue sidabar-mini">
+      <%= render "layouts/header" if current_user.present? %>
+      <div class="content-wrapper">
+        <%= render "layouts/flash" %>
+        <%= yield %>
+      </div>
+    </body>
+  <% else %>
+    <body>
+      <%= render "layouts/header" if current_user.present? %>
+      <div class="container body_wrapper">
+        <%= render "layouts/flash" %>
+        <%= yield %>
+      </div>
+    </body>
+  <% end %>
 </html>
