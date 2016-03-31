@@ -32,6 +32,8 @@
  *= require admin/profile
  *= require admin/user_progress
  *= require bootstrap-datepicker3
+ *= require admin/AdminLTE.min
+ *= require admin/all-skins.min
  */
 
 @import "bootstrap-sprockets";

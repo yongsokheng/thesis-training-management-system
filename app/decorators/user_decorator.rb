@@ -5,11 +5,7 @@ class UserDecorator < Draper::Decorator
     courses.last
   end
 
-  def permission_course_master
-    role.permissions.find_by model_class: "CourseMaster"
-  end
-
-  def permission_course
-    role.permissions.find_by model_class: "Course"
+  def allow_access_admin
+    role.allow_access_admin  
   end
 end
