@@ -1,9 +1,15 @@
 #courses {
   .tbl-course {
     .name {
-      width: 40%;
+      width: 30%;
     }
-    .start-date, .end-date, .action {
+    .description {
+      width: 30%
+    }
+    .start-date, .end-date{
+      width: 10%
+      } 
+    .action {
       width: 20%;
       text-align: center;
     }

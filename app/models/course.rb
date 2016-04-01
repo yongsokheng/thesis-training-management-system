@@ -8,13 +8,8 @@ class Course < ActiveRecord::Base
   validate :check_day_present, on: [:create, :update]
   validate :check_end_date, on: [:create, :update]
 
-  validates :start_date, presence: true unless :master?
-  validates :end_date, presence: true unless :master?
-
-  before_destroy :back_up_master if :master?
-
-  has_many :children, class_name: Course.name, foreign_key: :parent_id
-  belongs_to :parent, class_name: Course.name
+  validates :start_date, presence: true
+  validates :end_date, presence: true 
 
   has_many :course_subjects, dependent: :destroy
   has_many :user_courses, dependent: :destroy
@@ -28,12 +23,12 @@ class Course < ActiveRecord::Base
 
   scope :active_course, ->{where status: "progress"}
 
-  scope :masters,->{where parent_id: nil}
-  scope :normal,->{where.not parent_id: nil}
 
   accepts_nested_attributes_for :user_courses, allow_destroy: true
 
-  ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
+  USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
+  COURSE_ATTRIBUTES_PARAMS = [:name, :description, :start_date,
+    :end_date, subject_ids: []]
 
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
@@ -60,25 +55,5 @@ class Course < ActiveRecord::Base
   def finish_course
     self.update_attributes status: :finish
     self.user_subjects.update_all(status: Course.statuses[:finish])
-  end
-
-  def back_up_master
-    self.children.each do |course|
-      course.update_attributes name: self.name, description: self.description
-      course.save
-    end
-  end
-
-  def name
-    self[:name] || parent.name unless self.new_record?
-  end
-
-  def description
-    self[:description] || parent.description unless self.new_record?
-  end
-
-  private
-  def master?
-    parent_id.nil?
   end
 end

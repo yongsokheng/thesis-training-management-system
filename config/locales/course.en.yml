@@ -15,8 +15,8 @@ en:
         finished: "Finished"
         create_course: "Create course"
     create_course: "Create course"
+    edit_course: "Edit Course"
     no_course: "No course to display"
-    course_masters: "Course Masters"
     start_date: "Start date"
     end_date: "End date"
     status:
@@ -27,7 +27,6 @@ en:
       trainees: "Trainees"
       trainers: "Trainers"
       course: "Course"
-      course_master: "Course Master"
     table:
       name: "Name"
       description: "Description"

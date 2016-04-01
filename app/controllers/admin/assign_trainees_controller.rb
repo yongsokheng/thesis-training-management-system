@@ -16,6 +16,6 @@ class Admin::AssignTraineesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit Course::ATTRIBUTES_PARAMS
+    params.require(:course).permit Course::USER_COURSE_ATTRIBUTES_PARAMS
   end
 end
