@@ -12,8 +12,6 @@ gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "settingslogic"
-gem "carrierwave", "0.10.0"
-gem "mini_magick", "3.8.0"
 gem "devise"
 gem "cancancan"
 gem "ransack"
@@ -26,6 +24,10 @@ gem "whenever", require: false
 gem "i18n-js", ">= 3.0.0.rc11"
 gem "routing-filter"
 gem "public_activity"
+gem "ckeditor"
+gem "carrierwave"
+gem "mini_magick"
+gem "jquery-ui-rails"
 
 group :development, :test do
   gem "fabrication"
