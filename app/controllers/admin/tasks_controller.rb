@@ -15,10 +15,12 @@ class TasksController < ApplicationController
   def create
     if @task.save
       flash[:success] = flash_message "created"
+      @task.assign_trainees_to_task
+      redirect_to edit_admin_course_course_subject_path(@course_subject.course, @course_subject)
     else
       flash[:failed] = flash_message "not_created"
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   def update
@@ -41,3 +43,4 @@ class TasksController < ApplicationController
     @task.course_subject = @course_subject
   end
 end
+

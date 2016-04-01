@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
     resources :course_subjects do
       resources :user_subjects, only: :update
+      resources :tasks
     end
     resources :users do
       resource :evaluations
@@ -47,6 +48,11 @@ Rails.application.routes.draw do
     resources :tasks
     resources :user_subjects, only: [:update, :show]
   end
+
+  resources :course_subjects do
+    resources :tasks
+  end
+
   resources :users, only: [:edit, :update, :show] do
     resource :profiles
   end

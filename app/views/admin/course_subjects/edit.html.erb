@@ -1,10 +1,12 @@
 <%= render "shared/course_tab", course: @course,
   active_tab: Settings.tabs.subjects %>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="title">
       <span>
         <%= @course_subject.subject_name %>
+        <%= link_to t("subjects.task.create_new_task"), new_admin_course_subject_task_path(@course_subject.id),
+          class: "btn btn-success pull-right" %>
       </span>
     </div>
     <%= form_for @course_subject, url: admin_course_course_subject_path,
@@ -52,8 +54,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class="col-md-6">
-    <%= render "task" %>
   </div>
 </div>

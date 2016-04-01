@@ -27,8 +27,16 @@ class UserTask < ActiveRecord::Base
     task.task_master_id.nil?
   end
 
+  def create_by_trainee?
+    task.create_by_trainee
+  end
+
   def subject_in_progress?
-    self.user_subject.progress?
+    user_subject.progress?
+  end
+
+  def assignable_task?
+    nil_master? && create_by_trainee? && !user_subject.finish?
   end
 
   private

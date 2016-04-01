@@ -11,10 +11,17 @@ class Task < ActiveRecord::Base
   ]
 
   scope :not_assigned_trainee, -> do
-    where assigned_trainee_id: nil, task_master_id: nil
+    where assigned_trainee_id: nil, task_master_id: nil, create_by_trainee: true
   end
 
   after_save :change_user_task
+
+  def assign_trainees_to_task
+    user_subjects = course_subject.user_subjects
+    user_subjects.each do |user_subject|
+      user_tasks.create user_subject: user_subject
+    end
+  end
 
   private
   def change_user_task
