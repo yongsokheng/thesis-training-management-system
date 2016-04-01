@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     resources :progresses, except: :show
   end
 
-  resources :courses, only: :show do
+  resources :courses, only: [:show, :index] do
     resources :subjects, only: [:index, :show]
     resources :tasks
     resources :user_subjects, only: [:update, :show]

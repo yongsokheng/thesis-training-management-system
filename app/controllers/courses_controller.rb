@@ -1,6 +1,11 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_course, only: :show
+  before_action :load_course, only: [:show, :index]
+
+  def index
+    @courses = current_user.user_courses.map(&:course).reverse
+    @course_active_last = @user_course.course
+  end
 
   def show
     @users = @course.users

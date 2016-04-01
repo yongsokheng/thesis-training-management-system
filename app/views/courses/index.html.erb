@@ -1,0 +1,41 @@
+<div id="user-course-index">
+  <ul class="list">
+    <li class="paths list-item">
+      <i class="glyphicon glyphicon-th-list"></i>
+      <%= link_to t("courses.paths"), courses_path, class: "link--underline" %>
+    </li>
+  </ul>
+
+  <div class="introduce-content">
+    <h2><%= t "courses.demo_introduce" %></h2>
+  </div>
+
+  <% unless @courses.nil? %>
+    <div class="row list-course-items">
+      <% @courses.each do |course| %>
+        <% if @course_active_last == course %>
+          <div class="col-md-4 course-item last-actived">
+        <% else %>
+          <div class="col-md-4 course-item normal-course">
+        <% end %>
+          <div class="path-parent">
+            <div class="badge">
+              <%= link_to image_tag("ruby.jpg", class: "badge-img img-circle"),
+                user_course_path(course) %>
+            </div>
+
+            <div class="path-content">
+              <div class="path-header"></div>
+              <h2 class="truncate">
+                <%= link_to course.name, user_course_path(course) %>
+              </h2>
+              <p class="path-description">
+                <%= course.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

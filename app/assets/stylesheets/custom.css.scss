@@ -1,19 +1,57 @@
 /* header */
 #header {
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 75px;
+
+  .user-header {
+    min-width: 85em;
+
+    .header-cell {
+      width: 100%;
+      border: 1px;
+      .logo-lg {
+        padding: 2%;
+        font-weight: 200%;
+        font-size: 150%;
+      }
+    }
+  }
+
   .header_search {
-  padding: 8px 0px;
-  width: 300px;
+    padding: 8px 0px;
+    width: 300px;
   }
 
   .flag-language {
     height: 50px;
     padding: 16px 0px;
   }
-  
+
   a:hover {
     color: #5882FA;
   }
 }
+
+#header::after {
+  background-color: rgba(0,0,0,0.1);
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: auto;
+  width: 100%;
+}
+
+body {
+  background-color: #F6F8F8;
+}
+
 #show-courses {
   ul, li {
     list-style-type: none;
