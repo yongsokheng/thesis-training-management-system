@@ -1,10 +1,12 @@
-<%= render "shared/course_course_master_tab", active_tab: Settings.tabs.course_master %>
-
+<div class="title"><%= t "courses.create_course" %></div>
 <%= form_for [:admin, @course] do |f| %>
   <div class="row">
     <%= render "shared/error_messages", object: @course %>
     <div class="col-md-6">
-      <%= f.hidden_field :parent_id, value: @course.parent_id %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", required: true %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control", required: true %>
       <%= f.label :start_date %>
       <%= f.text_field :start_date, class: "form-control datepicker", required: true %>
       <%= f.label :end_date %>

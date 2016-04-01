@@ -4,18 +4,13 @@ class Admin::CoursesController < ApplicationController
 
   def index
     if current_user.is_admin?
-      @courses = @courses.normal.recent
+      @courses = @courses.recent
     else
       @courses = current_user.courses
     end
   end
 
-  def new
-    @course = Course.new parent_id: params[:parent_id]
-  end
-
   def create
-    @course = Course.new course_params
     if @course.save
       flash[:success] = flash_message "created"
       redirect_to admin_courses_path
@@ -52,8 +47,7 @@ class Admin::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit :name, :description, :start_date,
-      :end_date, :parent_id, subject_ids: []
+    params.require(:course).permit Course::COURSE_ATTRIBUTES_PARAMS
   end
 
   def load_subjects
