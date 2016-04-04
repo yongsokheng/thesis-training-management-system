@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :statuses, except: :show
     resources :user_types, except: :show
     resources :profiles
-    resources :progresses, except: :show
+    resources :user_progresses, except: :show
   end
 
   resources :courses, only: :show do

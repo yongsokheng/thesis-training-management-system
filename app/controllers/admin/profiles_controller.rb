@@ -25,7 +25,7 @@ class Admin::ProfilesController < ApplicationController
     @universities = University.all
     @programming_languages = ProgrammingLanguage.all
     @statuses = Status.all
-    @progresses = Progress.all
+    @user_progresses = UserProgress.all
     @user_types = UserType.all
     @trainers = User.trainers
   end
