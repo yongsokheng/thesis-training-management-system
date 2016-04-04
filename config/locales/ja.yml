@@ -119,6 +119,8 @@ ja:
         contact: "接触 |"
         copy_right: "著作権2016 Framgiaは、株式会社のすべての権利予約します."
         company: "Framgiaベトナム"
+    path: "パス"
+    all_courses: "すべてのコース"
   button:
     edit: "編集"
     delete: "削除"

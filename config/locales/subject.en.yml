@@ -42,6 +42,8 @@ en:
       submit: "Submit"
       create_new_task: "Create new task"
       list_tasks: "List tasks"
+      edit: "Edit"
+      delete: "Delete"
     table:
       task_name: "Name"
       task_progress: "Progress"
@@ -55,3 +57,9 @@ en:
       input_subject_name: "Enter subject name..."
       input_subject_description: "Enter subject description..."
       input_subject_during_time: "Enter subject during-time(days)..."
+    description: "Subject Description"
+    task_overview: "Task OverView"
+    about_trainer: "About Trainer"
+    about_trainee: "About Trainee"
+    note: "Subject Notes"
+    discuss: "Discuss Subject"

@@ -136,6 +136,8 @@ en:
       contact: "Contact |"
       copy_right: "Copyright 2016 Framgia, Inc. All rights reserved."
       company: "FramgiaVietNam"
+    path: "Paths"
+    all_courses: "All Courses"
   button:
     edit: "Edit"
     delete: "Delete"
