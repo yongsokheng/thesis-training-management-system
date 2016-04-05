@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315030506) do
+ActiveRecord::Schema.define(version: 20160405092217) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -30,12 +30,31 @@ ActiveRecord::Schema.define(version: 20160315030506) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "course_subjects", force: :cascade do |t|
-    t.integer  "position",   limit: 4, default: 0
-    t.integer  "subject_id", limit: 4
-    t.integer  "course_id",  limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "position",            limit: 4,     default: 0
+    t.string   "subject_name",        limit: 255
+    t.text     "subject_description", limit: 65535
+    t.text     "subject_content",     limit: 65535
+    t.integer  "subject_id",          limit: 4
+    t.integer  "course_id",           limit: 4
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id", using: :btree
@@ -43,7 +62,9 @@ ActiveRecord::Schema.define(version: 20160315030506) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name",        limit: 255
+    t.string   "avatar",      limit: 255
     t.text     "description", limit: 65535
+    t.text     "content",     limit: 65535
     t.integer  "status",      limit: 4,     default: 0
     t.date     "start_date"
     t.date     "end_date"
@@ -157,7 +178,9 @@ ActiveRecord::Schema.define(version: 20160315030506) do
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",        limit: 255
+    t.string   "avatar",      limit: 255
     t.text     "description", limit: 65535
+    t.text     "content",     limit: 65535
     t.integer  "during_time", limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -165,17 +188,21 @@ ActiveRecord::Schema.define(version: 20160315030506) do
 
   create_table "task_masters", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.string   "avatar",      limit: 255
+    t.text     "description", limit: 65535
+    t.text     "content",     limit: 65535
     t.integer  "subject_id",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "task_masters", ["subject_id"], name: "index_task_masters_on_subject_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name",                limit: 255
+    t.string   "avatar",              limit: 255
     t.text     "description",         limit: 65535
+    t.text     "content",             limit: 65535
     t.integer  "task_master_id",      limit: 4
     t.integer  "assigned_trainee_id", limit: 4
     t.integer  "course_subject_id",   limit: 4
