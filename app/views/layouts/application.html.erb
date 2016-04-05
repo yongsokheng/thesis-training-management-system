@@ -16,7 +16,7 @@
   </head>
   <% if current_user.present? && current_user.decorate.allow_access_admin %>
     <body class="hold-transition skin-blue sidabar-mini">
-      <%= render "layouts/header" if current_user.present? %>
+      <%= render "layouts/admin_header" if current_user.present? %>
       <div class="content-wrapper">
         <%= render "layouts/flash" %>
         <%= yield %>
@@ -24,7 +24,7 @@
     </body>
   <% else %>
     <body>
-      <%= render "layouts/header" if current_user.present? %>
+      <%= render "layouts/user_header" if current_user.present? %>
       <div class="container body_wrapper">
         <%= render "layouts/flash" %>
         <%= yield %>
