@@ -6,10 +6,13 @@ class CourseSubject < ActiveRecord::Base
   after_create :create_user_subjects_when_add_new_subject
   before_create :init_position
   after_destroy :reorder_position
+  after_create :update_subject_course
 
   tracked only: [:create, :destroy, :start_subject, :close_subject],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model && model.course}
+  ATTRIBUTES_PARAMS = [:subject_name, :subject_description, :subject_content,
+    :postition, :course_id]
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
@@ -23,9 +26,13 @@ class CourseSubject < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|attributes| attributes["name"].blank?}
 
-  delegate :name, :description, to: :subject, prefix: true, allow_nil: true
 
   private
+  def update_subject_course
+    self.update_attributes(subject_name: subject.name, subject_description: subject.description,
+      subject_content: subject.content)
+  end
+
   def create_user_subjects_when_add_new_subject
     create_user_subjects course.user_courses, [self], course_id, course.init?
   end
