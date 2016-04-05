@@ -140,13 +140,11 @@ select {
 }
 
 .title {
-  margin-top: 20px;
-  color: black;
-  font-size: 25px;
-  font-weight: bold;
-  .name {
-    color: blue;
-  }
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Roboto Slab, serif";
+  color: #474647;
+  font-size: x-large;
 }
 
 .description {

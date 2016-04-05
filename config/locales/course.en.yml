@@ -29,7 +29,9 @@ en:
       course: "Course"
     table:
       name: "Name"
+      avatar: "Avatar"
       description: "Description"
+      content: "Content"
       action: "Action"
     labels:
       about_course: "About Course"
@@ -50,3 +52,8 @@ en:
       email: "Email"
     demo_introduce: "Framgia Training reaching you out to the World"
     paths: "Paths"
+    form:
+      input_course_name: "Enter course name..."
+      input_course_description: "Enter course description..."
+      input_course_start_date: "Enter course start-date..."
+      input_course_end_date: "Enter course end-date..."
