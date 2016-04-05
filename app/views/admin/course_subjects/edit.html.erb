@@ -1,0 +1,21 @@
+<%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.subjects %>
+
+<%= form_for @course_subject, url: admin_course_course_subject_path, method: :patch do |f| %>
+  <div class="row">
+    <%= render "shared/error_messages", object: @course_subject %>
+    <div class="col-md-12">
+      <div class="title"></div>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :subject_name %>
+      <%= f.text_field :subject_name, class: "form-control", required: true %>
+      <%= f.label :subject_description %>
+      <%= f.text_area :subject_description, class: "form-control", required: true %>
+      <%= f.label :subject_content %>
+      <%= f.text_area :subject_content, class: "form-control", required: true %>
+      <br>
+      <%= f.submit (f.object.new_record? ? t("courses.buttons.admin.create")
+        : t("courses.buttons.admin.update")), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
