@@ -37,8 +37,7 @@
           <span><%= t "courses.content" %></span>
         </div>
         <div class="col-md-9">
-          <%= f.text_area :content, class: "ckeditor form-control", required: true,
-            ckeditor: {uiColor: '#AADC6E'} %>
+          <%= f.cktext_area :content, class: "ckeditor form-control", required: true %>
         </div>
       </div>
       <br>

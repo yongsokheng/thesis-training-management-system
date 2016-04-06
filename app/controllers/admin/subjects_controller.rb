@@ -50,7 +50,6 @@ class Admin::SubjectsController < ApplicationController
 
   private
   def subject_params
-    params.require(:subject).permit :name, :description, :during_time,
-      task_masters_attributes: [:id, :name, :description, :_destroy]
+    params.require(:subject).permit Subject::SUBJECT_ATTRIBUTES_PARAMS
   end
 end
