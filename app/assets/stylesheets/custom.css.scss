@@ -1,5 +1,5 @@
 /* header */
-#header {
+#user-header {
   background-color: #fff;
   justify-content: center;
   align-items: center;
@@ -7,17 +7,46 @@
   display: flex;
   height: 75px;
 
-  .user-header {
+  .user-header-bar {
     min-width: 85em;
 
     .header-cell {
+      margin-top: 20px;
+      height: 55px;
       width: 100%;
-      border: 1px;
       .logo-lg {
-        padding: 2%;
         font-weight: 200%;
         font-size: 150%;
       }
+    }
+
+    li > .dropdown-menu {
+      margin-top: 9px;
+    }
+
+    li > .dropdown-menu::before {
+      position: absolute;
+      top: -7px;
+      right: 9px;
+      display: inline-block;
+      margin-bottom: 6px;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #CCC;
+      border-left: 7px solid transparent;
+      border-bottom-color: rgba(0, 0, 0, 0.2);
+      content: '';
+    }
+
+    li > .dropdown-menu::after {
+      position: absolute;
+      top: -6px;
+      right: 10px;
+      display: inline-block;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid white;
+      border-left: 6px solid transparent;
+      margin-bottom: 7px;
+      content: '';
     }
   }
 
@@ -36,9 +65,9 @@
   }
 }
 
-#header::after {
+#user-header::after {
   background-color: rgba(0,0,0,0.1);
-  bottom: -1px;
+  bottom: 1px;
   content: "";
   height: 1px;
   left: 0;
