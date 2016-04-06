@@ -2,7 +2,9 @@
   <td class="name">
     <%= link_to subject.name, admin_subject_task_masters_path(subject) %>
   </td>
+  <td class="avatar"><%= image_tag subject.avatar_url %></td>
   <td class="description"><%= subject.description %></td>
+  <td class="content"><%= subject.content.html_safe %></td>
   <td class="during_time"><%= subject.during_time %></td>
   <td class="action">
     <%= link_to t("subjects.buttons.admin.edit"), edit_admin_subject_path(subject) %>&nbsp;

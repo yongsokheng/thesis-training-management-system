@@ -1,5 +1,5 @@
 class Subject < ActiveRecord::Base
-
+  mount_uploader :avatar, AvatarUploader
   has_many :task_masters, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
   has_many :courses, through: :course_subjects
@@ -13,5 +13,8 @@ class Subject < ActiveRecord::Base
 
   accepts_nested_attributes_for :task_masters, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:name].blank?}
+
+  SUBJECT_ATTRIBUTES_PARAMS = [:name, :description, :content, :avatar, :during_time,
+      task_masters_attributes: [:id, :name, :description, :_destroy]]
 
 end

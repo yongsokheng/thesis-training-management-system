@@ -11,7 +11,7 @@ en:
         delete: "Delete"
         delete_confirm: "Are you sure"
     about_subject: "Subject"
-    create_subject: "Create subject"
+    create_subject: "Create new subject"
     subject_name: "Name Subject"
     subject_description: "Description"
     subject_content: "Content"
@@ -33,7 +33,6 @@ en:
       action: "Action"
     submit:
       create_task: "Create"
-    create_new_task: "Create new task"
     task:
       finish_all: "Finish all"
       assignee: "Assign for"
@@ -41,8 +40,8 @@ en:
       name: "Name"
       description: "Description"
       submit: "Submit"
-    crete_group: "Create group"
-    no_group: "No group"
+      create_new_task: "Create new task"
+      list_tasks: "List tasks"
     table:
       task_name: "Name"
       task_progress: "Progress"
@@ -52,3 +51,7 @@ en:
       task_estimated_time: "Estimated Time"
       task_redmine_id: "ID"
       task_spent_time: "Spent time"
+    form:
+      input_subject_name: "Enter subject name..."
+      input_subject_description: "Enter subject description..."
+      input_subject_during_time: "Enter subject during-time(days)..."

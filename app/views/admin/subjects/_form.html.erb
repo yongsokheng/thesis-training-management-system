@@ -1,16 +1,64 @@
 <div id="subjects">
   <%= form_for [:admin, @subject] do |f| %>
-    <%= render "shared/error_messages", object: @subject %>
     <div class="row">
-      <div class="col-md-6">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", required: true%>
-        <%= f.label :description %>
-        <%= f.text_area :description, class: "form-control" %>
-        <%= f.label :during_time %>
-        <%= f.number_field :during_time, min: 0, class: "form-control" %>
+      <%= render "shared/error_messages", object: @subject %>
+      <div class="title"><%= @subject.name %></div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <span><%= t "subjects.fields.name" %>:</span>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :name, class: "form-control", required: true,
+              placeholder: I18n.t("subjects.form.input_subject_name") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <span><%= t "subjects.avatar" %>:</span>
+          </div>
+          <div class="col-md-9">
+            <%= f.file_field :avatar, class: "form-control" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <span><%= t "subjects.description" %>:</span>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_area :description, class: "form-control", required: true,
+              placeholder: I18n.t("subjects.form.input_subject_description") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <span><%= t "subjects.content" %></span>
+          </div>
+          <div class="col-md-9">
+            <%= f.cktext_area :content, class: "ckeditor form-control", required: true %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <span><%= t "subjects.during_time" %>:</span>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :during_time, class: "form-control", required: true,
+              placeholder: I18n.t("subjects.form.input_subject_during_time") %>
+          </div>
+        </div>
+        <br>
       </div>
-      <div class="col-md-6">
+    </div>
+    <div class="row">
+      <div class="col-md-2 text-right">
+        <span><%= t "subjects.list_tasks" %></span>
+      </div>
+      <div class="col-md-9">
         <%= f.fields_for :task_masters do |builder| %>
           <%= render "task_master_fields", f: builder %>
         <% end %>
@@ -18,7 +66,11 @@
       </div>
     </div>
     <br>
-    <%= f.submit (f.object.new_record? ? t("subjects.buttons.admin.create") :
-      t("subjects.buttons.admin.update")), class: "btn btn-primary" %>
+    <div class="row">
+      <div class="col-md-1 col-md-offset-10">
+        <%= f.submit (f.object.new_record? ? t("subjects.buttons.admin.create")
+          : t("subjects.buttons.admin.update")), class: "btn btn-primary text-right" %>
+      </div>
+    </div>
   <% end %>
 </div>
