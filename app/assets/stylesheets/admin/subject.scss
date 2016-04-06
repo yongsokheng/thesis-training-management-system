@@ -1,4 +1,10 @@
 #subjects {
+  padding-left: 5px;
+  .input-group-btn {
+    padding-top: 20px;
+    padding-left: 50px;
+  }
+
   .tbl-subject {
     .name {
       width: 10%;
@@ -10,10 +16,10 @@
       width: 20%;
     }
     .content {
-      width: 40%
+      width: 20%
     }
     .during_time, .action {
-      width: 10%;
+      width: 20%;
       text-align: center;
     }
   }
