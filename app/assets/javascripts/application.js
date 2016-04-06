@@ -45,4 +45,13 @@ $(document).on("page:change", function() {
   $(".ckeditor").each(function() {
     CKEDITOR.replace($(this).attr("id"));
   });
+
+  $(".sidebar-toggle").click(function() {
+    if ($("#body-admin").hasClass("sidebar-collapse")) {
+      $("#body-admin").removeClass("sidebar-collapse");
+    }
+    else {
+      $("#body-admin").addClass("sidebar-collapse");
+    }
+  });
 });
