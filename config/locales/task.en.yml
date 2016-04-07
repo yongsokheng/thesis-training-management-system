@@ -7,3 +7,11 @@ en:
     redmine_task_id: "Remine task id"
     progress: "Progress:"
     assign_for: "Assign for:"
+    fields:
+      name: "Name"
+      description: "Description"
+      avatar: "Avatar"
+      content: "Content"
+    form:
+      input_task_name: "Enter task name..."
+      input_task_description: "Enter task description..."

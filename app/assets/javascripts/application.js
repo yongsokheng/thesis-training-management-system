@@ -21,6 +21,7 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require ckeditor/init
+//= require ckeditor/config
 //= require datepicker
 //= require admin/role_permission
 //= require admin/evaluation
