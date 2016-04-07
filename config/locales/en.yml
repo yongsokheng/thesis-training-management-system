@@ -20,6 +20,11 @@ en:
     profile: "Profile"
     logout: "Logout"
     login: "Sign in"
+    more_info: "More information"
+    courses_active: "Courses Active"
+    courses: "Courses"
+    users: "Users"
+    user_inprogress: "Users in progress"
   messages:
     delete:
       confirm: "Are you sure?"

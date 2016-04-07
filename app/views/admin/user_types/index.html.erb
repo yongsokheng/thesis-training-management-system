@@ -15,9 +15,11 @@
         <tr>
           <td class="name"><%= user_type.name %></td>
           <td class="action">
-            <%= link_to t("button.edit"), edit_admin_user_type_path(user_type) %> &nbsp;
+            <%= link_to t("button.edit"), edit_admin_user_type_path(user_type),
+              class: "btn btn-primary" %> &nbsp;
             <%= link_to t("button.delete"), admin_user_type_path(user_type),
-              method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+              method: :delete, data: {confirm: t("messages.delete.confirm")},
+              class: "btn btn-danger" %>
           </td>
         </tr>
       <% end %>
