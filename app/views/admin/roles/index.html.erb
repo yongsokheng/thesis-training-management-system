@@ -1,35 +1,33 @@
 <div id="roles">
-  <div class="box">
-    <div class="box-header">
-        <div class="title"><%= t "layouts.admin.roles" %></div>
-        <div class="box-tools">
-          <div class="input-group" style="width: 150px;">
-            <div class="input-group-btn">
-             <span><%= link_to t("subjects.buttons.admin.create"),
-              new_admin_role_path, class: "btn btn-success" %></span>
-            </div>
-          </div>
+  <div class="box-header">
+    <div class="title"><%= t "layouts.admin.roles" %></div>
+    <div class="box-tools">
+      <div class="input-group" style="width: 150px;">
+        <div class="input-group-btn">
+          <span><%= link_to t("subjects.buttons.admin.create"),
+            new_admin_role_path, class: "btn btn-success" %></span>
         </div>
-    </div>
-    <div class="box-body table-responsive no-padding">
-      <table class="table table-hover tbl-role">
-        <tr>
-          <th class="name"><%= t "roles.table.thread.name" %></th>
-          <th class="allow_access_admin"><%= t "roles.table.thread.allow_access_admin" %></th>
-          <th class="action"><%= t "roles.table.thread.action" %></th>
-        </tr>
-        <% @roles.each do |role| %>
-          <tr>
-            <td class="name"><%= role.name %></td>
-            <td class="access_admin"><%= role.allow_access_admin %></td>
-            <td class="action"><%= link_to t("roles.allocate"),
-              edit_admin_role_allocate_permissions_path(role), class: "btn btn-default" %>&nbsp;
-              <%= link_to t("button.edit"), edit_admin_role_path(role), class: "btn btn-primary" %>&nbsp;
-              <%= link_to t("button.delete"), admin_role_path(role),
-                method: :delete, data: {confirm: t("messages.delete.confirm")}, class: "btn btn-danger" %></td>
-          </tr>
-        <% end %>
-      </table>
+      </div>
     </div>
   </div>
+  <table class="table table-striped tbl-role">
+    <thead>
+      <tr>
+        <th class="name"><%= t "roles.table.thread.name" %></th>
+        <th class="allow_access_admin"><%= t "roles.table.thread.allow_access_admin" %></th>
+        <th class="action"><%= t "roles.table.thread.action" %></th>
+      </tr>
+    </thead>
+    <% @roles.each do |role| %>
+      <tr>
+        <td class="name"><%= role.name %></td>
+        <td class="access_admin"><%= role.allow_access_admin %></td>
+        <td class="action"><%= link_to t("roles.allocate"),
+          edit_admin_role_allocate_permissions_path(role), class: "btn btn-default" %>&nbsp;
+          <%= link_to t("button.edit"), edit_admin_role_path(role), class: "btn btn-primary" %>&nbsp;
+          <%= link_to t("button.delete"), admin_role_path(role),
+            method: :delete, data: {confirm: t("messages.delete.confirm")}, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>

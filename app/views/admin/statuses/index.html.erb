@@ -18,9 +18,11 @@
             <td><%= index + 1 %></td>
             <td><%= status.name %></td>
             <td class="action">
-              <%= link_to t("button.edit"), edit_admin_status_path(status) %> &nbsp;
+              <%= link_to t("button.edit"), edit_admin_status_path(status),
+                class: "btn btn-primary" %> &nbsp;
               <%= link_to t("button.delete"), admin_status_path(status),
-                method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+                method: :delete, data: {confirm: t("messages.delete.confirm")},
+                class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>

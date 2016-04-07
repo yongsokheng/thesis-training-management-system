@@ -5,9 +5,4 @@
   <td class="content"><%= course.content.html_safe %></td>
   <td class="start-date"><%= course.start_date %></td>
   <td class="end-date"><%= course.end_date %></td>
-  <td class="action">
-    <%= link_to t("button.edit"), edit_admin_course_path(course) %> &nbsp;
-    <%= link_to t("button.delete"), admin_course_path(course),
-      method: :delete, data: {confirm: t("messages.delete.confirm")} %>
-  </td>
 </tr>

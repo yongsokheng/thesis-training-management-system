@@ -14,10 +14,11 @@
       <% @universities.each do |university| %>
         <tr>
           <td class="name"><%= university.name %></td>
-          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university) %> &nbsp;
+          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university), class: "btn btn-primary" %> &nbsp;
             <%= link_to t("button.delete"),
               admin_university_path(university),
-              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
+              method: :delete, data: {confirm: t("messages.delete.confirm")},
+              class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
