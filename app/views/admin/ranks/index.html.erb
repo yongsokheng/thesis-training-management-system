@@ -19,9 +19,9 @@
           <td class="end-point"><%= rank.end_point %></td>
           <td class="rank"><%= rank.rank_value %></td>
           <td class="action"><%= link_to t("button.edit"),
-            edit_admin_rank_path(rank) %> &nbsp;
+            edit_admin_rank_path(rank), class: "btn btn-primary" %> &nbsp;
             <%= link_to t("button.delete"), admin_rank_path(rank),
-              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
+              method: :delete, data: {confirm: t("messages.delete.confirm")}, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

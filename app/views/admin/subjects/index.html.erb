@@ -1,28 +1,26 @@
 <div id="subjects">
-  <div class="box">
-    <div class="box-header">
-      <div class="title"><%= t "layouts.admin.subjects" %></div>
-      <div class="box-tools">
-        <div class="input-group" style="width: 150px;">
-          <div class="input-group-btn">
-            <span><%= link_to t("subjects.buttons.admin.create"),
-              new_admin_subject_path, class: "btn btn-success" %></span>
-          </div>
+  <div class="box-header">
+    <div class="title"><%= t "layouts.admin.subjects" %></div>
+    <div class="box-tools">
+      <div class="input-group" style="width: 150px;">
+        <div class="input-group-btn">
+          <span><%= link_to t("subjects.buttons.admin.create"),
+            new_admin_subject_path, class: "btn btn-success" %></span>
         </div>
       </div>
     </div>
-    <div class="box-body table-responsive no-padding">
-      <table class="table table-hover tbl-subject">
-        <tr>
-          <th class="name"><%= t "subjects.fields.name" %></th>
-          <th class="avatar"><%= t "subjects.fields.avatar" %></th>
-          <th class="description"><%= t "subjects.fields.description" %></th>
-          <th class="content"><%= t "subjects.fields.content" %></th>
-          <th class="during_time"><%= t "subjects.fields.during_time" %>&nbsp;<%= t "subjects.fields.days" %></th>
-          <th class="action"><%= t "subjects.label.action" %></th>
-        </tr>
-        <%= render @subjects %>
-      </table>
-    </div>
   </div>
+  <table class="table table-striped tbl-subject">
+    <thead>
+      <tr>
+        <th class="name"><%= t "subjects.fields.name" %></th>
+        <th class="avatar"><%= t "subjects.fields.avatar" %></th>
+        <th class="description"><%= t "subjects.fields.description" %></th>
+        <th class="content"><%= t "subjects.fields.content" %></th>
+        <th class="during_time"><%= t "subjects.fields.during_time" %>&nbsp;<%= t "subjects.fields.days" %></th>
+        <th class="action"><%= t "subjects.label.action" %></th>
+      </tr>
+    </thead>
+    <%= render @subjects %>
+  </table>
 </div>

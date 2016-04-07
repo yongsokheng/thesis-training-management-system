@@ -18,10 +18,12 @@
           <td class="name"><%= evaluation_template.name %></td>
           <td class="min-point"><%= evaluation_template.min_point %></td>
           <td class="max-point"><%= evaluation_template.max_point %></td>
-          <td class="action"><%= link_to t("button.edit"), edit_admin_evaluation_template_path(evaluation_template) %> &nbsp;
+          <td class="action"><%= link_to t("button.edit"), edit_admin_evaluation_template_path(evaluation_template),
+            class: "btn btn-primary" %> &nbsp;
             <%= link_to t("button.delete"),
               admin_evaluation_template_path(evaluation_template),
-              method: :delete, data: {confirm: t("messages.delete.confirm")} %></td>
+              method: :delete, data: {confirm: t("messages.delete.confirm")},
+              class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
