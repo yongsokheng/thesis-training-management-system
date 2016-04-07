@@ -18,12 +18,12 @@
           </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= image_tag("profile.png", alt: "User Image", class: "user-image") %>
+              <%= avatar_user_tag(current_user, "user-image") %>
               <span class="hidden-xs"><%= current_user.name %></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <%= image_tag("profile.png", alt: "User Image", class: "img-circle") %>
+                <%= avatar_user_tag(current_user, "img-circle") %>
                 <p><%= current_user.name %></p>
               </li>
               <li class="user-footer">
@@ -46,7 +46,7 @@
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
-          <%= image_tag("profile.png", alt: "User Image", class: "img-circle") %>
+          <%= avatar_user_tag(current_user, "img-circle") %>
         </div>
         <div class="pull-left info">
           <p><%= current_user.name %></p>
