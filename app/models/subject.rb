@@ -15,6 +15,6 @@ class Subject < ActiveRecord::Base
     reject_if: proc {|attributes| attributes[:name].blank?}
 
   SUBJECT_ATTRIBUTES_PARAMS = [:name, :description, :content, :avatar, :during_time,
-      task_masters_attributes: [:id, :name, :description, :_destroy]]
+      task_masters_attributes: [:id, :name, :description, :content, :avatar, :_destroy]]
 
 end

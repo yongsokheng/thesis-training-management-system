@@ -1,4 +1,6 @@
 <tr>
   <td class="name"><%= task_master.name %></td>
+  <td class="avatar"><%= image_tag task_master.avatar_url %></td>
   <td class="description"><%= task_master.description %></td>
+  <td class="content"><%= task_master.content.html_safe %></td>
 </tr>
