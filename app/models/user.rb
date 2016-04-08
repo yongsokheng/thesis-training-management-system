@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     AND (courses.status = 0 OR courses.status = 1)
     AND courses.id <> :course_id) AND role_id = 3"
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ImageUploader
 
   belongs_to :trainer, class_name: User.name, foreign_key: :trainer_id
   belongs_to :role

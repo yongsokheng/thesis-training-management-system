@@ -26,6 +26,7 @@ en:
       start_date: "Start date"
       end_date: "End date"
       progress: "Progress"
+      image: "Image"
     label:
       issues: "Issues"
       action: "Action"

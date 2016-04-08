@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
   include PublicActivity::Model
   include InitUserSubject
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
   tracked only: [:finish_course, :start_course],
     owner: ->(controller, model) {controller.current_user}
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
@@ -28,7 +28,7 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :user_courses, allow_destroy: true
 
   USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
-  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :avatar, :description, :start_date,
+  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, :start_date,
     :end_date, subject_ids: []]
 
   def create_user_subjects_when_start_course

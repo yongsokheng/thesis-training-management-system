@@ -5,6 +5,7 @@ class CreateCourseSubjects < ActiveRecord::Migration
       t.string :subject_name
       t.text :subject_description
       t.text :subject_content
+      t.string :image
       t.references :subject, index: true, foreign_key: true
       t.references :course, index: true, foreign_key: true
 
