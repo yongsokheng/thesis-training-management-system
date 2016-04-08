@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     AND (courses.status = 0 OR courses.status = 1)
     AND courses.id <> :course_id) AND role_id = 3"
 
+  mount_uploader :avatar, AvatarUploader
+
   belongs_to :trainer, class_name: User.name, foreign_key: :trainer_id
   belongs_to :role
 
@@ -20,6 +22,9 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password
+
+  ATTRIBUTES_PARAMS = [:name, :email, :password,
+    :password_confirmation, :avatar]
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 

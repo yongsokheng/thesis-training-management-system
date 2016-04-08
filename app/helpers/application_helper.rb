@@ -56,4 +56,9 @@ module ApplicationHelper
       [t.name, t.id ]}, builder.object.send("#{target}_id")),
       {include_blank: true}, class: "form-control"
   end
+
+  def avatar_user_tag user, class_name
+    image_tag user.avatar_url ? user.avatar_url : "profile",
+      class: class_name.to_sym
+  end
 end
