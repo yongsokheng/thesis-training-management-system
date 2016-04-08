@@ -35,6 +35,8 @@ ja:
       course_not_upate: "コースは正常に更新できませんでした"
   tasks:
     update: "タスクをアップデータ"
+    complete: "コンプリート"
+    assignee: "譲受人"
   subjects:
     finish: "フィニッシュ"
     subject: "件名"
