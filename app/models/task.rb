@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   belongs_to :course_subject
   has_many :user_tasks, dependent: :destroy
   belongs_to :assigned_trainee, class_name: User.name
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
 
   ATTRIBUTES_PARAMS = [
     :name, :description, :assigned_trainee_id, :course_subject_id

@@ -33,6 +33,7 @@ defaults: &defaults
       - "update"
       - "destroy"
   hours_working_day: 8
+  image_size: "200x200"
   tabs:
     overview: "overview"
     subjects: "subjects"

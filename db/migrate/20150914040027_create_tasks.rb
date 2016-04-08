@@ -2,7 +2,7 @@ class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
       t.string :name
-      t.string :avatar
+      t.string :image
       t.text :description
       t.text :content
       t.integer :task_master_id

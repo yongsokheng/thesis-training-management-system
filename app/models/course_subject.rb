@@ -2,6 +2,7 @@ class CourseSubject < ActiveRecord::Base
   include PublicActivity::Model
   include InitUserSubject
 
+  mount_uploader :image, ImageUploader
   after_create :create_tasks
   after_create :create_user_subjects_when_add_new_subject
   before_create :init_position
@@ -30,7 +31,7 @@ class CourseSubject < ActiveRecord::Base
   private
   def update_subject_course
     self.update_attributes(subject_name: subject.name, subject_description: subject.description,
-      subject_content: subject.content)
+      subject_content: subject.content, image: subject.image)
   end
 
   def create_user_subjects_when_add_new_subject
@@ -40,7 +41,7 @@ class CourseSubject < ActiveRecord::Base
   def create_tasks
     subject.task_masters.each do |task_master|
       Task.create course_subject_id: id, name: task_master.name,
-        avatar: task_master.avatar, content: task_master.content,
+        image: task_master.image, content: task_master.content,
         description: task_master.description, task_master_id: task_master.id
     end
   end

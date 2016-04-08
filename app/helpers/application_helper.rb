@@ -61,4 +61,14 @@ module ApplicationHelper
     image_tag user.avatar_url ? user.avatar_url : "profile",
       class: class_name.to_sym
   end
+
+  def image_target_tag target
+    image_tag target.image_url ? target.image_url : "no_image",
+      size: Settings.image_size
+  end
+
+  def image_course_tag course, language
+    image_tag course.image_url ? course.image_url : language,
+      size: Settings.image_size
+  end
 end

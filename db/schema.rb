@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160405092217) do
     t.string   "subject_name",        limit: 255
     t.text     "subject_description", limit: 65535
     t.text     "subject_content",     limit: 65535
+    t.string   "image",               limit: 255
     t.integer  "subject_id",          limit: 4
     t.integer  "course_id",           limit: 4
     t.datetime "created_at",                                    null: false
@@ -62,10 +63,11 @@ ActiveRecord::Schema.define(version: 20160405092217) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "avatar",      limit: 255
+    t.string   "image",       limit: 255
     t.text     "description", limit: 65535
     t.text     "content",     limit: 65535
     t.integer  "status",      limit: 4,     default: 0
+    t.string   "language",    limit: 255
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at",                            null: false
@@ -172,7 +174,7 @@ ActiveRecord::Schema.define(version: 20160405092217) do
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "avatar",      limit: 255
+    t.string   "image",       limit: 255
     t.text     "description", limit: 65535
     t.text     "content",     limit: 65535
     t.integer  "during_time", limit: 4
@@ -194,7 +196,7 @@ ActiveRecord::Schema.define(version: 20160405092217) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name",                limit: 255
-    t.string   "avatar",              limit: 255
+    t.string   "image",               limit: 255
     t.text     "description",         limit: 65535
     t.text     "content",             limit: 65535
     t.integer  "task_master_id",      limit: 4
