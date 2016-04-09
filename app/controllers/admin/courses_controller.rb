@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_subjects, except: [:index, :show, :destroy]
+  before_action :load_data, except: [:index, :show, :destroy]
 
   def index
     if current_user.is_admin?
@@ -15,7 +15,7 @@ class Admin::CoursesController < ApplicationController
       flash[:success] = flash_message "created"
       redirect_to admin_courses_path
     else
-      flash[:failed] = flash_message "not created"
+      flash[:failed] = flash_message "not_created"
       render :new
     end
   end
@@ -25,7 +25,7 @@ class Admin::CoursesController < ApplicationController
       flash[:success] = flash_message "updated"
       redirect_to admin_courses_path
     else
-      flash[:failed] = flash_message "not updated"
+      flash[:failed] = flash_message "not_updated"
       render :edit
     end
   end
@@ -40,7 +40,7 @@ class Admin::CoursesController < ApplicationController
     if @course.destroy
       flash[:success] = flash_message "deleted"
     else
-      flash[:failed] = flash_message "not deleted"
+      flash[:failed] = flash_message "not_deleted"
     end
     redirect_to :back
   end
@@ -50,7 +50,8 @@ class Admin::CoursesController < ApplicationController
     params.require(:course).permit Course::COURSE_ATTRIBUTES_PARAMS
   end
 
-  def load_subjects
+  def load_data
     @subjects = Subject.all
+    @programming_languages = ProgrammingLanguage.all
   end
 end

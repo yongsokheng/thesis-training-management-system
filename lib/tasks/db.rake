@@ -3,11 +3,6 @@ namespace :db do
   task remake_data: :environment do
     Rake::Task["db:migrate:reset"].invoke
 
-    puts "Creating Course"
-    ["ruby", "java", "php"].each do |name|
-      Fabricate :course, language: name
-    end
-
     puts "Creating Role"
     ["admin", "trainer"].each do |name|
       Fabricate :role, name: name, allow_access_admin: true

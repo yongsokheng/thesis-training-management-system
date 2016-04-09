@@ -93,6 +93,7 @@ en:
     in_progress: "In-progress course"
     finished: "Finish courses"
     create: "Create"
+    language: "Language"
   user_task:
     name: "Name:"
     description: "Description:"

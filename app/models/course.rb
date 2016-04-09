@@ -17,6 +17,7 @@ class Course < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
+  belongs_to :programming_language
 
   enum status: [:init, :progress, :finish]
 
@@ -28,8 +29,10 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :user_courses, allow_destroy: true
 
   USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
-  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, :start_date,
-    :end_date, subject_ids: []]
+  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, :programming_language_id,
+    :start_date, :end_date, subject_ids: []]
+    
+  delegate :name, to: :programming_language, prefix: true, allow_nil: true
 
   def create_user_subjects_when_start_course
     create_user_subjects user_courses, course_subjects, id, false
