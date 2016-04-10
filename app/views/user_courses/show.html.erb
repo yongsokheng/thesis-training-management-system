@@ -1,2 +1,68 @@
-<%= render "shared/trainee_course_tab", active_tab: Settings.tabs.overview  %>
-<%= render "admin/courses/overview" %>
+<div class="row" id="course-show">
+  <div class="col-md-9">
+    <div class="row course-breadcrumb">
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to t("courses.breadcum.home"), root_url %>
+        </li>
+        <li>
+          <%= link_to t("courses.breadcum.courses"), courses_path %>
+        </li>
+        <li class="active"><%= @course.name %></li>
+      </ol>
+    </div>
+    <div class="row">
+      <h2 id="course-h2-header">
+        <span id="course-header"><%= @course.name %></span>
+      </h2>
+      <p><%= @course.description %></p>
+    </div>
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="timeline">
+              <% @course_subjects.each do |item| %>
+                <li class="time-label">
+                  <span class="bg-red">
+                    <%= pluralize item.during_time, t("courses.day") %>
+                  </span>
+                </li>
+                <li>
+                  <% if item.init? %>
+                    <i class="fa fa-thumbs-o-down bg-red"
+                      title = "<%= t 'courses.user_subject_status.init' %>" >
+                    </i>
+                  <% elsif item.progress? %>
+                    <i class="fa fa-hand-o-right bg-orange"
+                      title ="<%= t 'courses.user_subject_status.progress' %>"></i>
+                  <% else %>
+                    <i class="fa fa-thumbs-up bg-blue" 
+                      title ="<%= t 'courses.user_subject_status.finish' %>"></i>
+                  <% end %>
+                  <div class="timeline-item">
+                    <div class="col-md-2">
+                      <%= image_course_subject_tag item %>
+                    </div>
+                    <div class="col-md-10 course-subject-body">
+                      <h3 class="timeline-header">
+                        <%= link_to item.subject.name, "#" %>
+                      </h3>
+                      <div class="timeline-body">
+                        <%= item.subject.description %>
+                      </div>
+                      <div class="timeline-footer">
+                        <%= link_to t("courses.view_detail"), "#",
+                          class: "btn btn-primary btn-xs" %>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

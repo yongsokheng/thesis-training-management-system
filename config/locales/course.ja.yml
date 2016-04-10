@@ -46,3 +46,11 @@ ja:
     users:
       name: "名"
       email: "Eメール"
+    breadcum:
+      home: "ホーム"
+      courses: "コース"
+    user_subject_status:
+      init: "初期"
+      progress: "進行中"
+      finish: "完成"
+    day: "日"

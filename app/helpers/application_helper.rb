@@ -71,4 +71,9 @@ module ApplicationHelper
     image_tag course.image_url ? course.image_url : language,
       size: Settings.image_size
   end
+
+  def image_course_subject_tag user_subject
+    image_tag user_subject.image_url ? user_subject.image_url : "no_image",
+      class: "img-responsive"
+  end
 end
