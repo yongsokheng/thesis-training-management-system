@@ -1,14 +1,7 @@
 <div class="row">
-  <div class="col-md-9">
-    <div class="title"><%= @course_subject.subject_name %></div>
-    <div class="description"><%= @course_subject.subject_description %></div>
-    <div class="text-danger">
-      <%= "#{t "subjects.fields.during_time"}: #{@course_subject.subject.during_time} #{t "subjects.fields.days"}" %>
-    </div>
-  </div>
-  <div class="col-md-3 title">
+  <div class="col-md-3 col-md-offset-9 title">
     <% if @course.progress? %>
-      <% unless @user_subjects.count == @user_subjects.finish.count %>
+      <% unless @user_subjects.size == @user_subjects.finish.size %>
         <%= link_to t("admin.actions.show_subject.finish_all"),
           admin_status_subject_path(@course_subject, "finish"), method: :patch,
           remote: true, class: "btn btn-success pull-right" %>
@@ -22,7 +15,6 @@
     <% end %>
   </div>
 </div>
-
 <div class="row">
   <%= render partial: "admin/subjects/user_subject", collection: @user_subjects, as: :user_subject %>
 </div>
