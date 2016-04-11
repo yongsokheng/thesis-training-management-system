@@ -17,7 +17,7 @@ class UserTask < ActiveRecord::Base
   belongs_to :user_subject
   belongs_to :user
 
-  delegate :name, to: :task
+  delegate :name, :avatar, :description, to: :task
   delegate :name, to: :user, prefix: true, allow_nil: true
 
   before_create :init_relation_user

@@ -13,11 +13,15 @@ class SubjectsController < ApplicationController
 
   def show
     @task_masters = @subject.task_masters
-    @course_subject = CourseSubject.find_by course_id: @course.id,
+    @course_subject = CourseSubject.includes(:tasks,
+      user_subjects: [user_tasks: :task]).find_by course_id: @course.id,
       subject_id: @subject.id
     @user_subjects = @course_subject.user_subjects
-    @user_subject = @course_subject.user_subjects.find_by user: current_user
+    @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == current_user.id}
     @unassign_tasks = @course_subject.tasks.not_assigned_trainee
+    @user_tasks = @user_subject.user_tasks
+    @trainers = @user_subject.load_trainers
+    @trainees = @user_subject.load_trainees
   end
 
   private

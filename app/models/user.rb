@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   scope :available_of_course, ->course_id{where QUERY, course_id: course_id}
   scope :find_by_role, -> role{where role: role}
   scope :trainers, ->{joins(:role).where("roles.name = 'trainer'")}
+  scope :trainees, ->{joins(:role).where("roles.name = 'trainee'")}
 
   after_create :create_user_profile, if: :is_trainee?
 

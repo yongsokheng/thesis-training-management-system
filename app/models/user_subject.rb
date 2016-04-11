@@ -22,6 +22,15 @@ class UserSubject < ActiveRecord::Base
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :subject, prefix: true, allow_nil: true
+  delegate :name, to: :course, prefix: true, allow_nil: true
+
+  def load_trainers
+    course.users.trainers
+  end
+
+  def load_trainees
+    course.users.trainees
+  end
 
   class << self
     def update_all_status status
