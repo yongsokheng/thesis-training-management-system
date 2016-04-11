@@ -34,13 +34,14 @@ en:
       content: "Content"
       action: "Action"
     labels:
+      content: "Content"
       about_course: "About Course"
       description: "Discription"
       subject: "Subject : "
       task: "Task : "
       admin: "Admin"
-      trainer: "Trainers : "
-      trainee: "Trainees : "
+      trainer: "Trainers "
+      trainee: "Trainees "
       name: "Name"
       description: "Description"
       status:

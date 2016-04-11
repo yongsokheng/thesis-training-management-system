@@ -57,9 +57,9 @@ module ApplicationHelper
       {include_blank: true}, class: "form-control"
   end
 
-  def avatar_user_tag user, class_name
+  def avatar_user_tag user, class_name, avatar_size
     image_tag user.avatar_url ? user.avatar_url : "profile",
-      class: class_name.to_sym
+      class: class_name.to_sym, size: avatar_size
   end
 
   def image_target_tag target
@@ -75,5 +75,9 @@ module ApplicationHelper
   def image_course_subject_tag user_subject
     image_tag user_subject.image_url ? user_subject.image_url : "no_image",
       class: "img-responsive"
+  end
+
+  def image_course_subject_tag course_subject
+    image_tag course_subject.image_url ? course_subject.image_url : "no-image"
   end
 end

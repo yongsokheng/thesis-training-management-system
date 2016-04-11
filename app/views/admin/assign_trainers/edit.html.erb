@@ -1,4 +1,3 @@
-<%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.trainers  %>
 <div id="trainees">
   <%= form_for @course, url: admin_course_assign_trainers_path, method: :patch do |f| %>
     <%= render "shared/error_messages", object: @course %>
