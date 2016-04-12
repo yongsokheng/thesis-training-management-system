@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
+  before_action :create_by_trainee, only: [:create]
 
   def show
     @assigned_trainee = @task.assigned_trainee
@@ -31,5 +32,10 @@ class TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit Task::ATTRIBUTES_PARAMS
+  end
+
+  def create_by_trainee
+    @task.create_by_trainee = current_user.is_trainee?
+    @task.owner = current_user
   end
 end
