@@ -1,3 +1,84 @@
 <% provide :title, t("courses.course") %>
-<%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.overview %>
-<%= render "overview" %>
+<div id="courses">
+  <div class="row course-show">
+    <div class="col-md-9 left-side-course">
+      <div class="row course-breadcrumb">
+        <ol class="breadcrumb">
+          <li>
+            <%= link_to t("courses.breadcum.home"), root_url %>
+          </li>
+          <li>
+            <%= link_to t("courses.breadcum.courses"), "#" %>
+          </li>
+          <li class="active"><%= @course.name %></li>
+        </ol>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <%= image_course_tag @course, @course.programming_language_name %>
+        </div>
+        <div class="col-md-10">
+          <span class="pull-right">
+            <% if @course.init? %>
+              <%= link_to t("courses.buttons.admin.start"), admin_course_change_status_courses_path(@course),
+                method: :patch, class: "btn btn-info btn--b" %>
+            <% elsif @course.progress? %>
+              <%= link_to t("courses.buttons.admin.finish"),admin_course_change_status_courses_path(@course),
+                method: :patch, class: "btn btn-success btn--b" %>
+            <% elsif @course.finish? %>
+              <label class="btn btn-xs btn-danger btn--b">
+                <%= t "courses.buttons.admin.start.finished" %>
+              </label>
+            <% end %>
+          </span>
+          <h2 id="course-h2-header">
+            <span id="course-header"><%= @course.name %></span>
+          </h2><br>
+          <p><%= link_to t("courses.buttons.admin.edit"),
+            edit_admin_course_path, class: "btn btn-primary btn--b" %>
+            <%= link_to t("button.delete"), admin_course_path(@course),
+            method: :delete, data: {confirm: t("messages.delete.confirm")},
+            class: "btn btn-danger btn--b" %></p>
+        </div>
+      </div><br>
+      <h2 class="label"><%= t "label.description" %></h2>
+      <p><%= @course.description %></p>
+      <h2 class="label"><%= t "label.content" %></h2>
+      <p><%= @course.content.html_safe %></p>
+      <section class="content">
+        <div class="row">
+          <div class="col-md-10">
+            <%= render "course_subjects" %>
+          </div>
+        </div>
+      </section>
+    </div>
+ 
+    <div class="col-md-3 user-infor right-side-course">
+      <h2 class="label"><%= t "courses.labels.trainer" %>&nbsp;
+        <%= link_to edit_admin_course_assign_trainers_path(@course) do %>
+          <i class="ionicons ion-android-person-add"></i>
+        <% end %>
+      </h2>
+      <ul>
+        <% @trainers.each do |trainer| %>
+          <li class="label-user"><%= avatar_user_tag trainer, "profile-trainer",
+            Settings.image_user_size %>
+            <%= link_to trainer.name, trainer %></li>
+        <% end %>
+      </ul>
+      <h2 class="label"><%= t "courses.labels.trainee" %>
+        <%= link_to edit_admin_course_assign_trainees_path(@course) do %>&nbsp;
+          <i class="ionicons ion-android-person-add"></i>
+        <% end %>
+      </h2>
+      <ul>
+        <% @trainees.each do |trainee| %>
+          <li class="label-user"><%= avatar_user_tag trainee, "profile-user",
+            Settings.image_user_size %>
+            <%= link_to trainee.name, trainee %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

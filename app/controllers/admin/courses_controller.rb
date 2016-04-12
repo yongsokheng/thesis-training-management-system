@@ -33,7 +33,8 @@ class Admin::CoursesController < ApplicationController
   def show
     @course_subjects = @course.course_subjects
     @users = @course.users
-    @roles = Role.not_admin
+    @trainers = @course.users.trainers
+    @trainees = @course.users.trainees
   end
 
   def destroy
@@ -42,7 +43,7 @@ class Admin::CoursesController < ApplicationController
     else
       flash[:failed] = flash_message "not_deleted"
     end
-    redirect_to :back
+    redirect_to admin_courses_path
   end
 
   private
