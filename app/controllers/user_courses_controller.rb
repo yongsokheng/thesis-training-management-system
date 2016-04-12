@@ -5,6 +5,7 @@ class UserCoursesController < ApplicationController
     @course = @user_course.course
     @users = @course.users
     @course_subjects = @user_course.user_subjects
-    @roles = Role.not_admin
+    @trainers = @course.users.trainers
+    @trainees = @course.users.trainees
   end
 end

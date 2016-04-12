@@ -36,6 +36,7 @@ defaults: &defaults
       - "destroy"
   hours_working_day: 8
   image_size: "100x100"
+  user_course_image_size: "128x128"
   tabs:
     overview: "overview"
     subjects: "subjects"

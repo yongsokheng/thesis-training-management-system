@@ -72,9 +72,9 @@ module ApplicationHelper
       size: Settings.image_size
   end
 
-  def image_course_subject_tag user_subject
+  def user_image_course_subject_tag user_subject
     image_tag user_subject.image_url ? user_subject.image_url : "no_image",
-      class: "img-responsive"
+      class: "img-circle img-responsive"
   end
 
   def image_course_subject_tag course_subject
