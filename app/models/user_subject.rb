@@ -25,6 +25,7 @@ class UserSubject < ActiveRecord::Base
   delegate :name, to: :subject, prefix: true, allow_nil: true
   delegate :subject_name, to: :course_subject, prefix: true, allow_nil: true
   delegate :name, to: :course, prefix: true, allow_nil: true
+  delegate :image_url, to: :course_subject, allow_nil: true
 
   def load_trainers
     course.users.trainers

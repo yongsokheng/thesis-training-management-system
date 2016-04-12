@@ -57,3 +57,11 @@ en:
       input_course_description: "Enter course description..."
       input_course_start_date: "Enter course start-date..."
       input_course_end_date: "Enter course end-date..."
+    breadcum:
+      home: "Home"
+      courses: "Courses"
+    user_subject_status:
+      init: "Init"
+      progress: "Progress"
+      finish: "Finish"
+    day: "day"
