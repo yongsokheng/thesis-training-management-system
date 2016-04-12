@@ -1,6 +1,6 @@
 <tr>
   <td class="name"><%= link_to course.name, admin_course_path(course) %></td>
-  <td class="avatar"><%= image_course_tag(course, course.language) %></td>
+  <td class="avatar"><%= image_course_tag course, course.programming_language_name %></td>
   <td class="description"><%= course.description %></td>
   <td class="content"><%= course.content.html_safe %></td>
   <td class="start-date"><%= course.start_date %></td>

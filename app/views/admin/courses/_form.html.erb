@@ -62,6 +62,15 @@
   </div>
   <div class="row">
     <div class="col-md-2 text-right">
+      <span><%= t "courses.language" %></span>
+    </div>
+    <div class="col-md-3">
+      <%= f.select :programming_language_id, @programming_languages.collect{|u| [u.name, u.id]},
+        {prompt: ""}, selected: f.object.programming_language_id, class: "form-control" %>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-md-2 text-right">
       <span><%= t "courses.list_subjects" %></span>
     </div>
     <div class="col-md-9">

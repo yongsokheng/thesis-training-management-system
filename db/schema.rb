@@ -62,16 +62,16 @@ ActiveRecord::Schema.define(version: 20160405092217) do
   add_index "course_subjects", ["subject_id"], name: "index_course_subjects_on_subject_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "image",       limit: 255
-    t.text     "description", limit: 65535
-    t.text     "content",     limit: 65535
-    t.integer  "status",      limit: 4,     default: 0
-    t.string   "language",    limit: 255
+    t.string   "name",                    limit: 255
+    t.string   "image",                   limit: 255
+    t.text     "description",             limit: 65535
+    t.text     "content",                 limit: 65535
+    t.integer  "status",                  limit: 4,     default: 0
+    t.integer  "programming_language_id", limit: 4
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   create_table "evaluation_details", force: :cascade do |t|
