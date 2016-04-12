@@ -82,7 +82,20 @@ module ApplicationHelper
   end
 
   def image_task_tag user_task
-    image_tag user_task.task_image_url ? user_task.task_image_url : "ruby",
+    image_tag user_task.task_image_url ? user_task.task_image_url : "Ruby",
       class: "img-circle"
+  end
+
+  def style_of_status status
+    case status
+    when  Settings.tasks.statuses.new
+      "color-green"
+    when Settings.tasks.statuses.in_progress
+      "color-blue"
+    when Settings.tasks.statuses.resolved
+      "color-gray"
+    else
+      "color-red"
+    end
   end
 end

@@ -40,7 +40,7 @@ ja:
       finish_all: "すべて終えます"
       submit: "提出します"
       create_new_task: "新しいタスクを作成"
-      edit: "編集"
+      edit: "編集 | "
       delete: "削除します"
     table:
       task_name: "名"
@@ -57,3 +57,4 @@ ja:
     about_trainee: "練習について"
     note: "件名注記"
     discuss: "件名を議論"
+    subject_complete: "件名コンプリート"

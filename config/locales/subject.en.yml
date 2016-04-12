@@ -43,7 +43,7 @@ en:
       submit: "Submit"
       create_new_task: "Create new task"
       list_tasks: "List tasks"
-      edit: "Edit"
+      edit: "Edit | "
       delete: "Delete"
     table:
       task_name: "Name"
@@ -64,3 +64,4 @@ en:
     about_trainee: "About Trainee"
     note: "Subject Notes"
     discuss: "Discuss Subject"
+    subject_complete: "Subject Complete"
