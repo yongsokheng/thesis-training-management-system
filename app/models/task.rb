@@ -2,10 +2,12 @@ class Task < ActiveRecord::Base
   belongs_to :course_subject
   has_many :user_tasks, dependent: :destroy
   belongs_to :assigned_trainee, class_name: User.name
+  belongs_to :owner, class_name: User.name
   mount_uploader :image, ImageUploader
 
   ATTRIBUTES_PARAMS = [
-    :name, :description, :assigned_trainee_id, :course_subject_id
+    :name, :description, :content, :image, :owner_id,
+    :assigned_trainee_id, :course_subject_id, :create_by_trainee
   ]
 
   scope :not_assigned_trainee, -> do
