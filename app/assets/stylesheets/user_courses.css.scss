@@ -1,5 +1,5 @@
 #course-show {
-  margin-top: -3%;
+  margin-top: -22px;
 
   li {
     .course-subject-body {
@@ -48,6 +48,7 @@
     margin-bottom: -4%;
 
     .breadcrumb {
+      padding-right: 4.5%;
       font-size: 120%;
     }
 
@@ -62,10 +63,6 @@
 
   .breadcrumb, .content {
     background-color: #F6F8F8;
-
-    hr {
-      width: 91%;
-    }
   }
 
   .box-danger {
@@ -78,19 +75,21 @@
   }
 }
 
-#card {
+.card {
+  margin-bottom: 10%;
   padding: 10%;
   background: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   border-radius: 7px;
 
   #complete {
+    margin-top: 30px;
     color: #aebdc1;
   }
 
   h3 {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 30px;
     font-weight: 400;
     font-size: 95%;
   }

@@ -71,7 +71,7 @@
     </div>
   </div>
   <div class="col-md-3">
-    <div class="row" id="card">
+    <div class="row card">
       <div id="image-course">
         <%= user_image_course_subject_tag @course %>
       </div>
@@ -79,7 +79,8 @@
       <h3>0/10(0%)</h3>
     </div>
     <div class="row">
-      <%= render "list_member" %>
+      <%= render partial: "shared/list_member", 
+        locals: {trainers: @trainers, trainees: @trainees} %>
     </div>
   </div>
 </div>
