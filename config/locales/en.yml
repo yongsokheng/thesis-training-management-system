@@ -147,6 +147,7 @@ en:
     new: "New"
     create: "Create"
     update: "Update"
+    clone: "Clone"
   roles:
     allocate: "Allocate"
     roles: "Roles"

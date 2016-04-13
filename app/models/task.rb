@@ -14,6 +14,12 @@ class Task < ActiveRecord::Base
     where assigned_trainee_id: nil, task_master_id: nil, create_by_trainee: true
   end
 
+  scope :not_created_by_trainee, -> do 
+    where create_by_trainee: false, task_master_id: nil
+  end
+
+  scope :has_task_master, ->{where.not task_master_id: nil}
+
   after_save :change_user_task
 
   def assign_trainees_to_task

@@ -35,10 +35,13 @@
             <span id="course-header"><%= @course.name %></span>
           </h2><br>
           <p><%= link_to t("courses.buttons.admin.edit"),
-            edit_admin_course_path, class: "btn btn-primary btn--b" %>
+              edit_admin_course_path, class: "btn btn-primary btn--b" %>
             <%= link_to t("button.delete"), admin_course_path(@course),
-            method: :delete, data: {confirm: t("messages.delete.confirm")},
-            class: "btn btn-danger btn--b" %></p>
+              method: :delete, data: {confirm: t("messages.delete.confirm")},
+              class: "btn btn-danger btn--b" %>
+            <%= link_to t("button.clone"), admin_course_clone_courses_path(@course),
+              method: :post, data: {confirm: t("courses.confirms.confirm_clone")},
+              class: "btn btn-success btn--b" %></p>
         </div>
       </div><br>
       <h2 class="label"><%= t "label.description" %></h2>

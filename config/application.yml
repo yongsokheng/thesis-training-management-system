@@ -11,6 +11,8 @@ defaults: &defaults
       in_progress: 1
       resolved: 2
       closed: 3
+  course:
+    init: 0
   flag_size: "20x15"
   image_user_size: "50x50"
   image_profile: "150x150"
