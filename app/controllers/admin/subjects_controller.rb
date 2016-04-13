@@ -7,10 +7,15 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
-    @task_masters = @subject.task_masters
-    @course = Course.find params[:course_id]
-    @course_subject = CourseSubject.find_by course_id: @course.id, subject_id: @subject.id
+    @course = Course.includes(course_subjects:
+      [:tasks, user_subjects: [:user, user_tasks:
+      [:user, :task]]]).find params[:course_id]
+    @course_subject = @course.course_subjects.find do |course_subject|
+      course_subject.subject_id == @subject.id
+    end
     @user_subjects = @course_subject.user_subjects
+    @unassign_tasks = @course_subject.tasks.not_assigned_trainee
+    @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
   end
 
   def create
