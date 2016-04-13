@@ -1,6 +1,8 @@
 #course-show {
+  margin-top: -3%;
+
   li {
-    .course-subject-body{
+    .course-subject-body {
       padding: 10px;
       box-shadow: 0 1px 1px rgba(0,0,0,0.1);
       border-radius: 3px;
@@ -36,16 +38,60 @@
   }
 
   p {
-    padding-right: 2%;
+    padding-right: 6%;
     padding-left: 1.5%;
   }
 
-  .course-breadcrumb {
+  #course-breadcrumb {
     padding-right: 2%;
-    padding-left: 1.2%;
+    padding-left: 0.5%;
+    margin-bottom: -4%;
+
+    .breadcrumb {
+      font-size: 120%;
+    }
+
+    li a {
+      text-decoration: underline;
+    }
   }
 
   .timeline-footer {
     margin-top: 10px;
+  }
+
+  .breadcrumb, .content {
+    background-color: #F6F8F8;
+
+    hr {
+      width: 91%;
+    }
+  }
+
+  .box-danger {
+    margin-top: 10%;
+    margin-bottom: 15%;
+  }
+
+  #subject-list {
+    padding-left: 0;
+  }
+}
+
+#card {
+  padding: 10%;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  border-radius: 7px;
+
+  #complete {
+    color: #aebdc1;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 95%;
   }
 }
