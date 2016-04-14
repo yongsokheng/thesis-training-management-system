@@ -67,6 +67,7 @@ en:
     breadcum:
       home: "Home"
       courses: "Courses"
+      edit: "Edit"
     user_subject_status:
       init: "Init"
       progress: "Progress"

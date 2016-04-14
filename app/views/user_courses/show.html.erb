@@ -73,7 +73,7 @@
   <div class="col-md-3">
     <div class="row card">
       <div id="image-course">
-        <%= user_image_course_subject_tag @course %>
+        <%= image_course_tag @course, @course.programming_language_name %>
       </div>
       <h3 id="complete"><%= t "courses.course_complete" %></h3>
       <h3>0/10(0%)</h3>
