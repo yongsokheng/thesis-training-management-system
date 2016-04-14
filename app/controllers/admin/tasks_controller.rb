@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class Admin::TasksController < ApplicationController
   load_and_authorize_resource
   load_and_authorize_resource :course_subject
   before_action :add_task_info, only: [:create]
