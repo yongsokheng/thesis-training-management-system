@@ -13,14 +13,28 @@
               </li>
               <li><%= link_to t("layouts.all_courses"), courses_path %></li>
               <li><%= link_to @user_subject.course_name,  user_course_path(@user_subject.user_course) %></li>
-              <li class="is-active"><%= @user_subject.subject_name %></li>
+              <li class="active"><%= @user_subject.subject_name %></li>
             </ul>
           </div>
         </div>
         <div class="grid-box grid-box-4">
           <ul class="grid g--s lr mbm mbf--l">
-            <li class="grid-box g-b--m--1of2 mbs mbf--m">
-              <%= link_to t("subjects.create_new_task"), "#", class: "btn btn--b btn--block" %>
+            <li class="grid-box g-b--m--1of2">
+              <%= link_to t("subjects.task.new_task"), "#", data: {toggle:
+                "modal", target: "#TaskModal"}, class: "btn btn--b btn--block" %>
+              <div id="TaskModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 class="label-modal"><%= t "subjects.task.new_task" %></h3>
+                    </div>
+                    <div class="modal-body">
+                      <%= render "new_task" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="grid-box g-b--m--1of2">
               <%= link_to t("subjects.discuss"), "#", class: "btn btn--b btn--block" %>
@@ -86,7 +100,7 @@
               <h3>0/10(0%)</h3>
             </div>
             <div class="sector-content">
-              <%= render partial: "shared/list_member", 
+              <%= render partial: "shared/list_member",
                 locals: {trainers: @trainers, trainees: @trainees} %>
               <div class="box box-primary">
                 <div class="box-header with-border">

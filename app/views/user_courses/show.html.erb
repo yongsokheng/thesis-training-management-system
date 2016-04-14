@@ -41,7 +41,7 @@
                     <i class="fa fa-hand-o-right bg-orange"
                       title ="<%= t 'courses.user_subject_status.progress' %>"></i>
                   <% else %>
-                    <i class="fa fa-thumbs-up bg-blue" 
+                    <i class="fa fa-thumbs-up bg-blue"
                       title ="<%= t 'courses.user_subject_status.finish' %>"></i>
                   <% end %>
                   <div class="timeline-item">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-10 course-subject-body">
                       <h3 class="timeline-header">
-                        <%= link_to item.subject.name, 
+                        <%= link_to item.subject.name,
                           course_subject_path(@course, item.subject) %>
                       </h3>
                       <div class="timeline-body">
@@ -79,7 +79,7 @@
       <h3>0/10(0%)</h3>
     </div>
     <div class="row">
-      <%= render partial: "shared/list_member", 
+      <%= render partial: "shared/list_member",
         locals: {trainers: @trainers, trainees: @trainees} %>
     </div>
   </div>

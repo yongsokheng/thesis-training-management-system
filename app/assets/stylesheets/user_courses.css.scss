@@ -22,7 +22,12 @@
   h3 {
     margin-top: 0;
   }
-
+  .label {
+    color: #aebdc1;
+    font-weight: 600;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+  }
   .content-wrapper {
     margin-left: 0;
   }
@@ -50,10 +55,27 @@
     .breadcrumb {
       padding-right: 4.5%;
       font-size: 120%;
+      padding-top: 6px;
+    }
+
+    .breadcrumb > .active {
+      font-weight: 600;
+    }
+
+    .breadcrumb > li {
+      font-size: 95%;
+    }
+
+    a:hover {
+      border-color: #fff;
+      color: #212BC7;
+      opacity: 0.75;
     }
 
     li a {
       text-decoration: underline;
+      color: #21abc7;
+      font-weight: 600;
     }
   }
 
