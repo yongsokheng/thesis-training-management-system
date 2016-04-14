@@ -1,86 +1,102 @@
-<div class="row" id="course-show">
-  <div class="col-md-9">
-    <div class="row" id="course-breadcrumb">
-      <ol class="breadcrumb">
-        <li>
-          <%= link_to root_url do %>
-            <i class="glyphicon glyphicon-th-list"></i>
-            <%= t "courses.paths" %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to t("courses.breadcum.courses"), courses_path %>
-        </li>
-        <li class="active"><%= @course.name %></li>
-        <hr>
-      </ol>
-    </div>
-    <div class="row">
-      <h2 id="course-h2-header">
-        <span id="course-header"><%= @course.name %></span>
-      </h2>
-      <p><%= @course.description %></p>
-    </div>
-    <div class="content-wrapper">
-      <section class="content">
-        <div class="row">
-          <div class="col-md-12" id="subject-list">
-            <ul class="timeline">
-              <% @course_subjects.each do |item| %>
-                <li class="time-label">
-                  <span class="bg-red">
-                    <%= pluralize item.during_time, t("courses.day") %>
-                  </span>
-                </li>
-                <li>
-                  <% if item.init? %>
-                    <i class="fa fa-thumbs-o-down bg-red"
-                      title = "<%= t 'courses.user_subject_status.init' %>" >
-                    </i>
-                  <% elsif item.progress? %>
-                    <i class="fa fa-hand-o-right bg-orange"
-                      title ="<%= t 'courses.user_subject_status.progress' %>"></i>
-                  <% else %>
-                    <i class="fa fa-thumbs-up bg-blue"
-                      title ="<%= t 'courses.user_subject_status.finish' %>"></i>
-                  <% end %>
-                  <div class="timeline-item">
-                    <div class="col-md-2">
-                      <%= user_image_course_subject_tag item %>
-                    </div>
-                    <div class="col-md-10 course-subject-body">
-                      <h3 class="timeline-header">
-                        <%= link_to item.subject.name,
-                          course_subject_path(@course, item.subject) %>
-                      </h3>
-                      <div class="timeline-body">
-                        <%= item.subject.description %>
-                      </div>
-                      <div class="timeline-footer">
-                        <%= link_to t("courses.view_detail"), course_subject_path(@course, item.subject),
-                          class: "btn btn-primary btn-xs" %>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
+<div id="user-course-show">
+  <div class="row">
+    <div class="cell">
+      <div class="grid">
+        <div class="grid-box grid-box-6">
+          <div class="breadcrumb-bar tac tal--l">
+            <ul class="list breadcrumb mts">
+              <li>
+                <%= link_to root_url do %>
+                  <i class="glyphicon glyphicon-th-list"></i>
+                  <%= t "layouts.paths" %>
+                <% end %>
+              </li>
+              <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+              <li class="active"><%= @course.name %></li>
             </ul>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="row card">
-      <div id="image-course">
-        <%= image_course_tag @course, @course.programming_language_name %>
+  <hr>
+  <div class="row has-sector">
+    <div class="cell">
+      <div class="grid">
+        <div class="grid-box grid-box-75">
+          <div class="well well--l">
+            <div class="mbl">
+              <div class="mbl--m">
+                <h2 class="label"><%= t "courses.labels.description" %></h2>
+                <p><%= @course.description %></p>
+                <h2 class="label"><%= t "courses.labels.content" %></h2>
+                <p><%= @course.content.html_safe %></p>
+              </div>
+              <h2 class="label mbm"><%= t "courses.list_subject" %></h2>
+              <ol class="list list--divided list--divided--m list--divided--f
+                list--divided--open mlm--l">
+                <% @user_subjects.each do |user_subject| %>
+                  <hr />
+                  <li class="list-item mbm pbm por" id="course-overview">
+                    <div class="bucket bucket--flag">
+                      <div class="bucket-media dn db--m">
+                        <div class="badge">
+                          <%= user_image_course_subject_tag user_subject %>
+                        </div>
+                      </div>
+                      <div class="bucket-content">
+                        <h3 class="h h--3">
+                          <b class="h-label opf">
+                            <span class="prs <%= style_user_course_status user_subject.status %>">
+                              <%= t "user_subjects.statuses.#{user_subject.status}" %>
+                            </span>
+                            <span class="bdrl pls tch"><%= "#{user_subject.during_time} days" %></span>
+                          </b>
+                          <%= link_to user_subject.subject_name,
+                            course_subject_path(@course, user_subject.subject) %>
+                        </h3>
+                        <p class="mbf"><%= user_subject.subject_description %></p>
+                        <%= link_to t("courses.view_detail"), 
+                          course_subject_path(@course, user_subject.subject),
+                          class: "btn btn-primary btn-xs" %>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="grid-box grid-box-25 sector">
+          <div class="well well--l">
+            <div class="card">
+              <div id="image-course">
+                <%= image_course_tag @course, @course.programming_language_name %>
+              </div>
+              <div class="course-infor">
+                <p><%= t "subjects.new_subjects" %>
+                  <span class="status"><%= @number_of_user_subjects_new %>/<%= @number_of_user_subjects %></span></p>
+                <p><%= t "subjects.in_progress_subjects" %>
+                  <span class="status"><%= @number_of_user_subjects_progress %>/<%= @number_of_user_subjects %></span></p>
+                <p><%= t "subjects.finish_subjects" %>
+                  <span class="status"><%= @number_of_user_subjects_finish %>/<%= @number_of_user_subjects %></span></p>
+              </div>
+            </div>
+            <div class="sector-content">
+              <%= render partial: "shared/list_member", 
+                locals: {trainers: @trainers, trainees: @trainees} %>
+            </div>
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="label"><%= t "courses.note" %></h3>
+              </div>
+              <div class="box-body no-padding">
+                <%= @course.name %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 id="complete"><%= t "courses.course_complete" %></h3>
-      <h3>0/10(0%)</h3>
-    </div>
-    <div class="row">
-      <%= render partial: "shared/list_member",
-        locals: {trainers: @trainers, trainees: @trainees} %>
     </div>
   </div>
 </div>

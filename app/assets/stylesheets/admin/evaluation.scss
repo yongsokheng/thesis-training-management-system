@@ -1,10 +1,17 @@
 #evaluations {
   .tbl-evaluation {
     .name {
-      width: 90%;
+      width: 50%;
     }
     .action {
       width: 10%;
+    }
+    .total_point {
+      width: 20%;
+
+    }
+    .current_rank {
+      width: 20%;
     }
   }
 }

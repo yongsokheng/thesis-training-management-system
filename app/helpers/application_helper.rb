@@ -7,7 +7,7 @@ module ApplicationHelper
   def flash_class level
     case level
     when :notice then "alert-info"
-    when :error then "alert-error"
+    when :error || :failed then "alert-error"
     when :alert then "alert-warning"
     when :success then "alert-success"
     end
@@ -98,5 +98,16 @@ module ApplicationHelper
     else
       "color-red"
     end
+  end
+
+  def style_user_course_status status
+    case status
+    when "init"
+      "color-green"
+    when "in_progress"
+      "color-blue"
+    when "finish"
+      "color-red"  
+    end 
   end
 end

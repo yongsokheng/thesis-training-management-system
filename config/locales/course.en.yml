@@ -27,6 +27,9 @@ en:
     end_date: "End date"
     status:
       new: "New"
+    note: "Course Notes"
+    subject_complete: "Subject complete"
+    list_subject: "List subject"
     tabs:
       overview: "Overview"
       subjects: "Subjects"

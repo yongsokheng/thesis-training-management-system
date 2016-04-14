@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   scope :trainers, ->{joins(:role).where("roles.name = 'trainer'")}
   scope :trainees, ->{joins(:role).where("roles.name = 'trainee'")}
 
+  delegate :total_point, :current_rank, to: :evaluation, prefix: true, allow_nil: true
+
   after_create :create_user_profile, if: :is_trainee?
 
   def total_done_tasks user, course

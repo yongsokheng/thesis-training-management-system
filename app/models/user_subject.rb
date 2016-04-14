@@ -20,11 +20,14 @@ class UserSubject < ActiveRecord::Base
   scope :load_users, ->status {where status: status}
   scope :not_finish, -> user_subjects {where.not(id: user_subjects)}
   scope :sort_by_course_subject, ->{joins(:course_subject).order("course_subjects.order asc")}
+  scope :count_user_tasks, -> status {joins(:user_tasks).where("user_tasks.status = ?", status).count}
+  
   enum status: [:init, :progress, :finish]
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, :description, to: :subject, prefix: true, allow_nil: true
-  delegate :subject_name, to: :course_subject, prefix: true, allow_nil: true
+  delegate :subject_name, :subject_content, :subject_description, to: :course_subject, 
+    prefix: true, allow_nil: true
   delegate :name, to: :course, prefix: true, allow_nil: true
   delegate :image_url, to: :course_subject, allow_nil: true
 

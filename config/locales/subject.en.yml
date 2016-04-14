@@ -1,5 +1,13 @@
 en:
   subjects:
+    new_subjects: "New subjects: "
+    in_progress_subjects: "In progress subjects: "
+    finish_subject: "Finished subjects: "
+    tasks:
+      new_tasks: "New Tasks: "
+      in_progress_tasks: "In progress tasks: "
+      resolved_tasks: "Resolved tasks: "
+      closed_tasks: "Closed tasks: "
     dynamic_form:
       add: "Add task master"
       remove: "Remove"
@@ -43,7 +51,7 @@ en:
       submit: "Submit"
       new_task: "New task"
       list_tasks: "List tasks"
-      edit: "Edit | "
+      edit: "Edit "
       delete: "Delete"
     table:
       task_name: "Name"
@@ -59,9 +67,11 @@ en:
       input_subject_description: "Enter subject description..."
       input_subject_during_time: "Enter subject during-time(days)..."
     description: "Subject Description"
+    content: "Subject Content"
     task_overview: "Task OverView"
     about_trainer: "About Trainer"
     about_trainee: "About Trainee"
     note: "Subject Notes"
     discuss: "Discuss Subject"
     subject_complete: "Subject Complete"
+    assigned: "Assigned: "
