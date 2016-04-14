@@ -185,6 +185,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
+    ranked-model (0.4.0)
+      activerecord (>= 3.1.12)
     ransack (1.7.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -293,6 +295,7 @@ DEPENDENCIES
   pry
   public_activity
   rails (= 4.2.3)
+  ranked-model
   ransack
   routing-filter
   rspec-rails (~> 3.0)

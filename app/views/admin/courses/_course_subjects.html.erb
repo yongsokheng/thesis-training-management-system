@@ -1,23 +1,20 @@
-<% @course_subjects.each do |item| %>
-  <div class="row">
-    <div class="timeline-item course_subject">
-      <div class="col-md-2">
-        <%= image_course_subject_tag item %>
-      </div>
-      <div class="col-md-10 course-subject-body">
-        <h3 class="timeline-header">
-          <%= link_to item.subject_name,
-            admin_course_subject_path(@course, item.subject) %>
-        </h3>
-        <div class="timeline-body">
-          <%= item.subject.description %>
-        </div>
-        <div class="timeline-footer">
-          <%= link_to t("courses.view_detail"),
-            admin_course_subject_path(@course, item.subject),
-            class: "btn btn-primary btn-xs" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<table class="table" id="sortable">
+  <tbody>
+    <% @course_subjects.each do |course_subject| %>
+      <tr data-item-id=<%= course_subject.id %>
+        data-url=<%= admin_course_course_subject_path course_subject.course, course_subject %>
+        class="item">
+        <td>
+          <div class="timeline-item">
+            <div class="col-md-12 course-subject-body">
+              <h4 class="timeline-header">
+                <%= link_to course_subject.subject_name,
+                  admin_course_subject_path(@course, course_subject.subject) %>
+              </h4>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

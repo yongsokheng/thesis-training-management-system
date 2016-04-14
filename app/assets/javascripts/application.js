@@ -25,6 +25,9 @@
 //= require datepicker
 //= require admin/role_permission
 //= require admin/evaluation
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
+//= require admin/update_order_course_subject
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();
