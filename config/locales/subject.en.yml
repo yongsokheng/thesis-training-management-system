@@ -41,7 +41,7 @@ en:
       name: "Name"
       description: "Description"
       submit: "Submit"
-      create_new_task: "Create new task"
+      new_task: "New task"
       list_tasks: "List tasks"
       edit: "Edit"
       delete: "Delete"
