@@ -78,7 +78,8 @@ module ApplicationHelper
   end
 
   def image_course_subject_tag course_subject
-    image_tag course_subject.image_url ? course_subject.image_url : "no-image"
+    image_tag course_subject.image_url ? course_subject.image_url : "no-image",
+      size: Settings.image_size
   end
 
   def image_task_tag user_task

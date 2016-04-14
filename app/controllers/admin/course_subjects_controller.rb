@@ -1,6 +1,6 @@
 class Admin::CourseSubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_course, only: [:index, :show, :edit]
+  before_action :load_course, except: :new
 
   def index
     @course_subjects = @course.course_subjects
@@ -12,7 +12,7 @@ class Admin::CourseSubjectsController < ApplicationController
   def update
     if @course_subject.update_attributes course_subject_params
       flash[:success] = flash_message "updated"
-      redirect_to admin_course_course_subjects_path
+      redirect_to admin_course_subject_path(@course, @course_subject.subject)
     else
       flash[:failed] = flash_message "not_updated"
       render :edit

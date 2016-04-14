@@ -20,8 +20,7 @@
         <% end %>
           <div class="path-parent">
             <div class="badge">
-              <%= link_to image_tag("ruby.jpg", class: "badge-img img-circle"),
-                user_course_path(course) %>
+              <%= image_course_tag course, course.programming_language_name %>
             </div>
 
             <div class="path-content">
