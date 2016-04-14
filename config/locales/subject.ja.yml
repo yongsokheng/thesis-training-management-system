@@ -39,7 +39,7 @@ ja:
       had_not_assigned: "タスクがまだ割り当てられていませんでした"
       finish_all: "すべて終えます"
       submit: "提出します"
-      create_new_task: "新しいタスクを作成"
+      new_task: "新しいタスク"
       edit: "編集 | "
       delete: "削除します"
     table:

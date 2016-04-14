@@ -1,0 +1,23 @@
+<%= form_for :task, url: course_subject_tasks_path(
+  @course_subject.id), html: {method: :post}  do |f| %>
+  <%= render "shared/error_messages", object: @course_subject %>
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control", required: true,
+      placeholder: t("tasks.form.input_task_name") %>
+  </div>
+  <div class="form-group">
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control modal-text-area",
+      required: true, placeholder: t("tasks.form.input_task_description") %>
+  </div>
+  <div class="form-group">
+    <%= f.cktext_area :content, class: "ckeditor form-control",
+      required: true, rows: 10 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit t("subjects.submit.create_task"),
+      class: "btn btn--b btn--block btn-modal" %>
+  </div>
+<% end %>
