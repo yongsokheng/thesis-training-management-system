@@ -87,6 +87,10 @@ module ApplicationHelper
       class: "img-circle"
   end
 
+  def image_new_task_tag task
+    image_tag task.image_url ? task.image_url : "Ruby", class: "img-circle"
+  end
+
   def style_of_status status
     case status
     when  Settings.tasks.statuses.new
