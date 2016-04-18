@@ -1,0 +1,11 @@
+#users {
+  .tbl-user {
+    .name, .email, .role{
+      width: 25%;
+    }
+    .action {
+      width: 25%;
+      text-align: center;
+    }
+  }
+}

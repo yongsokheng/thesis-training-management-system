@@ -12,6 +12,8 @@
       </li>
       <li role="presentation" class="<%= tab_active Settings.tabs.user_progress, active_tab %>">
         <%= link_to t("layouts.user_progresses"), admin_user_progresses_path %>
+      <li role="presentation" class="<%= tab_active Settings.tabs.user, active_tab %>">
+        <%= link_to t("layouts.user"), admin_users_path %>
       </li>
     </ul>
   </div>

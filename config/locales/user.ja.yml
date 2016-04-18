@@ -19,3 +19,7 @@ ja:
   member: "一員"
   buttons:
     submit: "提出します"
+    save: "セーブ"
+    new: "新しい"
+  table:
+    role: "役割"

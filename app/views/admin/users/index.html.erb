@@ -1,0 +1,17 @@
+<%= render "shared/category_tab", active_tab: Settings.tabs.user %>
+
+<div id="users">
+  <p class="pull-right"><%= link_to t("buttons.new"),
+    new_admin_user_path, class: "btn btn-success" %></p>
+  <table class="table table-striped tbl-user">
+    <thead>
+      <tr>
+        <th class="name"><%= t "user.table.name" %></th>
+        <th class="email"><%= t "user.table.email" %></th>
+        <th class="role"><%= t "user.role" %></th>
+        <th class="action"><%= t "user.labels.action" %></th>
+      </tr>
+    </thead>
+    <%= render @users %>
+  </table>
+</div>

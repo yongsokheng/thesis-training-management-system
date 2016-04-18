@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :courses, through: :user_courses
   has_many :course_subjects, through: :user_subjects
   has_many :tasks, through: :user_tasks
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_one :evaluation
   has_many :trainees, class_name: User.name
 
@@ -24,9 +24,11 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   ATTRIBUTES_PARAMS = [:name, :email, :password,
-    :password_confirmation, :avatar]
+    :password_confirmation, :avatar, :role_id]
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
+
+  delegate :id, :name, to: :role, prefix: true, allow_nil: true
 
   scope :available_of_course, ->course_id{where QUERY, course_id: course_id}
   scope :find_by_role, -> role{where role: role}
@@ -34,6 +36,7 @@ class User < ActiveRecord::Base
   scope :trainees, ->{joins(:role).where("roles.name = 'trainee'")}
 
   after_create :create_user_profile, if: :is_trainee?
+  before_validation :set_password
 
   def total_done_tasks user, course
     done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
@@ -62,5 +65,10 @@ class User < ActiveRecord::Base
 
   def create_user_profile
     create_profile user_id: id
+  end
+
+  def set_password
+    self.password = Settings.default_password
+    self.password_confirmation = Settings.default_password
   end
 end
