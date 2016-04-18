@@ -51,6 +51,13 @@
         <a href="#" class="small-box-footer"><%= t "staticpages.more_info" %>
           <i class="fa fa-arrow-circle-right"></i></a>
       </div>
-    </div>      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="user-progress-chart" data-name="<%= @user_progress_name.to_json %>"
+        data-total="<%= @user_progress_total.to_json %>"></div>
+    </div>
   </div>
 <% end %>
