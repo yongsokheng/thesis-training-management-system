@@ -33,7 +33,7 @@ class CourseSubject < ActiveRecord::Base
   end
 
   def create_user_subjects_when_add_new_subject
-    create_user_subjects course.user_courses, [self], course_id, course.init?
+    create_user_subjects course.user_courses, [self], course_id
   end
 
   def create_tasks

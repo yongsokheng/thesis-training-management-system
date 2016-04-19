@@ -17,7 +17,7 @@ class Admin::CourseSubjectsController < ApplicationController
         end
         format.html do
           flash[:success] = flash_message "updated"
-          redirect_to admin_course_course_subjects_path
+          redirect_to admin_course_subject_path @course, @course_subject.subject
         end
       end
     else

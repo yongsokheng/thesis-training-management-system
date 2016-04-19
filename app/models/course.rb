@@ -32,15 +32,15 @@ class Course < ActiveRecord::Base
     reject_if: proc {|attributes| attributes["content"].blank?}, allow_destroy: true
 
   USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
-  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, 
+  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description,
     :programming_language_id,
-    :start_date, :end_date, documents_attributes: 
+    :start_date, :end_date, documents_attributes:
     [:id, :name, :content, :_destroy], subject_ids: []]
-    
+
   delegate :name, to: :programming_language, prefix: true, allow_nil: true
 
-  def create_user_subjects_when_start_course
-    create_user_subjects user_courses, course_subjects, id, false
+  def active_user_courses_when_start_course
+    user_courses.update_all active: true
   end
 
   def check_day_present
@@ -59,6 +59,7 @@ class Course < ActiveRecord::Base
 
   def start_course
     self.update_attributes status: :progress
+    active_user_courses_when_start_course
   end
 
   def finish_course
