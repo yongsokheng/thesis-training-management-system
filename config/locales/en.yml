@@ -94,6 +94,11 @@ en:
     finished: "Finish courses"
     create: "Create"
     language: "Language"
+    no_user: "No user"
+    list_users: "List users"
+    trainees: "Trainees"
+    trainers: "Trainers"
+    see_more: "See more"
   user_task:
     name: "Name:"
     description: "Description:"

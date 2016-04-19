@@ -72,6 +72,16 @@ module ApplicationHelper
       size: Settings.image_size
   end
 
+  def image_course_cirle_tag course, language, css_class
+    image_tag course.image_url ? course.image_url : language,
+      class: css_class, size: Settings.image_size
+  end
+
+  def admin_user_course_image_tag user, css_class
+    image_tag user.avatar_url ? user.avatar_url : "profile.png",
+      class: css_class, size: Settings.admin_user_course_image_size
+  end
+
   def user_image_course_subject_tag user_subject
     image_tag user_subject.image_url ? user_subject.image_url : "no_image",
       class: "img-circle img-responsive"
