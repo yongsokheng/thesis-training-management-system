@@ -1,0 +1,5 @@
+en:
+  charts:
+    user_progress_chart:
+      title: "User Progress Chart"
+      yaxis_title: "Total"

@@ -23,11 +23,14 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require datepicker
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require admin/role_permission
 //= require admin/evaluation
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require admin/update_order_course_subject
+//= require admin/user_progress_chart
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();

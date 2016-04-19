@@ -1,0 +1,5 @@
+ja:
+  charts:
+    user_progress_chart:
+      title: "ユーザープログレスチャート"
+      yaxis_title: "合計"

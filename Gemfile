@@ -28,6 +28,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "jquery-ui-rails"
 gem "ranked-model"
+gem "highcharts-rails"
 
 group :development, :test do
   gem "fabrication"
