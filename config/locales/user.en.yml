@@ -29,9 +29,12 @@ en:
       progress: "Progress"
       status: "Status"
       action: "Action"
+      role: "Role"
   signins:
     banner: "Please Login"
     remember: "Remember me"
   member: "Member"
   buttons:
     submit: "Update profile"
+    save: "Save"
+    new: "New"

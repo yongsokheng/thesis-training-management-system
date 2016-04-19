@@ -54,6 +54,8 @@ defaults: &defaults
     type: "user_type"
     user_profile: "User profiles"
     user_progress: "User progress"
+    user: "user"
+  default_password: 12345678
 development:
   <<: *defaults
   neat_setting: 800
