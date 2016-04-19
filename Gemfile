@@ -27,6 +27,7 @@ gem "ckeditor"
 gem "carrierwave"
 gem "mini_magick"
 gem "jquery-ui-rails"
+gem "ranked-model"
 
 group :development, :test do
   gem "fabrication"

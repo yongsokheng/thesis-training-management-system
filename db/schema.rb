@@ -47,15 +47,16 @@ ActiveRecord::Schema.define(version: 20160405092217) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "course_subjects", force: :cascade do |t|
-    t.integer  "position",            limit: 4,     default: 0
     t.string   "subject_name",        limit: 255
     t.text     "subject_description", limit: 65535
     t.text     "subject_content",     limit: 65535
     t.string   "image",               limit: 255
+    t.integer  "order",               limit: 4
+    t.integer  "sort_order",          limit: 4,     default: 8388607
     t.integer  "subject_id",          limit: 4
     t.integer  "course_id",           limit: 4
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id", using: :btree

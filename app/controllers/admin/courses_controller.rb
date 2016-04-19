@@ -31,7 +31,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @course_subjects = @course.course_subjects
+    @course_subjects = @course.course_subjects.rank :order
     @users = @course.users
     @trainers = @course.users.trainers
     @trainees = @course.users.trainees

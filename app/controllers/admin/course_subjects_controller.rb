@@ -11,8 +11,15 @@ class Admin::CourseSubjectsController < ApplicationController
 
   def update
     if @course_subject.update_attributes course_subject_params
-      flash[:success] = flash_message "updated"
-      redirect_to admin_course_subject_path(@course, @course_subject.subject)
+      respond_to do |format|
+        format.js do
+          render nothing: true
+        end
+        format.html do
+          flash[:success] = flash_message "updated"
+          redirect_to admin_course_course_subjects_path
+        end
+      end
     else
       flash[:failed] = flash_message "not_updated"
       render :edit
@@ -21,10 +28,10 @@ class Admin::CourseSubjectsController < ApplicationController
 
   private
   def course_subject_params
-    params.require(:course_subject).permit CourseSubject::ATTRIBUTES_PARAMS 
+    params.require(:course_subject).permit CourseSubject::ATTRIBUTES_PARAMS
   end
 
   def load_course
-    @course = Course.find params[:course_id] 
+    @course = Course.find params[:course_id]
   end
 end
