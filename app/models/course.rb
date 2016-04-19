@@ -2,8 +2,7 @@ class Course < ActiveRecord::Base
   include PublicActivity::Model
   include InitUserSubject
   mount_uploader :image, ImageUploader
-  tracked only: [:finish_course, :start_course],
-    owner: ->(controller, model) {controller.current_user}
+
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   validate :check_day_present, on: [:create, :update]
@@ -57,13 +56,15 @@ class Course < ActiveRecord::Base
     end
   end
 
-  def start_course
+  def start_course current_user
     self.update_attributes status: :progress
     active_user_courses_when_start_course
+    create_activity key: "course.start_course", owner: current_user
   end
 
-  def finish_course
+  def finish_course current_user
     self.update_attributes status: :finish
     self.user_subjects.update_all(status: Course.statuses[:finish])
+    create_activity key: "course.finish_course", owner: current_user
   end
 end

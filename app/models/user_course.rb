@@ -4,12 +4,6 @@ class UserCourse < ActiveRecord::Base
 
   after_create :create_user_subjects_when_assign_new_user
 
-  tracked only: [:create, :destroy],
-    owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model && model.course},
-    params: {
-      user: proc {|controller, model| model.user}
-    }
   belongs_to :user
   belongs_to :course
 
