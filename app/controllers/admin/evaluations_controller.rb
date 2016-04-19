@@ -8,7 +8,8 @@ class Admin::EvaluationsController < ApplicationController
 
   def index
     role_trainee = Role.trainee
-    @users = User.find_by_role role_trainee
+    @search = User.find_by_role(role_trainee).search params[:q]
+    @users = @search.result
   end
 
   def new
