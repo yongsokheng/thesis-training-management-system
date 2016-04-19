@@ -83,6 +83,17 @@
         </span>
       <% end %>
     </div>
+  </div><br>
+  <div class="row">
+    <div class="col-md-2 text-right">
+      <span><%= t "courses.document" %></span>
+    </div>
+    <div class="col-md-9">
+      <%= f.fields_for :documents do |builder| %>
+        <%= render "document_fields", f: builder %>
+      <% end %>
+      <p><%= link_to_add_fields t("courses.document"), f, :documents %></p>
+    </div>
   </div>
   <br>
   <div class="row">

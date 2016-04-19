@@ -56,3 +56,6 @@ ja:
     day: "日"
     view_detail: "詳細を見る"
     course_complete: "コース完成"
+    document: "資料"
+    document_name: "文書名"
+    document_remove: "取り除く"

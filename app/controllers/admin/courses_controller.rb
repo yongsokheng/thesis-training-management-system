@@ -10,6 +10,10 @@ class Admin::CoursesController < ApplicationController
     end
   end
 
+  def new
+    @course.documents.build 
+  end
+
   def create
     if @course.save
       flash[:success] = flash_message "created"

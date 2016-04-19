@@ -75,3 +75,7 @@ en:
     day: "day"
     view_detail: "View Detail"
     course_complete: "Courses Complete"
+    document: "Add Document"
+    document_name: "Document name"
+    document_remove: "Remove"
+
