@@ -17,6 +17,8 @@ class Course < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
+  has_many :documents, as: :documentable
+
   belongs_to :programming_language
 
   enum status: [:init, :progress, :finish]
@@ -25,12 +27,15 @@ class Course < ActiveRecord::Base
 
   scope :active_course, ->{where status: "progress"}
 
-
   accepts_nested_attributes_for :user_courses, allow_destroy: true
+  accepts_nested_attributes_for :documents,
+    reject_if: proc {|attributes| attributes["content"].blank?}, allow_destroy: true
 
   USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
-  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, :programming_language_id,
-    :start_date, :end_date, subject_ids: []]
+  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description, 
+    :programming_language_id,
+    :start_date, :end_date, documents_attributes: 
+    [:id, :name, :content, :_destroy], subject_ids: []]
     
   delegate :name, to: :programming_language, prefix: true, allow_nil: true
 
