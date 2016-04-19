@@ -1,6 +1,3 @@
-<div class="title"><%= @user_task.task.name %></div>
-<%= render "shared/trainee_course_tab", active_tab: Settings.tabs.subjects  %>
-
 <%= form_for @user_task do |f| %>
   <div class="row">
     <%= render "shared/error_messages", object: @user_task %>

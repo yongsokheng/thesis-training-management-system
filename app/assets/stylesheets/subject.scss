@@ -98,7 +98,7 @@
       margin-right: 1.25em;
     }
   }
-  .bucket-media>img,
+
   .bucket-media>a img {
     display: block;
     max-width: none;
@@ -508,6 +508,7 @@
   }
   .tsxs {
     font-size: 90%;
+    color: brown;
   }
   .tss {
     font-size: 85%;
@@ -519,6 +520,18 @@
   }
   .card {
     font-size: 79%;
-    margin-top: 100px;
+    margin-top: 41px;
   }
+  .assigned {
+    color: #569C38;
+  }
+  .status {
+    color: #569C38;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  }
+  .task-infor {
+    padding-left: 43px;
+    font-size: 15px;
+  }
+  margin-top: -31px;
 }

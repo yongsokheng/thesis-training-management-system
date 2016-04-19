@@ -52,39 +52,50 @@
           <div class="well well--l">
             <div class="mbl">
               <div class="mbl--m">
+                <h2 class="label"><%= t "subjects.name" %></h2>
+                <p><%= @user_subject.course_subject_subject_name %></p>
                 <h2 class="label"><%= t "subjects.description" %></h2>
-                <p><%= @user_subject.subject_description %></p>
+                <p><%= @user_subject.course_subject_subject_description %></p>
+                <h2 class="label"><%= t "subjects.content" %></h2>
+                <p><%= @user_subject.course_subject_subject_content.html_safe %></p>
               </div>
               <h2 class="label mbm"><%= t "subjects.task_overview" %></h2>
               <ol class="list list--divided list--divided--m list--divided--f
                 list--divided--open mlm--l">
-                <% @user_tasks.each do |user_task| %>
-                  <hr />
-                  <li class="list-item mbm pbm por" id="course-overview">
-                    <div class="bucket bucket--flag">
-                      <div class="bucket-media dn db--m">
-                        <div class="badge">
-                          <%= image_task_tag user_task %>
+                <% @user_subjects.each do |user_subject| %>
+                  <% user_subject.user_tasks.each do |user_task| %>
+                    <hr />
+                    <li class="list-item mbm pbm por" id="course-overview">
+                      <div class="bucket bucket--flag">
+                        <div class="bucket-media dn db--m">
+                          <div class="badge">
+                            <%= image_task_tag user_task %>
+                          </div>
+                        </div>
+                        <div class="bucket-content">
+                          <h3 class="h h--3">
+                            <b class="h-label opf">
+                              <span class="prs <%= style_of_status user_task.status %>">
+                                <%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %>
+                              </span>
+                              <span class="bdrl pls tch"><%= "#{user_task.progress} %" %></span>
+                            </b>
+                            <%= link_to user_task.task_name,
+                              course_subject_task_path(@user_subject.course_subject, user_task.task) %>
+                            <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
+                              user_task.status != Settings.tasks.statuses.closed %>
+                              <h4>
+                                <%= link_to t("subjects.task.edit"), edit_user_task_path(user_task),
+                                  class: "db di--m tch tsxs" %>
+                              </h4>
+                            <% end %>
+                          </h3>
+                          <p class="mbf"><%= user_task.task_description %></p>
+                          <p class="assigned"><%= t "subjects.assigned" %><%= user_task.user_name %></p>
                         </div>
                       </div>
-                      <div class="bucket-content">
-                        <h3 class="h h--3">
-                          <b class="h-label opf">
-                            <span class="prs <%= style_of_status user_task.status %>">
-                              <%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %>
-                            </span>
-                            <span class="bdrl pls tch"><%= "#{user_task.progress} %" %></span>
-                          </b>
-                          <%= user_task.task_name %>
-                          <h4>
-                            <%= link_to t("subjects.task.edit"), "#", class: "db di--m tch tsxs" %>
-                            <%= link_to t("subjects.task.delete"), "#", class: "db di--m tch tsxs" %>
-                          </h4>
-                        </h3>
-                        <p class="mbf"><%= user_task.task_description %></p>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  <% end %>
                 <% end %>
               </ol>
             </div>
@@ -95,9 +106,17 @@
             <div class="card">
               <div id="image-course">
                 <%= user_image_course_subject_tag @user_subject %>
+              </div><br>
+              <div class="task-infor">
+                <p><%= t "subjects.tasks.new_tasks" %><span class="status">
+                  <%= @number_of_task_new %>/<%= @number_of_task %></span></p>
+                <p><%= t "subjects.tasks.in_progress_tasks" %><span class="status">
+                  <%= @number_of_task_in_progress %>/<%= @number_of_task %></span></p>
+                <p><%= t "subjects.tasks.resolved_tasks" %><span class="status">
+                  <%= @number_of_task_resolved %>/<%= @number_of_task %></span></p>
+                <p><%= t "subjects.tasks.closed_tasks" %><span class="status">
+                  <%= @number_of_task_closed %>/<%= @number_of_task %></span></p>
               </div>
-              <h3 id="complete"><%= t "subjects.subject_complete" %></h3>
-              <h3>0/10(0%)</h3>
             </div>
             <div class="sector-content">
               <%= render partial: "shared/list_member",

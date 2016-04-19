@@ -1,5 +1,9 @@
 en:
   user_subjects:
+    statuses:
+      init: "New"
+      in_progress: "In progress"
+      finish: "Finish"
     fields:
       status: "Status"
       name: "Name"

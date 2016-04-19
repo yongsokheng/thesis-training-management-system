@@ -2,6 +2,8 @@ en:
   table:
     thead:
       name: "Name"
+      total_point: "Total point"
+      current_rank: "Current rank"
       min_point: "Min point"
       max_point: "Max point"
       action: "Action"

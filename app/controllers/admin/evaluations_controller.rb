@@ -21,9 +21,9 @@ class Admin::EvaluationsController < ApplicationController
   def create
     if @evaluation.save
       flash[:success] = flash_message "created"
-      redirect_to :back
+      redirect_to admin_evaluations_path
     else
-      flash[:success] = flash_message "not_created"
+      flash[:failed] = flash_message "not_created"
       redirect_to :back
     end
   end
