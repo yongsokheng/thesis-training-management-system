@@ -3,7 +3,8 @@ class Admin::SubjectsController < ApplicationController
 
   def index
     @subject = Subject.new
-    @subjects = @subjects.recent
+    @search = Subject.recent.search(params[:q])
+    @subjects = @search.result
   end
 
   def show

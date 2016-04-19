@@ -149,6 +149,7 @@ en:
     create: "Create"
     update: "Update"
     clone: "Clone"
+    search: "Seach"
   roles:
     allocate: "Allocate"
     roles: "Roles"
