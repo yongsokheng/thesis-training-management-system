@@ -2,7 +2,7 @@ class Admin::UserSubjectsController < ApplicationController
   load_and_authorize_resource
 
   def update
-    @user_subject.update_status
+    @user_subject.update_status current_user
     load_data
     respond_to do |format|
       format.js

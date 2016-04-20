@@ -2,7 +2,7 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
   delegate_all
 
   def owner_name
-    link owner
+    h.link_to owner.name, owner
   end
 
   def verb
@@ -11,39 +11,41 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       I18n.t "activity.finish_course"
     when "course.start_course"
       I18n.t "activity.start_course"
-    when "user_course.create"
-      I18n.t "activity.assign_trainee"
-    when "user_course.destroy"
-      I18n.t "activity.remove_trainee"
+    when "user_subject.start_subject"
+      I18n.t "activity.start_subject"
     when "user_subject.finish_subject"
       I18n.t "activity.finish_subject"
-    when "course_subject.start_subject"
-      I18n.t "activity.start_subject"
-    when "course_subject.close_subject"
-      I18n.t "activity.close_subject"
-    when "user_task.create"
-      I18n.t "activity.finish_task"
-    when "course_subject.create"
-      I18n.t "activity.assign_subject"
-    when "user_subject.destroy", "course_subject.destroy"
-      I18n.t "activity.remove_subject"
+    when "user_subject.start_all_subject"
+      I18n.t "activity.start_all_subject"
+    when "user_subject.finish_all_subject"
+      I18n.t "activity.finish_all_subject"
+    when "user_task.change_status"
+      I18n.t "activity.change_status"
     else
       key
     end
   end
 
   def object_name
-    link get_object_from_trackable
+    get_object_from_trackable
   end
 
   def conjunction
     case key
-    when "user_course.create"
-      parameters[:user].nil? ? I18n.t("activity.as_supervisor") : I18n.t("activity.to_course")
-    when "course_subject.create"
-      I18n.t "activity.to_course"
-    when "user_course.destroy", "course_subject.destroy"
-      I18n.t "activity.from_course"
+    when "user_subject.start_subject", "user_subject.finish_subject"
+      I18n.t "activity.for_subject"
+    when "user_subject.start_all_subject", "user_subject.finish_all_subject"
+      I18n.t "activity.in_subject"
+    else
+      ""
+    end
+  end
+
+  def params
+    case key
+    when "user_task.change_status"
+      "from #{Settings.tasks.statuses.keys[parameters[:old_status].to_i]} to
+        #{Settings.tasks.statuses.keys[parameters[:new_status].to_i]}"
     else
       ""
     end
@@ -51,8 +53,10 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
 
   def recipient_name
     case key
-    when "user_course.create", "course_subject.create", "user_course.destroy", "course_subject.destroy"
-      link recipient
+    when "user_subject.start_subject", "user_subject.finish_subject"
+      h.link_to recipient.name, recipient
+    when "user_subject.start_all_subject", "user_subject.finish_all_subject"
+      "#{trackable.subject_name}, #{recipient.name}"
     else
       ""
     end
@@ -61,22 +65,13 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
   def get_object_from_trackable
     case key
     when "course.finish_course", "course.start_course"
-      trackable
-    when "user_course.create", "user_course.destroy"
-      parameters[:user].nil? ? owner : parameters[:user]
-    when "user_subject.finish_subject"
-      trackable.course_subject.subject
-    when "course_subject.start_subject", "course_subject.close_subject"
-      trackable.subject
-    when "course_subject.create", "course_subject.destroy"
-      parameters[:subject]
-    when "user_task.create"
-      trackable.task unless trackable.nil?
+      trackable.name
+    when "user_subject.start_subject", "user_subject.finish_subject"
+      "#{trackable.subject_name}"
+    when "user_task.change_status"
+      trackable.task_name
     else
-      key
+      ""
     end
-  end
-
-  def link object
   end
 end

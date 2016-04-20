@@ -8,10 +8,9 @@
     <%= render "shared/courses" %>
   </div>
   <div class="col-md-6 pull-right">
-    <div class="row list-group-item center">
-      <h5><strong><%= t "activity.activities" %></strong></h5>
-    </div>
-    <div class="row activities-tab-content">
+    <h3><strong><%= t "activity.activities" %></strong></h3>
+    <hr>
+    <div class="row">
       <%= render "shared/activities", activities: @activities %>
     </div>
   </div>

@@ -1,9 +1,6 @@
 class UserSubject < ActiveRecord::Base
   include PublicActivity::Model
 
-  tracked only: [:finish_subject],
-    owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model && model.course}
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :user
@@ -21,12 +18,12 @@ class UserSubject < ActiveRecord::Base
   scope :not_finish, -> user_subjects {where.not(id: user_subjects)}
   scope :sort_by_course_subject, ->{joins(:course_subject).order("course_subjects.order asc")}
   scope :count_user_tasks, -> status {joins(:user_tasks).where("user_tasks.status = ?", status).count}
-  
+
   enum status: [:init, :progress, :finish]
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, :description, to: :subject, prefix: true, allow_nil: true
-  delegate :subject_name, :subject_content, :subject_description, to: :course_subject, 
+  delegate :subject_name, :subject_content, :subject_description, to: :course_subject,
     prefix: true, allow_nil: true
   delegate :name, to: :course, prefix: true, allow_nil: true
   delegate :image_url, to: :course_subject, allow_nil: true
@@ -40,17 +37,27 @@ class UserSubject < ActiveRecord::Base
   end
 
   class << self
-    def update_all_status status
+    def update_all_status status, current_user, course_subject
       if status == "start"
         load_users(statuses[:init]).update_all(status: statuses[:progress], start_date: Time.now)
+        key = "user_subject.start_all_subject"
       else
         load_users(statuses[:progress]).update_all(status: statuses[:finish], end_date: Time.now)
+        key = "user_subject.finish_all_subject"
       end
+      course_subject.create_activity key: key, owner: current_user, recipient: course_subject.course
     end
   end
 
-  def update_status
-    init? ? update_attributes(status: :progress, start_date: Time.now) :  update_attributes(status: :finish, end_date: Time.now)
+  def update_status current_user
+    if init?
+      update_attributes(status: :progress, start_date: Time.now)
+      key = "user_subject.start_subject"
+    else
+      update_attributes(status: :finish, end_date: Time.now)
+      key = "user_subject.finish_subject"
+    end
+    create_activity key: key, owner: current_user, recipient: user
   end
 
   def subject

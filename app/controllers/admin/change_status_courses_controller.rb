@@ -3,10 +3,10 @@ class Admin::ChangeStatusCoursesController < ApplicationController
 
   def update
     if @course.init?
-      @course.start_course
+      @course.start_course current_user
       flash[:success] = flash_message "start_course"
     elsif @course.progress?
-      @course.finish_course
+      @course.finish_course current_user
       flash[:success] = flash_message "finish_course"
     else
       flash[:failed] = flash_message "course_not_upate"

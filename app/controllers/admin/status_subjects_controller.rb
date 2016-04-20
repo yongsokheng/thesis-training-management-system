@@ -2,7 +2,7 @@ class Admin::StatusSubjectsController < ApplicationController
   before_action :load_data
 
   def update
-    @user_subjects.update_all_status params[:status]
+    @user_subjects.update_all_status params[:status], current_user, @course_subject
     respond_to do |format|
       format.js {render template: "admin/user_subjects/update.js.erb"}
     end

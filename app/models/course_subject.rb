@@ -9,9 +9,6 @@ class CourseSubject < ActiveRecord::Base
   after_create :create_user_subjects_when_add_new_subject
   after_create :update_subject_course
 
-  tracked only: [:create, :destroy, :start_subject, :close_subject],
-    owner: ->(controller, model) {controller.current_user},
-    recipient: ->(controller, model) {model && model.course}
   ATTRIBUTES_PARAMS = [:subject_name, :image, :subject_description, :subject_content,
     :postition, :course_id, :order_position]
 
