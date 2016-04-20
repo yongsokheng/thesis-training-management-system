@@ -16,30 +16,33 @@ namespace :db do
       Fabricate :user
     end
 
-    puts "Creating Subject"
-    10.times do
-      Fabricate :subject
-    end
+    # puts "Creating Subject"
+    # 10.times do
+    #   Fabricate :subject
+    # end
 
     puts "Creating Evaluation Template"
     5.times do
       Fabricate :evaluation_template
     end
 
-    puts "Creating Task Master"
-    5.times do
-      Fabricate :task_master
-    end
+    # puts "Creating Task Master"
+    # 5.times do
+    #   Fabricate :task_master
+    # end
 
     puts "Creating Permissions"
     Fabricate :permission, model_class: "CourseMaster", role_id: 1
     ["Course", "CourseSubject", "Subject", "UserSubject"].each do |name|
       Fabricate :permission, model_class: name, action: "manage", role_id: 2
     end
-    ["update", "show"].each do |name|
-      Fabricate :permission, model_class: "UserSubject", action: name
-      Fabricate :permission, model_class: "UserTask", action: name
-      Fabricate :permission, model_class: "User", action: name
+    ["Course", "CourseSubject", "UserCourse", "Subject", "UserSubject", "Task",
+      "UserTask", "User"].each do |name|
+      Fabricate :permission, model_class: name, action: "read", role_id: 3
+    end
+    Fabricate :permission, model_class: "Task", action: "create"
+    ["UserTask", "User"].each do |name|
+      Fabricate :permission, model_class: name, action: "update", role_id: 3
     end
 
     puts "Create Rank"
