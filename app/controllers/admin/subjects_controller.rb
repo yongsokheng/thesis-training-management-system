@@ -21,6 +21,7 @@ class Admin::SubjectsController < ApplicationController
 
   def new
     @subject.documents.build
+    @subject.task_masters.build.documents.build
   end
 
   def create
