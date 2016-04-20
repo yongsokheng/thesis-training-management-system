@@ -14,23 +14,76 @@
         <li class="active"><%= @course_subject.subject_name %></li>
       </ol>
     </div>
-    <div class="col-md-10">
-      <div class="image"><%= image_target_tag @course_subject %></div>
-      <div class="label_course_subject"><%= @course_subject.subject_name %></div>
-      <div class="description"><%= @course_subject.subject_description %></div>
-      <div class="action">
-        <%= link_to t("buttons.edit"),
-          edit_admin_course_course_subject_path(@course, @course_subject),
-          class: "btn btn-primary" %>
-        <%= link_to t("buttons.delete"), admin_course_course_subject_path(@course, @course_subject),
-          method: :delete, data: {confirm: t("subjects.buttons.admin.delete_confirm")}, 
-          class: "btn btn-danger" %>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_target_tag @course_subject %>
+    </div>
+    <div class="col-md-8">
+      <h2 id="subject-h2-header">
+        <span id="subject-header"><%= @course_subject.subject_name %></span>
+        <span>
+          <% if @course.init? %>
+            <%= link_to t("courses.buttons.admin.start"),
+              admin_course_change_status_courses_path(@course),
+              method: :patch, class: "btn btn-info btn--b" %>
+          <% elsif @course.progress? %>
+            <%= link_to t("courses.buttons.admin.finish"),
+              admin_course_change_status_courses_path(@course),
+              method: :patch, class: "btn btn-success btn--b" %>
+          <% elsif @course.finish? %>
+            <label class="btn btn-xs btn-danger btn--b">
+              <%= t "courses.buttons.admin.start.finished" %>
+            </label>
+          <% end %>
+        </span>
+      </h2>
+      <div class="label">
+        <i><%= @course_subject.subject_description %></i>
       </div>
-      <div class="text-danger">
+      <p class="working-days">
         <%= "#{t "subjects.fields.during_time"}:
           #{@subject.during_time} #{t "subjects.fields.days"}" %>
+      </p>
+    </div>
+    <div class="col-md-2">
+      <div class="dropdown pull-right">
+        <button id="dLabel" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"
+          class="btn btn-default">
+          <span class="glyphicon glyphicon-align-justify"
+            aria-hidden="true"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="dLabel">
+          <li>
+            <a href="<%= edit_admin_course_course_subject_path @course,
+              @course_subject %>">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <%= t"courses.buttons.admin.edit" %>
+            </a>
+          </li>
+          <li>
+            <a href="<%= admin_course_course_subject_path @course,
+              @course_subject %>",
+              data-method="delete",
+              data-confirm="<%= t "messages.delete.confirm" %>">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              <%= t "button.delete" %>
+            </a>
+          </li>
+        </ul>
       </div>
-
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-11 course-content">
+      <%= @course_subject.subject_content.html_safe %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11">
       <div class="user-lists">
         <%= render "user_lists" %>
       </div>
