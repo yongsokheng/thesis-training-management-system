@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     role.name == "trainee"
   end
 
+  def user_courses_active
+    user_courses.actived.reverse
+  end
+
   private
   def password_required?
     new_record? ? super : false

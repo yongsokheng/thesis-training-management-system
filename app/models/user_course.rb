@@ -13,7 +13,8 @@ class UserCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
-  delegate :name, :description, :start_date, :end_date, :status, to: :course, prefix: true, allow_nil: true
+  delegate :name, :description, :start_date, :end_date, :status,
+    :programming_language, to: :course, prefix: true, allow_nil: true
 
   has_many :user_subjects, dependent: :destroy
 
@@ -25,6 +26,6 @@ class UserCourse < ActiveRecord::Base
 
   private
   def create_user_subjects_when_assign_new_user
-    create_user_subjects [self], course.course_subjects, course_id, false
+    create_user_subjects [self], course.course_subjects, course_id
   end
 end

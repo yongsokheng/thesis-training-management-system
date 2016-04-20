@@ -52,11 +52,11 @@
                             </span>
                             <span class="bdrl pls tch"><%= "#{user_subject.during_time} days" %></span>
                           </b>
-                          <%= link_to user_subject.subject_name,
+                          <%= link_to user_subject.course_subject_subject_name,
                             course_subject_path(@course, user_subject.subject) %>
                         </h3>
-                        <p class="mbf"><%= user_subject.subject_description %></p>
-                        <%= link_to t("courses.view_detail"), 
+                        <p class="mbf"><%= user_subject.course_subject_subject_description %></p>
+                        <%= link_to t("courses.view_detail"),
                           course_subject_path(@course, user_subject.subject),
                           class: "btn btn-primary btn-xs" %>
                       </div>
@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="sector-content">
-              <%= render partial: "shared/list_member", 
+              <%= render partial: "shared/list_member",
                 locals: {trainers: @trainers, trainees: @trainees} %>
             </div>
             <div class="box box-primary">

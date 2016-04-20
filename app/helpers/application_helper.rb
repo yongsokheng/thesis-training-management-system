@@ -111,7 +111,18 @@ module ApplicationHelper
     when "in_progress"
       "color-blue"
     when "finish"
-      "color-red"  
-    end 
+      "color-red"
+    end
+  end
+
+  def style_course_status status
+    case status
+    when "init"
+      "label label-info"
+    when "progress"
+      "label label-warning"
+    when "finish"
+      "label label-danger"
+    end
   end
 end
