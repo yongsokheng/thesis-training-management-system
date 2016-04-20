@@ -102,6 +102,8 @@
                 <%= @course.name %>
               </div>
             </div>
+            <%= render partial: "shared/documents", 
+              locals: {documents: @course.documents} %>
           </div>
         </div>
       </div>

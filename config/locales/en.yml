@@ -1,6 +1,8 @@
 en:
   online: "Online"
   name_system: "Framgia TMS"
+  document:
+    name: "Documents"
   error:
     form: "The form contains "
     error: "error"

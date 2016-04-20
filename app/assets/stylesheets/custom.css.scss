@@ -173,3 +173,12 @@ select {
 .nav-tabs li.active a:hover, .nav-tabs li.active a:focus {
   cursor: pointer;
 }
+
+.doc-field {
+  padding-right: 1%;
+  list-style-type: circle;
+  
+  a {
+    text-decoration: underline !important;
+  }
+}
