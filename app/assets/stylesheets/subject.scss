@@ -1,4 +1,7 @@
 #subject-show {
+  .modal-user-task {
+    margin-top: 10px;
+  }
   .assign-other {
     margin-left: -30px;
   }
@@ -128,6 +131,7 @@
     font-weight: 600;
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
+    margin-top: 10px;
   }
   .btn--block {
     display: block;
@@ -326,12 +330,15 @@
     text-transform: uppercase;
   }
   .label-modal {
-    color: #aebdc1;
+    color: #444;
     font-size: 85%;
     font-weight: 600;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
     margin-left: 250px;
+  }
+  .label-user-task {
+    margin-top: 5px;
   }
   .modal-body {
     position: relative;
