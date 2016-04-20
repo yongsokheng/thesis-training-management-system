@@ -1,13 +1,15 @@
 en:
   tasks:
-    spent_time: "Spent time"
+    spent_time: "Spent time: "
     hours: "hour(s)"
-    estimated_time: "Estimated time"
+    estimated_time: "Estimated time: "
     update: "Update"
-    redmine_task_id: "Remine task id"
-    progress: "Progress:"
+    redmine_task_id: "Remine task id: "
+    progress: "Progress: "
+    status: "Status: "
     assign_for: "Assign for:"
     edit: "edit task"
+    update: "Update"
     fields:
       name: "Name"
       description: "Description"

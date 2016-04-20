@@ -5,8 +5,6 @@ class CreateCourseSubjects < ActiveRecord::Migration
       t.text :subject_description
       t.text :subject_content
       t.string :image
-      t.integer :order
-      t.integer :sort_order, :default => RankedModel::MAX_RANK_VALUE
       t.references :subject, index: true, foreign_key: true
       t.references :course, index: true, foreign_key: true
 

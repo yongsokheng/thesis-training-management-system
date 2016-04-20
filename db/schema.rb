@@ -51,12 +51,10 @@ ActiveRecord::Schema.define(version: 20160418025920) do
     t.text     "subject_description", limit: 65535
     t.text     "subject_content",     limit: 65535
     t.string   "image",               limit: 255
-    t.integer  "order",               limit: 4
-    t.integer  "sort_order",          limit: 4,     default: 8388607
     t.integer  "subject_id",          limit: 4
     t.integer  "course_id",           limit: 4
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id", using: :btree
