@@ -26,6 +26,15 @@ class Admin::CourseSubjectsController < ApplicationController
     end
   end
 
+  def destroy
+    if @course_subject.destroy
+      flash[:success] = flash_message "deleted"
+    else
+      flash[:failed] = flash_message "not_deleted"
+    end
+    redirect_to admin_course_path @course
+  end
+
   private
   def course_subject_params
     params.require(:course_subject).permit CourseSubject::ATTRIBUTES_PARAMS
