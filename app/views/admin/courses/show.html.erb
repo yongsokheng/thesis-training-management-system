@@ -17,43 +17,75 @@
         <div class="col-md-2">
           <%= image_course_tag @course, @course.programming_language_name %>
         </div>
-        <div class="col-md-10">
-          <span class="pull-right">
-            <% if @course.init? %>
-              <%= link_to t("courses.buttons.admin.start"), admin_course_change_status_courses_path(@course),
-                method: :patch, class: "btn btn-info btn--b" %>
-            <% elsif @course.progress? %>
-              <%= link_to t("courses.buttons.admin.finish"),admin_course_change_status_courses_path(@course),
-                method: :patch, class: "btn btn-success btn--b" %>
-            <% elsif @course.finish? %>
-              <label class="btn btn-xs btn-danger btn--b">
-                <%= t "courses.buttons.admin.start.finished" %>
-              </label>
-            <% end %>
-          </span>
+        <div class="col-md-8">
           <h2 id="course-h2-header">
             <span id="course-header"><%= @course.name %></span>
-          </h2><br>
-          <p><%= link_to t("courses.buttons.admin.edit"),
-              edit_admin_course_path, class: "btn btn-primary btn--b" %>
-            <%= link_to t("button.delete"), admin_course_path(@course),
-              method: :delete, data: {confirm: t("messages.delete.confirm")},
-              class: "btn btn-danger btn--b" %>
-            <%= link_to t("button.clone"), admin_course_clone_courses_path(@course),
-              method: :post, data: {confirm: t("courses.confirms.confirm_clone")},
-              class: "btn btn-success btn--b" %></p>
+            <span>
+              <% if @course.init? %>
+                <%= link_to t("courses.buttons.admin.start"),
+                  admin_course_change_status_courses_path(@course),
+                  method: :patch, class: "btn btn-info btn--b" %>
+              <% elsif @course.progress? %>
+                <%= link_to t("courses.buttons.admin.finish"),
+                  admin_course_change_status_courses_path(@course),
+                  method: :patch, class: "btn btn-success btn--b" %>
+              <% elsif @course.finish? %>
+                <label class="btn btn-xs btn-danger btn--b">
+                  <%= t "courses.buttons.admin.start.finished" %>
+                </label>
+              <% end %>
+            </span>
+          </h2>
+          <div class="label course-description">
+            <i><%= @course.description %></i>
+          </div>
         </div>
-      </div><br>
-      <h2 class="label"><%= t "label.description" %></h2>
-      <p><%= @course.description %></p>
-      <h2 class="label"><%= t "label.content" %></h2>
-      <p><%= @course.content.html_safe %></p>
+        <div class="col-md-2">
+          <div class="dropdown pull-right">
+            <button id="dLabel" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"
+              class="btn btn-default">
+              <span class="glyphicon glyphicon-align-justify"
+                aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="dLabel">
+              <li>
+                <a  href="<%= edit_admin_course_path %>">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <%= t"courses.buttons.admin.edit" %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= admin_course_path @course %>",
+                  data-method="delete",
+                  data-confirm="<%= t "messages.delete.confirm" %>">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <%= t "button.delete" %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= admin_course_path @course %>",
+                  data-method="delete",
+                  data-confirm="<%= t "courses.confirms.confirm_clone" %>">
+                  <i class="fa fa-clone" aria-hidden="true"></i>
+                  <%= t "button.clone" %>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="course-content">
+        <%= @course.content.html_safe %>
+      </div>
       <section class="content">
         <%= render "course_subjects" %>
       </section>
     </div>
- 
-    <div class="col-md-3 user-infor right-side-course">
+
+    <div class="col-md-2 user-infor right-side-course">
       <h2 class="label"><%= t "courses.labels.trainer" %>&nbsp;
         <%= link_to edit_admin_course_assign_trainers_path(@course) do %>
           <i class="ionicons ion-android-person-add"></i>
