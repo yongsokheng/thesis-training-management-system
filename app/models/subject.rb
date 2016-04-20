@@ -3,6 +3,7 @@ class Subject < ActiveRecord::Base
   has_many :task_masters, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
   has_many :courses, through: :course_subjects
+  has_many :documents, as: :documentable
 
   validates :name, presence: true, uniqueness: true
 
@@ -14,7 +15,11 @@ class Subject < ActiveRecord::Base
   accepts_nested_attributes_for :task_masters, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:name].blank?}
 
+  accepts_nested_attributes_for :documents, allow_destroy: true,
+    reject_if: proc {|attributes| attributes["content"].blank?}
+
   SUBJECT_ATTRIBUTES_PARAMS = [:name, :description, :content, :image, :during_time,
+    documents_attributes: [:id, :name, :content, :_destroy],
     task_masters_attributes: [:id, :name, :description, :content, :image, :_destroy]]
 
 end

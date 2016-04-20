@@ -19,6 +19,10 @@ class Admin::SubjectsController < ApplicationController
     @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
   end
 
+  def new
+    @subject.documents.build
+  end
+
   def create
     @subject = Subject.new subject_params
     if @subject.save

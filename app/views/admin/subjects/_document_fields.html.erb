@@ -1,0 +1,6 @@
+<div class="document-field">
+  <%= f.text_field :name, placeholder: t("subjects.document_name"),
+    class: "form-control" %><br>
+  <%= f.file_field :content, class: "form-control" %>
+  <strong><%= link_to_remove_fields t("subjects.document_remove"), f %></strong>
+</div><br>
