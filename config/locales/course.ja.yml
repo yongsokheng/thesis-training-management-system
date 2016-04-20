@@ -59,3 +59,4 @@ ja:
     document: "資料"
     document_name: "文書名"
     document_remove: "取り除く"
+    time: "コースの時間は％に ％{start_date} からである %{end_date}"

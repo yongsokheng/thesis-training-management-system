@@ -81,4 +81,5 @@ en:
     document: "Add Document"
     document_name: "Document name"
     document_remove: "Remove"
+    time: "Course's Time is from %{start_date} to %{end_date}"
 

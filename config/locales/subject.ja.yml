@@ -57,6 +57,8 @@ ja:
     about_trainer: "トレーナーについて"
     about_trainee: "練習について"
     note: "件名注記"
+    during_time: "時間の間に"
+    note_during_time: "この対象は約 ％{during_time} 日かかります"
     discuss: "件名を議論"
     subject_complete: "件名コンプリート"
     document: "資料"

@@ -104,10 +104,6 @@
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   border-radius: 7px;
 
-  #image-course {
-    padding-left: 50px;
-  }
-
   #complete {
     margin-top: 30px;
     color: #aebdc1;
@@ -127,10 +123,18 @@
   }
 }
 #user-course-show {
-  margin-top: 0px;
+  margin-top: -2.2em;
+
+  .course-note {
+    font-size: 16px;
+  }
+
+  .grid-box-subjects {
+    margin-top: -2em;
+  }
 
   .img-circle {
-      border-radius: 50%;
+    border-radius: 50%;
   }
 
   a {
@@ -264,12 +268,14 @@
   .btn {
     border: 0;
     cursor: pointer;
-    display: inline-block;
+    display: table;
     text-align: center;
     white-space: nowrap;
     font-size: 85%;
     line-height: 3;
     padding: 0 2.5em;
+    margin-top: 1em;
+    margin-left: 10em;
     background-color: #21abc7;
     border: 1px solid #21abc7;
     color: #fff;
@@ -399,7 +405,6 @@
   .row {
     overflow: hidden;
     padding: 0 0.625em;
-    margin-top: -2em;
   }
 
   @media screen and (min-width: 48em) {
@@ -506,8 +511,8 @@
   }
 
   .label {
-    color: #aebdc1;
-    font-size: 85%;
+    color: #257C94;
+    font-size: 120%;
     font-weight: 600;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
@@ -712,7 +717,7 @@
     font-size: 79%;
     margin-top: 41px;
   }
-  
+
   .space {
     padding-left: 50px;
   }

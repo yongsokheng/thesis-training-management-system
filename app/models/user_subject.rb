@@ -23,10 +23,7 @@ class UserSubject < ActiveRecord::Base
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, :description, to: :subject, prefix: true, allow_nil: true
-  delegate :subject_name, :subject_content, :subject_description, to: :course_subject,
-    prefix: true, allow_nil: true
   delegate :name, to: :course, prefix: true, allow_nil: true
-  delegate :image_url, to: :course_subject, allow_nil: true
 
   def load_trainers
     course.users.trainers
@@ -62,6 +59,22 @@ class UserSubject < ActiveRecord::Base
 
   def subject
     self.course_subject.subject
+  end
+
+  def name
+    course_subject.subject.name
+  end
+
+  def description
+    course_subject.subject.description
+  end
+
+  def content
+    course_subject.subject.content
+  end
+
+  def image_url
+    course_subject.image_url
   end
 
   private
