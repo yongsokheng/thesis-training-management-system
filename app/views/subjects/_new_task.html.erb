@@ -17,6 +17,12 @@
       required: true, rows: 10 %>
   </div>
   <div class="form-group">
+    <%= f.select :assigned_trainee_id,
+      @user_subjects.collect{|user_subject| [user_subject.user_name, user_subject.user_id]},
+      {prompt: I18n.t("subjects.table.task_assign")}, {class: "form-control"} %>
+  </div>
+  <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
+  <div class="form-group">
     <%= f.submit t("subjects.submit.create_task"),
       class: "btn btn--b btn--block btn-modal" %>
   </div>

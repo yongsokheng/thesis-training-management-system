@@ -1,68 +1,26 @@
-<div class="row">
-  <% unless @user_subject.finish? %>
-    <div class="title"><%= t "subjects.create_new_task" %></div>
-    <%= form_for :task, url: course_tasks_path(@course.id,
-      @course_subject.id), html: {method: :post}  do |f| %>
-      <%= render "shared/error_messages", object: @subject %>
-      <div class="col-md-3">
-        <%= f.label :name, I18n.t("subjects.task.name") %>
-        <%= f.text_field :name, class: "form-control", required: true %>
-      </div>
-      <div class="col-md-3">
-        <%= f.label :description, I18n.t("subjects.task.description") %>
-        <%= f.text_field :description, class: "form-control" %>
-      </div>
-      <div class="col-md-3">
-        <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assignee") %>
-        <%= f.select :assigned_trainee_id, @user_subjects.collect{|u| [u.user.name, u.user_id]}, {prompt: ""}, {class: "form-control"} %>
-      </div><br>
-      <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
-      <div class="col-md-3">
-        <%= f.submit t("subjects.submit.create_task"), class: "btn btn-success"
-          %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-<hr />
-
-<div class="title"><%= t "subjects.task.had_not_assigned" %></div>
-<div id="tasks">
-  <table class="table table-striped tbl-task">
-    <thead>
+<table class="table tbl-task">
+  <thead>
+    <tr>
+      <td class="task_name label-tbl"><%= t "subjects.table.task_name" %></td>
+      <td class="task_description label-tbl"><%= t "subjects.table.task_description" %></td>
+      <td class="assign_user label-tbl"><%= t "subjects.table.task_assign" %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @unassign_tasks.each do |task| %>
       <tr>
-        <th class="redmine_id"><%= t "subjects.table.task_redmine_id" %></th>
-        <th class="task_name"><%= t "subjects.table.task_name" %></th>
-        <th class="task_progress"><%= t "subjects.table.task_progress" %></th>
-        <th class="task_status"><%= t "subjects.table.task_status" %></th>
-        <th class="estimated_time"><%= t "subjects.table.task_estimated_time" %></th>
-        <th class="spent_time"><%= t "subjects.table.task_spent_time" %></th>
-        <th class="update"><%= t "subjects.table.task_update" %></th>
-        <th class="assign_user"><%= t "subjects.table.task_assign" %></th>
+        <td class="task_name"><%= task.name %></td>
+        <td class="task_description"><%= task.description %></td>
+        <td class="assign_user">
+          <%= form_for :task, url: course_task_path(@course.id,task.id),
+            html: {method: :put} do |f| %>
+            <%= f.select :assigned_trainee_id,
+              @user_subjects.collect{|user_subject| [user_subject.user_name, user_subject.user_id]},
+              {prompt: ""}, onchange: "this.form.submit()", class: "select-assign form-control" %>
+          <% end %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @unassign_tasks.each do |task| %>
-        <tr>
-          <td class="redmine_id"></td>
-          <td class="task_name"><%= task.name %></td>
-          <td class="task_progress"></td>
-          <td class="task_status"></td>
-          <td class="estimated_time"></td>
-          <td class="spent_time"></td>
-          <td class="update"></td>
-          <td>
-            <%= form_for :task, url: course_task_path(@course.id,task.id),
-              html: {method: :put} do |f| %>
-              <%= f.select :assigned_trainee_id, @user_subjects.collect{|u|
-                [u.user.name, u.user_id]}, {prompt: ""}, onchange:
-                  "this.form.submit()", class: "select-assign form-control" %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  </tbody>
+</table>
 <hr />

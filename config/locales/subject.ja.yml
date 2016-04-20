@@ -33,7 +33,7 @@ ja:
       create_task: "作ります"
     create_new_task: "新しいタスクを作成"
     task:
-      assignee: "割り当てます"
+      assigned: "割り当てます:"
       name: "名"
       description: "説明"
       had_not_assigned: "タスクがまだ割り当てられていませんでした"
@@ -51,6 +51,7 @@ ja:
       task_estimated_time: "見積もり"
       task_redmine_id: "レドマイナ"
       task_spent_time: "費やした時間"
+      task_decription: "説明"
     description: "件名説明"
     task_overview: "作業の概要"
     about_trainer: "トレーナーについて"

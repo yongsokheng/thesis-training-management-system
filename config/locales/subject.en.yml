@@ -44,7 +44,7 @@ en:
       create_task: "Create"
     task:
       finish_all: "Finish all"
-      assignee: "Assign for"
+      assigned: "Assigned for:"
       had_not_assigned: "Task had not assigned yet"
       name: "Name"
       description: "Description"
@@ -62,6 +62,7 @@ en:
       task_estimated_time: "Estimated Time"
       task_redmine_id: "ID"
       task_spent_time: "Spent time"
+      task_decription: "Description"
     form:
       input_subject_name: "Enter subject name..."
       input_subject_description: "Enter subject description..."

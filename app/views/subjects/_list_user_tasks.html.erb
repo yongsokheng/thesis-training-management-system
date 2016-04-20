@@ -1,0 +1,6 @@
+<ol class="list list--divided list--divided--m list--divided--f
+  list--divided--open mlm--l">
+  <% @user_subjects.each do |user_subject| %>
+    <%= render partial: "user_task", collection: user_subject.user_tasks, as: :user_task %>
+  <% end %>
+</ol>
