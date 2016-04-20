@@ -19,8 +19,21 @@
         <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
           user_task.status != Settings.tasks.statuses.closed %>
           <h4>
-            <%= link_to t("subjects.task.edit"), edit_user_task_path(user_task),
-              class: "db di--m tch tsxs" %>
+            <%= link_to t("subjects.task.edit"), "#", class: "db di--m tch tsxs",
+              data: {toggle: "modal", target: "#user-task-#{user_task.id}"} %>
+            <div id="user-task-<%= user_task.id %>" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="label-modal"><%= t "tasks.edit" %></h4>
+                  </div>
+                  <div class="modal-body modal-user-task">
+                    <%= render partial: "user_tasks/edit", locals: {user_task: user_task} %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </h4>
         <% end %>
       </h3>

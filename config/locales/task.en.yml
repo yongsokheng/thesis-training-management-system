@@ -7,6 +7,7 @@ en:
     redmine_task_id: "Remine task id"
     progress: "Progress:"
     assign_for: "Assign for:"
+    edit: "edit task"
     fields:
       name: "Name"
       description: "Description"
