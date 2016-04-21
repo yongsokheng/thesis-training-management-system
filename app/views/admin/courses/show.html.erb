@@ -65,8 +65,8 @@
                 </a>
               </li>
               <li>
-                <a href="<%= admin_course_path @course %>",
-                  data-method="delete",
+                <a href="<%= admin_course_clone_courses_path @course %>",
+                  data-method="post",
                   data-confirm="<%= t "courses.confirms.confirm_clone" %>">
                   <i class="fa fa-clone" aria-hidden="true"></i>
                   <%= t "button.clone" %>

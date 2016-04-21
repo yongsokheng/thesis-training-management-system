@@ -77,6 +77,10 @@ class UserSubject < ActiveRecord::Base
     course_subject.image_url
   end
 
+  def is_of_user? user
+    self.user == user
+  end
+
   private
   def create_user_tasks
     course_subject.tasks.each do |task|

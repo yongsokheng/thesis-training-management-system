@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     @course = @task.course_subject.course
     @subject = @task.course_subject.subject
     @user_task = UserTask.find_by user_id: @assigned_trainee.id,
-      task_id: @task.id
+      task_id: @task.id if @assigned_trainee
   end
 
   def create

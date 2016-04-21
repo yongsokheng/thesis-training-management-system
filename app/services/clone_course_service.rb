@@ -22,7 +22,8 @@ class CloneCourseService
   private
   def clone_course_subject old_course, new_course
     old_course.course_subjects.each do |course_subject|
-      new_course_subject = course_subject.dup
+      new_course_subject = CourseSubject.new course_id: course_subject.course.id,
+        subject_id: course_subject.subject.id
       new_course_subject.course_id = new_course.id
       new_course_subject.save!
       clone_task course_subject, new_course_subject
