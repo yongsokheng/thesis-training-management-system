@@ -101,6 +101,8 @@
                 </div>
               </div>
             </div>
+            <%= render partial: "shared/documents", 
+              locals: {documents: @subject.documents} %>
           </div>
         </div>
       </div>
