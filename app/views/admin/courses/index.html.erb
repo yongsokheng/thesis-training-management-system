@@ -1,18 +1,11 @@
-<div id="courses">
+<div id="admin-courses">
   <div class="title"><%= t "layouts.courses" %></div>
   <p class="pull-right"><%= link_to t("courses.buttons.admin.create"),
     new_admin_course_path, class: "btn btn-success" %></p>
-  <table class="table table-striped tbl-course">
-    <thead>
-      <tr>
-        <th class="name"><%= t "courses.table.name" %></th>
-        <th class="avtar"><%= t "courses.table.image" %></th>
-        <th class="description"><%= t "courses.table.description" %></th>
-        <th class="content"><%= t "courses.table.content" %></th>
-        <th class="start-date"><%= t "courses.start_date" %></th>
-        <th class="end-date"><%= t "courses.end_date" %></th>
-      </tr>
-    </thead>
-    <%= render @courses %>
-  </table>
+
+  <% unless @courses.nil? %>
+    <div class="row list-course-items">
+      <%= render @courses %>
+    </div>
+  <% end %>
 </div>

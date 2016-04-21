@@ -3,15 +3,12 @@ class Admin::CoursesController < ApplicationController
   before_action :load_data, except: [:index, :show, :destroy]
 
   def index
-    if current_user.is_admin?
-      @courses = @courses.recent
-    else
-      @courses = current_user.courses
-    end
+    @courses = (current_user.is_admin? ? @courses.recent : current_user.courses)
+      .sort_by &:programming_language_id
   end
 
   def new
-    @course.documents.build 
+    @course.documents.build
   end
 
   def create

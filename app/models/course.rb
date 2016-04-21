@@ -67,4 +67,12 @@ class Course < ActiveRecord::Base
     self.user_subjects.update_all(status: Course.statuses[:finish])
     create_activity key: "course.finish_course", owner: current_user
   end
+
+  def load_trainers
+    users.trainees
+  end
+
+  def load_trainees
+    users.trainees
+  end
 end
