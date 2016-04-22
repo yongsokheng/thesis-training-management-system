@@ -35,6 +35,10 @@ class UserTask < ActiveRecord::Base
     nil_master? && create_by_trainee? && !user_subject.finish?
   end
 
+  def assigned?
+    assignable_task? && user_id.present?
+  end
+
   private
   def init_relation_user
     self.user_id = self.user_subject.user_id

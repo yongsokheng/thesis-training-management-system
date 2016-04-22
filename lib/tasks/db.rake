@@ -41,7 +41,7 @@ namespace :db do
       Fabricate :permission, model_class: name, action: "read", role_id: 3
     end
     Fabricate :permission, model_class: "Task", action: "create"
-    ["UserTask", "User"].each do |name|
+    ["UserTask", "User", "Task"].each do |name|
       Fabricate :permission, model_class: name, action: "update", role_id: 3
     end
 
