@@ -1,4 +1,10 @@
 #subject-show {
+  .grid-box-tasks {
+    margin-top: -2em;
+  }
+  .subject-note {
+    font-size: 16px;
+  }
   .modal-user-task {
     margin-top: 10px;
   }
@@ -6,7 +12,6 @@
     margin-left: -30px;
   }
   .img-circle {
-    border-radius: 50%;
   }
   a {
     background-color: transparent;
@@ -323,8 +328,8 @@
     text-transform: uppercase;
   }
   .label {
-    color: #aebdc1;
-    font-size: 85%;
+    color: #257C94;
+    font-size: 120%;
     font-weight: 600;
     letter-spacing: 0.0125em;
     text-transform: uppercase;

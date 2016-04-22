@@ -22,15 +22,18 @@
   <hr>
   <div class="row has-sector">
     <div class="cell">
-      <div class="grid">
+      <div class="grid grid-box-subjects">
         <div class="grid-box grid-box-75">
           <div class="well well--l">
             <div class="mbl">
               <div class="mbl--m">
-                <h2 class="label"><%= t "courses.labels.description" %></h2>
-                <p><%= @course.description %></p>
-                <h2 class="label"><%= t "courses.labels.content" %></h2>
-                <p><%= @course.content.html_safe %></p>
+                <h2 class="label"><%= @course.name %></h2>
+                <div class="row">
+                  <p><b><i>"<%= @course.description %>"</i></b></p>
+                </div>
+                <div class="row">
+                  <p><%= @course.content.html_safe %></p>
+                </div>
               </div>
               <h2 class="label mbm"><%= t "courses.list_subject" %></h2>
               <ol class="list list--divided list--divided--m list--divided--f
@@ -60,10 +63,10 @@
                             </span>
                             <span class="bdrl pls tch"><%= "#{user_subject.during_time} days" %></span>
                           </b>
-                          <%= link_to user_subject.course_subject_subject_name,
+                          <%= link_to user_subject.name,
                             course_subject_path(@course, user_subject.subject) %>
                         </h3>
-                        <p class="mbf"><%= user_subject.course_subject_subject_description %></p>
+                        <p class="mbf"><%= user_subject.description %></p>
                         <%= link_to t("courses.view_detail"),
                           course_subject_path(@course, user_subject.subject),
                           class: "btn btn-primary btn-xs" %>
@@ -79,7 +82,7 @@
           <div class="well well--l">
             <div class="card">
               <div id="image-course">
-                <%= image_course_tag @course, @course.programming_language_name %>
+                <%= image_user_course_tag @course, @course.programming_language_name %>
               </div>
               <div class="course-infor">
                 <p><%= t "subjects.new_subjects" %>
@@ -99,10 +102,12 @@
                 <h3 class="label"><%= t "courses.note" %></h3>
               </div>
               <div class="box-body no-padding">
-                <%= @course.name %>
+                <div class= "course-note">
+                  <%= t "courses.time", start_date: @course.start_date, end_date: @course.end_date %>
+                </div>
               </div>
             </div>
-            <%= render partial: "shared/documents", 
+            <%= render partial: "shared/documents",
               locals: {documents: @course.documents} %>
           </div>
         </div>

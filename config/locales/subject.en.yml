@@ -75,6 +75,8 @@ en:
     about_trainer: "About Trainer"
     about_trainee: "About Trainee"
     note: "Subject Notes"
+    during_time: "During Time"
+    note_during_time: "This subject should take approximately %{during_time} days."
     discuss: "Discuss Subject"
     subject_complete: "Subject Complete"
     assigned: "Assigned: "

@@ -18,6 +18,8 @@ defaults: &defaults
   image_profile: "150x150"
   image_activity: "30x30"
   image_user_subject: "100x100"
+  image_subject_size: "220x220"
+  image_course_size: "220x220"
   finish: "finish"
   finished: "finished"
   date_format: "%H:%M:%S %-d %B %Y"

@@ -47,23 +47,26 @@
   <hr>
   <div class="row has-sector">
     <div class="cell">
-      <div class="grid">
+      <div class="grid grid-box-tasks">
         <div class="grid-box grid-box-75">
           <div class="well well--l">
             <div class="mbl">
               <div class="mbl--m">
-                <h2 class="label"><%= t "subjects.name" %></h2>
-                <p><%= @user_subject.course_subject_subject_name %></p>
-                <h2 class="label"><%= t "subjects.description" %></h2>
-                <p><%= @user_subject.course_subject_subject_description %></p>
-                <h2 class="label"><%= t "subjects.content" %></h2>
-                <p><%= @user_subject.course_subject_subject_content.html_safe %></p>
+                <h2 class="label"><%= @user_subject.subject_name %></h2>
+                <div class="row">
+                  <p><b><i>"<%= @user_subject.description %>"</i></b></p>
+                </div>
+                <div class="row">
+                  <p><%= @user_subject.content.html_safe %></p>
+                </div>
               </div>
               <div class="render-task">
-                <div id="tasks" class="task">
-                  <h2 class="label-task"><%= t "subjects.task.had_not_assigned" %></h2>
-                  <%= render "task" %>
-                </div>
+                <% if @unassign_tasks.present? %>
+                  <div id="tasks" class="task">
+                    <h2 class="label-task"><%= t "subjects.task.had_not_assigned" %></h2>
+                    <%= render "task" %>
+                  </div>
+                <% end %>
                 <div class="user-task">
                   <h2 class="label mbm"><%= t "subjects.task_overview" %></h2>
                   <%= render "list_user_tasks" %>
@@ -97,11 +100,13 @@
                   <h3 class="label"><%= t "subjects.note" %></h3>
                 </div>
                 <div class="box-body no-padding">
-                  <%= @subject.name %>
+                  <div class="subject-note">
+                    <%= t "subjects.note_during_time", during_time: @subject.during_time %>
+                  </div>
                 </div>
               </div>
             </div>
-            <%= render partial: "shared/documents", 
+            <%= render partial: "shared/documents",
               locals: {documents: @subject.documents} %>
           </div>
         </div>
