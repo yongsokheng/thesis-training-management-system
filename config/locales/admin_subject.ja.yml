@@ -22,3 +22,6 @@ ja:
         finish: "仕上げ"
         start_all: "すべての起動"
         finish_all: "すべて終えます"
+    confirms:
+      start_all: "あなたはすべての科目を開始しますか？"
+      finish_all: "あなたはすべての科目を終了しますか？"

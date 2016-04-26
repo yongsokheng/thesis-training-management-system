@@ -8,6 +8,9 @@ class Admin::ChangeStatusCoursesController < ApplicationController
     elsif @course.progress?
       @course.finish_course current_user
       flash[:success] = flash_message "finish_course"
+    elsif @course.finish?
+      @course.reopen_course current_user
+      flash[:success] = flash_message "reopen_course"
     else
       flash[:failed] = flash_message "course_not_upate"
     end

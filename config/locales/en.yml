@@ -49,6 +49,7 @@ en:
       not_updated: "%{model_name} couldn't be updated"
       start_course: "Course was started successfully"
       finish_course: "Course was finished successfully"
+      reopen_course: "Course was reopened successfully"
       course_not_upate: "Course couldn't updated successfully"
   tasks:
     update: "Update"
