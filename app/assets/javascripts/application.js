@@ -31,6 +31,9 @@
 //= require jquery-ui/effect-highlight
 //= require admin/update_order_course_subject
 //= require admin/user_progress_chart
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require subject
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();

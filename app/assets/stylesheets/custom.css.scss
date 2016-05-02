@@ -8,6 +8,7 @@ html {
     padding-top: 12px;
   }
 }
+
 #user-header {
   background-color: #fff;
   justify-content: center;
@@ -92,7 +93,7 @@ html {
       }
     }
   }
- 
+
   .user-header-bar {
     min-width: 70em;
 
@@ -164,26 +165,19 @@ html {
   width: 100%;
 }
 
-body {
-  background-color: #F6F8F8;
-}
-
 #show-courses {
   ul, li {
     list-style-type: none;
   }
 }
 
-.border-course {
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-width: 1px;
-}
-
 .body_wrapper {
   margin-top: 50px;
   margin-bottom: 350px;
+}
+
+.content {
+  background-color: white;
 }
 
 .center {
@@ -207,35 +201,12 @@ select {
   text-indent: 5px;
 }
 
-.table {
-  margin-top: 20px;
-
-  thead tr th {
-    background-color: #F2F2F2;
-    padding: 4px;
-    border: none;
-  }
-
-  tbody tr td {
-    border: none;
-    padding: 4px;
-  }
-
-  tbody tr:hover td {
-    background-color: #FFFFD1;
-  }
-}
-
 .title {
   margin-bottom: 10px;
   text-align: center;
   font-family: "Roboto Slab, serif";
   color: #474647;
   font-size: x-large;
-}
-
-.description {
-  font-style: italic;
 }
 
 .label {
@@ -255,7 +226,7 @@ select {
 .doc-field {
   padding-right: 1%;
   list-style-type: circle;
-  
+
   a {
     text-decoration: underline !important;
   }
@@ -264,3 +235,5 @@ select {
 .remove-field {
   font-weight: bold;
 }
+
+.highlight { background-color: yellow }

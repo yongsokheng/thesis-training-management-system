@@ -42,6 +42,7 @@
  *= require footer
  *= require subject
  *= require user_tasks
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  */
 
 @import "bootstrap-sprockets";
