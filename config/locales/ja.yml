@@ -1,9 +1,16 @@
 ja:
+  name_system: "Framgia TMS"
   error:
     form: "内容フォーム"
     error: "エラー"
     supervisor: "必要があり、少なくとも1つのスーパーバイザがあります"
     leader: "必要があります1リーダーを持っています"
+  user-header:
+    home: "ホーム"
+    courses: "コース"
+  language-name:
+    en: "英語"
+    ja: "日本語"
   staticpages:
     framgia: "Framgia Trainning Management System"
     about: "当社情報"
