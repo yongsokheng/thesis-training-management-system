@@ -17,6 +17,8 @@ class CourseSubject < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
   has_many :tasks, dependent: :destroy
 
+  delegate :name, to: :course, prefix: true, allow_nil: true
+
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|attributes| attributes["name"].blank?}
 
