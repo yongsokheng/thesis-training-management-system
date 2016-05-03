@@ -1,8 +1,6 @@
 class CourseSubject < ActiveRecord::Base
   include PublicActivity::Model
   include InitUserSubject
-  include RankedModel
-  ranks :order
   mount_uploader :image, ImageUploader
 
   after_create :create_tasks
@@ -10,7 +8,7 @@ class CourseSubject < ActiveRecord::Base
   after_create :update_subject_course
 
   ATTRIBUTES_PARAMS = [:subject_name, :image, :subject_description, :subject_content,
-    :postition, :course_id, :order_position]
+    :postition, :course_id]
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 

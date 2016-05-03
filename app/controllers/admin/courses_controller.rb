@@ -32,7 +32,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @course_subjects = @course.course_subjects.rank :order
+    @course_subjects = @course.course_subjects
     @users = @course.users
     @trainers = @course.users.trainers
     @trainees = @course.users.trainees
