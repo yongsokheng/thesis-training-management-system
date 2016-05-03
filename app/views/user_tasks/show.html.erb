@@ -10,9 +10,10 @@
       <li><%= link_to t("layouts.all_courses"), courses_path %></li>
       <li><%= link_to @course.name, course_path(@course) %></li>
       <li>
-        <%= link_to @user_subject.subject_name, course_subject_path(@course, @user_subject.subject) %>
+        <%= link_to @user_subject.subject_name, course_subject_path(@course,
+          @user_subject.subject) %>
       </li>
-      <li><%= @user_task.task_name %></li>
+      <li class="active"><%= @user_task.task_name %></li>
     </ul>
     <hr>
   </div>
@@ -22,13 +23,44 @@
         <div class="col-md-3 badge"><%= user_image_course_subject_tag @user_task.task %></div>
         <div class="col-md-9">
           <h4 class="task-name"><%= @user_task.task_name %></h4>
+        </div>
+        <% if @user_task.nil_master? && @user_task.user == current_user %>
+          <div class="dropdown pull-right">
+            <button id="dLabel" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"
+              class="btn btn-default">
+              <span class="glyphicon glyphicon-align-justify"
+                aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="dLabel">
+              <li>
+                <a href="<%= edit_course_subject_task_path @course_subject, @user_task.task %>">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <%= t"courses.buttons.admin.edit" %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= course_subject_task_path @course_subject, @user_task.task %>",
+                  data-method="delete",
+                  data-confirm="<%= t "messages.delete.confirm" %>">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <%= t "button.delete" %>
+                </a>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
           <div class="description"><%= @user_task.task_description %></div>
         </div>
       </div>
       <div class="row">
         <hr>
         <div class="col-md-12"><%= @user_task.task_content.html_safe %></div>
-      </div>
+     </div>
     </div>
 
     <div class="col-md-4 pull-right well">

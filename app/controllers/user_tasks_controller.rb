@@ -6,6 +6,7 @@ class UserTasksController < ApplicationController
   def show
     @user_courses = @course.user_courses
     @user_subject = @user_task.user_subject
+    @course_subject = @user_subject.course_subject
   end
 
   def create
@@ -21,7 +22,7 @@ class UserTasksController < ApplicationController
     if @user_task.update_attributes user_task_params
       track_activity
       flash[:success] = flash_message "updated"
-      redirect_to course_subject_path(@user_course,@user_subject.subject)
+      redirect_to course_subject_path(@user_course, @user_subject.subject)
     else
       flash[:failed] = flash_message "not_updated"
       render :edit

@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
   load_and_authorize_resource :course_subject
+  before_action :load_user_subject, only: [:edit, :update, :destroy]
   before_action :add_task_info, only: [:create]
 
   def create
@@ -21,6 +22,16 @@ class TasksController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    if @task.destroy
+      flash[:success] = flash_message "deleted"
+      redirect_to course_subject_path(@course_subject.course, @user_subject.subject)
+    else
+      flash[:failed] = flash_message "not_deteletd"
+      redirect_to :back
+    end
+  end
+
   private
   def task_params
     params.require(:task).permit Task::ATTRIBUTES_PARAMS
@@ -30,5 +41,10 @@ class TasksController < ApplicationController
     @task.create_by_trainee = current_user.is_trainee?
     @task.owner = current_user
     @task.course_subject = @course_subject
+  end
+
+  def load_user_subject
+    @user_subject = UserSubject.find_by user: @task.assigned_trainee,
+      course_subject: @course_subject
   end
 end
