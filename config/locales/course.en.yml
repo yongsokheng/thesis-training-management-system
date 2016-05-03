@@ -8,6 +8,7 @@ en:
     not_clone: "Clone not success"
     buttons:
       admin:
+        new: "New"
         create: "Create"
         edit: "Edit"
         update: "Update"
@@ -42,6 +43,8 @@ en:
       description: "Description"
       content: "Content"
       action: "Action"
+      trainees: "Trainees"
+      trainers: "Trainers"
     labels:
       content: "Content"
       about_course: "About Course"

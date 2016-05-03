@@ -15,6 +15,8 @@ defaults: &defaults
     init: 0
   flag_size: "20x15"
   image_user_size: "50x50"
+  image_trainer_size: "20x20"
+  image_trainee_size: "20x20"
   image_profile: "150x150"
   image_activity: "30x30"
   image_user_subject: "100x100"
