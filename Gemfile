@@ -29,6 +29,8 @@ gem "mini_magick"
 gem "jquery-ui-rails"
 gem "ranked-model"
 gem "highcharts-rails"
+gem "ajax-datatables-rails", "0.1.2"
+gem "jquery-datatables-rails", github: "rweng/jquery-datatables-rails"
 
 group :development, :test do
   gem "fabrication"

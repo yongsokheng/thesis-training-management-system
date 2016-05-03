@@ -3,8 +3,12 @@ class Admin::SubjectsController < ApplicationController
 
   def index
     @subject = Subject.new
-    @search = Subject.recent.search(params[:q])
-    @subjects = @search.result
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: SubjectsDatatable.new(view_context)
+      }
+    end
   end
 
   def show

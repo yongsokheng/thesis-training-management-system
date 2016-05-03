@@ -1,4 +1,4 @@
-#subjects {
+#list-subjects {
   .input-group-btn {
     padding-top: 20px;
     padding-left: 50px;
@@ -45,6 +45,16 @@
     .remove-field {
       padding-left: 0px;
     }
+  }
+
+  #subjects_filter {
+    text-align: left;
+    input {
+      width: 150%;
+    }
+  }
+  #subjects_paginate {
+    text-align: left;
   }
 }
 
