@@ -18,13 +18,17 @@ class Admin::TasksController < ApplicationController
     add_breadcrumb @course_subject.subject_name,
       admin_course_subject_path(@course_subject.course, @course_subject.subject)
     add_breadcrumb t("breadcrumbs.subjects.new_task")
+
+  def edit
+    @course = @course_subject.course
   end
 
   def create
     if @task.save
       flash[:success] = flash_message "created"
       @task.assign_trainees_to_task
-      redirect_to edit_admin_course_course_subject_path(@course_subject.course, @course_subject)
+      redirect_to edit_admin_course_course_subject_path(@course_subject.course,
+        @course_subject)
     else
       flash[:failed] = flash_message "not_created"
       redirect_to :back
@@ -32,12 +36,27 @@ class Admin::TasksController < ApplicationController
   end
 
   def update
+    @old_assigned_trainee = @task.assigned_trainee
     if @task.update_attributes task_params
       flash[:success] = flash_message "updated"
     else
       flash[:failed] = flash_message "not_updated"
     end
+    unless params[:task][:assigned_trainee_id].nil?
+      @task.change_user_task @old_assigned_trainee
+    end
     redirect_to :back
+  end
+
+  def destroy
+    if @task.destroy
+      flash[:success] = flash_message "deleted"
+      redirect_to admin_course_subject_path(@course_subject.course,
+        @course_subject.subject)
+    else
+      flash[:failed] = flash_message "not_deleted"
+      redirect_to :back
+    end
   end
 
   private

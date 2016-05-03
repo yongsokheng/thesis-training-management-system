@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :course_subjects do
       resources :user_subjects, only: :update
       resources :tasks
+      resources :user_tasks, only: [:show, :edit, :update]
     end
     resources :users do
       resource :evaluations
