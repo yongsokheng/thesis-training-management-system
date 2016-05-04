@@ -4,7 +4,12 @@ class Admin::CoursesController < ApplicationController
 
   def index
     @courses = (current_user.is_admin? ? @courses.recent : current_user.courses)
-      .sort_by &:programming_language_id
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: CoursesDatatable.new(view_context)
+      }
+    end
   end
 
   def new
