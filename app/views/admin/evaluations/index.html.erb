@@ -1,15 +1,18 @@
 <%= render "shared/evaluation_tab", active_tab: Settings.tabs.evaluation %>
 <div id="evaluations">
-  <%= render "form_search_user" %>
-  <table class="table table-striped tbl-evaluation">
+  <table id="evaluation-tbl" class="table table-bordered display"
+    data-source="<%= admin_evaluations_url format: "json" %>" >
     <thead>
-      <tr>
+      <tr class="active">
+        <th></th>
         <th class="name"><%= t "evaluation.table.thread.name" %></th>
         <th class="total_point"><%= t "evaluation.table.thread.total_point" %></th>
         <th class="current_rank"><%= t "evaluation.table.thread.current_rank" %></th>
         <th class="action"><%= t "evaluation.table.thread.action" %></th>
       </tr>
     </thead>
-  <%= render partial: "user", collection: @users, as: :user %>
+    <tbody>
+    </tbody>
+  </table>
   </table>
 </div>
