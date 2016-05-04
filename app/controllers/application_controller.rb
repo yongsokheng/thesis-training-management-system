@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, :set_locale
 
+  add_breadcrumb I18n.t("breadcrumbs.paths"), :root_path
+
   include ApplicationHelper
   include PublicActivity::StoreController
 

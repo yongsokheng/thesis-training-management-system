@@ -151,4 +151,21 @@ module ApplicationHelper
       "label label-danger"
     end
   end
+
+  def add_breadcrumb_courses
+    add_breadcrumb t("breadcrumbs.courses.all"), :admin_courses_path
+  end
+
+  def add_breadcrumb_subjects
+    add_breadcrumb t("breadcrumbs.subjects.all"), :admin_subjects_path
+  end
+
+  def add_breadcrumb_course_new
+    add_breadcrumb t("breadcrumbs.courses.new"), :new_admin_course_path
+  end
+
+  def add_breadcrumb_subject_new
+    add_breadcrumb t("breadcrumbs.subjects.new"), :new_admin_subject_path
+  end
+
 end

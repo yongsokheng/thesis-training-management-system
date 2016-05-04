@@ -12,6 +12,14 @@ class Admin::TasksController < ApplicationController
       task_id: @task.id
   end
 
+  def new
+    add_breadcrumb_courses
+    add_breadcrumb @course_subject.course_name, admin_course_path(@course_subject.course)
+    add_breadcrumb @course_subject.subject_name,
+      admin_course_subject_path(@course_subject.course, @course_subject.subject)
+    add_breadcrumb t("breadcrumbs.subjects.new_task")
+  end
+
   def create
     if @task.save
       flash[:success] = flash_message "created"
