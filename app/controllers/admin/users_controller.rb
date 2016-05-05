@@ -2,6 +2,15 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
   before_action :load_role, except: [:index, :show, :destroy]
 
+  def index
+    add_breadcrumb_index "users"
+  end
+
+  def new
+    add_breadcrumb_path "users"
+    add_breadcrumb_new "users"
+  end
+
   def create
     if @user.save
       flash[:success] = flash_message "created"
@@ -10,6 +19,12 @@ class Admin::UsersController < ApplicationController
       flash[:failed] = flash_message "not_created"
       render :new
     end
+  end
+
+  def edit
+    add_breadcrumb_path "users"
+    add_breadcrumb @user.name, user_path(@user)
+    add_breadcrumb_edit "users"
   end
 
   def update

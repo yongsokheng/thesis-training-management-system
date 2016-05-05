@@ -7,11 +7,10 @@ class Admin::EvaluationsController < ApplicationController
   before_action :load_notes, only: :edit
 
   def index
-    add_breadcrumb_evaluations
     role_trainee = Role.trainee
     @users =  User.find_by_role role_trainee
     respond_to do |format|
-      format.html
+      format.html {add_breadcrumb_index "evaluations"}
       format.json {
         render json: EvaluationsDatatable.new(view_context)
       }
@@ -23,6 +22,10 @@ class Admin::EvaluationsController < ApplicationController
       @evaluation.evaluation_details.build(name: template.name,
         point: template.min_point, evaluation_template_id: template.id)
     end
+
+    add_breadcrumb @user.name, @user
+    add_breadcrumb_path "evaluations"
+    add_breadcrumb_new "evaluations"
   end
 
   def create
@@ -33,6 +36,12 @@ class Admin::EvaluationsController < ApplicationController
       flash[:failed] = flash_message "not_created"
       redirect_to :back
     end
+  end
+
+  def edit
+    add_breadcrumb @user.name, @user
+    add_breadcrumb_path "evaluations"
+    add_breadcrumb_edit "evaluations"
   end
 
   def update

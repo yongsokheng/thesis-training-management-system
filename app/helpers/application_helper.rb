@@ -152,40 +152,32 @@ module ApplicationHelper
     end
   end
 
-  def add_breadcrumb_courses
-    add_breadcrumb t("breadcrumbs.courses.all"), :admin_courses_path
+  def add_breadcrumb_path resource
+    add_breadcrumb t("breadcrumbs.#{resource}.all"),
+      "admin_#{resource}_path".to_sym
   end
 
-  def add_breadcrumb_subjects
-    add_breadcrumb t("breadcrumbs.subjects.all"), :admin_subjects_path
+  def add_breadcrumb_index resource
+    add_breadcrumb t "breadcrumbs.#{resource}.all"
   end
 
-  def add_breadcrumb_course_new
-    add_breadcrumb t("breadcrumbs.courses.new"), :new_admin_course_path
+  def add_breadcrumb_new resource
+    add_breadcrumb t "breadcrumbs.#{resource}.new"
   end
 
-  def add_breadcrumb_subject_new
-    add_breadcrumb t("breadcrumbs.subjects.new"), :new_admin_subject_path
+  def add_breadcrumb_edit resource
+    add_breadcrumb t "breadcrumbs.#{resource}.edit"
   end
 
-  def add_breadcrumb_roles
-    add_breadcrumb t("breadcrumbs.roles.all"), :admin_roles_path
+  def add_breadcrumb_subject_task_masters
+    add_breadcrumb t("breadcrumbs.subjects.task_masters")
   end
 
-  def add_breadcrumb_role_new
-    add_breadcrumb t("breadcrumbs.roles.new"), :new_admin_role_path
+  def add_breadcrumb_subject_new_task
+    add_breadcrumb t("breadcrumbs.subjects.new_task")
   end
 
-  def add_breadcrumb_evaluation_templates
-    add_breadcrumb t("breadcrumbs.evaluation_templates.all"),
-      :admin_evaluation_templates_path
-  end
-
-  def add_breadcrumb_ranks
-    add_breadcrumb t("breadcrumbs.ranks.all"), :admin_ranks_path
-  end
-
-  def add_breadcrumb_evaluations
-    add_breadcrumb t("breadcrumbs.evaluations.all"), :admin_evaluations_path
+  def add_breadcrumb_role_allocate_permissions
+    add_breadcrumb t "breadcrumbs.roles.allocate_permissions"
   end
 end

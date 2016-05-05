@@ -2,14 +2,24 @@ class Admin::RanksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    add_breadcrumb_ranks
     @rank = Rank.new
     respond_to do |format|
-      format.html
+      format.html {add_breadcrumb_index "ranks"}
       format.json {
         render json: RanksDatatable.new(view_context)
       }
     end
+  end
+
+  def new
+    add_breadcrumb_path "ranks"
+    add_breadcrumb_new "ranks"
+  end
+
+  def edit
+    add_breadcrumb_path "ranks"
+    add_breadcrumb @rank.rank_value
+    add_breadcrumb_edit "ranks"
   end
 
   def create

@@ -3,9 +3,12 @@ class Admin::StatusesController < ApplicationController
 
   def index
     @status = Status.new
+    add_breadcrumb_index "statuses"
   end
 
   def new
+    add_breadcrumb_path "statuses"
+    add_breadcrumb_new "statuses"
   end
 
   def create
@@ -19,6 +22,9 @@ class Admin::StatusesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb_path "statuses"
+    add_breadcrumb @status.name
+    add_breadcrumb_edit "statuses"
   end
 
   def update

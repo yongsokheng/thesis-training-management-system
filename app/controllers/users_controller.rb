@@ -6,7 +6,10 @@ class UsersController < ApplicationController
     @user_courses = @user.user_courses
     @inprogress_course = @user_courses.course_progress.last
     @finished_courses = @user_courses.course_finished
+
+    add_breadcrumb @user.name
   end
+
   def edit
   end
 

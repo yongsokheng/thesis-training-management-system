@@ -4,7 +4,7 @@ class Admin::SubjectsController < ApplicationController
   def index
     @subject = Subject.new
     respond_to do |format|
-      format.html {add_breadcrumb t("breadcrumbs.subjects.all")}
+      format.html {add_breadcrumb_index "subjects"}
       format.json {
         render json: SubjectsDatatable.new(view_context)
       }
@@ -22,7 +22,7 @@ class Admin::SubjectsController < ApplicationController
     @unassign_tasks = @course_subject.tasks.not_assigned_trainee
     @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
 
-    add_breadcrumb_courses
+    add_breadcrumb_path "courses"
     add_breadcrumb @course.name, admin_course_path(@course)
     add_breadcrumb @course_subject.subject_name
   end
@@ -31,8 +31,8 @@ class Admin::SubjectsController < ApplicationController
     @subject.documents.build
     @subject.task_masters.build.documents.build
 
-    add_breadcrumb_subjects
-    add_breadcrumb_subject_new
+    add_breadcrumb_path "subjects"
+    add_breadcrumb_new "subjects"
   end
 
   def create
@@ -47,9 +47,9 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb_subjects
+    add_breadcrumb_path "subjects"
     add_breadcrumb @subject.name, admin_subject_task_masters_path(@subject)
-    add_breadcrumb t("breadcrumbs.subjects.edit")
+    add_breadcrumb_edit "subjects"
   end
 
   def update

@@ -3,6 +3,12 @@ class Admin::UserProgressesController < ApplicationController
 
   def index
     @user_progress = UserProgress.new
+    add_breadcrumb_index "user_progresses"
+  end
+
+  def new
+    add_breadcrumb_path "user_progresses"
+    add_breadcrumb_new "user_progresses"
   end
 
   def create
@@ -16,6 +22,9 @@ class Admin::UserProgressesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb_path "user_progresses"
+    add_breadcrumb @user_progress.name
+    add_breadcrumb_edit "user_progresses"
   end
 
   def update
