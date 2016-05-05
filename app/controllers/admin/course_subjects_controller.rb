@@ -7,6 +7,10 @@ class Admin::CourseSubjectsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb_courses
+    add_breadcrumb @course_subject.course_name, :admin_course_path
+    add_breadcrumb @course_subject.subject_name, :admin_course_subject_path
+    add_breadcrumb t("breadcrumbs.subjects.edit")
   end
 
   def update

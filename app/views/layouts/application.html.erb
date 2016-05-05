@@ -21,6 +21,9 @@
         <div class="content-wrapper">
           <section class="content">
             <%= render "layouts/flash" %>
+            <ol class="breadcrumb">
+              <%= render_breadcrumbs tag: :li %>
+            </ol>
             <%= yield %>
           </section>
         </div>

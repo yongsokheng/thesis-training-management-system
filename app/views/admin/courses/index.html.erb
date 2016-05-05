@@ -1,23 +1,27 @@
 <div id="courses">
-  <div class="row">
-    <div class="col-md-12 title">
-      <%= t "layouts.courses" %>
-      <span>
-        <%= link_to t("courses.buttons.admin.new"),
-          new_admin_course_path, class: "btn btn-success pull-right" %>
-      </span>
+  <div id="admin-courses">
+    <div class="row">
+      <div class="col-md-12 title">
+        <%= t "layouts.courses" %>
+        <span>
+          <%= link_to t("courses.buttons.admin.new"),
+            new_admin_course_path, class: "btn btn-success pull-right" %>
+        </span>
+      </div>
     </div>
+    <% unless @courses.nil? %>
+      <table id="course-tbl" class="table table-bordered display" data-source="<%= admin_courses_url format: "json" %>" >
+        <thead>
+          <tr class="active">
+            <th></th>
+            <th><%= t "courses.table.name" %></th>
+            <th><%= t "courses.table.trainers" %></th>
+            <th><%= t "courses.table.trainees" %></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    <% end %>
   </div>
-  <table id="course-tbl" class="table table-bordered display" data-source="<%= admin_courses_url format: "json" %>" >
-    <thead>
-      <tr class="active">
-        <th></th>
-        <th><%= t "courses.table.name" %></th>
-        <th><%= t "courses.table.trainers" %></th>
-        <th><%= t "courses.table.trainees" %></th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
 </div>
