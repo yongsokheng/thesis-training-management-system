@@ -55,7 +55,7 @@ class Admin::SubjectsController < ApplicationController
   def update
     if @subject.update_attributes subject_params
       flash[:success] = flash_message "updated"
-      redirect_to admin_subjects_path
+      redirect_to admin_subject_task_masters_path(@subject)
     else
       flash[:failed] = flash_message "not_updated"
       render :edit

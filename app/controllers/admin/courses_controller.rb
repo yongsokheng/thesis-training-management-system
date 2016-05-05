@@ -37,7 +37,7 @@ class Admin::CoursesController < ApplicationController
   def update
     if @course.update_attributes course_params
       flash[:success] = flash_message "updated"
-      redirect_to admin_courses_path
+      redirect_to admin_course_path(@course)
     else
       flash[:failed] = flash_message "not_updated"
       render :edit

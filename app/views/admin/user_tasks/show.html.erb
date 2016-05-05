@@ -1,22 +1,4 @@
 <div id="user-subject" class="row">
-  <div class="row">
-    <div class="row subject-breadcrumb">
-      <ol class="breadcrumb">
-        <li>
-          <%= link_to t("courses.breadcum.home"), root_url %>
-        </li>
-        <li>
-          <%= link_to t("courses.breadcum.courses"), admin_courses_path %>
-        </li>
-        <li>
-          <%= link_to @course.name, admin_course_path(@course) %>
-        </li>
-        <li><%= link_to @course_subject.subject_name,
-          admin_course_subject_path(@course, @course_subject.subject) %></li>
-        <li class="active"><%= @user_task.task_name %></li>
-      </ol>
-    </div>
-  </div>
   <div id="task-info">
     <div class="col-md-8 info">
       <div class="row">

@@ -1,24 +1,4 @@
 <div id="user-subject" class="row">
-  <div class="row">
-    <div class="row subject-breadcrumb">
-      <ol class="breadcrumb">
-        <li>
-          <%= link_to t("courses.breadcum.home"), root_url %>
-        </li>
-        <li>
-          <%= link_to t("courses.breadcum.courses"), admin_courses_path %>
-        </li>
-        <li>
-          <%= link_to @course.name, admin_course_path(@course) %>
-        </li>
-        <li><%= link_to @course_subject.subject_name,
-          admin_course_subject_path(@course, @course_subject.subject) %></li>
-        <li><%= link_to @user_task.task_name,
-          admin_course_subject_user_task_path(@course_subject, @user_task) %></li>
-        <li class="active"><%= t "tasks.update" %></li>
-      </ol>
-    </div>
-  </div>
   <%= form_for @user_task, url: admin_course_subject_user_task_path(@course_subject,
     @user_task), method: :patch do |f| %>
       <div class="row">

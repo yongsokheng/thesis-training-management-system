@@ -7,8 +7,9 @@ class Admin::EvaluationsController < ApplicationController
   before_action :load_notes, only: :edit
 
   def index
+    add_breadcrumb_evaluations
     role_trainee = Role.trainee
-    @users =  User.find_by_role(role_trainee)
+    @users =  User.find_by_role role_trainee
     respond_to do |format|
       format.html
       format.json {

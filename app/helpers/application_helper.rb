@@ -176,4 +176,16 @@ module ApplicationHelper
     add_breadcrumb t("breadcrumbs.roles.new"), :new_admin_role_path
   end
 
+  def add_breadcrumb_evaluation_templates
+    add_breadcrumb t("breadcrumbs.evaluation_templates.all"),
+      :admin_evaluation_templates_path
+  end
+
+  def add_breadcrumb_ranks
+    add_breadcrumb t("breadcrumbs.ranks.all"), :admin_ranks_path
+  end
+
+  def add_breadcrumb_evaluations
+    add_breadcrumb t("breadcrumbs.evaluations.all"), :admin_evaluations_path
+  end
 end

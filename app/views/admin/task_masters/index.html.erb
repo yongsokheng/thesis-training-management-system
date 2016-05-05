@@ -6,6 +6,15 @@
     <div class="col-md-8">
       <h2 class="subject-name"><%= @subject.name %></h2>
       <div class="description"><%= @subject.description %></div>
+      <p class="working-days">
+        <%= "#{t "subjects.fields.during_time"}:
+          #{@subject.during_time} #{t "subjects.fields.days"}" %>
+      </p>
+      <p class="documents"><%= t("subjects.documents") %>&nbsp;
+        <% @subject.documents.each do |doc| %>
+          <%= link_to doc.name, doc.content.url, target: "_blank" %>&nbsp;
+        <% end %>
+      </p>
     </div>
     <div class="col-md-2">
       <div class="dropdown pull-left">
@@ -34,8 +43,8 @@
           </ul>
       </div>
     </div>
-    <div class="col-md-10"><%= @subject.content.html_safe %></div>
   </div>
+  <div class="content-subject"><%= @subject.content.html_safe %></div>
   <div id="tasks">
     <table class="table table-striped tbl-task">
       <thead>

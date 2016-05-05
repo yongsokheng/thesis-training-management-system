@@ -25,7 +25,7 @@
               <% end %>
             </span>
           </h2>
-          <div class="label course-description">
+          <div class="course-description">
             <i><%= @course.description %></i>
           </div>
         </div>
@@ -74,7 +74,7 @@
       </section>
     </div>
 
-    <div class="col-md-2 user-infor right-side-course">
+    <div class="col-md-3 user-infor right-side-course">
       <h2 class="label"><%= t "courses.labels.trainer" %>&nbsp;
         <%= link_to edit_admin_course_assign_trainers_path(@course) do %>
           <i class="ionicons ion-android-person-add"></i>

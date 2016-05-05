@@ -22,12 +22,17 @@
           <% end %>
         </span>
       </h2>
-      <div class="label">
+      <div class="description">
         <i><%= @course_subject.subject_description %></i>
       </div>
       <p class="working-days">
         <%= "#{t "subjects.fields.during_time"}:
           #{@subject.during_time} #{t "subjects.fields.days"}" %>
+      </p>
+      <p class="documents"><%= t("subjects.documents") %>&nbsp;
+        <% @course_subject.subject.documents.each do |doc| %>
+          <%= link_to doc.name, doc.content.url, target: "_blank" %>&nbsp;
+        <% end %>
       </p>
     </div>
     <div class="col-md-2">

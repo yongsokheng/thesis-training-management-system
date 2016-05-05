@@ -2,6 +2,7 @@ class Admin::EvaluationTemplatesController < ApplicationController
   load_and_authorize_resource
 
   def index
+    add_breadcrumb_evaluation_templates
     @evaluation_template = EvaluationTemplate.new
   end
 
