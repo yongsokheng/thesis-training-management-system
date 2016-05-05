@@ -20,7 +20,7 @@ class Task < ActiveRecord::Base
 
   scope :has_task_master, ->{where.not task_master_id: nil}
 
-  after_save :change_user_task
+  after_create :create_user_task
 
   def assign_trainees_to_task
     user_subjects = course_subject.user_subjects
@@ -29,10 +29,8 @@ class Task < ActiveRecord::Base
     end
   end
 
-  private
-  def change_user_task
-    return if assigned_trainee.nil?
-    user_task = user_task_of_trainee
+  def change_user_task old_assigned_trainee
+    user_task = UserTask.find_by user: old_assigned_trainee, task: self
     if user_task.nil?
       self.user_tasks.create user: assigned_trainee,
         user_subject: user_subject
@@ -42,9 +40,11 @@ class Task < ActiveRecord::Base
     end
   end
 
-  def user_task_of_trainee
-    UserTask.find_by user: self.changed_attributes["assigned_trainee_id"],
-      task: self
+  private
+  def create_user_task
+    return if assigned_trainee.nil?
+    self.user_tasks.create user: assigned_trainee,
+      user_subject: user_subject
   end
 
   def user_subject

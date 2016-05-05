@@ -1,0 +1,52 @@
+<div id="user-subject" class="row">
+  <div class="row">
+    <div class="row subject-breadcrumb">
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to t("courses.breadcum.home"), root_url %>
+        </li>
+        <li>
+          <%= link_to t("courses.breadcum.courses"), admin_courses_path %>
+        </li>
+        <li>
+          <%= link_to @course.name, admin_course_path(@course) %>
+        </li>
+        <li><%= link_to @course_subject.subject_name,
+          admin_course_subject_path(@course, @course_subject.subject) %></li>
+        <li><%= link_to @user_task.task_name,
+          admin_course_subject_user_task_path(@course_subject, @user_task) %></li>
+        <li class="active"><%= t "tasks.update" %></li>
+      </ol>
+    </div>
+  </div>
+  <%= form_for @user_task, url: admin_course_subject_user_task_path(@course_subject,
+    @user_task), method: :patch do |f| %>
+      <div class="row">
+        <%= render "shared/error_messages", object: @user_task %>
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.label :estimated_time, class: "label-user-task" %>
+          <%= f.text_field :estimated_time, class: "form-control",
+            required: true %>
+
+          <%= f.label :spent_time, class: "label-user-task" %>
+          <%= f.text_field :spent_time, class: "form-control" %>
+
+          <%= f.label :redmine_task_id, class: "label-user-task" %>
+          <%= f.text_field :redmine_task_id, class: "form-control",
+            required: true %>
+
+          <%= f.label :progress, class: "label-user-task" %>
+          <%= f.number_field :progress, min: 0, max: 100, class: "form-control" %>
+
+          <%= f.label :status, class: "label-user-task" %>
+          <div class: "form-control">
+            <%= f.select :status, options_for_select(Settings.tasks.statuses,
+              selected: f.object.status), {}, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+</div>

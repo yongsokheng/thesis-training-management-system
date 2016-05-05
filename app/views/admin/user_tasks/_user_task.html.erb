@@ -2,7 +2,8 @@
   <td class="status-task">
     <%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %>
   </td>
-  <td class="name"><%= user_task.task.name %></td>
+  <td class="name"><%= link_to user_task.task_name,
+    admin_course_subject_user_task_path(@course_subject, user_task) %></td>
   <td class="estimate-time"><%= user_task.estimated_time %></td>
   <td class="spent-time"><%= user_task.spent_time %></td>
   <td class="progress-value"><%= "#{user_task.progress} %" %></td>
@@ -20,6 +21,4 @@
       <% end %>
     </td>
   <% end %>
-  <td class="update"><%= link_to t("subjects.table.task_update"),
-    edit_user_task_path(user_task) %></td>
 </tr>

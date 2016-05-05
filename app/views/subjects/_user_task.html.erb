@@ -47,14 +47,15 @@
                 <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assigned"), class: "label" %>
               </div>
               <div class="col-md-3">
-                <% if user_task.nil_master? && user_task.subject_in_progress? %>
-                  <div class="assign-other">
-                    <%= f.select :assigned_trainee_id,
-                      @user_subjects.collect{|user_subject| [user_subject.user_name,
-                        user_subject.user_id]},
-                      {prompt: ""}, onchange: "this.form.submit()",
-                      class: "select-assign form-control" %>
-                  </div>
+                <% if user_task.nil_master? && user_task.subject_in_progress? &&
+                  user_task.create_by_trainee? %>
+                    <div class="assign-other">
+                      <%= f.select :assigned_trainee_id,
+                        @user_subjects.collect{|user_subject| [user_subject.user_name,
+                          user_subject.user_id]},
+                        {prompt: ""}, onchange: "this.form.submit()",
+                        class: "select-assign form-control" %>
+                    </div>
                 <% else %>
                   <div class= "assigned-user">
                     <%= user_task.user_name %>

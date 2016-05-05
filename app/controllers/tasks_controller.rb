@@ -14,10 +14,14 @@ class TasksController < ApplicationController
   end
 
   def update
+    @old_assigned_trainee = @task.assigned_trainee
     if @task.update_attributes task_params
       flash[:success] = flash_message "updated"
     else
       flash[:failed] = flash_message "not_updated"
+    end
+    unless params[:task][:assigned_trainee_id].nil?
+      @task.change_user_task @old_assigned_trainee
     end
     redirect_to :back
   end
