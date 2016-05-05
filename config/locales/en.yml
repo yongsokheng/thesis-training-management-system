@@ -196,3 +196,12 @@ en:
       new: "New"
       edit: "Edit"
       allocate: "Allocate"
+      edit: "Edit"
+    user_task:
+      update: "Update"
+    evaluations:
+      all: "All Evaluations"
+    ranks:
+      all: "All Ranks"
+    evaluation_templates:
+      all: "All Evaluation Templates"

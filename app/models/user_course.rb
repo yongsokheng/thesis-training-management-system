@@ -22,6 +22,8 @@ class UserCourse < ActiveRecord::Base
 
   private
   def create_user_subjects_when_assign_new_user
-    create_user_subjects [self], course.course_subjects, course_id
+    unless user.role.name == "trainer"
+      create_user_subjects [self], course.course_subjects, course_id
+    end
   end
 end

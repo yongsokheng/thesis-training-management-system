@@ -13,14 +13,15 @@ class Admin::TasksController < ApplicationController
   end
 
   def new
-    add_breadcrumb_courses
-    add_breadcrumb @course_subject.course_name, admin_course_path(@course_subject.course)
-    add_breadcrumb @course_subject.subject_name,
-      admin_course_subject_path(@course_subject.course, @course_subject.subject)
+    load_breadcrumbs
     add_breadcrumb t("breadcrumbs.subjects.new_task")
+  end
 
   def edit
-    @course = @course_subject.course
+    load_breadcrumbs
+    add_breadcrumb @task.name,
+      admin_course_subject_user_task_path(@course_subject, @task.user_tasks.first)
+    add_breadcrumb t("breadcrumbs.subjects.edit")
   end
 
   def create
@@ -62,6 +63,14 @@ class Admin::TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit Task::ATTRIBUTES_PARAMS
+  end
+
+  def load_breadcrumbs
+    add_breadcrumb_courses
+    add_breadcrumb @course_subject.course_name,
+      admin_course_path(@course_subject.course)
+    add_breadcrumb @course_subject.subject_name,
+      admin_course_subject_path(@course_subject.course, @course_subject.subject)
   end
 
   def add_task_info
