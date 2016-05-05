@@ -2,6 +2,15 @@ class Admin::ProfilesController < ApplicationController
   load_and_authorize_resource
   before_action :load_data_profile, only: :edit
 
+  def index
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: ProfilesDatatable.new(view_context)
+      }
+    end
+  end
+
   def edit
   end
 

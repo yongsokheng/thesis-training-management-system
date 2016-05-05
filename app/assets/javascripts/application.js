@@ -37,6 +37,7 @@
 //= require course
 //= require evaluation
 //= require role
+//= require profile
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();

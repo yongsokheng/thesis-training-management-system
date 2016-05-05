@@ -2,18 +2,15 @@
   .text-right {
     text-align: right;
   }
-  .tbl-profile {
-    .name {
-      width: 20%
+
+  #profile-tbl_filter {
+    text-align: left;
+    input {
+      width: 150%;
     }
-    .start_training_date, .finish_training_date, .leave_date,.ready_for_project {
-      width: 10%
-    }
-    .type, .programming_language, .user-progress, .status, .action {
-      width: 5%;
-    }
-    .university {
-      width: 15%;
-    }
+  }
+
+  #profile-tbl_paginate {
+    text-align: left;
   }
 }
