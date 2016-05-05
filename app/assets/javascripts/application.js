@@ -35,6 +35,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require subject
 //= require course
+//= require evaluation
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();

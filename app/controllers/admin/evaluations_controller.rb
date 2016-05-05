@@ -8,8 +8,13 @@ class Admin::EvaluationsController < ApplicationController
 
   def index
     role_trainee = Role.trainee
-    @search = User.find_by_role(role_trainee).search params[:q]
-    @users = @search.result
+    @users =  User.find_by_role(role_trainee)
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: EvaluationsDatatable.new(view_context)
+      }
+    end
   end
 
   def new
