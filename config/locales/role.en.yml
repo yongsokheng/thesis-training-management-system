@@ -11,6 +11,7 @@ en:
             allow_access_admin: "Allow access admin"
     buttons:
       admin:
+        new: "New"
         create: "Create"
         edit: "Edit"
         update: "Update"

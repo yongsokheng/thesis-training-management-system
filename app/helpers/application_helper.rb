@@ -168,4 +168,12 @@ module ApplicationHelper
     add_breadcrumb t("breadcrumbs.subjects.new"), :new_admin_subject_path
   end
 
+  def add_breadcrumb_roles
+    add_breadcrumb t("breadcrumbs.roles.all"), :admin_roles_path
+  end
+
+  def add_breadcrumb_role_new
+    add_breadcrumb t("breadcrumbs.roles.new"), :new_admin_role_path
+  end
+
 end

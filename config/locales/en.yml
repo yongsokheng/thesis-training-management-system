@@ -191,3 +191,8 @@ en:
       edit: "Edit"
       new_task: "New Task"
       task_masters: "Task Masters"
+    roles:
+      all: "All roles"
+      new: "New"
+      edit: "Edit"
+      allocate: "Allocate"
