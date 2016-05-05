@@ -4,16 +4,14 @@
     padding-left: 30px;
   }
 
-  .tbl-role {
-    .name {
-      width: 30%;
+  #role-tbl_filter {
+    text-align: left;
+    input {
+      width: 150%;
     }
-    .allow_access_admin {
-      width: 40%;
-    }
-    .action {
-      width: 30%;
-      text-align: center;
-    }
+  }
+
+  #role-tbl_paginate {
+    text-align: left;
   }
 }
