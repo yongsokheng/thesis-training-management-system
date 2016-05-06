@@ -1,6 +1,4 @@
-<%= render "shared/category_tab", active_tab: Settings.tabs.user_progress %>
-
-<div id="user_progresses">
+<div id="user_progresses" class="profile-active">
   <p class="pull-right"><%= link_to t("button.new"),
     new_admin_user_progress_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-user_progress">

@@ -1,6 +1,4 @@
-<%= render "shared/category_tab", active_tab: Settings.tabs.user %>
-
-<div id="users">
+<div id="users" class="profile-active">
   <p class="pull-right"><%= link_to t("buttons.new"),
     new_admin_user_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-user">
