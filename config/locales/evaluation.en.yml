@@ -10,6 +10,7 @@ en:
       point: "Point"
   evaluation_template:
     buttons:
+      new: "New"
       create: "Create"
       update: "Update"
   layouts:

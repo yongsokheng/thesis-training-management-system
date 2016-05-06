@@ -126,6 +126,17 @@
   #course-tbl_paginate {
     text-align: left;
   }
+
+  #course-tbl {
+    .profile-user {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    img {
+      vertical-align: initial;
+    }
+  }
 }
 
 .list-subjects{
