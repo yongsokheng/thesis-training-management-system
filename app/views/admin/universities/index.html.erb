@@ -1,6 +1,4 @@
-<%= render "shared/category_tab", active_tab: Settings.tabs.university %>
-
-<div id="universities">
+<div id="universities" class="profile-active">
   <p class="pull-right"><%= link_to t("button.new"),
     new_admin_university_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-university">
