@@ -2,6 +2,7 @@ en:
   activity:
     activities: "Activities"
     finish_course: "has finished course "
+    reopen_course: "has reopened course "
     start_course: "has started course "
     assign_trainee: "assign trainee"
     assign_subject: "assign subject"

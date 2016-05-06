@@ -1,20 +1,4 @@
-<div class="row">
-  <div class="col-md-3 col-md-offset-9 title">
-    <% if @course.progress? %>
-      <% unless @user_subjects.size == @user_subjects.finish.size %>
-        <%= link_to t("admin.actions.show_subject.finish_all"),
-          admin_status_subject_path(@course_subject, "finish"), method: :patch,
-          remote: true, class: "btn btn-success pull-right" %>
-      <% end %>
-
-      <% if @user_subjects.init.any? %>
-        <%= link_to t("admin.actions.show_subject.start_all"),
-          admin_status_subject_path(@course_subject, "start"), method: :patch,
-          remote: true, class: "btn btn-primary pull-right btn-start-all" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= render "admin/subjects/subject_info" %>
 <div class="row">
   <%= render partial: "admin/subjects/user_subject", collection: @user_subjects, as: :user_subject %>
 </div>

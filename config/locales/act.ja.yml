@@ -2,6 +2,7 @@ ja:
   activity:
     activities: "アクティビティ"
     finish_course: "フィニッシュしたコース"
+    reopen_course: "リニューアルオープンのコースがあります "
     start_course: "スタートしたコース"
     assign_trainee: "成功にユーザーを割り当てます"
     assign_subject: "成功に件名を割り当てます"

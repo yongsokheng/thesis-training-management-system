@@ -13,6 +13,7 @@ class Admin::StatusSubjectsController < ApplicationController
     @course_subject = CourseSubject.find params[:course_subject_id]
     @course = @course_subject.course
     @user_subjects = @course_subject.user_subjects
+    @subject = @course_subject.subject
   end
 end
 

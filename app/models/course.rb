@@ -43,22 +43,28 @@ class Course < ActiveRecord::Base
   end
 
   def check_end_date
-    unless self.start_date.nil?
+    unless start_date.nil?
       errors.add :end_date, I18n.t("error.wrong_end_date") if
-        self.end_date < self.start_date
+        end_date < start_date
     end
   end
 
   def start_course current_user
-    self.update_attributes status: :progress
+    update_attributes status: :progress
     active_user_courses_when_start_course
     create_activity key: "course.start_course", owner: current_user
   end
 
   def finish_course current_user
-    self.update_attributes status: :finish
-    self.user_subjects.update_all(status: Course.statuses[:finish])
+    update_attributes status: :finish
+    user_subjects.update_all status: UserSubject.statuses[:finish]
     create_activity key: "course.finish_course", owner: current_user
+  end
+
+  def reopen_course current_user
+    update_attributes status: :init
+    user_subjects.update_all status: UserSubject.statuses[:init]
+    create_activity key: "course.reopen_course", owner: current_user
   end
 
   def load_trainers

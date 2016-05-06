@@ -39,6 +39,7 @@ ja:
       not_updated: "%{model_name}はアップデートできません！"
       start_course: "コース は成功にスターとする"
       finish_course: "コース は成功にフィニッシュした"
+      reopen_course: "コースが正常にリニューアルオープンしました。"
       course_not_upate: "コースは正常に更新できませんでした"
   tasks:
     update: "タスクをアップデータ"

@@ -5,6 +5,9 @@ en:
       clone_success: "Clone success"
       not_save: "not Save"
       save: "Save"
+      confirm_start: "Are you sure to start this course?"
+      confirm_finish: "Are you sure to finish this course?"
+      confirm_reopen: "Are you sure to reopen this course?"
     not_clone: "Clone not success"
     buttons:
       admin:
@@ -19,6 +22,7 @@ en:
         assigntrainer: "Assign Trainer"
         assignusers: "Assign Users"
         finish: "Finish"
+        reopen: "Reopen"
         finished: "Finished"
         create_course: "Create course"
     create_course: "Create course"

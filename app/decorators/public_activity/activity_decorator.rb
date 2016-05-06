@@ -11,6 +11,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
       I18n.t "activity.finish_course"
     when "course.start_course"
       I18n.t "activity.start_course"
+    when "course.reopen_course"
+      I18n.t "activity.reopen_course"
     when "user_subject.start_subject"
       I18n.t "activity.start_subject"
     when "user_subject.finish_subject"
@@ -64,7 +66,7 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
 
   def get_object_from_trackable
     case key
-    when "course.finish_course", "course.start_course"
+    when "course.finish_course", "course.start_course", "course.reopen_course"
       trackable.name
     when "user_subject.start_subject", "user_subject.finish_subject"
       "#{trackable.subject_name}"
