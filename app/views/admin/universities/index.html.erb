@@ -1,7 +1,7 @@
 <%= render "shared/category_tab", active_tab: Settings.tabs.university %>
 
 <div id="universities">
-  <p class="pull-right"><%= link_to t("button.create"),
+  <p class="pull-right"><%= link_to t("button.new"),
     new_admin_university_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-university">
     <thead>
@@ -14,11 +14,10 @@
       <% @universities.each do |university| %>
         <tr>
           <td class="name"><%= university.name %></td>
-          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university), class: "btn btn-primary" %> &nbsp;
-            <%= link_to t("button.delete"),
-              admin_university_path(university),
-              method: :delete, data: {confirm: t("messages.delete.confirm")},
-              class: "btn btn-danger" %></td>
+          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university),
+            class: "text-primary" %> &nbsp; <%= link_to t("button.delete"),
+              admin_university_path(university), method: :delete,
+              data: {confirm: t("messages.delete.confirm")}, class: "text-danger" %></td>
         </tr>
       <% end %>
     </tbody>

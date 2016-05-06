@@ -5,7 +5,8 @@ ja:
       min_point: "最小のポイント"
       max_point: "最大の"
   evaluation_template:
-    buttons: 
+    buttons:
+      new: "新しい"
       create: "作ります"
       update: "更新"
   layouts:

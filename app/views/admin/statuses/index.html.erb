@@ -2,7 +2,7 @@
 
 <div id="statuses">
   <p class="pull-right">
-    <%= link_to t("button.create"), new_admin_status_path, class: "btn btn-success" %>
+    <%= link_to t("button.new"), new_admin_status_path, class: "btn btn-success" %>
   </p>
 
   <table class="table table-striped tbl-status">
@@ -19,10 +19,10 @@
             <td><%= status.name %></td>
             <td class="action">
               <%= link_to t("button.edit"), edit_admin_status_path(status),
-                class: "btn btn-primary" %> &nbsp;
+                class: "text-primary" %> &nbsp;
               <%= link_to t("button.delete"), admin_status_path(status),
                 method: :delete, data: {confirm: t("messages.delete.confirm")},
-                class: "btn btn-danger" %>
+                class: "text-danger" %>
             </td>
           </tr>
         <% end %>

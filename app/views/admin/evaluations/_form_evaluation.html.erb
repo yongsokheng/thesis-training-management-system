@@ -1,6 +1,6 @@
 <%= form_for @evaluation, url: admin_user_evaluations_path do |f| %>
   <p class="pull-right"><%= f.submit (f.object.new_record? ? t("evaluations.create")
-    : t("evaluations.update")), class: "btn btn-success" %></p>
+    : t("evaluations.update")), class: "btn btn-primary" %></p>
   <div class="row">
     <div class="col-md-8">
       <%= @user.name %><br>

@@ -1,7 +1,7 @@
 <%= render "shared/category_tab", active_tab: Settings.tabs.type %>
 
 <div id="types">
-  <p class="pull-right"><%= link_to t("button.create"),
+  <p class="pull-right"><%= link_to t("button.new"),
     new_admin_user_type_path, class: "btn btn-success" %></p>
   <table class="table table-striped tbl-type">
     <thead>
@@ -16,10 +16,10 @@
           <td class="name"><%= user_type.name %></td>
           <td class="action">
             <%= link_to t("button.edit"), edit_admin_user_type_path(user_type),
-              class: "btn btn-primary" %> &nbsp;
+              class: "text-primary" %> &nbsp;
             <%= link_to t("button.delete"), admin_user_type_path(user_type),
               method: :delete, data: {confirm: t("messages.delete.confirm")},
-              class: "btn btn-danger" %>
+              class: "text-danger" %>
           </td>
         </tr>
       <% end %>

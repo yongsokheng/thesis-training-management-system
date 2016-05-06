@@ -13,7 +13,8 @@
         <%= f.select :role_id, options_for_select(@roles.collect{|role| [role.name,
           role.id]}, f.object.role_id), {}, class: "form-control" %></br>
 
-        <%= f.submit t("buttons.save"), class: "btn btn-primary pull right" %>
+        <%= f.submit (f.object.new_record? ? t("buttons.create")
+          : t("buttons.update")), class: "btn btn-primary pull-right" %>
       <% end %>
     </div>
   </div>
