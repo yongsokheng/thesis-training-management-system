@@ -31,7 +31,8 @@ class CoursesDatatable
           link_to(@view.avatar_user_tag(trainee, "profile-user",
           Settings.image_trainee_size), @view.user_path(trainee),
           title: trainee.name)
-        end
+        end,
+        course.status
       ]
     end
   end
@@ -41,10 +42,12 @@ class CoursesDatatable
   end
 
   def fetch_courses
-    courses = Course.order "#{sort_column} #{sort_direction}"
-    courses = courses.per_page_kaminari(page).per per_page
-    if params[:sSearch].present?
-      courses = courses.where "name like :search", search: "%#{params[:sSearch]}%"
+    courses = Course.order("#{sort_column} #{sort_direction}")
+      .where("name like :search", search: "%#{params[:sSearch]}%")
+      .per_page_kaminari(page).per per_page
+
+    if params[:sSearch_4].present?
+      courses = courses.where "status = :search", search: "#{params[:sSearch_4]}"
     end
     courses
   end

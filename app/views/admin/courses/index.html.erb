@@ -17,11 +17,22 @@
             <th><%= t "courses.table.name" %></th>
             <th><%= t "courses.table.trainers" %></th>
             <th><%= t "courses.table.trainees" %></th>
+            <th><%= t "courses.table.status" %></th>
           </tr>
         </thead>
         <tbody>
         </tbody>
+        <tfoot hidden>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= t "courses.table.all_status" %></td>
+          </tr>
+        </tfoot>
       </table>
     <% end %>
   </div>
 </div>
+

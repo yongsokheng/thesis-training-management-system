@@ -33,6 +33,7 @@
 //= require admin/user_progress_chart
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require jquery.dataTables.columnFilter
 //= require subject
 //= require course
 //= require evaluation

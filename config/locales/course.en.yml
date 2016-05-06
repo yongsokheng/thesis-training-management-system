@@ -49,6 +49,8 @@ en:
       action: "Action"
       trainees: "Trainees"
       trainers: "Trainers"
+      status: "Status"
+      all_status: "All status"
     labels:
       content: "Content"
       about_course: "About Course"

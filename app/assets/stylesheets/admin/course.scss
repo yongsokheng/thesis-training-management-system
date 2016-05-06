@@ -137,6 +137,18 @@
       vertical-align: initial;
     }
   }
+
+  #course-tbl_wrapper {
+    select {
+      height: auto;
+    }
+
+    .filter-status {
+      select {
+        float: right;
+      }
+    }
+  }
 }
 
 .list-subjects{
