@@ -1,6 +1,4 @@
-<%= render "shared/category_tab", active_tab: Settings.tabs.status %>
-
-<div id="statuses">
+<div id="statuses" class="profile-active">
   <p class="pull-right">
     <%= link_to t("button.new"), new_admin_status_path, class: "btn btn-success" %>
   </p>

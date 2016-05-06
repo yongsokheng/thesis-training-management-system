@@ -1,5 +1,4 @@
-<%= render "shared/category_tab", active_tab: Settings.tabs.user_profile %>
-<div id="profiles">
+<div id="profiles" class="profile-active">
   <table id="profile-tbl" class="table table-bordered display"
     data-source="<%= admin_profiles_url format: "json" %>" >
     <thead>
