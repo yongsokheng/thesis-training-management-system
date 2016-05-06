@@ -1,6 +1,6 @@
-<%= render "shared/evaluation_tab", active_tab: Settings.tabs.rank %>
-
-<div class="title"><%= t "table.thead.rank" %>&nbsp;:&nbsp;
+<div id="ranks" class="evaluation-active">
+  <div class="title"><%= t "table.thead.rank" %>&nbsp;:&nbsp;
   <%= @rank.rank_value %>
+  </div>
+  <%= render "form" %>
 </div>
-<%= render "form" %>

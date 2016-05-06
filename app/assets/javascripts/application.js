@@ -63,11 +63,20 @@ $(document).on("page:change", function() {
   });
 
   $(".sidebar-toggle").click(function() {
-    if ($("#body-admin").hasClass("sidebar-collapse")) {
-      $("#body-admin").removeClass("sidebar-collapse");
-    }
-    else {
-      $("#body-admin").addClass("sidebar-collapse");
-    }
+    $("#body-admin").toggleClass("sidebar-collapse")
+  }); 
+
+  $(".treeview").click(function() {
+    $(this).toggleClass("active");
+    $(".treeview-menu").toggleClass("menu-open");
   });
+
+  if ($(".evaluation-active").length > 0) {
+    $("#evaluations-header").addClass("active");
+  }
+
+  if ($(".profile-active").length > 0) {
+    $("#user-profiles-header").addClass("active");
+  }
 });
+

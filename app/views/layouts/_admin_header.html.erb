@@ -56,29 +56,66 @@
       <ul class="sidebar-menu">
         <li>
           <a href="/admin/courses">
-            <i class="fa fa-calendar"></i><span><%= t("layouts.courses") %></span>
+            <i class="fa fa-calendar"></i><span><%= t "layouts.courses" %></span>
           </a>
         </li>
         <li>
           <a href="/admin/subjects">
-            <i class="fa fa-laptop"></i><span><%= t("layouts.subjects") %></span>
+            <i class="fa fa-laptop"></i><span><%= t "layouts.subjects" %></span>
           </a>
         </li>
         <li >
           <a href="/admin/roles">
-            <i class="fa fa-table"></i><span><%= t("layouts.roles") %></span>
+            <i class="fa fa-table"></i><span><%= t "layouts.roles" %></span>
           </a>
         </li>
-        <li>
-          <a href="/admin/evaluations">
-            <i class="fa fa-book"></i><span><%= t("layouts.evaluations") %></span>
+        <li id="evaluations-header" class="treeview">
+          <a href="#">
+            <i class="fa fa-book"></i><span><%= t "layouts.evaluations" %></span>
+            <i class="fa fa-angle-left pull-right"></i>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="/admin/evaluations"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.evaluations" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/evaluation_templates"><i class="fa fa-circle-o">
+              </i><%= t "layouts.evaluation_templates" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/ranks"><i class="fa fa-circle-o"></i><%= t "layouts.ranks" %></a></li>
+          </ul>
         </li>
-        <li>
-          <a href="/admin/profiles">
-            <i class="fa fa-calendar"></i><span><%= t("layouts.user_profiles") %></span>
+        <li id="user-profiles-header" class="treeview">
+          <a href="#">
+            <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
+            <i class="fa fa-angle-left pull-right"></i>
           </a>
-       </li>
+          <ul class="treeview-menu">
+            <li><a href="/admin/profiles"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.user_profiles" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/universities"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.universities" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/statuses"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.statuses" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/user_types"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.user_types" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/user_progresses"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.user_progresses" %></a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a href="/admin/users"><i class="fa fa-circle-o"></i>
+              <%= t "layouts.users" %></a></li>
+          </ul>
+        </li>
       </ul>
     </section>
   </aside>

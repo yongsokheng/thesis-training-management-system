@@ -1,6 +1,5 @@
 <% provide :title, t("user.edit_profile") %>
-<%= render "shared/category_tab", active_tab: Settings.tabs.user_profile %>
-<div id="profiles">
+<div id="profiles" class="profile-active">
   <div class="title center">
     <p><%= @profile.user_name %></p>
   </div>

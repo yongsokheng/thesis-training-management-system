@@ -1,5 +1,4 @@
-<%= render "shared/evaluation_tab", active_tab: Settings.tabs.evaluation %>
-<div id="evaluations">
+<div id="evaluations" class="evaluation-active">
   <table id="evaluation-tbl" class="table table-bordered display"
     data-source="<%= admin_evaluations_url format: "json" %>" >
     <thead>
