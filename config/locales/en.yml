@@ -197,11 +197,42 @@ en:
       edit: "Edit"
       allocate: "Allocate"
       edit: "Edit"
+      allocate_permissions: "Allocate Permissions"
     user_task:
       update: "Update"
-    evaluations:
-      all: "All Evaluations"
-    ranks:
-      all: "All Ranks"
     evaluation_templates:
       all: "All Evaluation Templates"
+      new: "New"
+      edit: "Edit"
+      allocate_permissions: "Allocate Permissions"
+    evaluations:
+      all: "All Evaluations"
+      new: "New"
+      edit: "Edit"
+    ranks:
+      all: "All Ranks"
+      new: "New"
+      edit: "Edit"
+    profiles:
+      all: "User Profiles"
+      edit: "Edit"
+    universities:
+      all: "All Universities"
+      new: "New"
+      edit: "Edit"
+    statuses:
+      all: "All Statuses"
+      new: "New"
+      edit: "Edit"
+    user_types:
+      all: "All Types"
+      new: "New"
+      edit: "Edit"
+    user_progresses:
+      all: "All Progresses"
+      new: "New"
+      edit: "Edit"
+    users:
+      all: "All User"
+      new: "New"
+      edit: "Edit"

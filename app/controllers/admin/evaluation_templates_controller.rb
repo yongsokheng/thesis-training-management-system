@@ -2,14 +2,24 @@ class Admin::EvaluationTemplatesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    add_breadcrumb_evaluation_templates
     @evaluation_template = EvaluationTemplate.new
     respond_to do |format|
-      format.html
+      format.html {add_breadcrumb_index "evaluation_templates"}
       format.json {
         render json: EvaluationTemplatesDatatable.new(view_context)
       }
     end
+  end
+
+  def new
+    add_breadcrumb_path "evaluation_templates"
+    add_breadcrumb_new "evaluation_templates"
+  end
+
+  def edit
+    add_breadcrumb_path "evaluation_templates"
+    add_breadcrumb @evaluation_template.name
+    add_breadcrumb_edit "evaluation_templates"
   end
 
   def create

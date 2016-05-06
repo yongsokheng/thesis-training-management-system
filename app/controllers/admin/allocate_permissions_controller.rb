@@ -2,9 +2,6 @@ class Admin::AllocatePermissionsController < ApplicationController
   load_and_authorize_resource :role
 
   def edit
-    add_breadcrumb_roles
-    add_breadcrumb @role.name
-    add_breadcrumb t("breadcrumbs.roles.edit")
     $model_classes.each do |model_class|
       Settings.roles.actions.each do |action|
         unless @role.permissions.find_by action: action, model_class: model_class
@@ -12,6 +9,11 @@ class Admin::AllocatePermissionsController < ApplicationController
         end
       end
     end
+
+    add_breadcrumb_path "roles"
+    add_breadcrumb @role.name
+    add_breadcrumb_role_allocate_permissions
+    add_breadcrumb_edit "roles"
   end
 
   def update

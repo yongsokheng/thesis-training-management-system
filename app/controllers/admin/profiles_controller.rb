@@ -4,7 +4,7 @@ class Admin::ProfilesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html
+      format.html {add_breadcrumb_index "profiles"}
       format.json {
         render json: ProfilesDatatable.new(view_context)
       }
@@ -12,6 +12,9 @@ class Admin::ProfilesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb_path "profiles"
+    add_breadcrumb @profile.user_name, user_path(@profile.user_id)
+    add_breadcrumb_edit "profiles"
   end
 
   def update

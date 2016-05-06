@@ -3,9 +3,12 @@ class Admin::UniversitiesController < ApplicationController
 
   def index
     @university = University.new
+    add_breadcrumb_index "universities"
   end
 
   def new
+    add_breadcrumb_path "universities"
+    add_breadcrumb_new "universities"
   end
 
   def create
@@ -19,6 +22,9 @@ class Admin::UniversitiesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb_path "universities"
+    add_breadcrumb @university.name
+    add_breadcrumb_edit "universities"
   end
 
   def update

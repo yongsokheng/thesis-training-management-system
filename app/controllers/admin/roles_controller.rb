@@ -1,18 +1,19 @@
 class Admin::RolesController < ApplicationController
   load_and_authorize_resource
 
-  def new
-    add_breadcrumb_roles
-    add_breadcrumb_role_new
-  end
-
   def index
     respond_to do |format|
-      format.html {add_breadcrumb t("breadcrumbs.roles.all")}
+      format.html {add_breadcrumb_index "roles"}
       format.json {
         render json: RolesDatatable.new(view_context)
       }
     end
+    @roles = Role.all
+  end
+
+  def new
+    add_breadcrumb_path "roles"
+    add_breadcrumb_new "roles"
   end
 
   def create
@@ -26,9 +27,9 @@ class Admin::RolesController < ApplicationController
   end
 
   def edit
-    add_breadcrumb_roles
+    add_breadcrumb_path "roles"
     add_breadcrumb @role.name
-    add_breadcrumb t("breadcrumbs.roles.edit")
+    add_breadcrumb_edit "roles"
   end
 
   def update

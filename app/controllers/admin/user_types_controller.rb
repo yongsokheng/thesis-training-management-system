@@ -3,6 +3,12 @@ class Admin::UserTypesController < ApplicationController
 
   def index
     @user_type = UserType.new
+    add_breadcrumb_index "user_types"
+  end
+
+  def new
+    add_breadcrumb_path "user_types"
+    add_breadcrumb_new "user_types"
   end
 
   def create
@@ -13,6 +19,12 @@ class Admin::UserTypesController < ApplicationController
       flash[:failed] = flash_message "not_created"
       redirect_to :new
     end
+  end
+
+  def edit
+    add_breadcrumb_path "user_types"
+    add_breadcrumb @user_type.name
+    add_breadcrumb_edit "user_types"
   end
 
   def update

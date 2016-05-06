@@ -5,7 +5,7 @@ class Admin::CoursesController < ApplicationController
   def index
     @courses = (current_user.is_admin? ? @courses.recent : current_user.courses)
     respond_to do |format|
-      format.html {add_breadcrumb t("breadcrumbs.courses.all")}
+      format.html {add_breadcrumb_index "courses"}
       format.json {
         render json: CoursesDatatable.new(view_context)
       }
@@ -14,14 +14,14 @@ class Admin::CoursesController < ApplicationController
 
   def new
     @course.documents.build
-    add_breadcrumb_courses
-    add_breadcrumb_course_new
+    add_breadcrumb_path "courses"
+    add_breadcrumb_new "courses"
   end
 
   def edit
-    add_breadcrumb_courses
+    add_breadcrumb_path "courses"
     add_breadcrumb @course.name, :admin_course_path
-    add_breadcrumb t("breadcrumbs.courses.edit")
+    add_breadcrumb_edit "courses"
   end
 
   def create
@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
     @trainers = @course.users.trainers
     @trainees = @course.users.trainees
 
-    add_breadcrumb_courses
+    add_breadcrumb_path "courses"
     add_breadcrumb @course.name, :admin_course_path
   end
 
