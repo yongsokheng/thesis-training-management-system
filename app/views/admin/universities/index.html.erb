@@ -1,23 +1,24 @@
 <div id="universities" class="profile-active">
-  <p class="pull-right"><%= link_to t("button.new"),
-    new_admin_university_path, class: "btn btn-success" %></p>
-  <table class="table table-striped tbl-university">
-    <thead>
-      <tr>
-        <th class="name"><%= t "table.thead.name" %></th>
-        <th class="action"><%= t "table.thead.action" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @universities.each do |university| %>
-        <tr>
-          <td class="name"><%= university.name %></td>
-          <td class="action"><%= link_to t("button.edit"), edit_admin_university_path(university),
-            class: "text-primary" %> &nbsp; <%= link_to t("button.delete"),
-              admin_university_path(university), method: :delete,
-              data: {confirm: t("messages.delete.confirm")}, class: "text-danger" %></td>
+  <div class="row">
+    <div class="col-md-12 title">
+      <%= t "layouts.universities" %>
+      <span>
+        <%= link_to t("buttons.new"),
+            new_admin_university_path, class: "btn btn-success pull-right" %>
+      </span>
+    </div>
+  </div>
+  <table id="university-tbl" class="table table-bordered display" 
+    data-source="<%= admin_universities_url(format: "json") %>">
+      <thead>
+        <tr class="active">
+          <th></th>
+          <th class="name"><%= t "table.thead.name" %></th>
+          <th class="action"></th>
+          <th class="action"></th>
         </tr>
-      <% end %>
-    </tbody>
+      </thead>
+      <tbody>
+      </tbody>
   </table>
 </div>

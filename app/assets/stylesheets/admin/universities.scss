@@ -8,4 +8,15 @@
       text-align: center;
     }
   }
+  
+  #university-tbl_filter {
+    text-align: left;
+    input {
+      width: 150%;
+    }
+  }
+
+  #university-tbl_paginate {
+    text-align: left;
+  }
 }

@@ -4,6 +4,12 @@ class Admin::UniversitiesController < ApplicationController
   def index
     @university = University.new
     add_breadcrumb_index "universities"
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: UniversitiesDatatable.new(view_context)
+      }
+    end
   end
 
   def new
