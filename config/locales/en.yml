@@ -14,7 +14,6 @@ en:
     error: "error"
     supervisor: "Must has at least one supervisor"
     leader: "Must has one leader"
-    wrong_date: "Must be in the future"
     wrong_end_date: "Must be greater than start date"
   staticpages:
     framgia: "Framgia Trainning Management System"

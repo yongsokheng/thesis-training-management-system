@@ -5,9 +5,9 @@ class Course < ActiveRecord::Base
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
-  validate :check_day_present, on: [:create, :update]
   validate :check_end_date, on: [:create, :update]
 
+  validates :name, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
 
@@ -40,13 +40,6 @@ class Course < ActiveRecord::Base
 
   def active_user_courses_when_start_course
     user_courses.update_all active: true
-  end
-
-  def check_day_present
-    unless self.start_date.nil?
-      self.errors.add :start_date, I18n.t("error.wrong_date") if
-        self.start_date.to_date < Date.today
-    end
   end
 
   def check_end_date
