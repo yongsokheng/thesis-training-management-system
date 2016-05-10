@@ -25,4 +25,17 @@
   #evaluation-tbl_paginate {
     text-align: left;
   }
+
+  .tbl-evaluation-details {
+    .name {
+      width: 80%;
+    }
+    .point {
+      width: 20%;
+    }
+  }
+
+  .note {
+    margin-top: 10px;
+  }
 }
