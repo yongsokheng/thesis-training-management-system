@@ -1,5 +1,6 @@
 en:
   subjects:
+    image: "Image"
     breadcrumb:
       subjects: "Subjects"
     documents: "Documents: "

@@ -12,10 +12,10 @@
     <br>
     <div class="row">
       <div class="col-md-2 text-right">
-        <span><%= t "tasks.avatar" %>:</span>
+        <span><%= t "tasks.fields.image" %>:</span>
       </div>
       <div class="col-md-10">
-        <%= f.file_field :avatar, class: "form-control" %>
+        <%= f.file_field :image, class: "form-control" %>
       </div>
     </div>
     <br>
@@ -31,7 +31,7 @@
     <br>
     <div class="row">
       <div class="col-md-2 text-right">
-        <span><%= t "tasks.content" %></span>
+        <span><%= t "tasks.content" %>:</span>
       </div>
       <div class="col-md-10">
         <%= f.cktext_area :content, class: "ckeditor form-control", required: true,
