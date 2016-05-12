@@ -1,6 +1,12 @@
-<div class="document-field">
-  <%= f.text_field :name, placeholder: t("courses.document_name"),
-    class: "form-control" %><br>
-  <%= f.file_field :content, class: "form-control" %>
-  <strong><%= link_to_remove_fields t("courses.document_remove"), f %></strong>
+<div class="row document-field">
+  <div class="col-md-6">
+    <%= f.text_field :name, placeholder: t("courses.document_name"),
+      class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.file_field :content %><br>
+  </div>
+  <div class="col-md-1">
+    <strong><%= link_to_remove_fields t("courses.document_remove"), f %></strong>
+  </div>
 </div><br>

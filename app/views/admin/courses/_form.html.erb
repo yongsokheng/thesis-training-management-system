@@ -18,7 +18,7 @@
           <span><%= t "courses.image" %></span>
         </div>
         <div class="col-md-9">
-          <%= f.file_field :image, class: "form-control" %>
+          <%= f.file_field :image %>
         </div>
       </div>
       <br>
@@ -98,8 +98,8 @@
   <br>
   <div class="row">
     <div class="col-md-1 col-md-offset-10">
-      <%= f.submit (f.object.new_record? ? t("courses.buttons.admin.create")
-        : t("courses.buttons.admin.update")), class: "btn btn-primary text-right" %>
+      <%= f.submit (f.object.new_record? ? t("button.create")
+        : t("buttons.save")), class: "btn btn-primary text-right" %>
     </div>
   </div>
 <% end %>
