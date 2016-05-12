@@ -41,7 +41,7 @@
 //= require profile
 //= require evaluation_template
 //= require rank
-//= require admin/university
+//= require university
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();
@@ -66,7 +66,7 @@ $(document).on("page:change", function() {
 
   $(".sidebar-toggle").click(function() {
     $("#body-admin").toggleClass("sidebar-collapse")
-  }); 
+  });
 
   $(".treeview").click(function() {
     $(this).toggleClass("active");
