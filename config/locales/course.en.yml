@@ -91,4 +91,6 @@ en:
     document_name: "Document name"
     document_remove: "Remove"
     time: "Course's Time is from %{start_date} to %{end_date}"
+    assign_trainers: "Assign trainers"
+    assign_trainees: "Assign trainees"
 
