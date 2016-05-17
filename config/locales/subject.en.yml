@@ -58,6 +58,7 @@ en:
       list_tasks: "List tasks"
       edit: "Edit "
       delete: "Delete"
+      update: "Update Task"
     table:
       task_name: "Name"
       task_progress: "Progress"
@@ -74,10 +75,12 @@ en:
       input_subject_during_time: "Enter subject during-time(days)..."
     description: "Subject Description"
     content: "Subject Content"
-    task_overview: "Task OverView"
+    task_overview: "Task Overview"
     about_trainer: "About Trainer"
     about_trainee: "About Trainee"
     note: "Subject Notes"
+    members: "Members"
+    content: "Content"
     during_time: "During Time"
     note_during_time: "This subject should take approximately %{during_time} days."
     discuss: "Discuss Subject"
@@ -86,3 +89,8 @@ en:
     document: "Add Document"
     document_name: "Document name"
     document_remove: "Remove"
+    modal:
+      member_details: "Member details"
+      trainees: "Trainees"
+      trainers: "Trainers"
+

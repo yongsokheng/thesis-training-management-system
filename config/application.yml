@@ -20,8 +20,8 @@ defaults: &defaults
   image_profile: "150x150"
   image_activity: "30x30"
   image_user_subject: "100x100"
-  image_subject_size: "220x220"
-  image_course_size: "220x220"
+  image_subject_size: "200x200"
+  image_course_size: "200x200"
   finish: "finish"
   finished: "finished"
   date_format: "%H:%M:%S %-d %B %Y"
@@ -43,9 +43,10 @@ defaults: &defaults
       - "destroy"
   hours_working_day: 8
   image_size: "100x100"
-  user_course_image_size: "128x128"
+  user_course_image_size: "30x30"
   admin_user_course_image_size: "40x40"
   number_user_display: 4
+  number_member_show: 5
   tabs:
     overview: "overview"
     subjects: "subjects"
