@@ -1,63 +1,68 @@
 <div id="user-header">
-  <header class="main-header user-header-bar">
-    <div class="header-cell">
-      <%= link_to root_url, class: "logo" do %>
-        <%= image_tag "logo", title: t("name_system") %>
-      <% end %>
-      <nav class="navbar navbar-static-top" role="navigation">
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <li>
-              <%= link_to root_url do %>
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <%= t "user-header.home" %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <%= link_to root_url, class: "logo" do %>
+          <%= image_tag "logo", title: t("name_system") %>
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to root_url do %>
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <%= t "user-header.home" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to courses_path do %>
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              <%= t "user-header.courses" %>
+            <% end %>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag I18n.locale, size: Settings.flag_size %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu language-select">
+              <% Settings.languages.each do |_, val| %>
+                <li>
+                  <%= link_to params.merge(locale: val) do %>
+                    <%= image_tag val, size: Settings.flag_size, class: "img-language" %>
+                    <%= t "language-name.#{val}" %>
+                  <% end %>
+                </li>
               <% end %>
-            </li>
-            <li>
-              <%= link_to courses_path do %>
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                <%= t "user-header.courses" %>
-              <% end %>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= image_tag I18n.locale, size: Settings.flag_size %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu language-select">
-                <% Settings.languages.each do |_, val| %>
-                  <li>
-                    <%= link_to params.merge(locale: val) do %>
-                      <%= image_tag val, size: Settings.flag_size, class: "img-language" %>
-                      <%= t "language-name.#{val}" %>
-                    <% end %>
-                  </li>
+            </ul>
+          </li>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= avatar_user_tag current_user, "user-image", Settings.image_user_size %>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                  <%= t "staticpages.profile" %>
                 <% end %>
-              </ul>
-            </li>
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= avatar_user_tag current_user, "user-image", Settings.image_user_size %>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to user_path(current_user) do %>
-                    <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-                    <%= t "staticpages.profile" %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_user_session_path, method: :delete do  %>
-                    <i class="fa fa-sign-out fa-fw"></i>
-                    <%= t "staticpages.logout" %>
-                  <% end %>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do  %>
+                  <i class="fa fa-sign-out fa-fw"></i>
+                  <%= t "staticpages.logout" %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+      </div>
     </div>
-    <p class="border-header"></p>
-  </header>
+  </nav>
 </div>
