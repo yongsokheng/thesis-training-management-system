@@ -23,166 +23,100 @@
     font-weight: 600;
     margin-right: 0.625em;
   }
+
   .breadcrumb>li:last-child {
     margin-right: 0;
   }
+
   .breadcrumb>li::after {
     padding-left: 0.625em;
   }
+
   .breadcrumb>li:last-child::after {
     content: "";
     padding-left: 0;
   }
+
   .breadcrumb>li>a {
     border: 0;
     text-decoration: underline;
     color: #21abc7 !important;
   }
 
-  .list {
-    margin-top: -1.5em;
-    color: #21abc7;
-  }
-
-  ul {
-    list-style-type: none;
-    -webkit-padding-start: 0;
-    .link--underline {
-      left: 0px;
-      font-size: 150%;
-      text-decoration: underline;
-      color: #21abc7;
-      font-weight: 600;
-      font-size: 115%;
-    }
-  }
-
-  .introduce-content {
-    text-align: center;
-    margin-top: 2%;
-    h2 {
-      color: #575a5b;
-      a {
-        color: #21abc7;
-      }
-    }
-  }
-
-  .list-course-items {
+  .card {
+    align-items: center;
+    -webkit-box-align: center;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    -webkit-justify-content: center;
+    text-align: left;
+    padding: 2%;
+    height: 150px;
   }
 
-  .course-item {
-    margin-top: 2%;
-    margin-bottom: 2%;
+  a {
+    color: #21abc7;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
 
   .badge {
-    left: 36%;
-    position: absolute;
-    z-index: 4;
-    top: -2.4%;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 1px 1px #000000;
     display: block;
-    height: 110px;
-    padding: 1.5%;
-    width: 110px;
+    height: 100px;
+    padding: 0.3125em;
+    position: relative;
+    width: 100px;
+    background-color: white;
   }
 
-  .badge-img {
+  .image-badges {
     border-radius: 50%;
     display: block;
     height: 100%;
     width: 100%;
   }
 
-  .badge:hover {
-    transform: translateY(10%);
-    transition: 0.2s ease-in-out;
+  .bucket {
+    padding: 1.25em;
   }
 
-  body {
-    background-color: #F8F8F8;
+  .bucket-media {
+    float: left;
+    margin-right: 1.25em;
   }
 
-  .last-actived {
-    .path-content {
-      background-color: #E2FBEB;
-    }
-  }
+  .bucket-content {
+    vertical-align: middle;
+    display: table-cell;
+    width: 10000px;
 
-  .last-actived:hover {
-    -webkit-filter: opacity(80%);
-    filter: opacity(80%);
-    .truncate, a {
-      color: green;
-    }
-  }
-
-  .normal-course {
-    .path-content {
-      background-color: #fff;
+    h2 {
+      font-size: 180%;
+      font-family: "Open Sans",Helvetica,Arial,sans-serif;
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 0.3125em;
+      margin-top: 0;
     }
   }
 
-  .normal-course:hover {
-    -webkit-filter: opacity(80%);
-    filter: opacity(80%);
-    .truncate, a {
-      color: #650033;
-    }
+  .label {
+    margin: 0;
+    padding: .1em .6em .1em;
   }
 
-  .path-parent {
-    .path-header {
-      height: 90px;
-      border-top-right-radius:10px;
-      border-top-left-radius: 10px;
-      background-image: url("/assets/codeschool.svg");
-      background-color: #21abc7;
-    }
+  p {
+    display: block;
+    font-weight: 300;
+    font-size: 100%;
+    color: #575a5b;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+  }
 
-    .path-content {
-      min-height: 250px;
-      box-shadow: 1px 2px gray;
-      border-radius: 15px;
-      margin-top: 30px;
-      text-align: center;
-      h2 {
-        font-weight: 300;
-        color: #21abc7;
-      }
-
-      .truncate {
-        padding: 0 2% 0 2%;
-        text-align: center;
-        width: 95%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-    }
-
-    .path-description {
-      font-weight: 100;
-      font-size: 100%;
-      width: 90%;
-      text-align: center;
-      padding-left: 5%;
-      margin-bottom: 3%;
-      color: #393d40;
-      line-height: 2;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      display: block;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-    }
+  .course-status {
+    font-size: 57%;
   }
 }
