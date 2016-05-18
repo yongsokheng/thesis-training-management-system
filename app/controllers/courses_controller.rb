@@ -13,6 +13,5 @@ class CoursesController < ApplicationController
   private
   def load_course
     @user_courses = current_user.user_courses_active
-    @course_active_last = @user_courses.last
   end
 end

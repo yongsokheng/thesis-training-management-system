@@ -11,35 +11,38 @@
     </ul>
   </div>
   <hr>
-
-  <div class="introduce-content">
-    <h2><%= t "courses.demo_introduce" %></h2>
-  </div>
-
-  <% if @user_courses.any? %>
-    <div class="row list-course-items">
+  <div class="row">
+    <% if @user_courses.size > 0 %>
       <% @user_courses.each do |user_course| %>
-        <div class="col-md-4 course-item <%= @course_active_last == user_course ?
-          'last-actived' : 'normal-course' %>">
-          <div class="path-parent">
-            <div class="badge">
-              <%= image_course_tag user_course.course, user_course.course_programming_language %>
-            </div>
-            <div class="path-content">
-              <div class="path-header"></div>
-              <h2 class="truncate">
-                <%= link_to user_course.course_name, user_course %>
-              </h2>
-              <p class="path-description">
-                <%= user_course.course_description %>
-              </p>
-              <span class="prs <%= style_course_status user_course.course.status %>">
-                <%= user_course.course_status %>
-              </span>
-            </div>
+        <div class="col-md-6">
+          <div class="card">
+            <a href="<%= user_course_path user_course %>">
+              <div class="bucket">
+                <div class="bucket-media">
+                  <div class="badge">
+                    <%= image_course_tag user_course.course, 
+                      user_course.course_programming_language.name %>
+                  </div>
+                </div>
+                <div class="bucket-content">
+                  <h2>
+                    <span class="course-name">
+                      <%= truncate user_course.course_name, length: 20 %>
+                    </span>
+                    <span class="course-status 
+                      <%= style_course_status user_course.course_status %>">
+                      <%= user_course.course.status.humanize %>
+                    </span>
+                  </h2>
+                  <p class="course-description">
+                    <%= truncate user_course.course_description, length: 129 %>
+                  </p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
