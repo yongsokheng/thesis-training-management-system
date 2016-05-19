@@ -22,6 +22,8 @@ class SubjectsController < ApplicationController
     @user_tasks = @user_subject.user_tasks
     @trainers = @user_subject.load_trainers
     @trainees = @user_subject.load_trainees
+    @trainees_show = @user_subject.load_trainees.limit Settings.number_member_show
+    @count_member = @user_subjects.size - Settings.number_member_show
     @number_of_task = @user_subjects.joins(:user_tasks).count
     @number_of_task_new = @user_subjects.count_user_tasks Settings.tasks.statuses.new
     @number_of_task_in_progress = @user_subjects.count_user_tasks Settings.tasks.statuses.in_progress

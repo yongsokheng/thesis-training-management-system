@@ -1,113 +1,49 @@
 <div id="subject-show">
   <div class="row">
-    <div class="cell">
-      <div class="grid">
-        <div class="grid-box grid-box-6">
-          <div class="breadcrumb-bar tac tal--l">
-            <ul class="list breadcrumb mts">
-              <li>
-                <%= link_to root_url do %>
-                  <i class="glyphicon glyphicon-th-list"></i>
-                  <%= t "layouts.paths" %>
-                <% end %>
-              </li>
-              <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-              <li><%= link_to @user_subject.course_name,  user_course_path(@user_subject.user_course) %></li>
-              <li class="active"><%= @user_subject.subject_name %></li>
-            </ul>
-          </div>
+    <div class="col-md-9">
+      <div class="breadcrumb-bar">
+        <ul class="list breadcrumb">
+          <li>
+            <%= link_to root_url do %>
+              <i class="glyphicon glyphicon-th-list"></i>
+              <%= t "layouts.paths" %>
+            <% end %>
+          </li>
+          <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+          <li><%= link_to @user_subject.course_name,  user_course_path(@user_subject.user_course) %></li>
+          <li class="active"><%= @user_subject.subject_name %></li>
+        </ul>
+      </div>
+
+      <div class="subject-overview">
+        <div class="subject-title"><%= @user_subject.subject_name %></div>
+        <div class="description"><%= @user_subject.description %></div>
+        <div class="subject-content box-divider">
+          <div class="label-title"><%= t "subjects.content" %></div>
+          <%= @user_subject.content.html_safe %>
         </div>
-        <div class="grid-box grid-box-4">
-          <ul class="grid g--s lr mbm mbf--l">
-            <li class="grid-box g-b--m--1of2">
-              <%= link_to t("subjects.task.new_task"), "#", data: {toggle:
-                "modal", target: "#TaskModal"}, class: "btn btn--b btn--block" %>
-              <div id="TaskModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h3 class="label-modal"><%= t "subjects.task.new_task" %></h3>
-                    </div>
-                    <div class="modal-body">
-                      <%= render "new_task" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+      </div>
+      <div class="render-task">
+        <% if @unassign_tasks.present? %>
+          <div id="tasks" class="task box-divider">
+            <div class="label-title"><%= t "subjects.task.had_not_assigned" %></div>
+            <%= render "task" %>
+          </div>
+        <% end %>
+        <div class="user-task">
+          <div class="overview">
+            <%= t "subjects.task_overview" %>
+            <%= link_to t("subjects.task.new_task"), "#",
+              data: {toggle: "modal", target: "#TaskModal"}, class: "btn btn--b pull-right" %>
+          </div>
+          <%= render "list_user_tasks" %>
         </div>
       </div>
     </div>
-  </div>
-  <hr>
-  <div class="row has-sector">
-    <div class="cell">
-      <div class="grid grid-box-tasks">
-        <div class="grid-box grid-box-75">
-          <div class="well well--l">
-            <div class="mbl">
-              <div class="mbl--m">
-                <h2 class="label"><%= @user_subject.subject_name %></h2>
-                <div class="row">
-                  <p><b><i>"<%= @user_subject.description %>"</i></b></p>
-                </div>
-                <div class="row">
-                  <p><%= @user_subject.content.html_safe %></p>
-                </div>
-              </div>
-              <div class="render-task">
-                <% if @unassign_tasks.present? %>
-                  <div id="tasks" class="task">
-                    <h2 class="label-task"><%= t "subjects.task.had_not_assigned" %></h2>
-                    <%= render "task" %>
-                  </div>
-                <% end %>
-                <div class="user-task">
-                  <h2 class="label mbm"><%= t "subjects.task_overview" %></h2>
-                  <%= render "list_user_tasks" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid-box grid-box-25 sector">
-          <div class="well well--l">
-            <div class="card">
-              <div id="image-course">
-                <%= user_image_course_subject_tag @user_subject %>
-              </div><br>
-              <div class="task-infor">
-                <p><%= t "subjects.tasks.new_tasks" %><span class="status">
-                  <%= @number_of_task_new %>/<%= @number_of_task %></span></p>
-                <p><%= t "subjects.tasks.in_progress_tasks" %><span class="status">
-                  <%= @number_of_task_in_progress %>/<%= @number_of_task %></span></p>
-                <p><%= t "subjects.tasks.resolved_tasks" %><span class="status">
-                  <%= @number_of_task_resolved %>/<%= @number_of_task %></span></p>
-                <p><%= t "subjects.tasks.closed_tasks" %><span class="status">
-                  <%= @number_of_task_closed %>/<%= @number_of_task %></span></p>
-              </div>
-            </div>
-            <div class="sector-content">
-              <%= render partial: "shared/list_member",
-                locals: {trainers: @trainers, trainees: @trainees} %>
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="label"><%= t "subjects.note" %></h3>
-                </div>
-                <div class="box-body no-padding">
-                  <div class="subject-note">
-                    <%= t "subjects.note_during_time", during_time: @subject.during_time %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <%= render partial: "shared/documents",
-              locals: {documents: @subject.documents} %>
-          </div>
-        </div>
-      </div>
+    <div class="col-md-3 info-panel">
+      <%= render "info_panel" %>
     </div>
   </div>
+  <%= render "shared/task_modal" %>
+  <%= render "shared/member_modal" %>
 </div>

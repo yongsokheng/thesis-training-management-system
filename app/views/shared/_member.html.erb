@@ -1,4 +1,4 @@
 <li>
-  <%= avatar_user_tag user, "", Settings.user_course_image_size %>
-  <%= link_to user.name, user_path(user) %>
+  <%= link_to avatar_user_tag(user, "img-circle", Settings.user_course_image_size),
+    user_path(user), title: user.name %>
 </li>

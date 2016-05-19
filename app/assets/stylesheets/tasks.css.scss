@@ -1,7 +1,4 @@
 #tasks {
-  margin-left: 10px;
-  background-color: aliceblue;
-
   .assigned-user {
     color: red;
     margin-left: -30px;
@@ -9,8 +6,7 @@
 
   .form-control {
     padding: 0px;
-    height: 22px;
-    border-radius: 5px;
+    height: 24px;
   }
 
   .label {
@@ -22,14 +18,6 @@
   }
 
   .label-tbl {
-    color: #257C94;
-    font-size: 100%;
-    font-weight: 600;
-    letter-spacing: 0.0125em;
-    text-transform: uppercase;
-  }
-
-  .label-task {
     color: #257C94;
     font-size: 100%;
     font-weight: 600;
