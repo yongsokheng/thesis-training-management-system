@@ -15,8 +15,7 @@ body, .breadcrumb {
 }
 
 .body_wrapper {
-  margin-top: 50px;
-  margin-bottom: 350px;
+  padding-bottom: 350px;
 }
 
 #user-header {
@@ -215,4 +214,30 @@ select {
     color: #575a5b;
     margin: 0px;
   }
+}
+
+.card {
+  margin-bottom: 10%;
+  padding: 10%;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  border-radius: 7px;
+  text-align: center;
+
+  #complete {
+    margin-top: 30px;
+    color: #aebdc1;
+  }
+
+  .course-infor {
+    padding-top: 11px;
+    font-size: 15px;
+  }
+}
+
+.label-status {
+  border-radius: 3px;
+  color: white;
+  font-weight: 500;
+  padding: 0px 3px 1px 5px;
 }

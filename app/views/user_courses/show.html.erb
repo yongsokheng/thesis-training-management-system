@@ -1,118 +1,57 @@
-<div id="user-course-show">
-  <div class="row">
-    <div class="cell">
-      <div class="grid">
-        <div class="grid-box grid-box-6">
-          <div class="breadcrumb-bar tac tal--l">
-            <ul class="list breadcrumb mts">
-              <li>
-                <%= link_to root_url do %>
-                  <i class="glyphicon glyphicon-th-list"></i>
-                  <%= t "layouts.paths" %>
-                <% end %>
-              </li>
-              <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-              <li class="active"><%= @course.name %></li>
-            </ul>
+<div id="user-course-show" class="row">
+  <div class="col-md-9">
+    <div class="breadcrumb-bar">
+      <ul class="breadcrumb">
+        <li>
+          <%= link_to root_url do %>
+            <i class="glyphicon glyphicon-th-list"></i>
+            <%= t "layouts.paths" %>
+          <% end %>
+        </li>
+        <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+        <li class="active"><%= @course.name %></li>
+      </ul>
+    </div>
+
+    <h2><%= @course.name %></h2>
+    <div class="description"><%= @course.description %></div>
+    <div class="box-divider">
+      <div class="label-title"><%= t "user_subjects.labels.content"%></div>
+      <p><%= @course.content.html_safe %></p>
+    </div>
+
+    <h3><%= t "courses.list_subject" %></h3>
+    <div class="subject-list">
+      <% @user_subjects.each_with_index do |user_subject, index| %>
+        <div class="col-xs-1">
+          <% if index == 0 %>
+            <div class="node"></div>
+          <% else %>
+            <div class="node node--connected"></div>
+          <% end %>
+        </div>
+
+        <div class="subject col-xs-11 row">
+          <div class="col-xs-2 subject-image">
+            <%= image_user_subject_tag user_subject %>
+          </div>
+          <div class="col-xs-10 infor">
+            <div><span class="label-status <%= style_user_subject_status user_subject.status %>">
+              <%= t "user_subjects.statuses.#{user_subject.status}" %>
+            </span>
+            <span><i><%= "#{user_subject.during_time} days" %></i></span></div>
+
+            <div class="subject-name"><%= link_to user_subject.name,
+              course_subject_path(@course, user_subject.subject) %></div>
+            <div><%= truncate(user_subject.description, length: 110) %></div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
-  <hr>
-  <div class="row has-sector">
-    <div class="cell">
-      <div class="grid grid-box-subjects">
-        <div class="grid-box grid-box-75">
-          <div class="well well--l">
-            <div class="mbl">
-              <div class="mbl--m">
-                <h2 class="label"><%= @course.name %></h2>
-                <div class="row">
-                  <p><b><i>"<%= @course.description %>"</i></b></p>
-                </div>
-                <div class="row">
-                  <p><%= @course.content.html_safe %></p>
-                </div>
-              </div>
-              <h2 class="label mbm"><%= t "courses.list_subject" %></h2>
-              <ol class="list list--divided list--divided--m list--divided--f
-                list--divided--open mlm--l timeline">
-                <% @user_subjects.each do |user_subject| %>
-                  <hr />
-                  <li class="time-label">
-                    <span class="bg-red">
-                      <%= pluralize user_subject.during_time, t("courses.day") %>
-                    </span>
-                  </li>
-                  <li>
-                    <i class= "fa <%= style_user_subject_status user_subject.status %>" %></i>
-                  </li>
-                  <li class="list-item mbm pbm por space" id="course-overview">
-                    <div class="bucket bucket--flag">
-                      <div class="bucket-media dn db--m">
-                        <div class="badge">
-                          <%= user_image_course_subject_tag user_subject %>
-                        </div>
-                      </div>
-                      <div class="bucket-content">
-                        <h3 class="h h--3">
-                          <b class="h-label opf">
-                            <span class="prs <%= style_user_course_status user_subject.status %>">
-                              <%= t "user_subjects.statuses.#{user_subject.status}" %>
-                            </span>
-                            <span class="bdrl pls tch"><%= "#{user_subject.during_time} days" %></span>
-                          </b>
-                          <%= link_to user_subject.name,
-                            course_subject_path(@course, user_subject.subject) %>
-                        </h3>
-                        <p class="mbf"><%= user_subject.description %></p>
-                        <%= link_to t("courses.view_detail"),
-                          course_subject_path(@course, user_subject.subject),
-                          class: "btn btn-primary btn-xs" %>
-                      </div>
-                    </div>
-                  </li>
-                <% end %>
-              </ol>
-            </div>
-          </div>
-        </div>
-        <div class="grid-box grid-box-25 sector">
-          <div class="well well--l">
-            <div class="card">
-              <div id="image-course">
-                <%= image_user_course_tag @course, @course.programming_language_name %>
-              </div>
-              <div class="course-infor">
-                <p><%= t "subjects.new_subjects" %>
-                  <span class="status"><%= @number_of_user_subjects_new %>/<%= @number_of_user_subjects %></span></p>
-                <p><%= t "subjects.in_progress_subjects" %>
-                  <span class="status"><%= @number_of_user_subjects_progress %>/<%= @number_of_user_subjects %></span></p>
-                <p><%= t "subjects.finish_subjects" %>
-                  <span class="status"><%= @number_of_user_subjects_finish %>/<%= @number_of_user_subjects %></span></p>
-              </div>
-            </div>
-            <div class="sector-content">
-              <%= render partial: "shared/list_member",
-                locals: {trainers: @trainers, trainees: @trainees} %>
-            </div>
-            <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="label"><%= t "courses.note" %></h3>
-              </div>
-              <div class="box-body no-padding">
-                <div class= "course-note">
-                  <%= t "courses.time", start_date: @course.start_date, end_date: @course.end_date %>
-                </div>
-              </div>
-            </div>
-            <%= render partial: "shared/documents",
-              locals: {documents: @course.documents} %>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <div class="col-md-3 info-panel">
+    <%= render "info_panel" %>
   </div>
 </div>
-
+<%= render "shared/member_modal" %>

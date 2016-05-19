@@ -92,6 +92,11 @@ module ApplicationHelper
       class: "img-circle img-responsive", size: Settings.image_subject_size
   end
 
+  def image_user_subject_tag user_subject
+    image_tag user_subject.image_url ? user_subject.image_url : "no_image",
+      class: "img-circle img-responsive", size: Settings.image_size
+  end
+
   def image_course_subject_tag course_subject
     image_tag course_subject.image_url ? course_subject.image_url : "no-image",
       size: Settings.image_size
@@ -133,20 +138,20 @@ module ApplicationHelper
   def style_user_subject_status status
     case status
     when "init"
-      "bg-green"
-    when "in_progress"
-      "bg-blue"
+      "label label-primary"
+    when "progress"
+      "label label-success"
     when "finish"
-      "bg-red"
+      "label label-danger"
     end
   end
 
   def style_course_status status
     case status
     when "init"
-      "label label-info"
+      "label label-primary"
     when "progress"
-      "label label-warning"
+      "label label-success"
     when "finish"
       "label label-danger"
     end
