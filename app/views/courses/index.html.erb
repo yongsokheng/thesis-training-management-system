@@ -1,6 +1,6 @@
 <div id="user-course-index">
-  <div class="breadcrumb-bar tac tal--l">
-    <ul class="list breadcrumb mts">
+  <div class="breadcrumb-bar">
+    <ul class="list breadcrumb">
       <li>
         <%= link_to root_url do %>
           <i class="glyphicon glyphicon-th-list"></i>
@@ -10,7 +10,6 @@
       <li class="active"><%= t "layouts.all_courses" %></li>
     </ul>
   </div>
-  <hr>
   <div class="row">
     <% if @user_courses.size > 0 %>
       <% @user_courses.each do |user_course| %>
@@ -25,15 +24,13 @@
                   </div>
                 </div>
                 <div class="bucket-content">
-                  <h2>
                     <span class="course-name">
                       <%= truncate user_course.course_name, length: 20 %>
                     </span>
-                    <span class="course-status 
+                    <span class="label-status 
                       <%= style_course_status user_course.course_status %>">
                       <%= user_course.course.status.humanize %>
                     </span>
-                  </h2>
                   <p class="course-description">
                     <%= truncate user_course.course_description, length: 129 %>
                   </p>

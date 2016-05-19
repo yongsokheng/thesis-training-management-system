@@ -7,42 +7,6 @@
 #user-course-index {
   margin-bottom: 100px;
 
-  .breadcrumb-bar {
-    margin-bottom: 0em;
-    text-align: left;
-  }
-
-  .breadcrumb {
-    background-color: #FFFFFF !important;
-    font-size: 120%;
-  }
-
-  .breadcrumb>li {
-    display: inline;
-    font-size: 95%;
-    font-weight: 600;
-    margin-right: 0.625em;
-  }
-
-  .breadcrumb>li:last-child {
-    margin-right: 0;
-  }
-
-  .breadcrumb>li::after {
-    padding-left: 0.625em;
-  }
-
-  .breadcrumb>li:last-child::after {
-    content: "";
-    padding-left: 0;
-  }
-
-  .breadcrumb>li>a {
-    border: 0;
-    text-decoration: underline;
-    color: #21abc7 !important;
-  }
-
   .card {
     align-items: center;
     -webkit-box-align: center;
@@ -118,5 +82,9 @@
 
   .course-status {
     font-size: 57%;
+  }
+
+  .course-name {
+    font-size: 20px;
   }
 }

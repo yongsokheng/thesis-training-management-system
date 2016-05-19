@@ -1,0 +1,49 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="label box-title"><%= t "subjects.members" %></h3>
+  </div>
+  <div class="box-body no-padding">
+    <ul class="user-list clearfix">
+      <%= render partial: "shared/member", collection: @trainees_show, as: :user %>
+      <li class="plus-node">
+        <% if @count_member > 0 %>
+          <%= link_to "+#{@count_member}", "#", data: {toggle: "modal", target: "#member-modal"},
+            title: t("subjects.modal.member_details") %>
+        <% else %>
+          <%= link_to "#", data: {toggle: "modal", target: "#member-modal"},
+            title: t("subjects.modal.member_details") do %>
+            <i class="fa fa-users" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div id="image-course">
+    <%= image_user_course_tag @course, @course.programming_language_name %>
+  </div>
+  <div class="course-infor">
+    <p><%= t "subjects.new_subjects" %>
+      <span class="status"><%= @number_of_user_subjects_new %>/<%= @number_of_user_subjects %></span></p>
+    <p><%= t "subjects.in_progress_subjects" %>
+      <span class="status"><%= @number_of_user_subjects_progress %>/<%= @number_of_user_subjects %></span></p>
+    <p><%= t "subjects.finish_subjects" %>
+      <span class="status"><%= @number_of_user_subjects_finish %>/<%= @number_of_user_subjects %></span></p>
+  </div>
+</div>
+
+<div class="sector-content">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="label box-title"><%= t "courses.note" %></h3>
+    </div>
+    <div class="box-body">
+      <div class="subject-note">
+        <%= t "courses.time", start_date: @course.start_date, end_date: @course.end_date %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: "shared/documents", locals: {documents: @course.documents} %>

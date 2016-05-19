@@ -2,7 +2,7 @@ en:
   user_subjects:
     statuses:
       init: "New"
-      in_progress: "In progress"
+      progress: "Progress"
       finish: "Finish"
     fields:
       status: "Status"
@@ -12,3 +12,4 @@ en:
       progress: "Progress"
     status:
       new: "New"
+    labels: "Content"
