@@ -63,37 +63,21 @@
     font-size: 16px;
   }
 
-  .btn {
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
+  .btn-action {
     font-size: 12px;
     line-height: 3;
     padding: 0 2em;
-    background-color: #21abc7;
-    border: 1px solid #21abc7;
-    color: #fff;
     border-radius: 100px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 600;
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
-  }
-  .btn--block {
-    display: block;
-  }
-  .btn--b {
     background-color: transparent;
     border: 1px solid #21abc7;
     color: #21abc7;
   }
-  .btn--b:hover,
-  .btn--b:focus,
-  .btn--b:active,
-  .btn--b.is-active,
-  .btn--b.is-selected {
+
+  .btn-action:hover {
     background-color: #21abc7;
     border-color: #21abc7;
     color: #fff;

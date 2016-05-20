@@ -7,10 +7,6 @@ class SubjectsController < ApplicationController
   before_action :check_status, only: :update
   before_action :check_status_subject, only: :update
 
-  def index
-    @user_subjects = UserSubject.load_user_subject(current_user, @course)
-  end
-
   def show
     @task_masters = @subject.task_masters
     @course_subject = CourseSubject.includes(:tasks,

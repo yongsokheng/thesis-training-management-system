@@ -1,13 +1,8 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_course, only: [:show, :index]
+  before_action :load_course, only: [:index]
 
   def index
-  end
-
-  def show
-    @users = @course.users
-    @roles = Role.not_admin
   end
 
   private

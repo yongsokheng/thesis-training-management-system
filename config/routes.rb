@@ -46,9 +46,8 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: [:show, :index] do
-    resources :subjects, only: [:index, :show]
+    resources :subjects, only: [:show]
     resources :tasks
-    resources :user_subjects, only: [:update, :show]
   end
 
   resources :course_subjects do
@@ -59,7 +58,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show] do
     resource :profiles
   end
-  resources :subjects, only: [:show]
   resources :user_tasks, except: :show
   resources :user_courses, :show
 end
