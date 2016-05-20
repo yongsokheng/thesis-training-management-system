@@ -13,15 +13,14 @@ defaults: &defaults
       closed: 3
   course:
     init: 0
+  admin_user_course_image_size: "40x40"
   flag_size: "20x15"
-  image_user_size: "50x50"
-  image_trainer_size: "20x20"
-  image_trainee_size: "20x20"
+  image_size_20: "20x20"
+  image_size_30: "30x30"
+  image_size_50: "50x50"
+  image_size_100: "100x100"
   image_profile: "150x150"
-  image_activity: "30x30"
-  image_user_subject: "100x100"
-  image_subject_size: "200x200"
-  image_course_size: "200x200"
+  image_size_200: "200x200"
   finish: "finish"
   finished: "finished"
   date_format: "%H:%M:%S %-d %B %Y"
@@ -42,9 +41,6 @@ defaults: &defaults
       - "update"
       - "destroy"
   hours_working_day: 8
-  image_size: "100x100"
-  user_course_image_size: "30x30"
-  admin_user_course_image_size: "40x40"
   number_user_display: 4
   number_member_show: 5
   tabs:

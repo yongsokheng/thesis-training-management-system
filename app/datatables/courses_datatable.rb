@@ -24,12 +24,12 @@ class CoursesDatatable
         link_to(course.name, @view.admin_course_path(course)),
         course.load_trainers.map do |trainer|
           link_to(@view.avatar_user_tag(trainer, "profile-user",
-          Settings.image_trainer_size), @view.user_path(trainer),
+          Settings.image_size_20), @view.user_path(trainer),
           title: trainer.name)
         end,
         course.load_trainees.map do |trainee|
           link_to(@view.avatar_user_tag(trainee, "profile-user",
-          Settings.image_trainee_size), @view.user_path(trainee),
+          Settings.image_size_20), @view.user_path(trainee),
           title: trainee.name)
         end,
         course.status
