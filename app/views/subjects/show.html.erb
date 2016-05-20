@@ -23,13 +23,8 @@
           <%= @user_subject.content.html_safe %>
         </div>
       </div>
+
       <div class="render-task">
-        <% if @unassign_tasks.present? %>
-          <div id="tasks" class="task box-divider">
-            <div class="label-title"><%= t "subjects.task.had_not_assigned" %></div>
-            <%= render "task" %>
-          </div>
-        <% end %>
         <div class="user-task">
           <div class="overview">
             <%= t "subjects.task_overview" %>

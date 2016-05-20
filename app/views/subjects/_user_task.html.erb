@@ -9,7 +9,6 @@
         <span class="label-status <%= task_status Settings.tasks.statuses.key(user_task.status) %>">
           <%= t "tasks.statuses.#{Settings.tasks.statuses.key(user_task.status)}" %>
         </span>
-        <span class="user-progress"><%= "#{user_task.progress} %" %></span>
 
         <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
           user_task.status != Settings.tasks.statuses.closed %>
@@ -36,34 +35,7 @@
       </div>
       <div class="task-name"><%= link_to user_task.task_name,
         course_subject_user_task_path(@user_subject.course_subject, user_task) %></div>
-
-      <div class="row assign-task">
-        <%= form_for user_task.task, url: course_task_path(@course.id,user_task.task_id),
-          html: {method: :put} do |f| %>
-          <div class="col-md-2">
-            <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assigned") %>
-          </div>
-          <div class="col-md-3">
-            <% if user_task.nil_master? && user_task.subject_in_progress? &&
-              user_task.create_by_trainee? %>
-                <div class="assign-other">
-                  <%= f.select :assigned_trainee_id,
-                    @user_subjects.collect{|user_subject| [user_subject.user_name,
-                      user_subject.user_id]},
-                    {prompt: ""}, onchange: "this.form.submit()",
-                    class: "select-assign form-control" %>
-                </div>
-            <% else %>
-              <div class= "assigned-user">
-                <%= user_task.user_name %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-
       <div><%= truncate user_task.task_description, length: 80 %></div>
-
     </div>
   </div>
   <hr>

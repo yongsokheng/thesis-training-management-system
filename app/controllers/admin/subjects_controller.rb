@@ -19,7 +19,6 @@ class Admin::SubjectsController < ApplicationController
       course_subject.subject_id == @subject.id
     end
     @user_subjects = @course_subject.user_subjects
-    @unassign_tasks = @course_subject.tasks.not_assigned_trainee
     @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
 
     add_breadcrumb_path "courses"

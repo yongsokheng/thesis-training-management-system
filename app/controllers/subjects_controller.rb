@@ -14,7 +14,6 @@ class SubjectsController < ApplicationController
       subject_id: @subject.id
     @user_subjects = @course_subject.user_subjects
     @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == current_user.id}
-    @unassign_tasks = @course_subject.tasks.not_assigned_trainee
     @user_tasks = @user_subject.user_tasks
     @trainers = @user_subject.load_trainers
     @trainees = @user_subject.load_trainees

@@ -27,7 +27,6 @@ class Admin::TasksController < ApplicationController
   def create
     if @task.save
       flash[:success] = flash_message "created"
-      @task.assign_trainees_to_task
       redirect_to edit_admin_course_course_subject_path(@course_subject.course,
         @course_subject)
     else
@@ -75,7 +74,6 @@ class Admin::TasksController < ApplicationController
 
   def add_task_info
     @task.create_by_trainee = current_user.is_trainee?
-    @task.owner = current_user
     @task.course_subject = @course_subject
   end
 end
