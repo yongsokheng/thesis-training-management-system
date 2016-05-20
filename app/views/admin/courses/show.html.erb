@@ -10,7 +10,7 @@
           <h2 id="course-h2-header">
             <span id="course-header"><%= @course.name %></span>
           </h2>
-          <p class="<%= style_course_status @course.status %>">
+          <p class="<%= set_status @course.status %>">
             <%= @course.status %>
           </p>
           <div>

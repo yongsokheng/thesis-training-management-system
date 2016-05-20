@@ -22,7 +22,7 @@
 
 <div class="card">
   <div id="image-course">
-    <%= image_user_course_tag @course, @course.programming_language_name %>
+    <%= image_course_tag @course, @course.programming_language_name, Settings.image_size_200 %>
   </div>
   <div class="course-infor">
     <p><%= t "subjects.new_subjects" %>

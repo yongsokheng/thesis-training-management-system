@@ -19,7 +19,7 @@
               <div class="bucket">
                 <div class="bucket-media">
                   <div class="badge">
-                    <%= image_course_tag user_course.course, 
+                    <%= image_course_tag user_course.course,
                       user_course.course_programming_language.name %>
                   </div>
                 </div>
@@ -27,8 +27,8 @@
                     <span class="course-name">
                       <%= truncate user_course.course_name, length: 20 %>
                     </span>
-                    <span class="label-status 
-                      <%= style_course_status user_course.course_status %>">
+                    <span class="label-status
+                      <%= set_status user_course.course_status %>">
                       <%= user_course.course.status.humanize %>
                     </span>
                   <p class="course-description">
