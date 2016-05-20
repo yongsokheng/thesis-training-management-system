@@ -17,13 +17,13 @@
       <%= f.number_field :progress, min: 0, max: 100, class: "form-control" %>
 
       <%= f.label :status, class: "label-user-task" %>
-      <div class: "form-control">
+      <p class: "form-control">
         <%= f.select :status, options_for_select(Settings.tasks.statuses,
           selected: f.object.status), {}, class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-md-2 col-md-offset-7">
-      <%= f.submit t("tasks.update"), class: "btn btn--b btn--block" %>
+      </p>
+      <p>
+        <%= f.submit t("tasks.update"), class: "btn-action" %>
+      </p>
     </div>
   </div>
 <% end %>

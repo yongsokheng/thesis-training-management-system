@@ -15,7 +15,6 @@
  *= require sign_in
  *= require users
  *= require courses
- *= require tab
  *= require tasks
  *= require admin/course
  *= require admin/courses
