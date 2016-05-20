@@ -95,7 +95,7 @@
       <ul>
         <% @trainers.each do |trainer| %>
           <li class="label-user"><%= avatar_user_tag trainer, "profile-trainer",
-            Settings.image_user_size %>
+            Settings.image_size_50 %>
             <%= link_to trainer.name, trainer %></li>
         <% end %>
       </ul>
@@ -107,7 +107,7 @@
       <ul>
         <% @trainees.each do |trainee| %>
           <li class="label-user"><%= avatar_user_tag trainee, "profile-user",
-            Settings.image_user_size %>
+            Settings.image_size_50 %>
             <%= link_to trainee.name, trainee %></li>
         <% end %>
       </ul>

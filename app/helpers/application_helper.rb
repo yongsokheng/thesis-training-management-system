@@ -64,47 +64,47 @@ module ApplicationHelper
 
   def image_target_tag target
     image_tag target.image_url ? target.image_url : "no_image",
-      size: Settings.image_size
+      size: Settings.image_size_100
   end
 
   def image_course_tag course, language
     image_tag course.image_url ? course.image_url : language,
-      class: "image-badges", size: Settings.image_size
+      class: "image-badges", size: Settings.image_size_100
   end
 
   def image_course_cirle_tag course, language, css_class
     image_tag course.image_url ? course.image_url : language,
-      class: css_class, size: Settings.image_size
+      class: css_class, size: Settings.image_size_100
   end
 
   def admin_user_course_image_tag user, css_class
     image_tag user.avatar_url ? user.avatar_url : "profile.png",
-      class: css_class, size: Settings.admin_user_course_image_size
+      class: css_class, size: Settings.image_size_30
   end
 
   def image_user_course_tag course, language
     image_tag course.image_url ? course.image_url : language,
-      size: Settings.image_course_size
+      size: Settings.image_size_200
   end
 
   def user_image_course_subject_tag user_subject
     image_tag user_subject.image_url ? user_subject.image_url : "no_image",
-      class: "img-circle img-responsive", size: Settings.image_subject_size
+      class: "img-circle img-responsive", size: Settings.image_size_200
   end
 
   def image_user_subject_tag user_subject
     image_tag user_subject.image_url ? user_subject.image_url : "no_image",
-      class: "img-circle img-responsive", size: Settings.image_size
+      class: "img-circle img-responsive", size: Settings.image_size_100
   end
 
   def image_course_subject_tag course_subject
     image_tag course_subject.image_url ? course_subject.image_url : "no-image",
-      size: Settings.image_size
+      size: Settings.image_size_100
   end
 
   def image_task_tag user_task
     image_tag user_task.task_image_url ? user_task.task_image_url : "Ruby",
-      class: "img-circle", size: Settings.image_size
+      class: "img-circle", size: Settings.image_size_100
   end
 
   def image_new_task_tag task
