@@ -62,56 +62,16 @@ module ApplicationHelper
       class: class_name.to_sym, size: avatar_size
   end
 
-  def image_target_tag target
-    image_tag target.image_url ? target.image_url : "no_image",
-      size: Settings.image_size_100
+  def set_image object, size = Settings.image_size_100, class_name = "img-circle"
+    image_tag object.image_url ? object.image_url : "no_image", size: size, class: class_name
   end
 
-  def image_course_tag course, language
-    image_tag course.image_url ? course.image_url : language,
-      class: "image-badges", size: Settings.image_size_100
+  def image_course_tag course, language, size = Settings.image_size_100, class_name = "img-circle"
+    image_tag course.image_url ? course.image_url : language, size: size,
+      class: class_name
   end
 
-  def image_course_cirle_tag course, language, css_class
-    image_tag course.image_url ? course.image_url : language,
-      class: css_class, size: Settings.image_size_100
-  end
-
-  def admin_user_course_image_tag user, css_class
-    image_tag user.avatar_url ? user.avatar_url : "profile.png",
-      class: css_class, size: Settings.image_size_30
-  end
-
-  def image_user_course_tag course, language
-    image_tag course.image_url ? course.image_url : language,
-      size: Settings.image_size_200
-  end
-
-  def user_image_course_subject_tag user_subject
-    image_tag user_subject.image_url ? user_subject.image_url : "no_image",
-      class: "img-circle img-responsive", size: Settings.image_size_200
-  end
-
-  def image_user_subject_tag user_subject
-    image_tag user_subject.image_url ? user_subject.image_url : "no_image",
-      class: "img-circle img-responsive", size: Settings.image_size_100
-  end
-
-  def image_course_subject_tag course_subject
-    image_tag course_subject.image_url ? course_subject.image_url : "no-image",
-      size: Settings.image_size_100
-  end
-
-  def image_task_tag user_task
-    image_tag user_task.task_image_url ? user_task.task_image_url : "Ruby",
-      class: "img-circle", size: Settings.image_size_100
-  end
-
-  def image_new_task_tag task
-    image_tag task.image_url ? task.image_url : "Ruby", class: "img-circle"
-  end
-
-  def style_of_status status
+  def task_status status
     case status
     when "new"
       "label label-primary"
@@ -124,29 +84,7 @@ module ApplicationHelper
     end
   end
 
-  def style_user_course_status status
-    case status
-    when "init"
-      "color-green"
-    when "in_progress"
-      "color-blue"
-    when "finish"
-      "color-red"
-    end
-  end
-
-  def style_user_subject_status status
-    case status
-    when "init"
-      "label label-primary"
-    when "progress"
-      "label label-success"
-    when "finish"
-      "label label-danger"
-    end
-  end
-
-  def style_course_status status
+  def set_status status
     case status
     when "init"
       "label label-primary"

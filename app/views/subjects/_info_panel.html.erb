@@ -22,7 +22,7 @@
 
 <div class="card">
   <div id="image-course">
-    <%= user_image_course_subject_tag @user_subject %>
+    <%= set_image @user_subject, Settings.image_size_200 %>
   </div><br>
   <div class="task-infor">
     <p><%= t "subjects.tasks.new_tasks" %><span class="status">
