@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
   load_and_authorize_resource :course_subject
-  before_action :load_user_subject, only: [:edit, :update, :destroy]
+  before_action :load_user_subject, only: [:create, :edit, :update, :destroy]
   before_action :add_task_info, only: [:create]
 
   def create
     if @task.save
       flash[:success] = flash_message "created"
+      @task.user_tasks.create user: current_user, user_subject: @user_subject
     else
       flash[:failed] = flash_message "not_created"
     end
@@ -14,14 +15,10 @@ class TasksController < ApplicationController
   end
 
   def update
-    @old_assigned_trainee = @task.assigned_trainee
     if @task.update_attributes task_params
       flash[:success] = flash_message "updated"
     else
       flash[:failed] = flash_message "not_updated"
-    end
-    unless params[:task][:assigned_trainee_id].nil?
-      @task.change_user_task @old_assigned_trainee
     end
     redirect_to :back
   end
@@ -43,12 +40,11 @@ class TasksController < ApplicationController
 
   def add_task_info
     @task.create_by_trainee = current_user.is_trainee?
-    @task.owner = current_user
     @task.course_subject = @course_subject
   end
 
   def load_user_subject
-    @user_subject = UserSubject.find_by user: @task.assigned_trainee,
+    @user_subject = UserSubject.find_by user: current_user,
       course_subject: @course_subject
   end
 end

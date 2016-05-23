@@ -17,7 +17,6 @@ class UserTask < ActiveRecord::Base
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :description, :content, to: :task, prefix: true, allow_nil: true
 
-  before_create :init_relation_user
   after_update :subject_progress
 
   def nil_master?
@@ -41,10 +40,6 @@ class UserTask < ActiveRecord::Base
   end
 
   private
-  def init_relation_user
-    self.user_id = self.user_subject.user_id
-  end
-
   def subject_progress
     if self.status == Settings.tasks.statuses.closed
       total_time = self.user_subject.total_time_task_closed
