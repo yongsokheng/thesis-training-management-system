@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418025920) do
+ActiveRecord::Schema.define(version: 20160524010721) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -167,6 +167,27 @@ ActiveRecord::Schema.define(version: 20160418025920) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "report_details", force: :cascade do |t|
+    t.integer  "report_id",    limit: 4
+    t.integer  "user_task_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "report_details", ["report_id"], name: "index_report_details_on_report_id", using: :btree
+  add_index "report_details", ["user_task_id"], name: "index_report_details_on_user_task_id", using: :btree
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.date     "report_date"
+    t.integer  "working_duration", limit: 4
+    t.integer  "lines_code",       limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.boolean  "allow_access_admin"
@@ -203,15 +224,17 @@ ActiveRecord::Schema.define(version: 20160418025920) do
   add_index "task_masters", ["subject_id"], name: "index_task_masters_on_subject_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.string   "image",             limit: 255
-    t.text     "description",       limit: 65535
-    t.text     "content",           limit: 65535
-    t.integer  "task_master_id",    limit: 4
-    t.boolean  "create_by_trainee",               default: false
-    t.integer  "course_subject_id", limit: 4
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "name",                limit: 255
+    t.string   "image",               limit: 255
+    t.text     "description",         limit: 65535
+    t.text     "content",             limit: 65535
+    t.integer  "task_master_id",      limit: 4
+    t.boolean  "create_by_trainee",                 default: false
+    t.integer  "owner_id",            limit: 4
+    t.integer  "assigned_trainee_id", limit: 4
+    t.integer  "course_subject_id",   limit: 4
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   add_index "tasks", ["course_subject_id"], name: "index_tasks_on_course_subject_id", using: :btree
@@ -257,6 +280,17 @@ ActiveRecord::Schema.define(version: 20160418025920) do
   add_index "user_subjects", ["course_subject_id"], name: "index_user_subjects_on_course_subject_id", using: :btree
   add_index "user_subjects", ["user_course_id"], name: "index_user_subjects_on_user_course_id", using: :btree
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id", using: :btree
+
+  create_table "user_task_histories", force: :cascade do |t|
+    t.integer  "user_task_id",   limit: 4
+    t.integer  "spent_time",     limit: 4
+    t.integer  "estimated_time", limit: 4
+    t.integer  "status",         limit: 4, default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "user_task_histories", ["user_task_id"], name: "index_user_task_histories_on_user_task_id", using: :btree
 
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "task_id",         limit: 4
@@ -311,12 +345,16 @@ ActiveRecord::Schema.define(version: 20160418025920) do
   add_foreign_key "notes", "evaluations"
   add_foreign_key "permissions", "roles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "report_details", "reports"
+  add_foreign_key "report_details", "user_tasks"
+  add_foreign_key "reports", "users"
   add_foreign_key "task_masters", "subjects"
   add_foreign_key "tasks", "course_subjects", on_delete: :cascade
   add_foreign_key "user_subjects", "course_subjects", on_delete: :cascade
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "user_courses"
   add_foreign_key "user_subjects", "users"
+  add_foreign_key "user_task_histories", "user_tasks"
   add_foreign_key "user_tasks", "tasks", on_delete: :cascade
   add_foreign_key "user_tasks", "user_subjects", on_delete: :cascade
   add_foreign_key "user_tasks", "users"

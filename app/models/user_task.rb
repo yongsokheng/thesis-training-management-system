@@ -8,6 +8,8 @@ class UserTask < ActiveRecord::Base
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     dependent: :destroy
+  has_many :user_task_histories, dependent: :destroy
+  has_many :report_details, dependent: :destroy
 
   belongs_to :task
   belongs_to :user_subject
