@@ -7,6 +7,7 @@ class UserTasksController < ApplicationController
     @user_courses = @course.user_courses
     @user_subject = @user_task.user_subject
     @course_subject = @user_subject.course_subject
+    @user_task_histories = @user_task.user_task_histories
   end
 
   def update
