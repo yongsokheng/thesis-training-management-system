@@ -23,12 +23,23 @@
   }
 
   .node {
-    background-color: #E5E5E5;
     border: 3px solid white;
     height: 32px;
     width: 32px;
     border-radius: 50%;
     margin-top: 46px;
+  }
+
+  .node-init {
+    background: #DC9F48;
+  }
+
+  .node-progress {
+    background-color: #009852;
+  }
+
+  .node-finish {
+    background-color: #58BAD7;
   }
 
   .subject-image {

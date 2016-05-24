@@ -24,10 +24,13 @@
     <div class="subject-list">
       <% @user_subjects.each_with_index do |user_subject, index| %>
         <div class="col-xs-1">
-          <% if index == 0 %>
-            <div class="node"></div>
-          <% else %>
-            <div class="node node--connected"></div>
+          <%= link_to course_subject_path(@course, user_subject.subject),
+            title: t("user_subjects.statuses.#{user_subject.status}") do %>
+            <% if index == 0 %>
+              <div class="node node-<%= user_subject.status %>"></div>
+            <% else %>
+              <div class="node node--connected node-<%= user_subject.status %>"></div>
+            <% end %>
           <% end %>
         </div>
 
@@ -36,13 +39,11 @@
             <%= set_image user_subject %>
           </div>
           <div class="col-xs-10 infor">
-            <div><span class="label-status <%= set_status user_subject.status %>">
-              <%= t "user_subjects.statuses.#{user_subject.status}" %>
-            </span>
-            <span><i><%= "#{user_subject.during_time} days" %></i></span></div>
-
-            <div class="subject-name"><%= link_to user_subject.name,
-              course_subject_path(@course, user_subject.subject) %></div>
+            <div>
+              <span class="subject-name"><%= link_to user_subject.name,
+              course_subject_path(@course, user_subject.subject) %></span>&nbsp;
+              <span><i><%= "#{user_subject.during_time} "%><%= t("user_subjects.labels.days") %></i></span>
+            </div>
             <div><%= truncate(user_subject.description, length: 110) %></div>
           </div>
         </div>

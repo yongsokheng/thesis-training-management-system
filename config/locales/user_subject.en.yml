@@ -12,4 +12,6 @@ en:
       progress: "Progress"
     status:
       new: "New"
-    labels: "Content"
+    labels:
+      content: "Content"
+      days: "days"

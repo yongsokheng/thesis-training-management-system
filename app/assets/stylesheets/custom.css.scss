@@ -9,8 +9,8 @@ html {
   }
 }
 
-body, .breadcrumb {
-  background-color: #F6F8F8;
+body, .breadcrumb, .content-wrapper {
+  background-color: #F6F8F8 !important;
   padding: 0;
 }
 
