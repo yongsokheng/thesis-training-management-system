@@ -35,14 +35,6 @@ class UserTask < ActiveRecord::Base
     user_subject.progress?
   end
 
-  def assignable_task?
-    nil_master? && create_by_trainee? && !user_subject.finish?
-  end
-
-  def assigned?
-    assignable_task? && user_id.present?
-  end
-
   private
   def subject_progress
     if finished?

@@ -1,4 +1,0 @@
-<% @user_subjects.each do |user_subject| %>
-  <%= render partial: "user_task", collection: user_subject.user_tasks, as: :user_task,
-    locals: {user_subject: user_subject} %>
-<% end %>

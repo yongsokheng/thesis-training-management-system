@@ -31,7 +31,7 @@
             <%= link_to t("subjects.task.new_task"), "#",
               data: {toggle: "modal", target: "#TaskModal"}, class: "btn-action pull-right" %>
           </div>
-          <%= render "list_user_tasks" %>
+          <%= render partial: "user_task", collection: @user_tasks %>
         </div>
       </div>
     </div>
