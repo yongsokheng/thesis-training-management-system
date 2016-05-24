@@ -129,4 +129,18 @@ module ApplicationHelper
       OpenStruct.new key: key, value: I18n.t("#{model_name.pluralize}.#{enum}.#{key}")
     end.flatten
   end
+
+  def spent_time_chart_color user_task
+    if user_task.spent_time
+      if user_task.spent_time > user_task.estimated_time
+        "red"
+      elsif user_task.spent_time == user_task.estimated_time
+        "#e4d354"
+      else
+        "#00a65a"
+      end
+    else
+      "#7cb5ec"
+    end
+  end
 end

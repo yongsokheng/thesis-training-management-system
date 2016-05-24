@@ -4,3 +4,10 @@ en:
       init: "New"
       in_progress: "In progress"
       finished: "Finish"
+    chart:
+      y_axis: "Hour(s)"
+      title: "Task detail"
+    fields:
+      spent_time: "Spent time"
+      estimated_time: "Estimated time"
+    history: "View history"

@@ -42,6 +42,7 @@
 //= require evaluation_template
 //= require rank
 //= require university
+//= require user_task
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();
