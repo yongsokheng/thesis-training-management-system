@@ -20,6 +20,9 @@ class UserTask < ActiveRecord::Base
   delegate :description, :content, to: :task, prefix: true, allow_nil: true
 
   after_update :subject_progress
+  after_update :create_history
+
+  enum status: [:init, :in_progress, :finished]
 
   def nil_master?
     task.task_master_id.nil?
@@ -49,5 +52,10 @@ class UserTask < ActiveRecord::Base
       self.user_subject.update_attributes(total_time_task_closed: total_time, progress: total_time * 100 /
         (self.user_subject.during_time * Settings.hours_working_day))
     end
+  end
+
+  def create_history
+    user_task_histories.create spent_time: spent_time,
+      estimated_time: estimated_time, status: status
   end
 end

@@ -9,17 +9,11 @@
       <%= f.label :spent_time, class: "label-user-task" %>
       <%= f.text_field :spent_time, class: "form-control" %>
 
-      <%= f.label :redmine_task_id, class: "label-user-task" %>
-      <%= f.text_field :redmine_task_id, class: "form-control",
-        required: true %>
-
-      <%= f.label :progress, class: "label-user-task" %>
-      <%= f.number_field :progress, min: 0, max: 100, class: "form-control" %>
-
       <%= f.label :status, class: "label-user-task" %>
       <p class: "form-control">
-        <%= f.select :status, options_for_select(Settings.tasks.statuses,
-          selected: f.object.status), {}, class: "form-control" %>
+        <%= f.select :status, options_from_collection_for_select(
+          i18n_enum(:user_task, :status), :key, :value, f.object.status), {},
+          class: "form-control" %>
       </p>
       <p>
         <%= f.submit t("tasks.update"), class: "btn-action" %>

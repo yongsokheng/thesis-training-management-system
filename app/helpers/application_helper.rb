@@ -73,14 +73,12 @@ module ApplicationHelper
 
   def task_status status
     case status
-    when "new"
-      "label label-primary"
+    when "init"
+      "label label-warning"
     when "in_progress"
       "label label-success"
-    when "resolved"
-      "label label-warning"
-    else
-      "label label-danger"
+    when "finished"
+      "label label-info"
     end
   end
 
@@ -122,5 +120,13 @@ module ApplicationHelper
 
   def add_breadcrumb_role_allocate_permissions
     add_breadcrumb t "breadcrumbs.roles.allocate_permissions"
+  end
+
+  def i18n_enum model_name, enum
+    enum = enum.to_s.pluralize
+    model_name = model_name.to_s
+    model_name.classify.constantize.public_send(enum).keys.map do |key|
+      OpenStruct.new key: key, value: I18n.t("#{model_name.pluralize}.#{enum}.#{key}")
+    end.flatten
   end
 end

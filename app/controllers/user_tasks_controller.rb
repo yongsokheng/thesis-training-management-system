@@ -9,15 +9,6 @@ class UserTasksController < ApplicationController
     @course_subject = @user_subject.course_subject
   end
 
-  def create
-    if @user_task.save
-      flash[:success] = flash_message "created"
-    else
-      flash[:failed] = flash_message "not created"
-    end
-    redirect_to :back
-  end
-
   def update
     if @user_task.update_attributes user_task_params
       track_activity
