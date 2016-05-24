@@ -27,6 +27,7 @@
 //= require highcharts/highcharts-more
 //= require admin/role_permission
 //= require admin/evaluation
+//= require admin/note
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require admin/update_order_course_subject
@@ -44,7 +45,7 @@
 //= require university
 //= require user_task
 
-$(document).on("ready", function() {
+$(document).on("page:update", function() {
   $(".alert").delay(3000).slideUp();
   $("#error_explanation").delay(3000).slideUp();
 });

@@ -20,7 +20,9 @@
         <%= render "layouts/admin_header" if current_user.present? %>
         <div class="content-wrapper">
           <section class="content">
-            <%= render "layouts/flash" %>
+            <div class="flash">
+              <%= render "layouts/flash" %>
+            </div>
             <ol class="breadcrumb">
               <%= render_breadcrumbs tag: :li %>
             </ol>

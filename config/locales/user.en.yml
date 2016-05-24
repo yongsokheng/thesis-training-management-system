@@ -38,3 +38,5 @@ en:
     submit: "Update profile"
     save: "Save"
     new: "New"
+    add_note: "Add Note"
+    cancel: "Cancel"
