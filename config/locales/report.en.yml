@@ -1,0 +1,11 @@
+en:
+  reports:
+    working_durations:
+      all_day: "All day"
+      half_day: "Half day"
+      home: "Home"
+  report: "Report"
+  new_report: "New Report"
+  all_report: "All Report"
+  search_by: "Search by name"
+  task: "Task"
