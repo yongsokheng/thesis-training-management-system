@@ -2,8 +2,7 @@ class UserTask < ActiveRecord::Base
   include PublicActivity::Model
 
   ATTRIBUTES_PARAMS = [
-    :spent_time, :estimated_time, :redmine_task_id, :status, :progress,
-      :user_id, :user_subject_id, :task_id
+    :spent_time, :estimated_time, :status, :user_id, :user_subject_id, :task_id
   ]
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
@@ -46,7 +45,7 @@ class UserTask < ActiveRecord::Base
 
   private
   def subject_progress
-    if self.status == Settings.tasks.statuses.closed
+    if finished?
       total_time = self.user_subject.total_time_task_closed
       total_time += self.estimated_time.to_f
       self.user_subject.update_attributes(total_time_task_closed: total_time, progress: total_time * 100 /

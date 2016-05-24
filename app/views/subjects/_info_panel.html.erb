@@ -25,14 +25,12 @@
     <%= set_image @user_subject, Settings.image_size_200 %>
   </div><br>
   <div class="task-infor">
-    <p><%= t "subjects.tasks.new_tasks" %><span class="status">
-      <%= @number_of_task_new %>/<%= @number_of_task %></span></p>
-    <p><%= t "subjects.tasks.in_progress_tasks" %><span class="status">
-      <%= @number_of_task_in_progress %>/<%= @number_of_task %></span></p>
-    <p><%= t "subjects.tasks.resolved_tasks" %><span class="status">
-      <%= @number_of_task_resolved %>/<%= @number_of_task %></span></p>
-    <p><%= t "subjects.tasks.closed_tasks" %><span class="status">
-      <%= @number_of_task_closed %>/<%= @number_of_task %></span></p>
+    <% @task_statuses.each do |key, value| %>
+      <div class="status">
+        <%= t "subjects.tasks.#{key}_tasks" %>
+        <%= instance_variable_get "@number_of_task_#{key}" %>/<%= @number_of_task %>
+      </div>
+    <% end %>
   </div>
 </div>
 

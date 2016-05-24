@@ -5,12 +5,6 @@ defaults: &defaults
   languages:
     en: "en"
     jp: "ja"
-  tasks:
-    statuses:
-      new: 0
-      in_progress: 1
-      resolved: 2
-      closed: 3
   course:
     init: 0
   admin_user_course_image_size: "40x40"

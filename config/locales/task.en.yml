@@ -18,3 +18,4 @@ en:
     form:
       input_task_name: "Enter task name..."
       input_task_description: "Enter task description..."
+      estimated_time: "Enter estimated time ..."

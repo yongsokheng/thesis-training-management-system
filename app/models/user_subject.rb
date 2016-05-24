@@ -17,7 +17,6 @@ class UserSubject < ActiveRecord::Base
   scope :load_users, ->status {where status: status}
   scope :not_finish, -> user_subjects {where.not(id: user_subjects)}
   scope :sort_by_course_subject, ->{joins(:course_subject).order("course_subjects.order asc")}
-  scope :count_user_tasks, -> status {joins(:user_tasks).where("user_tasks.status = ?", status).count}
 
   enum status: [:init, :progress, :finish]
 
