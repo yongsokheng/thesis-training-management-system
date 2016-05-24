@@ -10,20 +10,25 @@ class SubjectsController < ApplicationController
   def show
     @task_masters = @subject.task_masters
     @course_subject = CourseSubject.includes(:tasks,
-      user_subjects: [user_tasks: :task]).find_by course_id: @course.id,
+      user_subjects: [course: [:users], user_tasks: :task]).find_by course_id: @course.id,
       subject_id: @subject.id
+
     @user_subjects = @course_subject.user_subjects
     @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == current_user.id}
-    @user_tasks = @user_subject.user_tasks
-    @trainers = @user_subject.load_trainers
-    @trainees = @user_subject.load_trainees
-    @trainees_show = @user_subject.load_trainees.limit Settings.number_member_show
+
+    users = @user_subject.course.users
+    @trainers = users.trainers
+    @trainees = users.trainees
+    @trainees_show = @trainees.limit Settings.number_member_show
     @count_member = @user_subjects.size - Settings.number_member_show
-    @number_of_task = @user_subjects.joins(:user_tasks).count
-    @number_of_task_new = @user_subjects.count_user_tasks Settings.tasks.statuses.new
-    @number_of_task_in_progress = @user_subjects.count_user_tasks Settings.tasks.statuses.in_progress
-    @number_of_task_resolved =  @user_subjects.count_user_tasks Settings.tasks.statuses.resolved
-    @number_of_task_closed = @user_subjects.count_user_tasks Settings.tasks.statuses.closed
+
+    @user_tasks = @user_subject.user_tasks
+    @number_of_task = @user_tasks.size
+
+    @task_statuses = UserTask.statuses
+    @task_statuses.each do |key, value|
+      instance_variable_set "@number_of_task_#{key}", @user_tasks.send(key).size
+    end
   end
 
   private

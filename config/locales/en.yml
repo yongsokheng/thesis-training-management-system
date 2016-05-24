@@ -174,12 +174,6 @@ en:
     remove: "Remove"
     create: "Create"
     update: "Update"
-  tasks:
-    statuses:
-      new: New
-      in_progress: In progress
-      closed: Closed
-      resolved: Resolved
   breadcrumbs:
     paths: "Paths"
     courses:

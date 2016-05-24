@@ -61,7 +61,10 @@
       <p><strong><%= t "tasks.spent_time" %></strong>
         <%= @user_task.spent_time %>&nbsp;<%= t "tasks.hours" %></p>
       <p><strong><%= t "tasks.status" %></strong>
-        <%= t "tasks.statuses.#{Settings.tasks.statuses.key(@user_task.status)}" %></p>
+        <span class="label-status <%= task_status @user_task.status %>">
+          <%= t "user_tasks.statuses.#{@user_task.status}" %>
+        </span>
+      </p>
     </div>
   </div>
 </div>

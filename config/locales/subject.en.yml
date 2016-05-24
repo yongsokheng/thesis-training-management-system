@@ -8,10 +8,9 @@ en:
     in_progress_subjects: "In progress subjects: "
     finish_subject: "Finished subjects: "
     tasks:
-      new_tasks: "New Tasks: "
+      init_tasks: "New Tasks: "
       in_progress_tasks: "In progress tasks: "
-      resolved_tasks: "Resolved tasks: "
-      closed_tasks: "Closed tasks: "
+      finished_tasks: "Finished tasks: "
     dynamic_form:
       add: "Add task master"
       remove: "Remove"

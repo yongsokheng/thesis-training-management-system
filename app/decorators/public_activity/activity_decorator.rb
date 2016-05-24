@@ -46,8 +46,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
   def params
     case key
     when "user_task.change_status"
-      "from #{Settings.tasks.statuses.keys[parameters[:old_status].to_i]} to
-        #{Settings.tasks.statuses.keys[parameters[:new_status].to_i]}"
+      "from #{I18n.t("user_tasks.statuses.#{parameters[:old_status]}")} to
+        #{I18n.t("user_tasks.statuses.#{parameters[:new_status]}")}"
     else
       ""
     end
