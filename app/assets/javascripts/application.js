@@ -43,6 +43,8 @@
 //= require rank
 //= require university
 //= require user_task
+//= require jquery.quicksearch
+//= require reports
 
 $(document).on("ready", function() {
   $(".alert").delay(3000).slideUp();
