@@ -128,6 +128,7 @@ en:
   layouts:
     courses: "Courses"
     subjects: "Subjects"
+    daily_report: "Daily Reports"
     course_masters: "Course Masters"
     roles: "Roles"
     evaluation_templates: Evaluation Templates
@@ -230,4 +231,7 @@ en:
     users:
       all: "All User"
       new: "New"
+      edit: "Edit"
+    reports:
+      all: "All Reports"
       edit: "Edit"

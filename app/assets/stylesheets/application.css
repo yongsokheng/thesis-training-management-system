@@ -41,6 +41,7 @@
  *= require subject
  *= require user_tasks
  *= require reports
+ *= require admin/reports
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  */
 

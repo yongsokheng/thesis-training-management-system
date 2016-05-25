@@ -55,19 +55,24 @@
       </div>
       <ul class="sidebar-menu">
         <li>
-          <a href="/admin/courses">
+          <%= link_to admin_courses_path do %>
             <i class="fa fa-calendar"></i><span><%= t "layouts.courses" %></span>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="/admin/subjects">
+          <%= link_to admin_subjects_path do %>
             <i class="fa fa-laptop"></i><span><%= t "layouts.subjects" %></span>
-          </a>
+          <% end %>
         </li>
-        <li >
-          <a href="/admin/roles">
+        <li>
+          <%= link_to admin_reports_path do %>
+            <i class="fa fa-file-text-o"></i><span><%= t "layouts.daily_report" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_roles_path do %>
             <i class="fa fa-table"></i><span><%= t "layouts.roles" %></span>
-          </a>
+          <% end %>
         </li>
         <li id="evaluations-header" class="treeview">
           <a href="#">
@@ -75,15 +80,28 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/evaluations"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.evaluations" %></a></li>
+            <li>
+              <%= link_to admin_evaluations_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.evaluations" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/evaluation_templates"><i class="fa fa-circle-o">
-              </i><%= t "layouts.evaluation_templates" %></a></li>
+            <li>
+              <%= link_to admin_evaluation_templates_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.evaluation_templates" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/ranks"><i class="fa fa-circle-o"></i><%= t "layouts.ranks" %></a></li>
+            <li>
+              <%= link_to admin_ranks_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.ranks" %>
+              <% end %>
+            </li>
           </ul>
         </li>
         <li id="user-profiles-header" class="treeview">
@@ -92,28 +110,52 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/profiles"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.user_profiles" %></a></li>
+            <li>
+              <%= link_to admin_profiles_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.user_profiles" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/universities"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.universities" %></a></li>
+            <li>
+              <%= link_to admin_universities_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.universities" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/statuses"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.statuses" %></a></li>
+            <li>
+              <%= link_to admin_statuses_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.statuses" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/user_types"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.user_types" %></a></li>
+            <li>
+              <%= link_to admin_user_types_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.user_types" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/user_progresses"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.user_progresses" %></a></li>
+            <li>
+              <%= link_to admin_user_progresses_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.user_progresses" %>
+              <% end %>
+            </li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href="/admin/users"><i class="fa fa-circle-o"></i>
-              <%= t "layouts.users" %></a></li>
+            <li>
+              <%= link_to admin_users_path do %>
+                <i class="fa fa-circle-o"></i>
+                <%= t "layouts.users" %>
+              <% end %>
+            </li>
           </ul>
         </li>
       </ul>
