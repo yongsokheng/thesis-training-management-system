@@ -1,4 +1,16 @@
 <div id="myReport">
+  <div class="breadcrumb-bar">
+    <ul class="list breadcrumb">
+      <li>
+        <%= link_to root_url do %>
+          <i class="glyphicon glyphicon-th-list"></i>
+          <%= t "layouts.paths" %>
+        <% end %>
+      </li>
+      <li><%= link_to t("reports.breadcum.all"), "#" %></li>
+      <li class="active"><%= t "reports.breadcum.new" %></li>
+    </ul>
+  </div>
   <div class="row">
     <div class="row">
       <div class="row">

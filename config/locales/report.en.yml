@@ -7,6 +7,9 @@ en:
     errors: 
       need_task: "Must add at least one task"
       date_errors: "Report date must equal or less than current date"
+    breadcum:
+      all: "Reports"
+      new: "New"
   report: "Report"
   new_report: "New Report"
   all_report: "All Report"
