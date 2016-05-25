@@ -8,6 +8,9 @@
       </div>
       <%= form_for @report do |f| %>
         <div class="row">
+          <%= render "shared/error_messages", object: @report %>
+        </div>
+        <div class="row">
           <div class="row mg-15">
             <div class="col-md-3">
               <%= f.label :report_date %>
@@ -47,7 +50,7 @@
               <table class="table table-hover">
                 <%= f.collection_check_boxes :user_task_ids, 
                   @user_tasks, :id, :task_name do |b| %>
-                  <tr>
+                  <tr class="taskfield">
                     <td><%= b.check_box %></td>
                     <td><%= b.text %></td>
                   </tr>
