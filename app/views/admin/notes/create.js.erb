@@ -1,0 +1,6 @@
+<% if @note.errors.any? %>
+  $(".errors").html("<%= j render "shared/error_messages", object: @note %>");
+<% else %>
+  $("#note-modal").modal("hide");
+  $(".flash").html("<%= j render "layouts/flash" %>")
+<% end %>

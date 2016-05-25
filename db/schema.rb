@@ -122,11 +122,14 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   create_table "notes", force: :cascade do |t|
     t.string   "name",          limit: 255
     t.integer  "evaluation_id", limit: 4
+    t.integer  "user_id",       limit: 4
+    t.integer  "author_id",     limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
   add_index "notes", ["evaluation_id"], name: "index_notes_on_evaluation_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.string   "model_class", limit: 255
@@ -349,6 +352,7 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_foreign_key "evaluation_details", "evaluations"
   add_foreign_key "evaluations", "users"
   add_foreign_key "notes", "evaluations"
+  add_foreign_key "notes", "users"
   add_foreign_key "permissions", "roles"
   add_foreign_key "profiles", "users"
   add_foreign_key "report_details", "reports"

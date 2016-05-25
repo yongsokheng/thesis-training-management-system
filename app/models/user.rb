@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_one :evaluation
   has_many :trainees, class_name: User.name
+  has_many :notes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password
