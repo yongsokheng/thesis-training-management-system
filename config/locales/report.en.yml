@@ -1,5 +1,18 @@
 en:
   reports:
+    admin:
+      daily_reports: "Daily Reports"
+      report: "Reports: "
+      tables:
+        date: "Report Date"
+        trainee_name: "Trainee Name"
+        working_duration: "Working Duration"
+        line_code: "Line Code"
+        task_list: "Task List"
+      actions:
+        edit: "Edit"
+        delete: "Delete"
+        view: "View"
     working_durations:
       all_day: "All day"
       half_day: "Half day"

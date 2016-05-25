@@ -1,0 +1,55 @@
+<div class="row">
+  <%= render "shared/error_messages", object: f.object %>
+</div>
+<div class="row">
+  <div class="row mg-15">
+    <div class="col-md-3">
+      <%= f.label :report_date %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :report_date,
+        class: "form-control datepicker", required: true,
+        value: f.object.report_date.nil? ? Time.now.to_date : f.object.report_date %>
+    </div>
+  </div>
+  <div class="row mg-15">
+    <div class="col-md-3">
+      <%= f.label :working_duration %>
+    </div>
+    <div class="col-md-6">
+      <%= f.select :working_duration, options_from_collection_for_select(
+        i18n_enum(:report, :working_duration), :key,
+        :value, f.object.working_duration), {},
+        class: "form-control" %>
+    </div>
+  </div>
+  <div class="row mg-15">
+    <div class="col-md-3">
+      <%= f.label :line_of_code %>
+    </div>
+    <div class="col-md-6">
+      <%= f.number_field :lines_code, min: 0, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row user_task panel panel-default">
+    <div class="controlContentHeader"><%= t "task" %></div>
+    <div class="searchTask">
+      <input type="text" placeholder="<%= t "search_by" %>"
+        id="seachTaskName" class="form-control"></input>
+    </div>
+    <div class="task-list">
+      <table class="table table-hover">
+        <%= f.collection_check_boxes :user_task_ids,
+          @user_tasks, :id, :task_name do |b| %>
+          <tr class="taskfield">
+            <td><%= b.check_box %></td>
+            <td><%= b.text %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <%= f.submit t("button.save"), class: "btn btn-primary" %>
+</div>

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :user_types, except: :show
     resources :profiles
     resources :user_progresses, except: :show
+    resources :reports, except: [:new, :create]
   end
 
   resources :courses, only: [:show, :index] do

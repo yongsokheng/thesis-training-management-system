@@ -1,0 +1,17 @@
+<div class="row" id="reports">
+  <div class="col-md-8">
+    <div class="title"><%= @report.report_name %></div>
+    <dl class="dl-horizontal report-info">
+      <dt><%= t "repots.admin.tables.trainee_name" %></dt>
+      <dd><%= link_to @report.user_name, user_path(@report.user) %></dd>
+      <dt><%= t "repots.admin.tables.working_duration" %></dt>
+      <dd><%= t "working_durations.#{@report.working_duration}" %></dd>
+      <dt><%= t "repots.admin.tables.line_code" %></dt>
+      <dd><%= @report.lines_code %></dd>
+      <dt><%= t "repots.admin.tables.task_list" %></dt>
+      <dd>
+        <ol><%= render partial: "user_task", collection: @user_tasks, as: :user_task %></ol>
+      </dd>
+    </dl>
+  </div>
+</div>

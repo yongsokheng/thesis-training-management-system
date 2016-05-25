@@ -9,12 +9,18 @@ class Report < ActiveRecord::Base
   has_many :report_details, dependent: :destroy
   has_many :user_tasks, through: :report_details
 
-  validates :user_id, :report_date, 
+  validates :user_id, :report_date,
     :working_duration, presence: true
   validate :need_report_details
   validate :report_date_must_equal_or_less_than_date_now
   validates :lines_code, numericality: {greater_than_or_equal_to: 0}
-  
+
+  delegate :name, to: :user, prefix: true, allow_nil: true
+
+  def report_name
+    "#{I18n.t("reports.admin.report")}#{report_date}"
+  end
+
   private
   def need_report_details
     if self.report_details.blank?

@@ -1,0 +1,8 @@
+<div class="row" id="myReport">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="title"><%= @report.report_name %></div>
+    <%= form_for [:admin, @report] do |f| %>
+      <%= render "reports/form_report", f: f %>
+    <% end %>
+  </div>
+</div>
