@@ -9,6 +9,7 @@ en:
         working_duration: "Working Duration"
         line_code: "Line Code"
         task_list: "Task List"
+        created_at: "Created at"
       actions:
         edit: "Edit"
         delete: "Delete"
@@ -25,6 +26,7 @@ en:
       new: "New"
   report: "Report"
   new_report: "New Report"
+  my_report: "My reports"
   all_report: "All Report"
   search_by: "Search by name"
   task: "Task"

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= report.report_date %></td>
+  <td><%= t "working_durations.#{report.working_duration}" %></td>
+  <td><%= report.lines_code %></td>
+  <td><%= report.created_at.strftime t("date.formats.report_created") %></td>
+</tr>

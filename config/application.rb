@@ -30,6 +30,7 @@ module Ftms
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.time_zone = "Hanoi"
     config.i18n.default_locale = :en
     I18n.config.enforce_available_locales = true
     # Do not swallow errors in after_commit/after_rollback callbacks.

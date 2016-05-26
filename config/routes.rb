@@ -61,5 +61,5 @@ Rails.application.routes.draw do
   end
   resources :user_tasks, except: [:show, :new, :create]
   resources :user_courses, :show
-  resources :reports, only: [:new, :create]
+  resources :reports, only: [:index, :new, :create]
 end
