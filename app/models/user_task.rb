@@ -18,12 +18,12 @@ class UserTask < ActiveRecord::Base
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :description, :content, to: :task, prefix: true, allow_nil: true
 
-  scope :user_task_of_subject_progress, 
-    -> {joins(:user_subject).where "user_subjects.status = ?", 
+  scope :user_task_of_subject_progress,
+    -> {joins(:user_subject).where "user_subjects.status = ?",
       UserSubject.statuses[:progress]}
 
   after_update :subject_progress
-  after_update :create_history
+  after_create :create_history
 
   enum status: [:init, :in_progress, :finished]
 
