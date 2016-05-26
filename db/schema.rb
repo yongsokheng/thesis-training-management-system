@@ -290,11 +290,11 @@ ActiveRecord::Schema.define(version: 20160524024845) do
 
   create_table "user_task_histories", force: :cascade do |t|
     t.integer  "user_task_id",   limit: 4
-    t.integer  "spent_time",     limit: 4
-    t.integer  "estimated_time", limit: 4
-    t.integer  "status",         limit: 4, default: 0
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.float    "spent_time",     limit: 24
+    t.float    "estimated_time", limit: 24
+    t.integer  "status",         limit: 4,  default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "user_task_histories", ["user_task_id"], name: "index_user_task_histories_on_user_task_id", using: :btree
@@ -303,13 +303,13 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.integer  "task_id",         limit: 4
     t.integer  "user_subject_id", limit: 4
     t.integer  "user_id",         limit: 4
-    t.integer  "progress",        limit: 4, default: 0
-    t.integer  "spent_time",      limit: 4
-    t.integer  "estimated_time",  limit: 4
+    t.integer  "progress",        limit: 4,  default: 0
+    t.float    "spent_time",      limit: 24
+    t.float    "estimated_time",  limit: 24
     t.integer  "redmine_task_id", limit: 4
-    t.integer  "status",          limit: 4, default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "status",          limit: 4,  default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "user_tasks", ["task_id"], name: "index_user_tasks_on_task_id", using: :btree

@@ -11,7 +11,8 @@ class UserTasksController < ApplicationController
   end
 
   def update
-    if @user_task.update_attributes user_task_params
+    @user_task_service = UserTaskService.new @user_task, user_task_params
+    if @user_task_service.update
       track_activity
       flash[:success] = flash_message "updated"
       redirect_to course_subject_path(@user_course, @user_subject.subject)

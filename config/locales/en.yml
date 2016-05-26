@@ -50,6 +50,7 @@ en:
       finish_course: "Course was finished successfully"
       reopen_course: "Course was reopened successfully"
       course_not_upate: "Course couldn't updated successfully"
+      unknow_errors: "Transaction fails"
   tasks:
     update: "Update"
     complete: "Complete"
