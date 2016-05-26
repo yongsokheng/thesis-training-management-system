@@ -2,6 +2,10 @@ class ReportsController < ApplicationController
   load_and_authorize_resource
   before_action :get_user_task, only: [:new, :create]
 
+  def index
+    @reports = current_user.reports.order created_at: :desc
+  end
+
   def new
   end
 
