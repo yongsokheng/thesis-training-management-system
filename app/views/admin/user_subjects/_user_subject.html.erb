@@ -1,0 +1,59 @@
+<div class="user-task-info row">
+  <div class="col-md-2">
+    <strong><%= link_to user_subject.user.name, user_subject.user %></strong>
+  </div>
+  <div class="col-md-2">
+    <strong><%= t "subjects.fields.start_date" %></strong>&nbsp;:
+    <span class="text-danger"><%= user_subject.start_date %></span>
+  </div>
+
+  <div class="col-md-2">
+    <strong><%= t "subjects.fields.end_date" %></strong>&nbsp;:
+    <span class="text-danger"><%= user_subject.end_date %></span>
+  </div>
+
+  <div class="col-md-2">
+    <strong><%= t "subjects.fields.progress" %></strong>&nbsp;:
+    <span class="text-danger"><%= "#{user_subject.progress} %" %></span>
+  </div>
+
+  <% if @course.progress? %>
+    <div class="col-md-3 pull-right">
+      <% if user_subject.init? %>
+        <span class="pull-right">
+          <%= link_to t("admin.actions.show_subject.start"),
+            [:admin, @course_subject, user_subject],
+            method: :patch, remote: true, class: "btn btn-primary" %>
+        </span>
+      <% elsif user_subject.progress? %>
+        <span class="pull-right">
+          <%= link_to t("admin.actions.show_subject.finish"),
+            [:admin, @course_subject, user_subject],
+            method: :patch, remote: true, class: "btn btn-success" %>
+        </span>
+        <span class="label label-warning pull-right">
+          <%= user_subject.status %>
+        </span>
+      <% else %>
+        <span class="label label-danger pull-right">
+          <%= user_subject.status %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div id="user-subject-chart-<%= user_subject.id %>"
+    data-user-subject-id="<%= user_subject.id %>"
+    data-tasks="<%=
+      instance_variable_get "@number_tasks_user_#{user_subject.id}" %>"
+    data-date="<%=
+      instance_variable_get("@task_finish_perday_#{user_subject.id}").keys %>"
+    data-tasks-finish-perday="<%=
+      instance_variable_get("@task_finish_perday_#{user_subject.id}").values
+      %>"
+    data-tasks-do-perday="<%=
+      instance_variable_get("@task_do_perday_#{user_subject.id}").values %>">
+  </div>
+</div>

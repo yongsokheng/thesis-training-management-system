@@ -46,6 +46,7 @@
 //= require user_task
 //= require jquery.quicksearch
 //= require reports
+//= require user_subject
 
 $(document).on("page:update", function() {
   $(".alert").delay(3000).slideUp();
