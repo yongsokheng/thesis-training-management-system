@@ -6,6 +6,10 @@ class ReportsController < ApplicationController
     @reports = current_user.reports.order created_at: :desc
   end
 
+  def show
+    @tasks = @report.user_tasks
+  end
+
   def new
   end
 
@@ -19,7 +23,7 @@ class ReportsController < ApplicationController
       render :new
     end
   end
-  
+
   private
   def report_params
     params.require(:report).permit Report::ATTRIBUTES_PARAMS

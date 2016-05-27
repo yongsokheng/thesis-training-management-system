@@ -1,7 +1,4 @@
 #myReport {
-  .breadcrumb-bar {
-    margin-left: -43px;
-  }
   .task-list {
     height: 270px;
     overflow:auto;
@@ -25,5 +22,19 @@
   #seachTaskName {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  .report-info {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+
+    dt {
+      text-align: left;
+    }
+
+    ol {
+      padding-left: 12px;
+    }
   }
 }
