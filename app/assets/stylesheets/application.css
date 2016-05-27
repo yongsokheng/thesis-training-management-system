@@ -33,6 +33,7 @@
  *= require admin/universities
  *= require admin/user_progress
  *= require admin/users
+ *= require admin/notes
  *= require bootstrap-datepicker3
  *= require admin/AdminLTE.min
  *= require admin/all-skins.min

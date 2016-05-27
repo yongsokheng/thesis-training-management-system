@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     end
     resources :users do
       resource :evaluations
-      resources :notes
     end
 
     resources :evaluations, only: :index
@@ -44,6 +43,7 @@ Rails.application.routes.draw do
     resources :profiles
     resources :user_progresses, except: :show
     resources :reports, except: [:new, :create]
+    resources :notes, except: :index
   end
 
   resources :courses, only: [:show, :index] do

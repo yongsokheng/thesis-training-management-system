@@ -5,5 +5,9 @@ class Note < ActiveRecord::Base
 
   validates :name, presence: true
 
-  ATTRIBUTES_PARAMS = [:name, :evaluation_id]
+  ATTRIBUTES_PARAMS = [:name, :evaluation_id, :user_id]
+
+  scope :load_notes, ->user_id, author_id{
+    where user_id: user_id, author_id: author_id
+  }
 end
