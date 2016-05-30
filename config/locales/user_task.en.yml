@@ -10,4 +10,7 @@ en:
     fields:
       spent_time: "Spent time"
       estimated_time: "Estimated time"
+      status: "Status"
+      created_at: "Created at"
     history: "View history"
+    content: "Content"
