@@ -17,6 +17,10 @@ class Report < ActiveRecord::Base
 
   delegate :name, to: :user, prefix: true, allow_nil: true
 
+  scope :date_round, ->start_date, end_date do
+    where "report_date >= ? AND report_date <= ?", start_date, end_date
+  end
+
   def report_name
     "#{I18n.t("reports.admin.report")}#{report_date}"
   end

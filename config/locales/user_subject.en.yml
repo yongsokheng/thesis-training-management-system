@@ -15,3 +15,8 @@ en:
     labels:
       content: "Content"
       days: "days"
+    chart:
+      title: "Trainee progress"
+      task_total: "Total task"
+      task_do: "Task do"
+      task_finish: "Task finish"
