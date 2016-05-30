@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @inprogress_course = @user_courses.course_progress.last
     @finished_courses = @user_courses.course_finished
 
+    @note = Note.new
+    @notes = Note.load_notes @user, current_user
+
     add_breadcrumb @user.name
   end
 
