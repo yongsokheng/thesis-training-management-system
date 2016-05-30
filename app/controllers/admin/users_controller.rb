@@ -46,6 +46,20 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  def show
+    add_breadcrumb_path "users"
+
+    @activities = PublicActivity::Activity.user_activities(@user.id).recent.limit(20).decorate
+    @user_courses = @user.user_courses
+    @inprogress_course = @user_courses.course_progress.last
+    @finished_courses = @user_courses.course_finished
+
+    @note = Note.new
+    @notes = Note.load_notes @user, current_user
+
+    add_breadcrumb @user.name
+  end
+
   private
   def user_params
     params.require(:user).permit User::ATTRIBUTES_PARAMS

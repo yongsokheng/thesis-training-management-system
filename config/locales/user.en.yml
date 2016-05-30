@@ -30,6 +30,13 @@ en:
       status: "Status"
       action: "Action"
       role: "Role"
+    tabs:
+      activities: "Activities"
+      finished_courses: "Fnished courses"
+      inprogress_courses: "Inprogress courses"
+    notes: "Notes"
+    titles:
+      none_finished_course: "You have not finished any course"
   signins:
     banner: "Please Login"
     remember: "Remember me"
