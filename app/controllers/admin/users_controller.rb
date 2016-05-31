@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  include StatisticData
+
   load_and_authorize_resource
   before_action :load_role, except: [:index, :show, :destroy]
 
@@ -51,8 +53,11 @@ class Admin::UsersController < ApplicationController
 
     @activities = PublicActivity::Activity.user_activities(@user.id).recent.limit(20).decorate
     @user_courses = @user.user_courses
-    @inprogress_course = @user_courses.course_progress.last
     @finished_courses = @user_courses.course_finished
+    @inprogress_course = @user_courses.course_progress.last
+    @user_subjects = @inprogress_course.user_subjects
+
+    statistic_task_of_user
 
     @note = Note.new
     @notes = Note.load_notes @user, current_user

@@ -37,6 +37,7 @@ en:
     notes: "Notes"
     titles:
       none_finished_course: "You have not finished any course"
+      not_learn_any_course: "You have not learned any course now!"
   signins:
     banner: "Please Login"
     remember: "Remember me"
