@@ -1,15 +1,11 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-1">
     <%= link_to image_tag("#{user_task.status}.png",
-      size: Settings.image_size_100),
-      course_subject_user_task_path(@user_subject.course_subject, user_task)  %>
+      size: Settings.image_size_50),
+      course_subject_user_task_path(@user_subject.course_subject, user_task) %>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-10">
     <div class="heading">
-      <span class="label-status <%= task_status user_task.status %>">
-        <%= t "user_tasks.statuses.#{user_task.status}" %>
-      </span>
-
       <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
         !user_task.finished? %>
         <span class="edit-task">
@@ -35,7 +31,6 @@
     </div>
     <div class="task-name"><%= link_to user_task.task_name,
       course_subject_user_task_path(@user_subject.course_subject, user_task) %></div>
-    <div><%= truncate user_task.task_description, length: 80 %></div>
   </div>
 </div>
 <hr>
