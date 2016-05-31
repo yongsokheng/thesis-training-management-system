@@ -6,6 +6,13 @@ module StatisticData
     end
   end
 
+  def statistic_task_of_user
+    @user_subjects.each do |user_subject|
+      statistic_total_tasks user_subject
+      statistic_total_time_of_user user_subject
+    end
+  end
+
   private
   def statistic_total_tasks user_subject
     tasks_temp = []
@@ -48,5 +55,25 @@ module StatisticData
 
     instance_variable_set "@task_finish_perday_#{user_subject.id}", task_finish_perday
     instance_variable_set "@task_do_perday_#{user_subject.id}", task_do_perday
+  end
+
+  def statistic_total_time_of_user user_subject
+    during_time = user_subject.subject.during_time * Settings.hours_working_day
+    time_total_done = 0
+
+    user_subject.user_tasks.each do |user_task|
+      time_total_done += user_task.spent_time if user_task.spent_time
+    end
+
+    color = if time_total_done > during_time
+      "red"
+    elsif time_total_done == during_time
+      "#e4d354"
+    else
+      "#00a65a"
+    end
+
+    instance_variable_set "@time_total_done_#{user_subject.id}", [during_time, time_total_done]
+    instance_variable_set "@color_#{user_subject.id}", color
   end
 end

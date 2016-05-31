@@ -20,3 +20,5 @@ en:
       task_total: "Total task"
       task_do: "Task do"
       task_finish: "Task finish"
+      during_time: "During time"
+      done_time: "Done time"
