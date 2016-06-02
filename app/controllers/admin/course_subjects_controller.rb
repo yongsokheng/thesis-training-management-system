@@ -8,8 +8,9 @@ class Admin::CourseSubjectsController < ApplicationController
 
   def edit
     add_breadcrumb_path "courses"
-    add_breadcrumb @course_subject.course_name, :admin_course_path
-    add_breadcrumb @course_subject.subject_name, :admin_course_subject_path
+    add_breadcrumb @course_subject.course_name, admin_course_path(@course)
+    add_breadcrumb @course_subject.subject_name, admin_course_subject_path(@course,
+      @course_subject.subject)
     add_breadcrumb_edit "subjects"
   end
 

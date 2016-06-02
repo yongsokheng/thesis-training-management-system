@@ -23,6 +23,7 @@ class UserCourse < ActiveRecord::Base
     role_id)}
 
   delegate :id, :name, to: :user, prefix: true, allow_nil: true
+  delegate :name, to: :course_programming_language, prefix: true, allow_nil: true
 
   private
   def create_user_subjects_when_assign_new_user
