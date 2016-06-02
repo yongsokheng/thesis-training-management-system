@@ -17,6 +17,8 @@ class UserCourse < ActiveRecord::Base
     .where("courses.status = ?", Course.statuses[:progress]).order :updated_at}
   scope :course_finished, ->{joins(:course)
     .where("courses.status = ?", Course.statuses[:finish])}
+  scope :course_not_init, ->{joins(:course)
+    .where("courses.status <> ?", Course.statuses[:init])}
 
   delegate :id, :name, to: :user, prefix: true, allow_nil: true
 

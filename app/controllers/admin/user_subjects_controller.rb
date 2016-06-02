@@ -1,4 +1,5 @@
 class Admin::UserSubjectsController < ApplicationController
+  include StatisticData
   load_and_authorize_resource
 
   def update
@@ -18,5 +19,6 @@ class Admin::UserSubjectsController < ApplicationController
     @subject = @course_subject.subject
     @user_subjects = @course_subject.user_subjects
     @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
+    statistic_information
   end
 end

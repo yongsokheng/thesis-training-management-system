@@ -7,6 +7,6 @@ class CoursesController < ApplicationController
 
   private
   def load_course
-    @user_courses = current_user.user_courses_active
+    @user_courses = current_user.user_courses.course_not_init
   end
 end
