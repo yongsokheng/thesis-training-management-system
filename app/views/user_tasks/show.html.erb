@@ -8,9 +8,9 @@
         <% end %>
       </li>
       <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-      <li><%= link_to @course.name, course_path(@course) %></li>
+      <li><%= link_to @user_subject.course_name, user_course_path(@user_subject.user_course) %></li>
       <li>
-        <%= link_to @user_subject.subject_name, course_subject_path(@course,
+        <%= link_to @user_subject.name, course_subject_path(@course,
           @user_subject.subject) %>
       </li>
       <li class="active"><%= @user_task.task_name %></li>

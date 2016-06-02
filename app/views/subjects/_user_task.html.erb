@@ -2,10 +2,13 @@
   <div class="col-md-1">
     <%= link_to image_tag("#{user_task.status}.png",
       size: Settings.image_size_50),
-      course_subject_user_task_path(@user_subject.course_subject, user_task) %>
+      course_subject_user_task_path(@user_subject.course_subject, user_task),
+      title: t("user_tasks.statuses.#{user_task.status}") %>
   </div>
   <div class="col-md-10">
-    <div class="heading">
+    <div class="task-name">
+      <span><%= link_to user_task.task_name,
+      course_subject_user_task_path(@user_subject.course_subject, user_task) %></span>
       <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
         !user_task.finished? %>
         <span class="edit-task">
@@ -14,23 +17,9 @@
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </span>
-        <div id="user-task-<%= user_task.id %>" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="label-modal"><%= t "tasks.update" %></h4>
-              </div>
-              <div class="modal-body modal-user-task">
-                <%= render partial: "user_tasks/edit", locals: {user_task: user_task} %>
-              </div>
-            </div>
-          </div>
-        </div>
       <% end %>
     </div>
-    <div class="task-name"><%= link_to user_task.task_name,
-      course_subject_user_task_path(@user_subject.course_subject, user_task) %></div>
   </div>
 </div>
 <hr>
+<%= render "edit_task_modal", user_task: user_task %>

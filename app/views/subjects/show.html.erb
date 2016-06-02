@@ -10,13 +10,13 @@
             <% end %>
           </li>
           <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-          <li><%= link_to @user_subject.course_name,  user_course_path(@user_subject.user_course) %></li>
-          <li class="active"><%= @user_subject.subject_name %></li>
+          <li><%= link_to @user_subject.course_name, user_course_path(@user_subject.user_course) %></li>
+          <li class="active"><%= @user_subject.name %></li>
         </ul>
       </div>
 
       <div class="subject-overview">
-        <div class="subject-title"><%= @user_subject.subject_name %></div>
+        <div class="subject-title"><%= @user_subject.name %></div>
         <div class="description"><%= @user_subject.description %></div>
         <div class="subject-content box-divider">
           <div class="label-title"><%= t "subjects.content" %></div>

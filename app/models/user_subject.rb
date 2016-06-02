@@ -61,7 +61,7 @@ class UserSubject < ActiveRecord::Base
   end
 
   def name
-    course_subject.subject.name
+    course_subject.subject_name
   end
 
   def description

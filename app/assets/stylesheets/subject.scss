@@ -28,29 +28,13 @@
       }
     }
 
-    .heading {
-      margin-bottom: 10px;
-      margin-top: 10px;
-
-      .label-status {
-        border-radius: 3px;
-        color: white;
-        font-weight: 500;
-        padding: 0px 3px 1px 5px;
-        margin-left: 0px;
-        margin-right: 0.625em;
-      }
-
-      .user-progress, .edit-task {
-        margin-right: 0.625em;
-        padding-left: 0.625em;
-        border-left: 1px solid #e2e8e9;
-      }
-    }
-
     .task-name {
       font-size: 125%;
-      margin-bottom: 5px;
+      line-height: 3;
+
+      .edit-task {
+        margin-left: 14px;
+      }
     }
 
     .select-assign {

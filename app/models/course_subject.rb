@@ -30,7 +30,9 @@ class CourseSubject < ActiveRecord::Base
   end
 
   def create_user_subjects_when_add_new_subject
-    create_user_subjects course.user_courses, [self], course_id
+    trainee_role = Role.find_by name: "trainee"
+    create_user_subjects course.user_courses.find_user_by_role(trainee_role.id),
+      [self], course_id
   end
 
   def create_tasks
