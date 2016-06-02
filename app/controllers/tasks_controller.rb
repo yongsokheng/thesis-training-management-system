@@ -17,10 +17,12 @@ class TasksController < ApplicationController
   def update
     if @task.update_attributes task_params
       flash[:success] = flash_message "updated"
+      redirect_to course_subject_user_task_path @course_subject,
+        @task.user_tasks.first
     else
       flash[:failed] = flash_message "not_updated"
+      render :edit
     end
-    redirect_to :back
   end
 
   def destroy
