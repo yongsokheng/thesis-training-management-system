@@ -1,5 +1,10 @@
 $(document).on('page:change', function(){
-  $.each($('*[id^="user-subject-chart-"]'), function (key, value){
+  user_subject_chart();
+  profile_user_subject_chart();
+});
+
+function user_subject_chart() {
+  $.each($('*[id^="user-subject-chart-"]'), function (key, value) {
     var user_subject_id = $(value).data('user-subject-id');
     var keys = $(value).data('date');
     var tasks = $(value).data('tasks');
@@ -69,8 +74,10 @@ $(document).on('page:change', function(){
       });
     }
   });
+}
 
-  $.each($('*[id^="user-user-subject-chart-"]'), function (key, value){
+function profile_user_subject_chart() {
+  $.each($('*[id^="user-user-subject-chart-"]'), function (key, value) {
     var user_subject_id = $(value).data('user-subject-id');
     var tasks = $(value).data('tasks');
     var color = $(value).data('color');
@@ -132,5 +139,5 @@ $(document).on('page:change', function(){
         }]
       });
     }
-  })
-});
+  });
+}
