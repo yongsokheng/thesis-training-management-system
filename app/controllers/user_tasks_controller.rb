@@ -8,6 +8,9 @@ class UserTasksController < ApplicationController
     @user_subject = @user_task.user_subject
     @course_subject = @user_subject.course_subject
     @user_task_histories = @user_task.user_task_histories
+
+    @estimate_time = @user_task.estimated_time ? @user_task.estimated_time : 0
+    @total_spent_time = @user_task_histories.sum :spent_time
   end
 
   def update

@@ -2,15 +2,15 @@ class UserTaskService
   def initialize user_task, user_task_params = nil
     @user_task = user_task
     @user_task_params = user_task_params
+    @spent_time = @user_task_params[:spent_time]
     check_estimated_time
-    check_spent_time
     check_status
   end
 
   def update
     @successed = UserTaskHistory.transaction do
       begin
-        create_history
+        create_history if @spent_time.present? || @estimated_time.present? || @status.present?
         UserTask.transaction(requires_new: true) do
           @user_task.update_attributes! @user_task_params
         end
@@ -32,14 +32,6 @@ class UserTaskService
   def create_history
     @user_task.user_task_histories.create! spent_time: @spent_time,
       estimated_time: @estimated_time, status: @status
-  end
-
-  def check_spent_time
-    @spent_time = if @user_task.spent_time.present? && @user_task_params[:spent_time].present?
-      @user_task_params[:spent_time].to_i + @user_task.spent_time
-    else
-      @user_task_params[:spent_time]
-    end
   end
 
   def check_estimated_time

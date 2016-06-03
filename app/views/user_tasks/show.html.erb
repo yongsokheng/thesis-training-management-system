@@ -87,10 +87,8 @@
     </div>
     <div class="col-md-4 pull-right well">
       <div id="user-task-chart"
-        data-estimated-time=<%= @user_task.estimated_time ?
-          @user_task.estimated_time : 0 %>
-        data-spent-time=<%= @user_task.spent_time ?
-          @user_task.spent_time : 0 %>
+        data-estimated-time=<%= @estimate_time %>
+        data-spent-time=<%= @total_spent_time %>
         data-color=<%= spent_time_chart_color @user_task %>>
       </div>
     </div>
