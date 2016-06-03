@@ -19,6 +19,8 @@ class UserCourse < ActiveRecord::Base
     .where("courses.status = ?", Course.statuses[:finish])}
   scope :course_not_init, ->{joins(:course)
     .where("courses.status <> ?", Course.statuses[:init])}
+  scope :find_user_by_role, ->role_id{joins(:user).where("users.role_id = ?",
+    role_id)}
 
   delegate :id, :name, to: :user, prefix: true, allow_nil: true
 
