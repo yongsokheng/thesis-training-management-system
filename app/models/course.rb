@@ -10,6 +10,7 @@ class Course < ActiveRecord::Base
   validates :name, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :programming_language_id, presence: true
 
   has_many :course_subjects, dependent: :destroy
   has_many :user_courses, dependent: :destroy

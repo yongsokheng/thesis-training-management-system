@@ -289,12 +289,12 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id", using: :btree
 
   create_table "user_task_histories", force: :cascade do |t|
-    t.integer  "user_task_id",   limit: 4
     t.float    "spent_time",     limit: 24
     t.float    "estimated_time", limit: 24
     t.integer  "status",         limit: 4,  default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "user_task_id",   limit: 4
   end
 
   add_index "user_task_histories", ["user_task_id"], name: "index_user_task_histories_on_user_task_id", using: :btree
@@ -364,7 +364,7 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "user_courses"
   add_foreign_key "user_subjects", "users"
-  add_foreign_key "user_task_histories", "user_tasks"
+  add_foreign_key "user_task_histories", "user_tasks", on_delete: :cascade
   add_foreign_key "user_tasks", "tasks", on_delete: :cascade
   add_foreign_key "user_tasks", "user_subjects", on_delete: :cascade
   add_foreign_key "user_tasks", "users"
