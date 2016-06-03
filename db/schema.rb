@@ -222,7 +222,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
 
   create_table "task_masters", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "image",       limit: 255
     t.text     "description", limit: 65535
     t.text     "content",     limit: 65535
     t.integer  "subject_id",  limit: 4
@@ -234,7 +233,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name",              limit: 255
-    t.string   "image",             limit: 255
     t.text     "description",       limit: 65535
     t.text     "content",           limit: 65535
     t.integer  "task_master_id",    limit: 4
