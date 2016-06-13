@@ -55,9 +55,11 @@ class Admin::UsersController < ApplicationController
     @user_courses = @user.user_courses
     @finished_courses = @user_courses.course_finished
     @inprogress_course = @user_courses.course_progress.last
-    @user_subjects = @inprogress_course.user_subjects
 
-    statistic_task_of_user
+    if @inprogress_course
+      @user_subjects = @inprogress_course.user_subjects
+      statistic_task_of_user
+    end
 
     @note = Note.new
     @notes = Note.load_notes @user, current_user

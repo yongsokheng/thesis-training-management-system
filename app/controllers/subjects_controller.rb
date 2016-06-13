@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   load_and_authorize_resource :user
-  load_and_authorize_resource :course, only: [:index, :show]
+  load_and_authorize_resource :user_course, only: [:show]
   load_and_authorize_resource :subject, only: :show
 
   before_action :load_course, only: :update
@@ -10,11 +10,11 @@ class SubjectsController < ApplicationController
   def show
     @task_masters = @subject.task_masters
     @course_subject = CourseSubject.includes(:tasks,
-      user_subjects: [course: [:users], user_tasks: :task]).find_by course_id: @course.id,
-      subject_id: @subject.id
+      user_subjects: [course: [:users], user_tasks: :task])
+      .find_by course_id: @user_course.course_id, subject_id: @subject.id
 
     @user_subjects = @course_subject.user_subjects
-    @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == current_user.id}
+    @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == @user_course.user_id}
 
     users = @user_subject.course.users
     @trainers = users.trainers

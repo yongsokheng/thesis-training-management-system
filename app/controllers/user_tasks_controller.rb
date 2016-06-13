@@ -11,6 +11,7 @@ class UserTasksController < ApplicationController
 
     @estimate_time = @user_task.estimated_time ? @user_task.estimated_time : 0
     @total_spent_time = @user_task_histories.sum :spent_time
+    @user_course = UserCourse.find_by user: @user_task.user, course: @course
   end
 
   def update
@@ -18,7 +19,7 @@ class UserTasksController < ApplicationController
     if @user_task_service.update
       track_activity
       flash[:success] = flash_message "updated"
-      redirect_to course_subject_path(@user_course, @user_subject.subject)
+      redirect_to user_course_subject_path @user_course, @user_subject.subject
     else
       flash[:failed] = flash_message "not_updated"
       render :edit
@@ -32,7 +33,8 @@ class UserTasksController < ApplicationController
 
   def load_user_subject_course
     @user_subject = @user_task.user_subject
-    @user_course = @user_task.user_subject.course
+    @user_course = UserCourse.find_by user: @user_task.user,
+      course: @user_subject.course
     @old_status = @user_task.status
   end
 

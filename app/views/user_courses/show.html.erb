@@ -24,7 +24,7 @@
     <div class="subject-list">
       <% @user_subjects.each_with_index do |user_subject, index| %>
         <div class="col-xs-1">
-          <%= link_to course_subject_path(@course, user_subject.subject),
+          <%= link_to user_course_subject_path(@user_course, user_subject.subject),
             title: t("user_subjects.statuses.#{user_subject.status}") do %>
             <% if index == 0 %>
               <div class="node node-<%= user_subject.status %>"></div>
@@ -41,8 +41,11 @@
           <div class="col-xs-10 infor">
             <div>
               <span class="subject-name"><%= link_to user_subject.name,
-              course_subject_path(@course, user_subject.subject) %></span>&nbsp;
-              <span><i><%= "#{user_subject.during_time} "%><%= t("user_subjects.labels.days") %></i></span>
+                user_course_subject_path(@user_course, user_subject.subject) %>
+              </span>&nbsp;
+              <span><i><%= "#{user_subject.during_time} "%>
+                <%= t("user_subjects.labels.days") %></i>
+              </span>
             </div>
             <div><%= truncate(user_subject.description, length: 110) %></div>
           </div>
