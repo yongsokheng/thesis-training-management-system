@@ -14,6 +14,11 @@ class TasksController < ApplicationController
     redirect_to :back
   end
 
+  def edit
+    @user_course = UserCourse.find_by user: current_user,
+      course: @course_subject.course
+  end
+
   def update
     if @task.update_attributes task_params
       flash[:success] = flash_message "updated"

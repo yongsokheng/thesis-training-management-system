@@ -29,7 +29,8 @@
           <div class="overview">
             <%= t "subjects.task_overview" %>
             <%= link_to t("subjects.task.new_task"), "#",
-              data: {toggle: "modal", target: "#TaskModal"}, class: "btn-action pull-right" %>
+              data: {toggle: "modal", target: "#TaskModal"},
+              class: "btn-action pull-right" if current_user.is_trainee? %>
           </div>
           <%= render partial: "user_task", collection: @user_tasks %>
         </div>

@@ -60,6 +60,8 @@ Rails.application.routes.draw do
     resource :profiles
   end
   resources :user_tasks, except: [:show, :new, :create]
-  resources :user_courses, :show
+  resources :user_courses, only: [:show] do
+    resources :subjects, only: [:show]
+  end
   resources :reports, except: [:edit, :update, :destroy]
 end
