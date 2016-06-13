@@ -35,8 +35,8 @@ $(document).on("page:change", function(){
     },
     series: [{
       data: [
-        [I18n.t('user_tasks.fields.estimated_time'), $('#user-task-chart').data("estimated-time")],
-        [I18n.t('user_tasks.fields.spent_time'), $('#user-task-chart').data("spent-time")]
+        [I18n.t('user_tasks.fields.estimated_time'), parseFloat($('#user-task-chart').data("estimated-time"))],
+        [I18n.t('user_tasks.fields.spent_time'), parseFloat($('#user-task-chart').data("spent-time"))]
       ],
       dataLabels: {
         enabled: true,
