@@ -2,8 +2,8 @@ class UserTaskService
   def initialize user_task, user_task_params = nil
     @user_task = user_task
     @user_task_params = user_task_params
-    @spent_time = @user_task_params[:spent_time]
     check_estimated_time
+    check_spent_time
     check_status
   end
 
@@ -32,6 +32,11 @@ class UserTaskService
   def create_history
     @user_task.user_task_histories.create! spent_time: @spent_time,
       estimated_time: @estimated_time, status: @status
+  end
+
+  def check_spent_time
+    @spent_time = @user_task_params[:spent_time]
+    @user_task_params[:spent_time] = @user_task_params[:spent_time].to_f + @user_task.spent_time.to_f
   end
 
   def check_estimated_time
