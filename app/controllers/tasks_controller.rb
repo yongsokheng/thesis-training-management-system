@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   load_and_authorize_resource :course_subject
   before_action :load_user_subject, only: [:create, :edit, :update, :destroy]
   before_action :add_task_info, only: [:create]
+  before_action :load_user_course, only: [:edit, :destroy]
 
   def create
     if @task.save
@@ -15,8 +16,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @user_course = UserCourse.find_by user: current_user,
-      course: @course_subject.course
   end
 
   def update
@@ -33,7 +32,7 @@ class TasksController < ApplicationController
   def destroy
     if @task.destroy
       flash[:success] = flash_message "deleted"
-      redirect_to course_subject_path(@course_subject.course, @user_subject.subject)
+      redirect_to user_course_subject_path @user_course, @user_subject.subject
     else
       flash[:failed] = flash_message "not_deteletd"
       redirect_to :back
@@ -53,5 +52,9 @@ class TasksController < ApplicationController
   def load_user_subject
     @user_subject = UserSubject.find_by user: current_user,
       course_subject: @course_subject
+  end
+
+  def load_user_course
+    @user_course = current_user.user_courses.find_by course_id: @course_subject.course_id
   end
 end

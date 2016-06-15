@@ -64,7 +64,7 @@ function user_subject_chart() {
             y: tasks[2],
             color: '#5bc0de'
           }],
-          center: [100, 80],
+          center: ['50%', 80],
           size: 100,
           showInLegend: false,
           dataLabels: {
@@ -130,7 +130,7 @@ function profile_user_subject_chart() {
             y: tasks[2],
             color: '#5bc0de'
           }],
-          center: [100, 80],
+          center: ['50%', 80],
           size: 100,
           showInLegend: false,
           dataLabels: {
