@@ -85,11 +85,11 @@ module ApplicationHelper
   def set_status status
     case status
     when "init"
-      "label label-primary"
+      "label label-warning"
     when "progress"
       "label label-success"
     when "finish"
-      "label label-danger"
+      "label label-info"
     end
   end
 
