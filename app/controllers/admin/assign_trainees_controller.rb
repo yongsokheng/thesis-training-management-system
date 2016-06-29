@@ -1,5 +1,6 @@
 class Admin::AssignTraineesController < ApplicationController
   load_and_authorize_resource :course
+  authorize_resource class: false
 
   def edit
     @trainees = User.available_of_course @course.id

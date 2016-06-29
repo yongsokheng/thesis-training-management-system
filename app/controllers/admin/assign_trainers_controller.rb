@@ -1,5 +1,6 @@
 class Admin::AssignTrainersController < ApplicationController
   load_and_authorize_resource :course
+  authorize_resource class: false
 
   def edit
     @trainers = Role.find_by(name: "trainer").users

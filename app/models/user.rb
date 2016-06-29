@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
   scope :find_by_role, -> role{where role: role}
   scope :trainers, ->{joins(:role).where("roles.name = 'trainer'")}
   scope :trainees, ->{joins(:role).where("roles.name = 'trainee'")}
+  scope :find_by_course, ->course{joins(:user_courses)
+    .where("user_courses.course_id in (?)", course).uniq}
 
   delegate :total_point, :current_rank, to: :evaluation, prefix: true, allow_nil: true
 
@@ -61,6 +63,10 @@ class User < ActiveRecord::Base
 
   def is_trainee?
     role.name == "trainee"
+  end
+
+  def in_course? course
+    user_courses.exists? course_id: course
   end
 
   private

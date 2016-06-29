@@ -3,6 +3,13 @@ class Admin::ReportsController < ApplicationController
   before_action :load_data, only: [:edit, :update]
 
   def index
+    if current_user.is_admin?
+      @users = Report.order created_at: :desc
+    else
+      courses = current_user.user_courses.pluck :course_id
+      users = User.find_by_course(courses).pluck :id
+      @reports = Report.find_by_user users
+    end
     add_breadcrumb_index "reports"
   end
 
