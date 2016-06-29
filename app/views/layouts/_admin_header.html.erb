@@ -28,7 +28,8 @@
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <%= link_to t("staticpages.profile"), user_path(current_user), class: "btn btn-default btn-flat" %>
+                  <%= link_to t("staticpages.profile"), user_path(current_user),
+                    class: "btn btn-default btn-flat" %>
                 </div>
                 <div class="pull-right">
                   <%= link_to t("staticpages.logout"), destroy_user_session_path,
@@ -54,110 +55,57 @@
         </div>
       </div>
       <ul class="sidebar-menu">
-        <li>
-          <%= link_to admin_courses_path do %>
-            <i class="fa fa-calendar"></i><span><%= t "layouts.courses" %></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_subjects_path do %>
-            <i class="fa fa-laptop"></i><span><%= t "layouts.subjects" %></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_reports_path do %>
-            <i class="fa fa-file-text-o"></i><span><%= t "layouts.daily_report" %></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_roles_path do %>
-            <i class="fa fa-table"></i><span><%= t "layouts.roles" %></span>
-          <% end %>
-        </li>
-        <li id="evaluations-header" class="treeview">
-          <a href="#">
-            <i class="fa fa-book"></i><span><%= t "layouts.evaluations" %></span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_evaluations_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.evaluations" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_evaluation_templates_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.evaluation_templates" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_ranks_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.ranks" %>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-        <li id="user-profiles-header" class="treeview">
-          <a href="#">
-            <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_profiles_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.user_profiles" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_universities_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.universities" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_statuses_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.statuses" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_user_types_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.user_types" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_user_progresses_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.user_progresses" %>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_users_path do %>
-                <i class="fa fa-circle-o"></i>
-                <%= t "layouts.users" %>
-              <% end %>
-            </li>
-          </ul>
-        </li>
+        <% if can? :read, Course %>
+          <li>
+            <%= link_to admin_courses_path do %>
+              <i class="fa fa-calendar"></i><span><%= t "layouts.courses" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <% if can? :read, Subject %>
+          <li>
+            <%= link_to admin_subjects_path do %>
+              <i class="fa fa-laptop"></i><span><%= t "layouts.subjects" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <% if can? :read, Report %>
+          <li>
+            <%= link_to admin_reports_path do %>
+              <i class="fa fa-file-text-o"></i><span><%= t "layouts.daily_report" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <% if can? :read, Role %>
+          <li>
+            <%= link_to admin_roles_path do %>
+              <i class="fa fa-table"></i><span><%= t "layouts.roles" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <% if can?(:read, Evaluation) || can?(:read, EvaluationTemplate) ||
+          can?(:read, Rank) %>
+          <li id="evaluations-header" class="treeview">
+            <a href="#">
+              <i class="fa fa-book"></i><span><%= t "layouts.evaluations" %></span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <%= render "layouts/side_panel",
+              object: [Evaluation, EvaluationTemplate, Rank] %>
+          </li>
+        <% end %>
+        <% if can?(:read, Profile) || can?(:read, University) ||
+          can?(:read, Status) || can?(:read, UserType) ||
+          can?(:read, UserProgress) || can?(:read, User) %>
+          <li id="user-profiles-header" class="treeview">
+            <a href="#">
+              <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <%= render "layouts/side_panel", object: [Profile, University,
+              Status, UserType, UserProgress, User] %>
+          </li>
+        <% end %>
       </ul>
     </section>
   </aside>

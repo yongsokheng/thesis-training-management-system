@@ -1,5 +1,6 @@
 class Admin::ChangeStatusCoursesController < ApplicationController
   load_and_authorize_resource :course
+  authorize_resource class: false
 
   def update
     if @course.init?

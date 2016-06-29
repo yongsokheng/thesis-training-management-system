@@ -20,6 +20,7 @@ class Report < ActiveRecord::Base
   scope :date_round, ->start_date, end_date do
     where "report_date >= ? AND report_date <= ?", start_date, end_date
   end
+  scope :find_by_user, ->user{where(user_id: user).order created_at: :desc}
 
   def report_name
     "#{I18n.t("reports.admin.report")}#{report_date}"

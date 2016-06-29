@@ -5,6 +5,12 @@ class Admin::UsersController < ApplicationController
   before_action :load_role, except: [:index, :show, :destroy]
 
   def index
+    if current_user.is_admin?
+      @users = User.order name: :asc
+    else
+      courses = current_user.user_courses.pluck :course_id
+      @users = User.find_by_course courses
+    end
     add_breadcrumb_index "users"
   end
 
