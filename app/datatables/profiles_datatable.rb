@@ -5,12 +5,14 @@ class ProfilesDatatable
 
   def initialize view
     @view = view
+    @current_user = @view.current_user
+    @trainees = User.trainees
   end
 
   def as_json options = {}
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: Profile.count,
+      iTotalRecords: profiles.total_count,
       iTotalDisplayRecords: profiles.total_count,
       aaData: data
     }
@@ -32,13 +34,18 @@ class ProfilesDatatable
   end
 
   def fetch_profiles
-    users = User.find_by_role(Role.trainee).order "#{sort_column} #{sort_direction}"
-    profiles = users
-    profiles = profiles.per_page_kaminari(page).per per_page
-    if params[:sSearch].present?
-      profiles = profiles.where "name like :search", search: "%#{params[:sSearch]}%"
+    if @current_user.is_admin?
+      users = @trainees
+    else
+      courses = @current_user.user_courses.pluck :course_id
+      users = @trainees.find_by_course courses
     end
-    profiles
+    users = users.order("#{sort_column} #{sort_direction}")
+      .per_page_kaminari(page).per per_page
+    if params[:sSearch].present?
+      users = users.where "users.name like :search", search: "%#{params[:sSearch]}%"
+    end
+    users
   end
 
   def page
@@ -50,8 +57,8 @@ class ProfilesDatatable
   end
 
   def sort_column
-    columns = %w[name]
-    columns[params[:iSortCol_1].to_i]
+    columns = %w[id name]
+    columns[params[:iSortCol_0].to_i]
   end
 
   def sort_direction

@@ -5,12 +5,14 @@ class EvaluationsDatatable
 
   def initialize view
     @view = view
+    @current_user = @view.current_user
+    @trainees = User.trainees
   end
 
   def as_json options = {}
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: User.find_by_role(Role.trainee).count,
+      iTotalRecords: users.total_count,
       iTotalDisplayRecords: users.total_count,
       aaData: data
     }
@@ -42,10 +44,16 @@ class EvaluationsDatatable
   end
 
   def fetch_users
-    users = User.find_by_role(Role.trainee).order "#{sort_column} #{sort_direction}"
-    users = users.per_page_kaminari(page).per per_page
+    if @current_user.is_admin?
+      users = @trainees
+    else
+      courses = @current_user.user_courses.pluck :course_id
+      users = @trainees.find_by_course courses
+    end
+    users = users.order("#{sort_column} #{sort_direction}")
+      .per_page_kaminari(page).per per_page
     if params[:sSearch].present?
-      users = users.where "name like :search", search: "%#{params[:sSearch]}%"
+      users = users.where "users.name like :search", search: "%#{params[:sSearch]}%"
     end
     users
   end
@@ -59,8 +67,8 @@ class EvaluationsDatatable
   end
 
   def sort_column
-    columns = %w[name]
-    columns[params[:iSortCol_1].to_i]
+    columns = %w[id name]
+    columns[params[:iSortCol_0].to_i]
   end
 
   def sort_direction

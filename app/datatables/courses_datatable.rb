@@ -10,7 +10,7 @@ class CoursesDatatable
   def as_json options = {}
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: Course.count,
+      iTotalRecords: courses.total_count,
       iTotalDisplayRecords: courses.total_count,
       aaData: data
     }
@@ -27,11 +27,6 @@ class CoursesDatatable
           Settings.image_size_20), @view.admin_user_path(trainer),
           title: trainer.name)
         end,
-        course.load_trainees.map do |trainee|
-          link_to(@view.avatar_user_tag(trainee, "profile-user",
-          Settings.image_size_20), @view.admin_user_path(trainee),
-          title: trainee.name)
-        end,
         course.status
       ]
     end
@@ -42,12 +37,14 @@ class CoursesDatatable
   end
 
   def fetch_courses
-    courses = Course.order("#{sort_column} #{sort_direction}")
+    current_user = @view.current_user
+    current_courses = current_user.is_admin? ? Course : current_user.courses
+    courses = current_courses.order("#{sort_column} #{sort_direction}")
       .where("name like :search", search: "%#{params[:sSearch]}%")
       .per_page_kaminari(page).per per_page
 
-    if params[:sSearch_4].present?
-      courses = courses.where "status = :search", search: "#{params[:sSearch_4]}"
+    if params[:sSearch_3].present?
+      courses = courses.where "status = :search", search: "#{params[:sSearch_3]}"
     end
     courses
   end
@@ -61,8 +58,8 @@ class CoursesDatatable
   end
 
   def sort_column
-    columns = %w[name]
-    columns[params[:iSortCol_1].to_i]
+    columns = %w[id name]
+    columns[params[:iSortCol_0].to_i]
   end
 
   def sort_direction

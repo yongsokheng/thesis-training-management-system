@@ -55,8 +55,8 @@ class RanksDatatable
   end
 
   def sort_column
-    columns = %w[rank_value]
-    columns[params[:iSortCol_1].to_i]
+    columns = %w[id rank_value]
+    columns[params[:iSortCol_0].to_i]
   end
 
   def sort_direction
