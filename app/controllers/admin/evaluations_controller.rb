@@ -7,8 +7,6 @@ class Admin::EvaluationsController < ApplicationController
   before_action :load_notes, only: :edit
 
   def index
-    role_trainee = Role.trainee
-    @users =  User.find_by_role role_trainee
     respond_to do |format|
       format.html {add_breadcrumb_index "evaluations"}
       format.json {

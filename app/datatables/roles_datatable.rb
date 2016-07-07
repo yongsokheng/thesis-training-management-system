@@ -52,8 +52,8 @@ class RolesDatatable
   end
 
   def sort_column
-    columns = %w[name]
-    columns[params[:iSortCol_1].to_i]
+    columns = %w[id name]
+    columns[params[:iSortCol_0].to_i]
   end
 
   def sort_direction

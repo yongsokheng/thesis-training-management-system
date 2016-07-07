@@ -3,7 +3,6 @@ class Admin::CoursesController < ApplicationController
   before_action :load_data, except: [:index, :show, :destroy]
 
   def index
-    @courses = (current_user.is_admin? ? @courses.recent : current_user.courses)
     respond_to do |format|
       format.html {add_breadcrumb_index "courses"}
       format.json {

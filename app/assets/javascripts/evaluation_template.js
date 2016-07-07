@@ -5,6 +5,8 @@ $(document).on("page:change", function() {
       bJQueryUI: true,
       bProcessing: true,
       bServerSide: true,
+      order: [1],
+      "columnDefs": [{"orderable": false, "targets": [0, 2, 3, 4, 5]}],
       aLengthMenu: [
         [5, 10, 20, 50, 100, -1],
         [5, 10, 20, 50, 100, "All"]

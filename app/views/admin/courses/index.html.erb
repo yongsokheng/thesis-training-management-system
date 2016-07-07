@@ -9,30 +9,27 @@
         </span>
       </div>
     </div>
-    <% unless @courses.nil? %>
-      <table id="course-tbl" class="table table-bordered display" data-source="<%= admin_courses_url format: "json" %>" >
-        <thead>
-          <tr class="active">
-            <th></th>
-            <th><%= t "courses.table.name" %></th>
-            <th><%= t "courses.table.trainers" %></th>
-            <th><%= t "courses.table.trainees" %></th>
-            <th><%= t "courses.table.status" %></th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-        <tfoot hidden>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><%= t "courses.table.all_status" %></td>
-          </tr>
-        </tfoot>
-      </table>
-    <% end %>
+    <table id="course-tbl" class="table table-bordered display"
+      data-source="<%= admin_courses_url format: "json" %>" >
+      <thead>
+        <tr class="active">
+          <th></th>
+          <th><%= t "courses.table.name" %></th>
+          <th><%= t "courses.table.trainers" %></th>
+          <th><%= t "courses.table.status" %></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <tfoot hidden>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= t "courses.table.all_status" %></td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>
 
