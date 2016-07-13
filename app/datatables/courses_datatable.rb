@@ -20,7 +20,7 @@ class CoursesDatatable
   def data
     courses.each_with_index.map do |course, index|
       [
-        index + 1,
+        course.id,
         link_to(course.name, @view.admin_course_path(course)),
         course.load_trainers.map do |trainer|
           link_to(@view.avatar_user_tag(trainer, "profile-user",

@@ -3,20 +3,7 @@
     <h3 class="label box-title"><%= t "subjects.members" %></h3>
   </div>
   <div class="box-body no-padding">
-    <ul class="user-list clearfix">
-      <%= render partial: "shared/member", collection: @trainees_show, as: :user %>
-      <li class="plus-node">
-        <% if @count_member > 0 %>
-          <%= link_to "+#{@count_member}", "#", data: {toggle: "modal", target: "#member-modal"},
-            title: t("subjects.modal.member_details") %>
-        <% else %>
-          <%= link_to "#", data: {toggle: "modal", target: "#member-modal"},
-            title: t("subjects.modal.member_details") do %>
-            <i class="fa fa-users" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
-      </li>
-    </ul>
+    <%= render "shared/member_panel" %>
   </div>
 </div>
 
@@ -25,12 +12,14 @@
     <%= image_course_tag @course, @course.programming_language_name, Settings.image_size_200 %>
   </div>
   <div class="course-infor">
-    <p><%= t "subjects.new_subjects" %>
-      <span class="status"><%= @number_of_user_subjects_new %>/<%= @number_of_user_subjects %></span></p>
-    <p><%= t "subjects.in_progress_subjects" %>
-      <span class="status"><%= @number_of_user_subjects_progress %>/<%= @number_of_user_subjects %></span></p>
-    <p><%= t "subjects.finish_subjects" %>
-      <span class="status"><%= @number_of_user_subjects_finish %>/<%= @number_of_user_subjects %></span></p>
+    <% @user_subject_statuses.each do |key, value| %>
+      <div class="status">
+        <i class="fa fa-circle circle-<%= key %>" aria-hidden="true"></i> &nbsp;
+        <%= t "subjects.#{key}_subjects" %>
+        <%= instance_variable_get "@number_of_user_subject_#{key}" %>/
+        <%= @number_of_user_subjects %>
+      </div>
+    <% end %>
   </div>
 </div>
 

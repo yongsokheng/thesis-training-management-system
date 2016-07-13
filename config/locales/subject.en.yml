@@ -4,9 +4,9 @@ en:
     breadcrumb:
       subjects: "Subjects"
     documents: "Documents: "
-    new_subjects: "New subjects: "
-    in_progress_subjects: "In progress subjects: "
-    finish_subject: "Finished subjects: "
+    init_subjects: "New subjects: "
+    progress_subjects: "In progress subjects: "
+    finish_subjects: "Finished subjects: "
     tasks:
       init_tasks: "New Tasks: "
       in_progress_tasks: "In progress tasks: "
