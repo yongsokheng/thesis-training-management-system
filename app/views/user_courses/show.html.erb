@@ -15,10 +15,6 @@
 
     <h2><%= @course.name %></h2>
     <div class="description"><%= @course.description %></div>
-    <div class="box-divider">
-      <div class="label-title"><%= t "user_subjects.labels.content"%></div>
-      <p><%= @course.content.html_safe %></p>
-    </div>
 
     <h3><%= t "courses.list_subject" %></h3>
     <div class="subject-list">

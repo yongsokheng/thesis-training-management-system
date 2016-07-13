@@ -152,6 +152,36 @@
   }
 }
 
+#courses {
+  .subject {
+    background-color: white;
+    padding: 5px 8px;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    margin: 0px;
+  }
+
+  .subject-image {
+    padding: 0px;
+  }
+
+  .subject-name {
+    font-size: 20px;
+    color: #21abc7;
+    font-weight: 300;
+    margin: 4px 0px;
+  }
+
+  tr {
+    td {
+      border: none;
+    }
+  }
+}
+
 .list-subjects{
   line-height: 2;
   label {

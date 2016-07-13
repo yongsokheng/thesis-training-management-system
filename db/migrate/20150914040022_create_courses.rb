@@ -4,7 +4,6 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text :description
-      t.text :content
       t.integer :status, default: 0
       t.integer :programming_language_id
       t.date :start_date

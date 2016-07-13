@@ -221,11 +221,11 @@ namespace :db do
       {name: "Ruby on Rails ",
         image: File.open(File.join(Rails.root, "app/assets/images/course/Rails-1.png")),
         description: "Master your Ruby skills and increase your Rails street cred by learning to build dynamic, sustainable applications for the web.\r\n",
-        content: "<pre>\r\n[Ruby book in 3 days]\r\n<a href=\"https://raw.githubusercontent.com/jay3126/various_imp_ebooks/master/the_ruby_programming_language.pdf\" target=\"_blank\" title=\"https://raw.githubusercontent.com/jay3126/various_imp_ebooks/master/the_ruby_programming_language.pdf\">https://raw.githubusercontent.com/jay3126/various_imp_ebooks/master/the_ruby_programming_language.pdf</a>\r\n\r\n[Rails tutorial in 2 weeks]\r\n<a href=\"https://www.railstutorial.org/book\" target=\"_blank\" title=\"https://www.railstutorial.org/book\">https://www.railstutorial.org/book</a>\r\n\r\n[Setup Manual]\r\n<a href=\"https://docs.google.com/document/d/1PJtwd0KvK3d16jxgOcGwYLDbG501I-PDKPOCMxDX9Lg/edit#heading=h.eqkdaet38e6s\" target=\"_blank\" title=\"https://docs.google.com/document/d/1PJtwd0KvK3d16jxgOcGwYLDbG501I-PDKPOCMxDX9Lg/edit#heading=h.eqkdaet38e6s\">https://docs.google.com/document/d/1PJtwd0KvK3d16jxgOcGwYLDbG501I-PDKPOCMxDX9Lg/edit#heading=h.eqkdaet38e6s</a> </pre>\r\n", status: 1, programming_language_id: 1, start_date: Time.now + 2.days, end_date: Time.now + 10.days},
+        status: 1, programming_language_id: 1, start_date: Time.now + 2.days, end_date: Time.now + 10.days},
       {name: "Git Framgia",
         image: File.open(File.join(Rails.root, "app/assets/images/course/git.png")),
         description: "Git is the most popular version control system that developers use to track and share code.\r\n",
-        content: "<p>Learn the basics of Git,&nbsp;</p>\r\n\r\n<article data-course-id=\"16\" id=\"course_16\" itemscope=\"\" itemtype=\"http://schema.org/Product\">\r\n<p itemprop=\"description\">Get a more advanced introduction and guide to Git.</p>\r\n\r\n<article data-course-id=\"30\" id=\"course_30\" itemscope=\"\" itemtype=\"http://schema.org/Product\">\r\n<p itemprop=\"description\">Learn more advanced Git techniques.</p>\r\n</article>\r\n</article>\r\n", status: 0, programming_language_id: 1, start_date: Time.now + 1.day, end_date: Time.now + 3.days}
+        status: 0, programming_language_id: 1, start_date: Time.now + 1.day, end_date: Time.now + 3.days}
     ])
 
     puts "Create Course Subject"
