@@ -7,16 +7,13 @@ class UserTasksController < ApplicationController
     @user_courses = @course.user_courses
     @user_subject = @user_task.user_subject
     @course_subject = @user_subject.course_subject
-    @user_task_histories = @user_task.user_task_histories
 
     @estimate_time = @user_task.estimated_time
-    @total_spent_time = @user_task.spent_time
     @user_course = UserCourse.find_by user: @user_task.user, course: @course
   end
 
   def update
-    @user_task_service = UserTaskService.new @user_task, user_task_params
-    if @user_task_service.update
+    if @user_task.update_attributes user_task_params
       track_activity
       flash[:success] = flash_message "updated"
       redirect_to user_course_subject_path @user_course, @user_subject.subject

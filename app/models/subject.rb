@@ -20,6 +20,6 @@ class Subject < ActiveRecord::Base
 
   SUBJECT_ATTRIBUTES_PARAMS = [:name, :description, :content, :image, :during_time,
     documents_attributes: [:id, :name, :content, :_destroy],
-    task_masters_attributes: [:id, :name, :description, :content, :_destroy,
+    task_masters_attributes: [:id, :name, :description, :_destroy,
     documents_attributes: [:id, :name, :content, :_destroy]]]
 end

@@ -1,13 +1,10 @@
 class UserTask < ActiveRecord::Base
   include PublicActivity::Model
 
-  ATTRIBUTES_PARAMS = [
-    :spent_time, :estimated_time, :status, :user_id, :user_subject_id, :task_id
-  ]
+  ATTRIBUTES_PARAMS = [:estimated_time, :status, :user_id, :user_subject_id, :task_id]
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     dependent: :destroy
-  has_many :user_task_histories, dependent: :destroy
   has_many :report_details, dependent: :destroy
 
   belongs_to :task
@@ -16,14 +13,13 @@ class UserTask < ActiveRecord::Base
 
   delegate :id, :name, :image_url, :description, to: :task, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
-  delegate :description, :content, to: :task, prefix: true, allow_nil: true
+  delegate :description, to: :task, prefix: true, allow_nil: true
 
   scope :user_task_of_subject_progress,
     -> {joins(:user_subject).where "user_subjects.status = ?",
       UserSubject.statuses[:progress]}
 
   after_update :subject_progress
-  after_create :create_history
 
   enum status: [:init, :in_progress, :finished]
 
@@ -47,10 +43,5 @@ class UserTask < ActiveRecord::Base
       self.user_subject.update_attributes(total_time_task_closed: total_time, progress: total_time * 100 /
         (self.user_subject.during_time * Settings.hours_working_day))
     end
-  end
-
-  def create_history
-    user_task_histories.create spent_time: spent_time,
-      estimated_time: estimated_time, status: status
   end
 end

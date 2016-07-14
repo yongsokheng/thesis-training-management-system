@@ -44,7 +44,6 @@
 //= require evaluation_template
 //= require rank
 //= require university
-//= require user_task
 //= require jquery.quicksearch
 //= require reports
 //= require user_subject

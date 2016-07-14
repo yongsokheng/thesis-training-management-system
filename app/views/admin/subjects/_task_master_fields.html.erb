@@ -21,16 +21,6 @@
     </div>
     <br>
     <div class="row">
-      <div class="col-md-2 text-right">
-        <span><%= t "tasks.content" %>:</span>
-      </div>
-      <div class="col-md-10">
-        <%= f.text_area :content, class: "ckeditor form-control", required: true,
-          rows: 10 %>
-      </div>
-    </div>
-    <br>
-    <div class="row">
       <div class="col-md-2 text-right"></div>
       <div class="col-md-10">
         <%= f.fields_for :documents do |builder| %>
