@@ -1,5 +1,4 @@
 class Admin::SubjectsController < ApplicationController
-  include StatisticData
   load_and_authorize_resource
 
   def index
@@ -21,8 +20,6 @@ class Admin::SubjectsController < ApplicationController
     end
     @user_subjects = @course_subject.user_subjects
     @user_subjects_not_finishs = @user_subjects.not_finish @user_subjects.finish
-
-    statistic_information
 
     add_breadcrumb_path "courses"
     add_breadcrumb @course.name, admin_course_path(@course)

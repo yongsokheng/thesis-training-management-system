@@ -39,6 +39,8 @@ en:
       end_date: "End date"
       progress: "Progress"
       image: "Image"
+      action: "Action"
+      status: "Status"
     label:
       issues: "Issues"
       action: "Action"

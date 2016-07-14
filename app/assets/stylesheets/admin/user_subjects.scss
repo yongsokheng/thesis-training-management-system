@@ -1,74 +1,27 @@
 #user-subject {
-  margin-left: 10px;
-
-  .progress {
-    background-color: gray;
-  }
-  
-  .user-list {
-    margin: 30px 0px;
-  }
-
-  .btn-start-all {
-    margin-right: 10px;
-  }
-
-  .tbl-user-task {
-    .status-task {
-      width: 10%;
-    }
-
-    .name {
-      width: 20%;
-    }
-
-    .estimate-time, , .progress-value, .assign_user {
-      width: 20%;
-      text-align: center;
-    }
-
-    .spent-time {
-      width: 10%;
-    }
-  }
-
-  .subject-status {
-    padding: 3px;
-    width: 80px;
-  }
-
-  .user-task-info {
-    font-size: 15px;
-    padding-top: 15px;
-  }
-
-  #subject-header {
-    padding-right: 20px;
-  }
-
-  #subject-h2-header {
-    color: #575a5b;
-    font-family: "Open Sans",Helvetica,Arial,sans-serif;
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: 0.3125em;
-    margin-top: 0;
-  }
-
-  .label {
-    color: #999;
-    font-size: 95%;
-    font-weight: 600;
-    letter-spacing: 0.0125em;
-    margin-bottom: 1.25em;
-  }
-
   .working-days {
     padding-top: 5px;
     color: #D02421;
   }
 
-  .documents {
-    color: #D02421;
+  .btn-status {
+    height: 23px;
+    width: 50px;
+    padding: 0px;
+    border-radius: 1px;
+  }
+
+  .progress {
+    margin-top: 0px;
+  }
+
+  table {
+    .action {
+      text-align: center;
+    }
+
+    th {
+      background-color: #F3F3F3;
+    }
   }
 }
