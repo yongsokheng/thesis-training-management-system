@@ -1,6 +1,4 @@
 class Admin::UsersController < ApplicationController
-  include StatisticData
-
   load_and_authorize_resource
   before_action :load_role, except: [:index, :show, :destroy]
 
@@ -64,7 +62,6 @@ class Admin::UsersController < ApplicationController
 
     if @inprogress_course
       @user_subjects = @inprogress_course.user_subjects
-      statistic_task_of_user
     end
 
     @note = Note.new

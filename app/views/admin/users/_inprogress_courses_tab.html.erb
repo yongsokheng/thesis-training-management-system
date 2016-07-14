@@ -5,21 +5,17 @@
     <ul class="timeline timeline-inverse">
       <% @inprogress_course.user_subjects.each do |user_subject| %>
         <li>
+          <i class="fa progress-bar-<%= user_subject.status %>"
+            title="<%= t "user_subjects.statuses.#{user_subject.status}" %>"></i>
           <% if user_subject.init? %>
-            <i class="fa bg-yellow"></i>
-
             <div class="timeline-item">
-              <h3 class="timeline-header">
+              <div class="timeline-header">
                 <%= link_to user_subject.subject.name,
                   [:admin, @inprogress_course.course, user_subject.subject] %>
-              </h3>
+              </div>
             </div>
-          <% elsif user_subject.progress? %>
-            <i class="fa bg-green"></i>
-            <%= render "user_subject_chart", user_subject: user_subject %>
           <% else %>
-            <i class="fa bg-blue"></i>
-            <%= render "user_subject_chart", user_subject: user_subject %>
+            <%= render "user_subject", user_subject: user_subject %>
           <% end %>
         </li>
       <% end %>

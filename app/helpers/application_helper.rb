@@ -129,4 +129,8 @@ module ApplicationHelper
       OpenStruct.new key: key, value: I18n.t("#{model_name.pluralize}.#{enum}.#{key}")
     end.flatten
   end
+
+  def percentage_format number
+    number_to_percentage number, precision: 1, strip_insignificant_zeros: true
+  end
 end
