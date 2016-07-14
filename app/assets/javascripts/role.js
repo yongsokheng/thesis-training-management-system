@@ -1,18 +1,6 @@
 $(document).on("page:change", function() {
-  jQuery(function() {
-    $("#role-tbl").dataTable({
-      sPaginationType: "full_numbers",
-      bJQueryUI: true,
-      bProcessing: true,
-      bServerSide: true,
-      order: [1],
-      "columnDefs": [{"orderable": false, "targets": [0, 2, 3, 4]}],
-      aLengthMenu: [
-        [5, 10, 20, 50, 100, -1],
-        [5, 10, 20, 50, 100, "All"]
-      ],
-      "pageLength": 10,
-      sAjaxSource: $("#role-tbl").data("source")
-    });
-  });
+  var tbl_role = $("#role-tbl");
+  if(tbl_role.length > 0) {
+    set_datatable(tbl_role, [0, 2, 3, 4]);
+  }
 });

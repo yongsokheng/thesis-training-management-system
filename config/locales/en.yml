@@ -237,3 +237,6 @@ en:
     reports:
       all: "All Reports"
       edit: "Edit"
+  datatables:
+    search_name: "Search name"
+    show_menu: "Show _MENU_"
