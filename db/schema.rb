@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.text     "subject_description", limit: 65535
     t.text     "subject_content",     limit: 65535
     t.string   "image",               limit: 255
+    t.integer  "row_order",           limit: 4
     t.integer  "subject_id",          limit: 4
     t.integer  "course_id",           limit: 4
     t.datetime "created_at",                        null: false
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.string   "name",                    limit: 255
     t.string   "image",                   limit: 255
     t.text     "description",             limit: 65535
-    t.text     "content",                 limit: 65535
     t.integer  "status",                  limit: 4,     default: 0
     t.integer  "programming_language_id", limit: 4
     t.date     "start_date"

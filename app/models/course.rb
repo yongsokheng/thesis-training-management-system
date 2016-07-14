@@ -32,7 +32,7 @@ class Course < ActiveRecord::Base
     reject_if: proc {|attributes| attributes["content"].blank?}, allow_destroy: true
 
   USER_COURSE_ATTRIBUTES_PARAMS = [user_courses_attributes: [:id, :user_id, :_destroy]]
-  COURSE_ATTRIBUTES_PARAMS = [:name, :content, :image, :description,
+  COURSE_ATTRIBUTES_PARAMS = [:name, :image, :description,
     :programming_language_id,
     :start_date, :end_date, documents_attributes:
     [:id, :name, :content, :_destroy], subject_ids: []]

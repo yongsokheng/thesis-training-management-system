@@ -28,7 +28,7 @@ $(document).on('page:change', function() {
             dataType: 'json',
             data: {
               course_subject: {
-                order_position: position
+                row_order_position: position
               }
             }
           });
