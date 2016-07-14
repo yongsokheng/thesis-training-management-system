@@ -1,22 +1,13 @@
 $(document).on("page:change", function() {
-  $("#course-tbl").dataTable({
-    "dom": "<'row'<'col-sm-4'l><'col-sm-4'f><'col-sm-4 filter-status'>>"
-      + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7 pull-right'p>>",
-    sPaginationType: "full_numbers",
-    bJQueryUI: true,
-    bProcessing: true,
-    bServerSide: true,
-    aLengthMenu: [
-      [5, 10, 20, 50, 100, -1],
-      [5, 10, 20, 50, 100, "All"]
-    ],
-    order: [1],
-    "columnDefs": [{"orderable": false, "targets": [0, 2, 3]}],
-    "pageLength": 10,
-    sAjaxSource: $("#course-tbl").data("source")
-  });
+  var tbl_course = $("#course-tbl");
+  var dom = "<'row'<'col-sm-4'f><'col-sm-6 filter-status'><'col-sm-2'l>>"
+    + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7 pull-right'p>>";
 
-  $("#course-tbl").dataTable().columnFilter({
+  if(tbl_course.length > 0) {
+    set_datatable(tbl_course, [0, 2, 3], dom);
+  }
+
+  tbl_course.dataTable().columnFilter({
     aoColumns: [
       null,
       null,

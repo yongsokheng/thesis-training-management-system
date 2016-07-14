@@ -117,17 +117,6 @@
     padding-right: 10px;
   }
 
-  #course-tbl_filter {
-    text-align: left;
-    input {
-      width: 150%;
-    }
-  }
-
-  #course-tbl_paginate {
-    text-align: left;
-  }
-
   #course-tbl {
     .profile-user {
       margin-left: 5px;
@@ -140,13 +129,10 @@
   }
 
   #course-tbl_wrapper {
-    select {
-      height: auto;
-    }
-
     .filter-status {
       select {
         float: right;
+        width: 100px;
       }
     }
   }

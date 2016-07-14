@@ -35,6 +35,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require jquery.dataTables.columnFilter
+//= require datatable
 //= require subject
 //= require course
 //= require evaluation

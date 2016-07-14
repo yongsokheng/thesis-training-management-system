@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require custom
+ *= require datatable
  *= require sign_in
  *= require users
  *= require courses
