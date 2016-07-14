@@ -223,7 +223,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   create_table "task_masters", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.text     "content",     limit: 65535
     t.integer  "subject_id",  limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -234,7 +233,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   create_table "tasks", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.text     "description",       limit: 65535
-    t.text     "content",           limit: 65535
     t.integer  "task_master_id",    limit: 4
     t.boolean  "create_by_trainee",               default: false
     t.integer  "course_subject_id", limit: 4
@@ -286,23 +284,11 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_index "user_subjects", ["user_course_id"], name: "index_user_subjects_on_user_course_id", using: :btree
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id", using: :btree
 
-  create_table "user_task_histories", force: :cascade do |t|
-    t.float    "spent_time",     limit: 24
-    t.float    "estimated_time", limit: 24
-    t.integer  "status",         limit: 4,  default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.integer  "user_task_id",   limit: 4
-  end
-
-  add_index "user_task_histories", ["user_task_id"], name: "index_user_task_histories_on_user_task_id", using: :btree
-
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "task_id",         limit: 4
     t.integer  "user_subject_id", limit: 4
     t.integer  "user_id",         limit: 4
     t.integer  "progress",        limit: 4,  default: 0
-    t.float    "spent_time",      limit: 24
     t.float    "estimated_time",  limit: 24
     t.integer  "redmine_task_id", limit: 4
     t.integer  "status",          limit: 4,  default: 0
@@ -362,7 +348,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "user_courses"
   add_foreign_key "user_subjects", "users"
-  add_foreign_key "user_task_histories", "user_tasks", on_delete: :cascade
   add_foreign_key "user_tasks", "tasks", on_delete: :cascade
   add_foreign_key "user_tasks", "user_subjects", on_delete: :cascade
   add_foreign_key "user_tasks", "users"

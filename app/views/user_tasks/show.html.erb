@@ -56,33 +56,9 @@
           </div>
         <% end %>
       </div>
-      <div class="row">
-        <div class="col-md-9">
-          <div class="description"><%= @user_task.task_description %></div>
-        </div>
-      </div>
       <div class="box-divider">
-        <div class="label-title"><%= t "user_tasks.content" %></div>
-        <p><%= @user_task.task_content.html_safe %></p>
-      </div>
-      <div class="box-divider">
-        <div class="label-title"><%= t "user_tasks.history" %></div>
-        <table class="table table-bordered table-hover">
-          <tr>
-            <td><%= t "user_tasks.fields.spent_time" %></td>
-            <td><%= t "user_tasks.fields.estimated_time" %></td>
-            <td><%= t "user_tasks.fields.status" %></td>
-            <td><%= t "user_tasks.fields.created_at" %></td>
-          </tr>
-          <%= render @user_task_histories %>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-4 pull-right well">
-      <div id="user-task-chart"
-        data-estimated-time=<%= @estimate_time %>
-        data-spent-time=<%= @total_spent_time %>
-        data-color=<%= spent_time_chart_color @user_task %>>
+        <div class="label-title"><%= t "user_tasks.description" %></div>
+        <p><%= @user_task.task_description %></p>
       </div>
     </div>
   </div>

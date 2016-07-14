@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
 
   validates :name, presence: true
 
-  ATTRIBUTES_PARAMS = [:name, :description, :content]
+  ATTRIBUTES_PARAMS = [:name, :description]
 
   scope :not_created_by_trainee, -> do
     where create_by_trainee: false, task_master_id: nil

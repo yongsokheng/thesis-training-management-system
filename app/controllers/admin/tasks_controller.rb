@@ -3,15 +3,6 @@ class Admin::TasksController < ApplicationController
   load_and_authorize_resource :course_subject
   before_action :add_task_info, only: [:create]
 
-  def show
-    @assigned_trainee = @task.assigned_trainee
-    @users = @task.user_tasks.eager_load :user
-    @course = @task.course_subject.course
-    @subject = @task.course_subject.subject
-    @user_task = UserTask.find_by user_id: @assigned_trainee.id,
-      task_id: @task.id
-  end
-
   def new
     load_breadcrumbs
     add_breadcrumb t("breadcrumbs.subjects.new_task")
@@ -20,7 +11,7 @@ class Admin::TasksController < ApplicationController
   def edit
     load_breadcrumbs
     add_breadcrumb @task.name,
-      admin_course_subject_user_task_path(@course_subject, @task.user_tasks.first)
+      admin_course_subject_task_path(@course_subject, @task.user_tasks.first)
     add_breadcrumb t("breadcrumbs.subjects.edit")
   end
 

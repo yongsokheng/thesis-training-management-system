@@ -13,4 +13,4 @@ en:
       status: "Status"
       created_at: "Created at"
     history: "View history"
-    content: "Content"
+    description: "Description"

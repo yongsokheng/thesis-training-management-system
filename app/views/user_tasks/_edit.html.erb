@@ -6,9 +6,6 @@
       <%= f.text_field :estimated_time, class: "form-control",
         required: true %>
 
-      <%= f.label :spent_time, class: "label-user-task" %>
-      <%= f.text_field :spent_time, class: "form-control", value: nil %>
-
       <%= f.label :status, class: "label-user-task" %>
       <p class: "form-control">
         <%= f.select :status, options_from_collection_for_select(

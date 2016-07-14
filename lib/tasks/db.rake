@@ -202,18 +202,19 @@ namespace :db do
     TaskMaster.create!([
       {name: "Get an introduction to numbers, Strings, properties, and methods",
         description: "Get an introduction to numbers, Strings, properties, and methods",
-        content: "<p>When reading data from a file or from other external resources, they always arrive in Ruby as&nbsp;<a href=\"http://ruby-doc.org/core-2.2.0/String.html\">String</a>&nbsp;objects.</p>\r\n\r\n<p>If we would like to use them as numbers we first need to convert them to numbers.</p>\r\n\r\n<p>But which number and how?</p>\r\n\r\n<p>The&nbsp;<a href=\"http://ruby-doc.org/core-2.2.0/String.html\">String</a>&nbsp;objects in Ruby have several methods to convert the string object into a number</p>\r\n", subject_id: 1},
-      {name: "Learn about conversions, arrays, variables, and more methods.",        description: "Learn about conversions, arrays, variables, and more methods.",
-        content: "<p>Arrays are ordered, integer-indexed collections of any object.</p>\r\n\r\n<p>Array indexing starts at 0, as in C or Java. A negative index is assumed to be relative to the end of the array&mdash;that is, an index of -1 indicates the last element of the array, -2 is the next to last element in the array, and so on.</p>\r\n", subject_id: 1},
+        subject_id: 1},
+      {name: "Learn about conversions, arrays, variables, and more methods.",
+        description: "Learn about conversions, arrays, variables, and more methods.",
+        subject_id: 1},
       {name: "Installing Rails, creating a Rails app, database migrations",
         description: "Installing Rails, creating a Rails app, database migrations, the command line, Ruby 1.9 hash syntax, Bundler, database configuration\r\n",
-        content: "<p>Migrations are a convenient way to&nbsp;<a href=\"http://en.wikipedia.org/wiki/Schema_migration\">alter your database schema over time</a>&nbsp;in a consistent and easy way. They use a Ruby DSL so that you don&#39;t have to write SQL by hand, allowing your schema and changes to be database independent</p>\r\n", subject_id: 2},
+        subject_id: 2},
       {name: "Named scopes, callbacks, has_one, relationship options, using Includes, has_many :through",
         description: "Named scopes, callbacks, has_one, relationship options, using Includes, has_many :through",
-        content: "<p>The model and scaffold generators will create migrations appropriate for adding a new model. This migration will already contain instructions for creating the relevant table. If you tell Rails what columns you want, then statements for adding these columns will also be created. For example, running:</p>\r\n", subject_id: 2},
+        subject_id: 2},
       {name: "Discover Git",
         description: "Discover Git in Framgia with Chu Anh Tuan trainer",
-        content: "<p>Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other&#39;s toes. It&#39;s a distributed version control system.</p>\r\n\r\n<p>Our terminal prompt below is currently in a directory we decided to name &quot;octobox&quot;. To initialize a Git repository here, type the following command:</p>\r\n", subject_id: 3}
+        subject_id: 3}
     ])
 
     puts "Create Course"
