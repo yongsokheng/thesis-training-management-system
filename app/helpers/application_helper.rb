@@ -89,7 +89,7 @@ module ApplicationHelper
     when "progress"
       "label label-success"
     when "finish"
-      "label label-info"
+      "label label-danger"
     end
   end
 

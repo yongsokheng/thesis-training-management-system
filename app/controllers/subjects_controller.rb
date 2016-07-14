@@ -19,7 +19,7 @@ class SubjectsController < ApplicationController
     users = @user_subject.course.users
     @trainers = users.trainers
     @trainees = users.trainees
-    @trainees_show = @trainees.limit Settings.number_member_show
+    @members = users.show_members
     @count_member = @user_subjects.size - Settings.number_member_show
 
     @user_tasks = @user_subject.user_tasks

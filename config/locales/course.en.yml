@@ -42,6 +42,7 @@ en:
       trainers: "Trainers"
       course: "Course"
     table:
+      id: "ID"
       name: "Name"
       image: "Image"
       description: "Description"
