@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   has_many :courses, through: :user_courses
   has_many :course_subjects, through: :user_subjects
   has_many :tasks, through: :user_tasks
-  has_many :reports, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_one :evaluation
   has_many :trainees, class_name: User.name

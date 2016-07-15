@@ -12,9 +12,8 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
-    @course = Course.includes(course_subjects:
-      [:tasks, user_subjects: [user: [reports: :report_details], user_tasks:
-      [:user, :task]]]).find params[:course_id]
+    @course = Course.includes(course_subjects: [:tasks,
+      user_subjects: [user_tasks: [:user, :task]]]).find params[:course_id]
     @course_subject = @course.course_subjects.find do |course_subject|
       course_subject.subject_id == @subject.id
     end

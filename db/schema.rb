@@ -176,27 +176,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "report_details", force: :cascade do |t|
-    t.integer  "report_id",    limit: 4
-    t.integer  "user_task_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "report_details", ["report_id"], name: "index_report_details_on_report_id", using: :btree
-  add_index "report_details", ["user_task_id"], name: "index_report_details_on_user_task_id", using: :btree
-
-  create_table "reports", force: :cascade do |t|
-    t.integer  "user_id",          limit: 4
-    t.date     "report_date"
-    t.integer  "working_duration", limit: 4
-    t.integer  "lines_code",       limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
-
   create_table "roles", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.boolean  "allow_access_admin"
@@ -339,9 +318,6 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_foreign_key "notes", "users"
   add_foreign_key "permissions", "roles"
   add_foreign_key "profiles", "users"
-  add_foreign_key "report_details", "reports"
-  add_foreign_key "report_details", "user_tasks"
-  add_foreign_key "reports", "users"
   add_foreign_key "task_masters", "subjects"
   add_foreign_key "tasks", "course_subjects", on_delete: :cascade
   add_foreign_key "user_subjects", "course_subjects", on_delete: :cascade

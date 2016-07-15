@@ -41,8 +41,6 @@
  *= require user_courses
  *= require footer
  *= require subject
- *= require reports
- *= require admin/reports
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  */
 

@@ -45,7 +45,6 @@
 //= require rank
 //= require university
 //= require jquery.quicksearch
-//= require reports
 
 $(document).on("page:update", function() {
   $(".alert").delay(3000).slideUp();
