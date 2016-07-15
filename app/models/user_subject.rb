@@ -80,6 +80,10 @@ class UserSubject < ActiveRecord::Base
     self.user == user
   end
 
+  def percent_progress
+    (user_tasks.finished.size.to_f / user_tasks.size) * 100
+  end
+
   private
   def create_user_tasks
     course_subject.tasks.each do |task|
