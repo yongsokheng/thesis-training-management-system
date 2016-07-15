@@ -282,3 +282,15 @@ select {
 .progress-bar-finish {
   background-color: #ccc !important;
 }
+
+.progress-init {
+  border: 1px solid #DC9F48;
+}
+
+.progress-progress {
+  border: 1px solid #009852;
+}
+
+.progress-finish {
+  border: 1px solid #ccc;
+}
