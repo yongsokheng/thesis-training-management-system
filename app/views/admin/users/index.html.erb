@@ -1,15 +1,25 @@
 <div id="users" class="profile-active">
-  <p class="pull-right"><%= link_to t("buttons.new"),
-    new_admin_user_path, class: "btn btn-success" %></p>
-  <table class="table table-striped tbl-user">
+  <div class="title">
+    <%= t "layouts.user" %>
+    <span>
+      <%= link_to t("user.buttons.new"), new_admin_user_path,
+        class: "btn btn-success pull-right" %>
+    </span>
+  </div>
+
+  <table id="tbl-user" class="table table-bordered display"
+    data-source="<%= admin_users_url format: "json" %>" >
     <thead>
-      <tr>
-        <th class="name"><%= t "user.table.name" %></th>
+      <tr class="active">
+        <th></th>
+        <th><%= t "user.table.name" %></th>
         <th class="email"><%= t "user.table.email" %></th>
         <th class="role"><%= t "user.role" %></th>
-        <th class="action"><%= t "user.labels.action" %></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
-    <%= render @users %>
+    <tbody>
+    </tbody>
   </table>
 </div>

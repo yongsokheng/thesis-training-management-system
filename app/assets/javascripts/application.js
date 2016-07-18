@@ -40,7 +40,7 @@
 //= require course
 //= require evaluation
 //= require role
-//= require profile
+//= require user
 //= require evaluation_template
 //= require rank
 //= require university

@@ -6,12 +6,6 @@ class Profile < ActiveRecord::Base
   belongs_to :user_progress
   belongs_to :status
 
-  ATTRIBUTES_PARAMS = [
-    :start_training_date, :leave_date, :finish_training_date,
-    :ready_for_project, :contract_date, :naitei_company, :trainer_id,
-    :user_type_id, :university_id, :programming_language_id, :user_progress_id,
-    :status_id
-  ]
 
   delegate :name, :email, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :university, prefix: true, allow_nil: true
