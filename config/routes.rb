@@ -41,7 +41,6 @@ Rails.application.routes.draw do
     resources :user_types, except: :show
     resources :profiles
     resources :user_progresses, except: :show
-    resources :reports, except: [:new, :create]
     resources :notes, except: :index
   end
 
@@ -62,5 +61,4 @@ Rails.application.routes.draw do
   resources :user_courses, only: [:show] do
     resources :subjects, only: [:show]
   end
-  resources :reports, except: [:edit, :update, :destroy]
 end

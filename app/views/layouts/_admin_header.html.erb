@@ -69,13 +69,6 @@
             <% end %>
           </li>
         <% end %>
-        <% if can? :read, Report %>
-          <li>
-            <%= link_to admin_reports_path do %>
-              <i class="fa fa-file-text-o"></i><span><%= t "layouts.daily_report" %></span>
-            <% end %>
-          </li>
-        <% end %>
         <% if can? :read, Role %>
           <li>
             <%= link_to admin_roles_path do %>

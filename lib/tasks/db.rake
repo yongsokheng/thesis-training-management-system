@@ -140,8 +140,6 @@ namespace :db do
     ["UserTask", "User", "Task"].each do |name|
       Fabricate :permission, model_class: name, action: "update", role_id: 3
     end
-    Fabricate :permission, model_class: "Report", action: "create", role_id: 3
-    Fabricate :permission, model_class: "Report", action: "read", role_id: 3
 
     puts "Create Rank"
     5.times do
