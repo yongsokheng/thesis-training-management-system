@@ -2,6 +2,7 @@ en:
   user:
     login: "Log in"
     edit_profile: "Edit profile"
+    new_user: "New user"
     fields:
       name: "Name"
       email: "Email"

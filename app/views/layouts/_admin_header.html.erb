@@ -87,16 +87,15 @@
               object: [Evaluation, EvaluationTemplate, Rank] %>
           </li>
         <% end %>
-        <% if can?(:read, Profile) || can?(:read, University) ||
-          can?(:read, Status) || can?(:read, UserType) ||
-          can?(:read, UserProgress) || can?(:read, User) %>
+        <% if can?(:read, University) || can?(:read, Status) ||
+          can?(:read, UserType) || can?(:read, UserProgress) || can?(:read, User) %>
           <li id="user-profiles-header" class="treeview">
             <a href="#">
               <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
-            <%= render "layouts/side_panel", object: [Profile, University,
-              Status, UserType, UserProgress, User] %>
+            <%= render "layouts/side_panel", object: [User, University,
+              Status, UserType, UserProgress] %>
           </li>
         <% end %>
       </ul>

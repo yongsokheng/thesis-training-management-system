@@ -1,20 +1,20 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :load_role, except: [:index, :show, :destroy]
+  before_action :load_data, except: [:index, :show, :destroy]
+  before_action :load_breadcrumb_edit, only: [:edit, :update]
+  before_action :load_breadcrumb_new, only: [:new, :create]
 
   def index
-    if current_user.is_admin?
-      @users = User.order name: :asc
-    else
-      courses = current_user.user_courses.pluck :course_id
-      @users = User.find_by_course courses
+    respond_to do |format|
+      format.html {add_breadcrumb_index "users"}
+      format.json {
+        render json: UsersDatatable.new(view_context)
+      }
     end
-    add_breadcrumb_index "users"
   end
 
   def new
-    add_breadcrumb_path "users"
-    add_breadcrumb_new "users"
+    build_profile
   end
 
   def create
@@ -22,15 +22,12 @@ class Admin::UsersController < ApplicationController
       flash[:success] = flash_message "created"
       redirect_to admin_users_path
     else
-      flash[:failed] = flash_message "not_created"
       render :new
     end
   end
 
   def edit
-    add_breadcrumb_path "users"
-    add_breadcrumb @user.name, user_path(@user)
-    add_breadcrumb_edit "users"
+    build_profile unless @user.profile
   end
 
   def update
@@ -38,7 +35,6 @@ class Admin::UsersController < ApplicationController
       flash[:success] = flash_message "updated"
       redirect_to admin_users_path
     else
-      flash[:failed] = flash_message "not_updated"
       render :edit
     end
   end
@@ -75,7 +71,26 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit User::ATTRIBUTES_PARAMS
   end
 
-  def load_role
-     @roles = Role.all
+  def load_data
+    datas = [Role, University, ProgrammingLanguage, Status, UserType]
+    datas.each do |data|
+      instance_variable_set "@#{data.table_name}", data.all
+    end
+    @trainers = User.trainers
+  end
+
+  def load_breadcrumb_edit
+    add_breadcrumb_path "users"
+    add_breadcrumb @user.name, admin_user_path(@user)
+    add_breadcrumb_edit "users"
+  end
+
+  def load_breadcrumb_new
+    add_breadcrumb_path "users"
+    add_breadcrumb_new "users"
+  end
+
+  def build_profile
+    @user.build_profile
   end
 end

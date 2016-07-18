@@ -1,4 +1,4 @@
-class ProfilesDatatable
+class UsersDatatable
   include AjaxDatatablesRails::Extensions::Kaminari
 
   delegate :params, :link_to, to: :@view
@@ -12,30 +12,35 @@ class ProfilesDatatable
   def as_json options = {}
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: profiles.total_count,
-      iTotalDisplayRecords: profiles.total_count,
+      iTotalRecords: users.total_count,
+      iTotalDisplayRecords: users.total_count,
       aaData: data
     }
   end
 
   private
   def data
-    profiles.each_with_index.map do |profile, index|
+    users.each_with_index.map do |user, index|
       [
         index + 1,
-        link_to(profile.name, @view.edit_admin_profile_path(profile)),
-        link_to(@view.t("button.edit"), @view.edit_admin_profile_path(profile), class: "pull-right")
+        link_to(user.name, @view.admin_user_path(user)),
+        user.email,
+        user.role_name,
+        link_to(@view.t("button.edit"), @view.edit_admin_user_path(user), class: "pull-right"),
+        link_to(@view.t("button.delete"), @view.admin_user_path(user),
+          method: :delete, data: {confirm: @view.t("messages.delete.confirm")},
+          class: "text-danger pull-right")
       ]
     end
   end
 
-  def profiles
-    @profiles ||= fetch_profiles
+  def users
+    @users ||= fetch_users
   end
 
-  def fetch_profiles
+  def fetch_users
     if @current_user.is_admin?
-      users = @trainees
+      users = User.select_all
     else
       courses = @current_user.user_courses.pluck :course_id
       users = @trainees.find_by_course courses
@@ -57,7 +62,7 @@ class ProfilesDatatable
   end
 
   def sort_column
-    columns = %w[id name]
+    columns = %w[id name email roles.name]
     columns[params[:iSortCol_0].to_i]
   end
 

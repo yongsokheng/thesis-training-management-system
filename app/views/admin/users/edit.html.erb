@@ -1,2 +1,4 @@
-<div class="title profile-active"><%= @user.name %></div>
+<% provide :title, t("user.edit_profile") %>
+
+<div class="title profile-active"><%= t "user.edit_profile" %></div>
 <%= render "form" %>

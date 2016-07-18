@@ -25,8 +25,15 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password
 
+  ATTRIBUTES_PROFILE_PARAMS = [
+    :id, :start_training_date, :leave_date, :finish_training_date,
+    :ready_for_project, :contract_date, :naitei_company, :trainer_id,
+    :user_type_id, :university_id, :programming_language_id, :user_progress_id,
+    :status_id
+  ]
+
   ATTRIBUTES_PARAMS = [:name, :email, :password,
-    :password_confirmation, :avatar, :role_id]
+    :password_confirmation, :avatar, :role_id, profile_attributes: ATTRIBUTES_PROFILE_PARAMS]
 
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
@@ -39,11 +46,14 @@ class User < ActiveRecord::Base
   scope :find_by_course, ->course{joins(:user_courses)
     .where("user_courses.course_id in (?)", course).uniq}
   scope :show_members, ->{order(:role_id, :name).limit Settings.number_member_show}
+  scope :select_all, ->{joins :role}
 
   delegate :total_point, :current_rank, to: :evaluation, prefix: true, allow_nil: true
 
   after_create :create_user_profile, if: :is_trainee?
   before_validation :set_password
+
+  accepts_nested_attributes_for :profile
 
   def total_done_tasks user, course
     done_tasks = UserSubject.load_user_subject(user.id, course.id).map(&:user_tasks).flatten.count
