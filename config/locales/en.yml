@@ -138,7 +138,6 @@ en:
     status: "Status"
     evaluations: "Evaluations"
     user_profiles: "User profiles"
-    user_progresses: "User Progresses"
     user: "User"
     footer:
       street: "13F, KeangNam LandMark 72 Building"
@@ -222,10 +221,6 @@ en:
       edit: "Edit"
     user_types:
       all: "All Types"
-      new: "New"
-      edit: "Edit"
-    user_progresses:
-      all: "All Progresses"
       new: "New"
       edit: "Edit"
     users:

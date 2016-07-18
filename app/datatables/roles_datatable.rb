@@ -35,7 +35,7 @@ class RolesDatatable
   end
 
   def fetch_roles
-    roles = Role.order "#{sort_column} #{sort_direction}"
+    roles = Role.not_admin.order "#{sort_column} #{sort_direction}"
     roles = roles.per_page_kaminari(page).per per_page
     if params[:sSearch].present?
       roles = roles.where "name like :search", search: "%#{params[:sSearch]}%"

@@ -8,7 +8,6 @@ class Admin::RolesController < ApplicationController
         render json: RolesDatatable.new(view_context)
       }
     end
-    @roles = Role.all
   end
 
   def new

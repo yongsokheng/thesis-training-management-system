@@ -88,14 +88,14 @@
           </li>
         <% end %>
         <% if can?(:read, University) || can?(:read, Status) ||
-          can?(:read, UserType) || can?(:read, UserProgress) || can?(:read, User) %>
+          can?(:read, UserType) || can?(:read, User) %>
           <li id="user-profiles-header" class="treeview">
             <a href="#">
               <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <%= render "layouts/side_panel", object: [User, University,
-              Status, UserType, UserProgress] %>
+              Status, UserType] %>
           </li>
         <% end %>
       </ul>

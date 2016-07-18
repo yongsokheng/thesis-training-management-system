@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :programming_languages, except: :show
     resources :statuses, except: :show
     resources :user_types, except: :show
-    resources :user_progresses, except: :show
+    resources :profiles
     resources :notes, except: :index
   end
 

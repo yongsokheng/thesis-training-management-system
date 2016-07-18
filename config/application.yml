@@ -51,7 +51,6 @@ defaults: &defaults
     status: "status"
     type: "user_type"
     user_profile: "User profiles"
-    user_progress: "User progress"
     user: "user"
   default_password: 12345678
   users:

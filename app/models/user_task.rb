@@ -20,7 +20,7 @@ class UserTask < ActiveRecord::Base
 
   after_update :subject_progress
 
-  enum status: [:init, :in_progress, :finished]
+  enum status: [:in_progress, :finished]
 
   def nil_master?
     task.task_master_id.nil?

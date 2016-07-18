@@ -31,7 +31,6 @@
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require admin/update_order_course_subject
-//= require admin/user_progress_chart
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require jquery.dataTables.columnFilter

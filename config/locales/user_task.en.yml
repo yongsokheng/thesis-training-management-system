@@ -1,7 +1,6 @@
 en:
   user_tasks:
     statuses:
-      init: "New"
       in_progress: "In progress"
       finished: "Finish"
     chart:
