@@ -162,11 +162,6 @@ namespace :db do
       Fabricate :user_type, name: name
     end
 
-    puts "Create User Progresses"
-    ["Tutorial", "Project demo", "Project 1", "Project 2", "Git"].each do |name|
-      Fabricate :user_progress, name: name
-    end
-
     puts "Create Status"
     ["Inprogress", "Finish", "Prepare project", "Jointed project"].each do |name|
       Fabricate :status, name: name
@@ -289,14 +284,11 @@ namespace :db do
     puts "Profile"
     Profile.create!([
       {user_id: 3, ready_for_project: false,
-        programming_language_id: 1,
-        user_progress_id: 1, status_id: 1},
+        programming_language_id: 1, status_id: 1},
       {user_id: 4, ready_for_project: false,
-        programming_language_id: 1,
-        user_progress_id: 1, status_id: 1},
+        programming_language_id: 1, status_id: 1},
       {user_id: 5, ready_for_project: false, user_type_id: 1,
-        university_id: 1, programming_language_id: 2,
-        user_progress_id: 2, status_id: 3}
+        university_id: 1, programming_language_id: 2, status_id: 3}
     ])
   end
 end

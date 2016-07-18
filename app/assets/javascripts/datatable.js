@@ -5,6 +5,7 @@ function set_datatable(selector, not_order_column, dom) {
   dom = dom || default_dom;
 
   selector.dataTable({
+    retrieve: true,
     "dom": dom,
     bJQueryUI: true,
     bProcessing: true,

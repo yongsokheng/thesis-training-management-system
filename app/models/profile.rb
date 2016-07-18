@@ -3,14 +3,12 @@ class Profile < ActiveRecord::Base
   belongs_to :user_type
   belongs_to :university
   belongs_to :programming_language
-  belongs_to :user_progress
   belongs_to :status
 
 
   delegate :name, :email, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :university, prefix: true, allow_nil: true
   delegate :name, to: :user_type, prefix: true, allow_nil: true
-  delegate :name, to: :user_progress, prefix: true, allow_nil: true
   delegate :name, to: :status, prefix: true, allow_nil: true
   delegate :name, to: :programming_language, prefix: true, allow_nil: true
 end

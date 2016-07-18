@@ -8,7 +8,6 @@ en:
     progress_subjects: "In progress subjects: "
     finish_subjects: "Finished subjects: "
     tasks:
-      init_tasks: "New Tasks: "
       in_progress_tasks: "In progress tasks: "
       finished_tasks: "Finished tasks: "
     dynamic_form:

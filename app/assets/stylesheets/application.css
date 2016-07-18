@@ -32,7 +32,6 @@
  *= require admin/profile
  *= require admin/types
  *= require admin/universities
- *= require admin/user_progress
  *= require admin/users
  *= require admin/notes
  *= require bootstrap-datepicker3
