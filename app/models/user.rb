@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
 
   QUERY = "id NOT IN (SELECT user_id
     FROM user_courses, courses WHERE user_courses.course_id = courses.id

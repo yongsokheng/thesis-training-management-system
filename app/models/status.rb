@@ -1,4 +1,4 @@
-class Status < ActiveRecord::Base
+class Status < ApplicationRecord
   has_many :profiles
 
   ATTRIBUTES_PARAMS = [:name]

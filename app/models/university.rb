@@ -1,4 +1,4 @@
-class University < ActiveRecord::Base
+class University < ApplicationRecord
   has_many :profiles
 
   ATTRIBUTES_PARAMS = [:name]

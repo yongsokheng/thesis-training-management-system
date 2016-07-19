@@ -1,4 +1,4 @@
-class Course < ActiveRecord::Base
+class Course < ApplicationRecord
   include PublicActivity::Model
   include InitUserSubject
   mount_uploader :image, ImageUploader

@@ -1,4 +1,4 @@
-class Note < ActiveRecord::Base
+class Note < ApplicationRecord
   belongs_to :evaluation
   belongs_to :user
   belongs_to :author, class_name: User.name

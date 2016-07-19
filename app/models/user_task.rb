@@ -1,4 +1,4 @@
-class UserTask < ActiveRecord::Base
+class UserTask < ApplicationRecord
   include PublicActivity::Model
 
   ATTRIBUTES_PARAMS = [:estimated_time, :status, :user_id, :user_subject_id, :task_id]

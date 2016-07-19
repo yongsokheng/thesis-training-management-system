@@ -1,4 +1,4 @@
-class Evaluation < ActiveRecord::Base
+class Evaluation < ApplicationRecord
   before_save :cal_total_point, :cal_rank_value
 
   belongs_to :user
