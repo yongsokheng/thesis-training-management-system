@@ -3,7 +3,7 @@
     <a href="/" class="logo">
     <span class="logo-lg"><%= t :name_system %></span></a>
     <nav class="navbar navbar-static-top" role="navigation">
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -79,7 +79,7 @@
         <% if can?(:read, Evaluation) || can?(:read, EvaluationTemplate) ||
           can?(:read, Rank) %>
           <li id="evaluations-header" class="treeview">
-            <a href="#">
+            <a href="javascript:void(0)">
               <i class="fa fa-book"></i><span><%= t "layouts.evaluations" %></span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
@@ -90,7 +90,7 @@
         <% if can?(:read, University) || can?(:read, Status) ||
           can?(:read, UserType) || can?(:read, User) %>
           <li id="user-profiles-header" class="treeview">
-            <a href="#">
+            <a href="javascript:void(0)">
               <i class="fa fa-book"></i><span><%= t "layouts.user_profiles" %></span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
