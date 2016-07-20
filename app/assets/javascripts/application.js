@@ -45,7 +45,7 @@
 //= require university
 //= require jquery.quicksearch
 
-$(document).on("page:update", function() {
+$(document).on("turbolinks:load", function() {
   $(".alert").delay(3000).slideUp();
   $("#error_explanation").delay(3000).slideUp();
 });
@@ -61,7 +61,7 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-$(document).on("page:change", function() {
+$(document).on("turbolinks:load", function() {
   $(".ckeditor").each(function() {
     CKEDITOR.replace($(this).attr("id"));
   });

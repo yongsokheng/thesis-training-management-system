@@ -1,4 +1,4 @@
-$(document).on('page:change', function() {
+$(document).on("turbolinks:load", function() {
   jQuery(function() {
     var cells, desired_width, table_width;
     if ($('#sortable').length > 0) {
