@@ -1,4 +1,4 @@
-class ProgrammingLanguage < ActiveRecord::Base
+class ProgrammingLanguage < ApplicationRecord
   has_many :profiles
   has_many :courses
 

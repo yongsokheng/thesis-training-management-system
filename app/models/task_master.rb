@@ -1,4 +1,4 @@
-class TaskMaster < ActiveRecord::Base
+class TaskMaster < ApplicationRecord
   belongs_to :subject
 
   validates :name, presence: true

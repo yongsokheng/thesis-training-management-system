@@ -1,4 +1,4 @@
-class Subject < ActiveRecord::Base
+class Subject < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :task_masters, dependent: :destroy
   has_many :course_subjects, dependent: :destroy

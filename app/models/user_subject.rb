@@ -1,4 +1,4 @@
-class UserSubject < ActiveRecord::Base
+class UserSubject < ApplicationRecord
   include PublicActivity::Model
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy

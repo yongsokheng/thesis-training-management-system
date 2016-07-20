@@ -1,4 +1,4 @@
-class EvaluationTemplate < ActiveRecord::Base
+class EvaluationTemplate < ApplicationRecord
   has_many :evaluation_details
   ATTRIBUTES_PARAMS = [:name, :min_point, :max_point]
 

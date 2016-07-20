@@ -1,4 +1,4 @@
-class UserCourse < ActiveRecord::Base
+class UserCourse < ApplicationRecord
   include PublicActivity::Model
   include InitUserSubject
 
