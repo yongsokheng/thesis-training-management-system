@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_one :evaluation
   has_many :trainees, class_name: User.name
   has_many :notes, dependent: :destroy
+  has_many :notifications
+  has_many :user_notifications, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524024845) do
+ActiveRecord::Schema.define(version: 20160720062609) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -124,6 +124,16 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.index ["user_id"], name: "index_notes_on_user_id", using: :btree
   end
 
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "trackable_type"
+    t.integer  "trackable_id"
+    t.integer  "key"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
   create_table "permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "model_class"
     t.string   "action"
@@ -225,6 +235,16 @@ ActiveRecord::Schema.define(version: 20160524024845) do
     t.index ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true, using: :btree
   end
 
+  create_table "user_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "seen"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.integer  "notification_id"
+    t.index ["notification_id"], name: "index_user_notifications_on_notification_id", using: :btree
+    t.index ["user_id"], name: "index_user_notifications_on_user_id", using: :btree
+  end
+
   create_table "user_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "status",                 default: 0
     t.integer  "user_id"
@@ -295,10 +315,13 @@ ActiveRecord::Schema.define(version: 20160524024845) do
   add_foreign_key "evaluations", "users"
   add_foreign_key "notes", "evaluations"
   add_foreign_key "notes", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "permissions", "roles"
   add_foreign_key "profiles", "users"
   add_foreign_key "task_masters", "subjects"
   add_foreign_key "tasks", "course_subjects", on_delete: :cascade
+  add_foreign_key "user_notifications", "notifications"
+  add_foreign_key "user_notifications", "users"
   add_foreign_key "user_subjects", "course_subjects", on_delete: :cascade
   add_foreign_key "user_subjects", "courses"
   add_foreign_key "user_subjects", "user_courses"
