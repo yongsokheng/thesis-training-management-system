@@ -116,13 +116,14 @@ en:
     start: "start"
     progress: "progress"
     finished: "finished"
-  date:
+  time:
     formats:
       default: "%Y/%m/%d"
       short: "%y/%m/%d"
       year: "%d/%m/%Y"
       month_year: "%m-%Y"
       year_month: "%Y-%m"
+      datetime: "%d-%m-%Y %H:%M"
   datepicker:
     time:
       format: "yyyy/mm/dd"
@@ -157,8 +158,7 @@ en:
     all_courses: "All Courses"
     notifications:
       view_all: "View all"
-      you_have: "You have"
-      notification: "new notification"
+      notification: "New notifications"
   button:
     save: "Save"
     edit: "Edit"

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cable
 //= require i18n
 //= require i18n/translations
 //= require i18n.js
