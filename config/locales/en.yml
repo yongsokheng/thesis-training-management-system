@@ -155,6 +155,10 @@ en:
       company: "FramgiaVietNam"
     path: "Paths"
     all_courses: "All Courses"
+    notifications:
+      view_all: "View all"
+      you_have: "You have"
+      notification: "new notification"
   button:
     save: "Save"
     edit: "Edit"
