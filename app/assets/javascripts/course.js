@@ -12,8 +12,10 @@ $(document).on("turbolinks:load", function() {
         null,
         null,
         {sSelector: ".filter-status", type:"select",
-          values: [{ value: "0", label: "init"}, { value: "1", label: "progress"},
-          { value: "2", label: "finish"}]},
+          values: [
+            { value: "0", label: I18n.t("courses.labels.status.init")},
+            { value: "1", label: I18n.t("courses.labels.status.progress")},
+            { value: "2", label: I18n.t("courses.labels.status.finish")}]},
       ]
     });
 

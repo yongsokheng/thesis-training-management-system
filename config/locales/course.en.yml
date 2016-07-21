@@ -64,7 +64,7 @@ en:
       name: "Name"
       description: "Description"
       status:
-        new: "New"
+        init: "New"
         progress: "Progress"
         finish: "Finish"
     users:

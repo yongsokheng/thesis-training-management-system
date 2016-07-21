@@ -30,16 +30,16 @@
 
     .task-name {
       font-size: 125%;
-      line-height: 3;
 
       .edit-task {
         margin-left: 14px;
       }
     }
 
-    .select-assign {
-      height: 24px;
-      padding: 0px;
+    .task-description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
