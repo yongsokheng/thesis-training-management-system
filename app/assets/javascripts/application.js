@@ -25,6 +25,7 @@
 //= require datepicker
 //= require highcharts
 //= require highcharts/highcharts-more
+//= require jquery.slimscroll
 //= require admin/role_permission
 //= require admin/evaluation
 //= require admin/note
@@ -82,5 +83,7 @@ $(document).on("turbolinks:load", function() {
   if ($(".profile-active").length > 0) {
     $("#user-profiles-header").addClass("active");
   }
+
+  $("#slimScrollDiv").slimScroll();
 });
 
