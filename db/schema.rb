@@ -236,9 +236,9 @@ ActiveRecord::Schema.define(version: 20160720062609) do
   end
 
   create_table "user_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean  "seen"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "seen",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id"
     t.integer  "notification_id"
     t.index ["notification_id"], name: "index_user_notifications_on_notification_id", using: :btree

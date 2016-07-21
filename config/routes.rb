@@ -62,4 +62,6 @@ Rails.application.routes.draw do
   resources :user_courses, only: [:show] do
     resources :subjects, only: [:show]
   end
+
+  patch "update_notifications" => "notifications#update"
 end

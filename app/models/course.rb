@@ -18,6 +18,7 @@ class Course < ApplicationRecord
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
   has_many :documents, as: :documentable
+  has_many :notifications, as: :trackable, dependent: :destroy
 
   belongs_to :programming_language
 

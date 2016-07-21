@@ -8,8 +8,6 @@ class CourseNotificationBroadCastJob < ApplicationJob
       notification.user_notifications.create user_id: user.id
     end
 
-    content = I18n.t "notifications.keys.courses.#{notification.key}", data: course.name
-    date = notification.created_at
-    BroadCastService.new(course, content, date, "channel_course_#{course.id}").broadcast
+    BroadCastService.new(notification, "channel_course_#{course.id}").broadcast
   end
 end
