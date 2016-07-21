@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
+  mount ActionCable.server => "/cable"
+
   filter :locale
   root "static_pages#home"
 

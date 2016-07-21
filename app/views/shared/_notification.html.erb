@@ -1,0 +1,11 @@
+<li>
+  <%= link_to "#" do %>
+    <div class="pull-left">
+      <%= set_image object, Settings.image_size_40 %>
+    </div>
+    <h4>
+      <div class="notification-content"><%= content %><div>
+      <small><%= l date, format: :datetime %></small>
+    </h4>
+  <% end %>
+</li>
