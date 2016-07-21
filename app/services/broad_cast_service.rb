@@ -1,8 +1,6 @@
 class BroadCastService
-  def initialize object, content, date, channel
-    @object = object
-    @content = content
-    @date = date
+  def initialize notification, channel
+    @notification = notification
     @channel = channel
   end
 
@@ -13,6 +11,6 @@ class BroadCastService
   private
   def render_notification
     ApplicationController.renderer.render(partial: "shared/notification",
-      locals: {object: @object, content: @content, date: @date})
+      locals: {notification: @notification})
   end
 end

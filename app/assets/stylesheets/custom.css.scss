@@ -140,6 +140,12 @@ body, .breadcrumb, .content-wrapper {
       padding: 2px 3px;
       line-height: .9;
     }
+
+    .notification-content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+    }
   }
 
   .navbar-nav {
