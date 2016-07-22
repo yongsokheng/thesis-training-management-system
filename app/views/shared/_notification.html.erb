@@ -1,8 +1,6 @@
 <li>
   <%= link_to "#", title: notification_content(notification) do %>
-    <div class="pull-left">
-      <%= set_image notification.trackable, Settings.image_size_40 %>
-    </div>
+    <div class="pull-left"><%= notification_image notification %></div>
     <h4>
       <div class="notification-content"><%= notification_content notification %><div>
       <small><%= l notification.created_at, format: :datetime %></small>
