@@ -49,11 +49,14 @@ class UserSubject < ApplicationRecord
     if init?
       update_attributes(status: :progress, start_date: Time.now)
       key = "user_subject.start_subject"
+      notification_key = Notification.keys[:start]
     else
       update_attributes(status: :finish, end_date: Time.now)
       key = "user_subject.finish_subject"
+      notification_key = Notification.keys[:finish]
     end
     create_activity key: key, owner: current_user, recipient: user
+    UserSubjectNotificationBroadCastJob.perform_now self, notification_key, user_id
   end
 
   def subject

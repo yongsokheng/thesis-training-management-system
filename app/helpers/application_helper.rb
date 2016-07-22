@@ -133,16 +133,4 @@ module ApplicationHelper
   def percentage_format number
     number_to_percentage number, precision: 1, strip_insignificant_zeros: true
   end
-
-  def notification_content notification
-    trackable = notification.trackable
-    data = "#{trackable.class.name} : #{trackable.name}"
-    I18n.t "notifications.keys.#{notification.key}", data: data
-  end
-
-  def not_seen_notification
-    if (size = current_user.user_notifications.not_seen.size) > 0
-      size
-    end
-  end
 end
