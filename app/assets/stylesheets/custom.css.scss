@@ -145,6 +145,12 @@ body, .breadcrumb, .content-wrapper {
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .notification-date {
+      font-size: 10px;
+      color: #999;
     }
   }
 
@@ -317,4 +323,13 @@ select {
 
 .progress-finish {
   border: 1px solid #ccc;
+}
+
+.user-notification {
+  .notification-table {
+    background-color: white;
+    a {
+      color: black;
+    }
+  }
 }

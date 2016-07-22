@@ -12,16 +12,26 @@ module NotificationHelper
   end
 
   def trackable_object trackable
-    if trackable.is_a? Course
-      object = trackable
-    elsif trackable.is_a? UserSubject
-      object = trackable.course_subject.subject
+    if trackable.class.name == "Course"
+      trackable
+    elsif trackable.class.name == "UserSubject"
+      trackable.course_subject.subject
     end
   end
 
   def not_seen_notification
     if (size = current_user.user_notifications.not_seen.size) > 0
       size
+    end
+  end
+
+  def notification_link notification
+    trackable = notification.trackable
+    if trackable.class.name == "Course"
+      trackable
+    elsif trackable.class.name == "UserSubject"
+      user_course_subject_path trackable.user_course_id,
+        trackable.course_subject.subject_id
     end
   end
 end
