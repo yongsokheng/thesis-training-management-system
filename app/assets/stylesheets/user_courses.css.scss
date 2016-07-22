@@ -42,18 +42,6 @@
     background-color: #ccc;
   }
 
-  .circle-init {
-    color: #DC9F48;
-  }
-
-  .circle-progress {
-    color: #009852;
-  }
-
-  .circle-finish {
-    color: #ccc;
-  }
-
   .subject-image {
     padding-left: 5px;
     padding-right: 0px;
@@ -70,4 +58,16 @@
     font-weight: 300;
     margin: 4px 0px;
   }
+}
+
+.circle-init {
+  color: #DC9F48;
+}
+
+.circle-progress, .circle-in_progress {
+  color: #009852;
+}
+
+.circle-finish, .circle-finished {
+  color: #ccc;
 }

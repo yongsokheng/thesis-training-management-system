@@ -27,7 +27,7 @@ class CoursesDatatable
           Settings.image_size_20), @view.admin_user_path(trainer),
           title: trainer.name)
         end,
-        course.status
+        I18n.t("courses.labels.status.#{course.status}")
       ]
     end
   end

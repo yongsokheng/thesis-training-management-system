@@ -1,6 +1,7 @@
 <div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="label box-title"><%= t "subjects.members" %></h3>
+    <span class="badge label-primary"><%= @members.size %></span>
   </div>
   <div class="box-body no-padding">
     <%= render "shared/member_panel" %>
