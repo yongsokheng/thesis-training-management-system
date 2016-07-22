@@ -16,11 +16,11 @@ class SubjectsController < ApplicationController
     @user_subjects = @course_subject.user_subjects
     @user_subject = @user_subjects.find{|user_subject| user_subject.user_id == @user_course.user_id}
 
-    users = @user_subject.course.users
-    @trainers = users.trainers
-    @trainees = users.trainees
-    @members = users.show_members
-    @count_member = @user_subjects.size - Settings.number_member_show
+    @users = @user_subject.course.users
+    @trainers = @users.trainers
+    @trainees = @users.trainees
+    @members = @users.show_members
+    @count_member = @users.size - Settings.number_member_show
 
     @user_tasks = @user_subject.user_tasks
     @number_of_task = @user_tasks.size

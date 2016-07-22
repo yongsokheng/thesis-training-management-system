@@ -64,7 +64,7 @@ function add_fields(link, association, content) {
 }
 
 $(document).on("turbolinks:load", function() {
-  $(".ckeditor").each(function() {
+  $(".ckeditor-field").each(function() {
     CKEDITOR.replace($(this).attr("id"));
   });
 
