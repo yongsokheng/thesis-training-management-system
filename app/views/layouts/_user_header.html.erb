@@ -39,7 +39,8 @@
               <li>
                 <div id="slimScrollDiv">
                   <ul class="menu">
-                    <% current_user.user_notifications.limit(10).each do |user_notification| %>
+                    <% current_user.user_notifications.select_notifications
+                      .limit(10).each do |user_notification| %>
                       <%= render "shared/notification",
                         notification: user_notification.notification %>
                     <% end %>
@@ -47,7 +48,7 @@
                 </div>
               </li>
               <li class="footer">
-                <%= link_to t("layouts.notifications.view_all"), "#" %>
+                <%= link_to t("layouts.notifications.view_all"), notifications_path %>
               </li>
             </ul>
           </li>

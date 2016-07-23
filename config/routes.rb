@@ -63,5 +63,6 @@ Rails.application.routes.draw do
     resources :subjects, only: [:show]
   end
 
+  resources :notifications, only: :index
   patch "update_notifications" => "notifications#update"
 end

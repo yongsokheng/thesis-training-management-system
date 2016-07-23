@@ -234,3 +234,5 @@ en:
   datatables:
     search_name: "Search name"
     show_menu: "Show _MENU_"
+  notifications:
+    notification: "Notifications"
