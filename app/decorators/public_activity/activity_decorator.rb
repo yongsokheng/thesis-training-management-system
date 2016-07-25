@@ -2,7 +2,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
   delegate_all
 
   def owner_name
-    h.link_to owner.name, owner
+    path = h.current_user.is_trainee? ? owner : [:admin, owner]
+    h.link_to owner.name, path
   end
 
   def verb
@@ -56,7 +57,8 @@ class PublicActivity::ActivityDecorator < Draper::Decorator
   def recipient_name
     case key
     when "user_subject.start_subject", "user_subject.finish_subject"
-      h.link_to recipient.name, recipient
+      path = h.current_user.is_trainee? ? recipient : [:admin, recipient]
+      h.link_to recipient.name, path
     when "user_subject.start_all_subject", "user_subject.finish_all_subject"
       "#{trackable.subject_name}, #{recipient.name}"
     else
