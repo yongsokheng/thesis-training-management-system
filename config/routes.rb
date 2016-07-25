@@ -47,22 +47,18 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:show, :index] do
     resources :subjects, only: [:show]
-    resources :tasks
   end
 
-  resources :course_subjects do
-    resources :tasks
-    resources :user_tasks, only: :show
-  end
-
+  resources :course_subjects
   resources :users, only: [:edit, :update, :show] do
     resource :profiles
   end
-  resources :user_tasks, except: [:show, :new, :create]
+
   resources :user_courses, only: [:show] do
     resources :subjects, only: [:show]
   end
 
+  resources :tasks
   resources :notifications, only: :index
   patch "update_notifications" => "notifications#update"
 end

@@ -29,6 +29,9 @@ class SubjectsController < ApplicationController
     @task_statuses.each do |key, value|
       instance_variable_set "@number_of_task_#{key}", @user_tasks.send(key).size
     end
+
+    @task = Task.new
+    @task.user_tasks.build
   end
 
   private

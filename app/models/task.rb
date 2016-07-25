@@ -4,11 +4,14 @@ class Task < ApplicationRecord
 
   validates :name, presence: true
 
-  ATTRIBUTES_PARAMS = [:name, :description]
+  ATTRIBUTES_PARAMS = [:name, :description, user_tasks_attributes: [:id,
+    :estimated_time, :status, :user_id, :user_subject_id]]
 
   scope :not_created_by_trainee, -> do
     where create_by_trainee: false, task_master_id: nil
   end
 
   scope :has_task_master, ->{where.not task_master_id: nil}
+
+  accepts_nested_attributes_for :user_tasks, allow_destroy: true
 end
