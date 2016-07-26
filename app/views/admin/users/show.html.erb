@@ -3,8 +3,8 @@
   <section class="content">
     <div class="row">
       <div class="col-md-3">
-        <%= render "profile" %>
-        <%= render "notes" %>
+        <%= render "admin/users/profile" %>
+        <%= render "admin/users/notes" unless current_user.is_trainee? %>
       </div>
 
       <div class="col-md-9">
@@ -20,9 +20,9 @@
           </ul>
 
           <div class="tab-content">
-            <%= render "activities_tab" %>
-            <%= render "finished_courses_tab" %>
-            <%= render "inprogress_courses_tab" %>
+            <%= render "admin/users/activities_tab" %>
+            <%= render "admin/users/finished_courses_tab" %>
+            <%= render "admin/users/inprogress_courses_tab" %>
           </div>
         </div>
       </div>
