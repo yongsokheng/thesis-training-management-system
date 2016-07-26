@@ -30,9 +30,12 @@
             <%= t "subjects.task_overview" %>
             <%= link_to t("subjects.task.new_task"), "#",
               data: {toggle: "modal", target: "#TaskModal"},
-              class: "btn-action pull-right" if current_user.is_trainee? %>
+              class: "btn-action pull-right" if current_user.is_trainee? && @user_subject.progress? %>
           </div>
-          <%= render partial: "user_task", collection: @user_tasks %>
+
+          <table class="table note-list user-task-list">
+            <%= render partial: "user_task", collection: @user_tasks %>
+          </table>
         </div>
       </div>
     </div>

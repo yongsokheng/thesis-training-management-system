@@ -1,0 +1,32 @@
+<%= form_for task do |f| %>
+  <%= render "shared/error_messages", object: @course_subject %>
+   <%  if task.new_record? || user_task.nil_master? %>
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control", required: true,
+        placeholder: t("tasks.form.input_task_name") %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :description, class: "form-control modal-text-area",
+        required: true, placeholder: t("tasks.form.input_task_description") %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :user_tasks, user_task do |builder| %>
+    <%= builder.hidden_field :user_id, value: current_user.id %>
+    <%= builder.hidden_field :user_subject_id, value: @user_subject.id %>
+    <div class="form-group">
+      <%= builder.text_field :estimated_time, placeholder: t("tasks.form.estimated_time"), class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= builder.select :status, options_from_collection_for_select(
+          i18n_enum(:user_task, :status), :key, :value), {},
+          class: "form-control" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit (f.object.new_record? ? t("button.create")
+      : t("buttons.save")), class: "btn-action" %>
+  </div>
+<% end %>

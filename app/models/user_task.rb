@@ -1,14 +1,14 @@
 class UserTask < ApplicationRecord
   include PublicActivity::Model
 
-  ATTRIBUTES_PARAMS = [:estimated_time, :status, :user_id, :user_subject_id, :task_id]
-
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     dependent: :destroy
 
   belongs_to :task
   belongs_to :user_subject
   belongs_to :user
+
+  validates :estimated_time, presence: true
 
   delegate :id, :name, :image_url, :description, to: :task, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
