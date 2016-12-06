@@ -23,17 +23,3 @@
     <% end %>
   </div>
 </div>
-
-<div class="sector-content">
-  <div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="label box-title"><%= t "courses.note" %></h3>
-    </div>
-    <div class="box-body">
-      <div class="subject-note">
-        <%= t "courses.time", start_date: @course.start_date, end_date: @course.end_date %>
-      </div>
-    </div>
-  </div>
-</div>
-<%= render partial: "shared/documents", locals: {documents: @course.documents} %>
