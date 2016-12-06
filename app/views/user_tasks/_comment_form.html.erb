@@ -1,0 +1,11 @@
+<li>
+  <div class="media-left">
+    <%= link_to avatar_user_tag(current_user, "img-circle media-object", Settings.image_size_40),
+  user_path(current_user), title: current_user.name %>
+  </div>
+  <div class="media-body">
+    <div class="media-heading">
+      <%= text_area_tag "comment", nil, id: "comment-field", class: "form-control" %>
+    </div>
+  </div>
+</li>

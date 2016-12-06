@@ -1,0 +1,18 @@
+.user-task-page {
+  .comments {
+    .media-left {
+      float: left;
+      width: 12%;
+    }
+
+    .media-body {
+      word-wrap: break-word;
+      width: 83%;
+    }
+
+    #comment-field {
+      height: 34px;
+      margin-top: 7px;
+    }
+  }
+}

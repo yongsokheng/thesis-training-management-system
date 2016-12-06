@@ -1,0 +1,43 @@
+<% provide :title, @user_task.task_name %>
+
+<div id="subject-show" class="user-task-page">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="subject-content box-divider">
+        <div class="breadcrumb-bar">
+          <ul class="list breadcrumb">
+            <li>
+              <%= link_to root_url do %>
+                <i class="glyphicon glyphicon-th-list"></i>
+                <%= t "layouts.paths" %>
+              <% end %>
+            </li>
+            <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+            <li><%= link_to @user_course.course_name,
+              user_course_path(@user_course.id) %></li>
+            <li><%= link_to @subject.name,
+              user_course_subject_path(@user_course.id, @subject.id) %></li>
+            <li class="active"><%= @user_task.task_name %></li>
+          </ul>
+        </div>
+
+        <div class="subject-overview">
+          <span class="subject-title">
+            <%= @user_task.task_name %>
+          </span>
+          <span class="label-status <%= set_status @user_task.status %>">
+            <%= t "courses.labels.status.#{@user_task.status}" %>
+          </span>
+
+          <div class="description"><%= @user_task.task.description.html_safe %></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 info-panel">
+      <div class="right-panel">
+        <%= render "comments" %>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/member_modal" %>
+</div>
