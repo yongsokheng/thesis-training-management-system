@@ -73,7 +73,7 @@ en:
       input_subject_name: "Enter subject name..."
       input_subject_description: "Enter subject description..."
       input_subject_during_time: "Enter subject during-time(days)..."
-    description: "Subject Description"
+    description: "Description"
     content: "Subject Content"
     task_overview: "Task Overview"
     about_trainer: "About Trainer"

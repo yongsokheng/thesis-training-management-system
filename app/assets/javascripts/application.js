@@ -62,12 +62,23 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id));
+  attach_ckeditor();
 }
 
-$(document).on("turbolinks:load", function() {
+function attach_ckeditor() {
+  if (typeof(CKEDITOR) != "undefined") {
+    for(name in CKEDITOR.instances) {
+        CKEDITOR.instances[name].destroy()
+    }
+  }
+
   $(".ckeditor-field").each(function() {
     CKEDITOR.replace($(this).attr("id"));
   });
+}
+
+$(document).on("turbolinks:load", function() {
+  attach_ckeditor();
 
   $(".sidebar-toggle").click(function() {
     $("#body-admin").toggleClass("sidebar-collapse")

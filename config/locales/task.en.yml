@@ -19,6 +19,7 @@ en:
       input_task_description: "Enter task description..."
       estimated_time: "Enter estimated time ..."
   user_tasks:
+    content: "Content"
     statuses:
       in_progress: "In Progress"
       finished: "Finished"

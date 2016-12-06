@@ -15,20 +15,11 @@
         <span><%= t "tasks.description" %>:</span>
       </div>
       <div class="col-md-10">
-        <%= f.text_area :description, class: "form-control", required: true,
+        <%= f.text_area :description, class: "ckeditor-field form-control", required: true,
           placeholder: I18n.t("tasks.form.input_task_description") %>
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-md-2 text-right"></div>
-      <div class="col-md-10">
-        <%= f.fields_for :documents do |builder| %>
-          <%= render "document_fields", f: builder %>
-        <% end %>
-        <strong><%= link_to_add_fields t("subjects.document"), f, :documents %></strong>
-      </div>
-    </div>
   </div>
   <div class="col-md-1">
     <%= link_to_remove_fields t("subjects.dynamic_form.remove"), f %>

@@ -12,20 +12,13 @@
   <br>
   <div class="row">
     <div class="col-md-12">
-      <%= f.file_field :image, class: "form-control" %>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-md-12">
-      <%= f.text_area :description, class: "form-control",
-        required: true,
+      <%= f.text_area :description, class: "ckeditor-field form-control",
         placeholder: t("tasks.form.input_task_description") %>
     </div>
   </div>
   <br>
   <div class="row">
-    <div class="col-md-1 col-md-offset-10">
+    <div class="col-md-1 col-md-offset-11">
       <%= f.submit t("subjects.submit.create_task"),
         class: "btn btn-success"%>
     </div>

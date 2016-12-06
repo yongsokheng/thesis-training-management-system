@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-8">
       <h2 class="subject-name"><%= @subject.name %></h2>
-      <div class="description"><%= @subject.description %></div>
+      <div class="description"><%= @subject.description.html_safe if @subject.description %></div>
       <p class="working-days">
         <%= "#{t "subjects.fields.during_time"}:
           #{@subject.during_time} #{t "subjects.fields.days"}" %>
@@ -50,7 +50,6 @@
       <thead>
         <tr>
           <th class="name"><%= t "tasks.fields.name" %></th>
-          <th class="description"><%= t "tasks.fields.description" %></th>
         </tr>
       </thead>
       <tbody>
