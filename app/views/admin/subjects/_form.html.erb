@@ -19,6 +19,7 @@
             <span><%= t "subjects.image" %>:</span>
           </div>
           <div class="col-md-9">
+            <%= set_image @subject unless @subject.new_record? %><br><br>
             <%= f.file_field :image, class: "form-control" %>
           </div>
         </div>
@@ -71,6 +72,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
+        <%= f.fields_for :task_masters do |builder| %>
+          <%= render "task_master_fields", f: builder %>
+        <% end %>
         <span id="add-task-masters">
           <%= link_to_add_fields t("subjects.dynamic_form.add"), f, :task_masters %>
         </span>

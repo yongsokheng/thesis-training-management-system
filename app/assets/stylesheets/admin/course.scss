@@ -166,6 +166,12 @@
       border: none;
     }
   }
+
+  #sortable {
+    .sortable-table {
+      overflow: auto;
+    }
+  }
 }
 
 .list-subjects{

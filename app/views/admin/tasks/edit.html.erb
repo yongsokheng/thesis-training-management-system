@@ -6,11 +6,8 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.file_field :image, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.text_area :description, class: "form-control modal-text-area",
-          required: true, placeholder: t("tasks.form.input_task_description") %>
+        <%= f.text_area :description, class: "ckeditor-field form-control modal-text-area",
+          placeholder: t("tasks.form.input_task_description") %>
       </div>
       <div class="form-group">
         <%= f.submit t("button.update"),
