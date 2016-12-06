@@ -24,17 +24,3 @@
     <% end %>
   </div>
 </div>
-
-<div class="sector-content">
-  <div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="label box-title"><%= t "subjects.note" %></h3>
-    </div>
-    <div class="box-body">
-      <div class="subject-note">
-        <p><%= t "subjects.note_during_time", during_time: @subject.during_time %></p>
-      </div>
-    </div>
-  </div>
-</div>
-<%= render partial: "shared/documents", locals: {documents: @subject.documents} %>

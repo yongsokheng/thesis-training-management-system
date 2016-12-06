@@ -21,6 +21,7 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
+//= require jquery.lockfixed
 //= require ckeditor/init
 //= require ckeditor/config
 //= require datepicker

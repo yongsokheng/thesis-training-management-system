@@ -56,16 +56,6 @@
       </div>
     </div><br>
     <div class="row">
-      <div class="col-md-2 text-right"><%= t "subjects.document" %></div>
-      <div class="col-md-9">
-        <%= f.fields_for :documents do |builder| %>
-          <%= render "document_fields", f: builder %>
-        <% end %>
-        <strong><%= link_to_add_fields t("subjects.document"), f, :documents %></strong>
-      </div>
-    </div>
-    <br>
-    <div class="row">
       <div class="col-md-2 col-md-offset-6">
         <h3><%= t "subjects.task.list_tasks" %></h3>
       </div>
