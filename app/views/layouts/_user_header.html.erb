@@ -8,10 +8,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
-        <%= link_to root_url, class: "logo" do %>
-          <%= image_tag "logo", title: t("name_system") %>
-        <% end %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -50,22 +46,6 @@
               <li class="footer">
                 <%= link_to t("layouts.notifications.view_all"), notifications_path %>
               </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= image_tag I18n.locale, size: Settings.flag_size %>
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu language-select">
-              <% Settings.languages.each do |_, val| %>
-                <li>
-                  <%= link_to params.merge(locale: val) do %>
-                    <%= image_tag val, size: Settings.flag_size, class: "img-language" %>
-                    <%= t "language-name.#{val}" %>
-                  <% end %>
-                </li>
-              <% end %>
             </ul>
           </li>
           <li class="dropdown user user-menu">
