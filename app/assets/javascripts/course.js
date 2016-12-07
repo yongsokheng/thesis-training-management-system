@@ -21,5 +21,5 @@ $(document).on("turbolinks:load", function() {
 
     $("#course-tbl_wrapper .select_filter").removeClass("form-control");
   }
-  $.lockfixed(".right-panel", {offset: {top: 90, bottom: $(".footer-distributed").height() + 10}});
+  $.lockfixed(".right-panel", {offset: {top: 75, bottom: $(".footer-distributed").height() + 10}});
 });

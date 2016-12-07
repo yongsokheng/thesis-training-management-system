@@ -1,8 +1,8 @@
 en:
   online: "Online"
-  name_system: "Framgia TMS"
+  name_system: "TMS"
   user-header:
-    home: "Home"
+    admin: "Admin"
     courses: "Courses"
   language-name:
     en: "English"
@@ -168,6 +168,7 @@ en:
     update: "Update"
     clone: "Clone"
     search: "Seach"
+    submit: "Submit"
   roles:
     allocate: "Allocate"
     roles: "Roles"

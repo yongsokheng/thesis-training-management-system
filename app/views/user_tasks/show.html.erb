@@ -3,33 +3,49 @@
 <div id="subject-show" class="user-task-page">
   <div class="row">
     <div class="col-md-8">
-      <div class="subject-content box-divider">
-        <div class="breadcrumb-bar">
-          <ul class="list breadcrumb">
-            <li>
-              <%= link_to root_url do %>
-                <i class="glyphicon glyphicon-th-list"></i>
-                <%= t "layouts.paths" %>
-              <% end %>
-            </li>
-            <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-            <li><%= link_to @user_course.course_name,
-              user_course_path(@user_course.id) %></li>
-            <li><%= link_to @subject.name,
-              user_course_subject_path(@user_course.id, @subject.id) %></li>
-            <li class="active"><%= @user_task.task_name %></li>
-          </ul>
+      <div class="subject-content">
+        <div class="box-divider">
+          <div class="breadcrumb-bar">
+            <ul class="list breadcrumb">
+              <li>
+                <%= link_to root_url do %>
+                  <i class="glyphicon glyphicon-th-list"></i>
+                  <%= t "layouts.paths" %>
+                <% end %>
+              </li>
+              <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+              <li><%= link_to @user_course.course_name,
+                user_course_path(@user_course.id) %></li>
+              <li><%= link_to @subject.name,
+                user_course_subject_path(@user_course.id, @subject.id) %></li>
+              <li class="active"><%= @user_task.task_name %></li>
+            </ul>
+          </div>
+
+          <div class="subject-overview">
+            <span class="subject-title">
+              <%= @user_task.task_name %>
+            </span>
+            <span class="label-status <%= set_status @user_task.status %>">
+              <%= t "courses.labels.status.#{@user_task.status}" %>
+            </span>
+            <span class="pull-right">
+              <%= link_to t("button.finish"), "#", class: "btn btn-finish btn-action" %>
+            </span>
+          </div>
         </div>
 
-        <div class="subject-overview">
-          <span class="subject-title">
-            <%= @user_task.task_name %>
-          </span>
-          <span class="label-status <%= set_status @user_task.status %>">
-            <%= t "courses.labels.status.#{@user_task.status}" %>
-          </span>
+        <div class="box-divider">
+          <div class="label-title">Description</div>
+          <%= @user_task.task.description.html_safe %>
+        </div>
 
-          <div class="description"><%= @user_task.task.description.html_safe %></div>
+        <div class="task-submission box-divider">
+          <% if @user_task.submission.present? %>
+           <%= render "submission" %>
+          <% else %>
+            <%= render "submission_form" %>
+          <% end %>
         </div>
       </div>
 

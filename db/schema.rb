@@ -278,13 +278,14 @@ ActiveRecord::Schema.define(version: 20161207151237) do
     t.integer  "task_id"
     t.integer  "user_subject_id"
     t.integer  "user_id"
-    t.integer  "progress",                   default: 0
+    t.integer  "progress",                      default: 0
     t.float    "estimated_time",  limit: 24
     t.integer  "redmine_task_id"
-    t.integer  "status",                     default: 0
+    t.integer  "status",                        default: 0
     t.integer  "score"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.text     "submission",      limit: 65535
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["task_id"], name: "index_user_tasks_on_task_id", using: :btree
     t.index ["user_id"], name: "index_user_tasks_on_user_id", using: :btree
     t.index ["user_subject_id"], name: "index_user_tasks_on_user_subject_id", using: :btree

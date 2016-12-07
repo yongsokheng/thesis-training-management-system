@@ -80,7 +80,7 @@ en:
     about_trainee: "About Trainee"
     note: "Subject Notes"
     members: "Members"
-    total_score: "Total Score"
+    total_score: "Average Score"
     score: "Score"
     no_score_result: "No score yet"
     score_result: "%{score} / 100"

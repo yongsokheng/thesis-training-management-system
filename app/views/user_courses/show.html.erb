@@ -1,22 +1,23 @@
 <div id="user-course-show" class="row">
   <div class="col-md-9">
-    <div class="breadcrumb-bar">
-      <ul class="breadcrumb">
-        <li>
-          <%= link_to root_url do %>
-            <i class="glyphicon glyphicon-th-list"></i>
-            <%= t "layouts.paths" %>
-          <% end %>
-        </li>
-        <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-        <li class="active"><%= @course.name %></li>
-      </ul>
+    <div class="box-divider">
+      <div class="breadcrumb-bar">
+        <ul class="breadcrumb">
+          <li>
+            <%= link_to root_url do %>
+              <i class="glyphicon glyphicon-th-list"></i>
+              <%= t "layouts.paths" %>
+            <% end %>
+          </li>
+          <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+          <li class="active"><%= @course.name %></li>
+        </ul>
+      </div>
+
+      <h2><%= @course.name %></h2>
+      <div class=""><%= @course.description %></div>
     </div>
 
-    <h2><%= @course.name %></h2>
-    <div class="description"><%= @course.description %></div>
-
-    <h3><%= t "courses.list_subject" %></h3>
     <div class="subject-list">
       <% @user_subjects.each_with_index do |user_subject, index| %>
         <div class="col-xs-1">

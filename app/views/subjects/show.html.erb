@@ -1,26 +1,28 @@
 <div id="subject-show">
   <div class="row">
     <div class="col-md-9">
-      <div class="breadcrumb-bar">
-        <ul class="list breadcrumb">
-          <li>
-            <%= link_to root_url do %>
-              <i class="glyphicon glyphicon-th-list"></i>
-              <%= t "layouts.paths" %>
-            <% end %>
-          </li>
-          <li><%= link_to t("layouts.all_courses"), courses_path %></li>
-          <li><%= link_to @user_subject.course_name, user_course_path(@user_subject.user_course) %></li>
-          <li class="active"><%= @user_subject.name %></li>
-        </ul>
-      </div>
+      <div class="box-divider">
+        <div class="breadcrumb-bar">
+          <ul class="list breadcrumb">
+            <li>
+              <%= link_to root_url do %>
+                <i class="glyphicon glyphicon-th-list"></i>
+                <%= t "layouts.paths" %>
+              <% end %>
+            </li>
+            <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+            <li><%= link_to @user_subject.course_name, user_course_path(@user_subject.user_course) %></li>
+            <li class="active"><%= @user_subject.name %></li>
+          </ul>
+        </div>
 
-      <div class="subject-overview">
-        <div class="subject-title"><%= @user_subject.name %></div>
-        <div class="description"><%= @user_subject.description %></div>
-        <div class="subject-content box-divider">
-          <div class="label-title"><%= t "subjects.content" %></div>
-          <%= @user_subject.content.html_safe %>
+        <div class="subject-overview">
+          <div class="subject-title"><%= @user_subject.name %></div>
+          <div class="description"><%= @user_subject.description %></div>
+          <div class="subject-content">
+            <div class="label-title"><%= t "subjects.content" %></div>
+            <%= @user_subject.content.html_safe %>
+          </div>
         </div>
       </div>
 
