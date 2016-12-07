@@ -14,5 +14,14 @@
       height: 34px;
       margin-top: 7px;
     }
+
+    .contents {
+      min-height: 0px;
+      max-height: 450px;
+    }
+
+    .comment-field-row {
+      border-top: 1px solid #ccc;
+    }
   }
 }

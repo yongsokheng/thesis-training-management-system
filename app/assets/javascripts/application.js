@@ -48,6 +48,7 @@
 //= require university
 //= require admin/assign_user
 //= require jquery.quicksearch
+//= require user_task
 
 $(document).on("turbolinks:load", function() {
   $(".alert").delay(3000).slideUp();

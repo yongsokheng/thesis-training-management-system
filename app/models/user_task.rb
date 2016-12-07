@@ -3,6 +3,7 @@ class UserTask < ApplicationRecord
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity",
     dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   belongs_to :task
   belongs_to :user_subject

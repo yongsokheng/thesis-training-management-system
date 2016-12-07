@@ -1,0 +1,14 @@
+<li>
+  <div class="media">
+    <div class="media-left">
+      <%= link_to avatar_user_tag(comment.sender, "img-circle media-object", Settings.image_size_40),
+        user_path(sender), title: sender.name %>
+    </div>
+    <div class="media-body">
+      <div class="media-heading">
+        <strong><%= link_to comment.sender_name, user_path(comment.sender) %></strong>
+        <%= comment.content %>
+      </div>
+    </div>
+  </div>
+</li>

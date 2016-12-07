@@ -1,5 +1,6 @@
 class NotificationsChannel < ApplicationCable::Channel
   def subscribed
+    stream_from "notification_user_#{current_user.id}"
     current_user.courses.each do |course|
       stream_from "channel_course_#{course.id}"
     end

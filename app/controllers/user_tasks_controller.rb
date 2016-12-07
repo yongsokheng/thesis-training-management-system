@@ -9,6 +9,7 @@ class UserTasksController < ApplicationController
     @members = @users.show_members
     @trainers = @users.trainers
     @trainees = @users.trainees
+    @comments = @user_task.comments.preload :sender
   end
 
   def update

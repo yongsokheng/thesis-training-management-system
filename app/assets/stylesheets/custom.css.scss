@@ -14,36 +14,20 @@ body, .breadcrumb, .content-wrapper {
   padding: 0;
 }
 
-.body_wrapper {
-  padding-bottom: 350px;
-}
-
 #user-header {
-  .logo {
-    margin-left: 30px;
-    img {
-      width: 57px;
-    }
-  }
-
-  ul {
-    margin-top: 3px;
-  }
-
   ul, li a{
-    color: #aebdc1;
+    color: white;
     font-weight: 600;
   }
 
-  ul, li {
-    a:hover {
-      color: black;
-    }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+    background-color: #9F9F9F;
   }
 
   .navbar {
     border-radius: 0px;
-    background-color: #FFFFFF;
+    background-color: #3c8dbc;
   }
 
   .language-select {
@@ -58,10 +42,6 @@ body, .breadcrumb, .content-wrapper {
       }
     }
   }
-
-   a:focus {
-    background-color: white;
-   }
 
   .user-menu  {
     .dropdown-toggle {
