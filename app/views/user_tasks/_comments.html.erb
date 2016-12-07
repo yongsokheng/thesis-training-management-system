@@ -1,0 +1,15 @@
+<div class="box box-primary comments">
+  <div class="box-header with-border">
+    <h3 class="label box-title">
+      <%= t "user_tasks.comments" %>
+      <span class="badge label-primary"><%= @users.size %></span>
+    </h3>
+  </div>
+  <div class="box-body no-padding">
+    <ul class="media-list">
+      <%= render partial: "comment", collection: @users %>
+      <%= render "comment_form" %>
+    </ul>
+
+  </div>
+</div>
