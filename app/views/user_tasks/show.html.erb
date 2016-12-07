@@ -32,6 +32,23 @@
           <div class="description"><%= @user_task.task.description.html_safe %></div>
         </div>
       </div>
+
+      <% unless current_user.is_trainee? %>
+        <div class="score-evaluate row">
+          <div class="score-title"><%= t "user_tasks.score_evaluation" %></div>
+          <%= form_for @user_task, url: user_task_score_path(@user_task.id),
+            remote: true do |f| %>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.number_field :score, mix: 0, class: "form-control" %>
+                <span class="input-group-btn">
+                  <%= f.submit t("buttons.save"), class: "btn btn-primary pull-right" %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="col-md-4 info-panel">
       <div class="right-panel">

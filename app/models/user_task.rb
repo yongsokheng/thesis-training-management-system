@@ -13,6 +13,8 @@ class UserTask < ApplicationRecord
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :description, to: :task, prefix: true, allow_nil: true
 
+  validates_numericality_of :score, allow_nil: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100
+
   scope :user_task_of_subject_progress,
     -> {joins(:user_subject).where "user_subjects.status = ?",
       UserSubject.statuses[:progress]}

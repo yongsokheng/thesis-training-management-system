@@ -60,6 +60,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_task_scores, only: :update
+
   resources :tasks
   resources :notifications, only: :index
   patch "update_notifications" => "notifications#update"

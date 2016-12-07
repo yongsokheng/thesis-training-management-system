@@ -5,6 +5,14 @@
   <td title="<%= user_task.task_description %>">
     <div class="task-name"><%= link_to user_task.task_name, user_course_subject_user_task_path(@user_subject.user_course_id, @user_subject.subject.id, user_task.id) %>&nbsp;</div>
     <div class="task-description"><%= user_task.task_description %></div>
+    <% if user_task.score.present? %>
+      <div class="score">
+        <%= t "subjects.score" %>
+        <span class="badge label-primary">
+          <%= t "subjects.score_result", score: user_task.score %>
+        </span>
+      </div>
+    <% end %>
     <div>
       <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
         !user_task.finished? %>

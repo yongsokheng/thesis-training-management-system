@@ -24,3 +24,20 @@
     <% end %>
   </div>
 </div>
+
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="label box-title">
+      <%= t "subjects.total_score" %>
+      <% if @user_subject.score.present? %>
+        <span class="badge label-primary">
+          <%= t "subjects.score_result", score: @user_subject.score %>
+        </span>
+      <% else %>
+        <span class="badge label-danger">
+          <%= t "subjects.no_score_result" %>
+        </span>
+      <% end %>
+    </h3>
+  </div>
+</div>

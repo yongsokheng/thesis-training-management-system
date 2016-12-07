@@ -88,6 +88,11 @@ class UserSubject < ApplicationRecord
     (user_tasks.finished.size.to_f / user_task_size) * 100 if user_task_size > 0
   end
 
+  def score
+    user_task_count = user_tasks.map(&:score).compact.count
+    user_tasks.sum(:score) / user_task_count if user_task_count > 0
+  end
+
   private
   def create_user_tasks
     course_subject.tasks.each do |task|
