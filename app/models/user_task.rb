@@ -8,8 +8,6 @@ class UserTask < ApplicationRecord
   belongs_to :user_subject
   belongs_to :user
 
-  validates :estimated_time, presence: true
-
   delegate :id, :name, :image_url, :description, to: :task, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :description, to: :task, prefix: true, allow_nil: true
