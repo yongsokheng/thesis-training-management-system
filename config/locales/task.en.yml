@@ -20,6 +20,7 @@ en:
       estimated_time: "Enter estimated time ..."
   user_tasks:
     content: "Content"
+    score_evaluation: "Score Evaluation (Min: 0, Max: 100)"
     statuses:
       in_progress: "In Progress"
       finished: "Finished"

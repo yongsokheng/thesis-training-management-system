@@ -272,6 +272,7 @@ ActiveRecord::Schema.define(version: 20160720062609) do
     t.float    "estimated_time",  limit: 24
     t.integer  "redmine_task_id"
     t.integer  "status",                     default: 0
+    t.integer  "score"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["task_id"], name: "index_user_tasks_on_task_id", using: :btree
