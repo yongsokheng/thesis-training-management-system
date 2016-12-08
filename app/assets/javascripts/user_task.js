@@ -18,3 +18,18 @@ $(document).on("turbolinks:load AjaxComplete", function() {
     });
   }
 });
+
+$(document).on("turbolinks:load", function() {
+  $(".user-task-collapse").on("hide.bs.collapse", function () {
+    toggle_icon_class($(this));
+  });
+
+  $(".user-task-collapse").on("show.bs.collapse", function () {
+    toggle_icon_class($(this));
+  });
+
+  function toggle_icon_class(element) {
+    element.prev("tr").find(".glyphicon")
+      .toggleClass("glyphicon-chevron-down glyphicon-chevron-up");
+  }
+});

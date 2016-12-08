@@ -1,4 +1,4 @@
 <tr>
-  <td><%= user_task.task_name %></td>
+  <td><%= link_to user_task.task_name, user_course_subject_user_task_path(user_course_id, subject_id, user_task.id) %></td>
   <td><%= t "user_tasks.statuses.#{user_task.status}" %></td>
 </tr>

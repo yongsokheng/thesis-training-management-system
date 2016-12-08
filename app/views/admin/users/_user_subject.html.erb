@@ -14,8 +14,9 @@
   <div class="timeline-body">
     <div class="user-task">
       <table class="table">
-        <%= render partial: "admin/users/user_task", collection: user_subject.user_tasks,
-          as: :user_task %>
+        <%= render partial: "admin/users/user_task", collection: user_subject.user_tasks, as: :user_task,
+          locals: {user_course_id: @inprogress_course.course.user_courses.find_by(user_id: user_subject.user.id).id,
+            subject_id: user_subject.subject.id} %>
       </table>
     </div>
   </div>

@@ -1,5 +1,10 @@
 <tr>
-  <td><%= link_to user_subject.user.name, [:admin, user_subject.user] %></td>
+  <td>
+    <%= link_to "#user-#{user_subject.user.id}", data: {toggle: "collapse"} do %>
+      <i class="glyphicon glyphicon-chevron-down"></i>
+    <% end %> &nbsp; &nbsp;
+    <%= link_to user_subject.user.name, [:admin, user_subject.user] %>
+  </td>
   <td><%= user_subject.start_date %></td>
   <td><%= user_subject.end_date %></td>
   <td><%= user_subject.status %></td>
@@ -18,8 +23,15 @@
             [:admin, @course_subject, user_subject],
             method: :patch, remote: true, class: "btn btn-success btn-status" %>
         <% end %>
-      </div>
     <% end %>
   </td>
 </tr>
-
+<tr id="user-<%= user_subject.user.id %>" class="user-task-collapse collapse">
+  <td colspan="6">
+    <table class="table">
+      <%= render partial: "admin/users/user_task",
+        collection: user_subject.user_tasks, as: :user_task,
+        locals: {user_course_id: @course.user_courses.find_by(user_id: user_subject.user.id).id, subject_id: @subject.id} %>
+    </table>
+  </td>
+</tr>
