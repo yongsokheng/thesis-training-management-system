@@ -50,9 +50,10 @@
 //= require jquery.quicksearch
 //= require user_task
 
-$(document).on("turbolinks:load", function() {
+$(document).on("turbolinks:load ajaxComplete", function() {
   $(".alert").delay(3000).slideUp();
   $("#error_explanation").delay(3000).slideUp();
+  attach_ckeditor();
 });
 
 function remove_fields(link) {
@@ -80,8 +81,6 @@ function attach_ckeditor() {
 }
 
 $(document).on("turbolinks:load", function() {
-  attach_ckeditor();
-
   $(".sidebar-toggle").click(function() {
     $("#body-admin").toggleClass("sidebar-collapse")
   });

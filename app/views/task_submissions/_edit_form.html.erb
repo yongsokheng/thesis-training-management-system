@@ -1,0 +1,12 @@
+<div class="user-task-submission">
+  <div class="label-title">Add Submission</div>
+  <%= form_for :user_task, url: task_submission_path, method: :patch, remote: true do |f| %>
+    <%= f.hidden_field :id, value: @user_task.id %>
+    <div class="form-group">
+      <%= f.text_area :submission, class: "ckeditor-field" %>
+    </div>
+    <div>
+      <%= f.submit "sumit", class: "btn btn-action pull-right" %>
+    </div>
+  <% end %>
+</div>

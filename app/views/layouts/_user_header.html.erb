@@ -1,5 +1,5 @@
 <div id="user-header">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -11,12 +11,14 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to root_url do %>
-              <i class="fa fa-home" aria-hidden="true"></i>
-              <%= t "user-header.home" %>
-            <% end %>
-          </li>
+          <% if current_user.decorate.allow_access_admin %>
+            <li>
+              <%= link_to admin_courses_path do %>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <%= t "user-header.admin" %>
+              <% end %>
+            </li>
+          <% end %>
           <li>
             <%= link_to courses_path do %>
               <i class="fa fa-graduation-cap" aria-hidden="true"></i>

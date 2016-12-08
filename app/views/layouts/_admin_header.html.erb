@@ -67,17 +67,6 @@
             <% end %>
           </li>
         <% end %>
-        <% if can?(:read, Evaluation) || can?(:read, EvaluationTemplate) ||
-          can?(:read, Rank) %>
-          <li id="evaluations-header" class="treeview">
-            <a href="javascript:void(0)">
-              <i class="fa fa-book"></i><span><%= t "layouts.evaluations" %></span>
-              <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <%= render "layouts/side_panel",
-              object: [Evaluation, EvaluationTemplate, Rank] %>
-          </li>
-        <% end %>
         <% if can?(:read, University) || can?(:read, Status) ||
           can?(:read, UserType) || can?(:read, User) %>
           <li id="user-profiles-header" class="treeview">

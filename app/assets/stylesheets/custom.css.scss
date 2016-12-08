@@ -9,9 +9,30 @@ html {
   }
 }
 
-body, .breadcrumb, .content-wrapper {
+body, .content-wrapper {
   background-color: #F6F8F8 !important;
   padding: 0;
+}
+
+.body_wrapper {
+  margin-top: 75px;
+}
+
+.breadcrumb {
+  background-color: WHITE;
+}
+
+.flash-alert {
+  position: fixed;
+  z-index: 10000;
+  top: 65px;
+  opacity: 0.8;
+  right: 15px;
+
+  .close {
+    font-weight: normal;
+    text-decoration: none;
+  }
 }
 
 #user-header {
@@ -232,7 +253,7 @@ select {
   padding: 10%;
   background: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  border-radius: 7px;
+  border-radius: 3px;
 
   #complete {
     margin-top: 30px;

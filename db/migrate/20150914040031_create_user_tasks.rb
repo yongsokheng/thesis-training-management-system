@@ -9,6 +9,7 @@ class CreateUserTasks < ActiveRecord::Migration
       t.integer :redmine_task_id
       t.integer :status, default: 0
       t.integer :score
+      t.text :submission
 
       t.timestamps null: false
     end

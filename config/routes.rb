@@ -66,4 +66,5 @@ Rails.application.routes.draw do
   resources :notifications, only: :index
   patch "update_notifications" => "notifications#update"
   resources :comments
+  resources :task_submissions
 end

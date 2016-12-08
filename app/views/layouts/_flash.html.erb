@@ -1,6 +1,6 @@
 <% [:notice, :error, :alert, :failed, :success].each do |level| %>
   <% unless flash[level].blank? %>
-    <div class="alert <%= flash_class level %> fade in hide-flash">
+    <div class="flash-alert alert <%= flash_class level %> hide-flash">
       <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
       <%= flash[level] %>
     </div>
