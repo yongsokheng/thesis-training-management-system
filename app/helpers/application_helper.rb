@@ -78,7 +78,7 @@ module ApplicationHelper
     when "in_progress"
       "label label-success"
     when "finished"
-      "label label-info"
+      "label label-default"
     end
   end
 
@@ -132,5 +132,10 @@ module ApplicationHelper
 
   def percentage_format number
     number_to_percentage number, precision: 1, strip_insignificant_zeros: true
+  end
+
+  def can_edit_task? course, user_subject, user_task
+    user_task.in_progress? && (user_task.user_id = current_user.id) &&
+      course.progress? && user_subject.progress?
   end
 end

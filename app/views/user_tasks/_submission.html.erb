@@ -1,6 +1,6 @@
 <span class="label-title">Task Submission</span>
 <span class="pull-right">
-  <%= link_to "edit", edit_task_submission_path(@user_task.id), remote: true, class: "btn btn-action" %>
+  <%= link_to "edit", edit_task_submission_path(@user_task.id), remote: true, class: "btn btn-action" if @user_task.in_progress? %>
 </span>
 <%= @user_task.submission.html_safe %>
 

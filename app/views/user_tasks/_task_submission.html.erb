@@ -1,0 +1,10 @@
+<div class="task-submission box-divider">
+  <% if @user_task.submission.present? %>
+   <%= render "submission" %>
+  <% elsif @user_task.finished? %>
+    <span class="label-title">Task Submission</span>
+    <div class="text-danger">No submission</div>
+  <% else %>
+    <%= render "submission_form" %>
+  <% end %>
+</div>

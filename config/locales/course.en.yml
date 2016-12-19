@@ -65,8 +65,9 @@ en:
       description: "Description"
       status:
         init: "New"
-        progress: "Progress"
+        progress: "Inprogress"
         finish: "Finish"
+        in_progress: "Inprogress"
     users:
       name: "Name"
       email: "Email"
