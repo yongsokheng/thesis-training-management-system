@@ -1,0 +1,8 @@
+en:
+  feedbacks:
+    title: "Feedback"
+    subject: "Subject"
+    content: "Content"
+    send: "Send"
+    sender: "Sender"
+    sent_date: "Sent Date"

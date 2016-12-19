@@ -25,6 +25,12 @@
               <%= t "user-header.courses" %>
             <% end %>
           </li>
+          <li>
+            <%= link_to new_feedback_path do %>
+              <i class="fa fa-comment" aria-hidden="true"></i>
+              <%= t "feedbacks.title" %>
+            <% end %>
+          </li>
           <li class="dropdown messages-menu">
             <%= link_to update_notifications_path, class: "dropdown-toggle",
               data: {toggle:"dropdown"}, method: :patch, remote: true do %>

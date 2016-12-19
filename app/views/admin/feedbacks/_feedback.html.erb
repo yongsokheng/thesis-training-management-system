@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to feedback.subject, admin_feedback_path(feedback) %></td>
+  <td><%= link_to feedback.user_name, admin_user_path(feedback.user) %></td>
+  <td><%= l feedback.created_at, format: :datetime %></td>
+</tr>

@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :user_notifications, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates_confirmation_of :password

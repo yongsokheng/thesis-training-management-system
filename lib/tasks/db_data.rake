@@ -136,7 +136,9 @@ namespace :db do
       "UserTask", "User"].each do |name|
       Fabricate :permission, model_class: name, action: "read", role_id: 3
     end
-    Fabricate :permission, model_class: "Task", action: "create"
+    ["Task", "Feedback"].each do |name|
+      Fabricate :permission, model_class: name, action: "create"
+    end
     ["UserTask", "User", "Task"].each do |name|
       Fabricate :permission, model_class: name, action: "update", role_id: 3
     end
