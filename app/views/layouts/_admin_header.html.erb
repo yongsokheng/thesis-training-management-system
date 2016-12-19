@@ -60,6 +60,11 @@
             <% end %>
           </li>
         <% end %>
+        <li>
+          <%= link_to admin_feedbacks_path do %>
+            <i class="fa fa-comment"></i><span><%= t "layouts.feedbacks" %></span>
+          <% end %>
+        </li>
         <% if can? :read, Role %>
           <li>
             <%= link_to admin_roles_path do %>

@@ -1,0 +1,14 @@
+<div class="row" id="feedbacks">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= @feedback.subject %><br>
+        <i><%= l @feedback.created_at, format: :datetime %> ·
+          <%= link_to @feedback.user_name, admin_user_path(@feedback.user) %></i>
+      </div>
+      <div class="panel-body">
+        <%= @feedback.content.html_safe %>
+      </div>
+    </div>
+  </div>
+</div>

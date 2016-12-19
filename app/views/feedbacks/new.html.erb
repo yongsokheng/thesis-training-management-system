@@ -1,0 +1,27 @@
+<div id="feedbacks">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="breadcrumb-paths">
+        <ul class="breadcrumb">
+          <li>
+            <%= link_to root_path do %>
+              <i class="glyphicon glyphicon-th-list"></i>
+              <%= t "layouts.paths" %>
+            <% end %>
+          </li>
+          <li class="active"><%= t "feedbacks.title" %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <%= form_for @feedback do |f| %>
+        <p><%= render "shared/error_messages", object: @feedback %></p>
+        <p><%= f.text_field :subject, class: "form-control",
+          placeholder: t("feedbacks.subject") %></p>
+        <p><%= f.text_area :content, class: "form-control ckeditor-field",
+          placeholder: t("feedbacks.content") %></p>
+        <%= f.submit t("feedbacks.send"), class: "btn btn-primary pull-right" %>
+      <% end %>
+    </div>
+  </div>
+</div>

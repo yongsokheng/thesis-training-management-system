@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :user_types, except: :show
     resources :profiles
     resources :notes, except: :index
+    resources :feedbacks, only: [:index, :show]
   end
 
   resources :courses, only: [:show, :index] do
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_task_scores, only: :update
+  resources :feedbacks, only: [:new, :create]
 
   resources :tasks
   resources :notifications, only: :index
