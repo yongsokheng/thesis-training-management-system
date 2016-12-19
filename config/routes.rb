@@ -60,7 +60,7 @@ Rails.application.routes.draw do
       resources :user_tasks, only: :show
     end
   end
-
+  resources :user_tasks, only: :update
   resources :user_task_scores, only: :update
   resources :feedbacks, only: [:new, :create]
 
