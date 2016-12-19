@@ -55,6 +55,7 @@ en:
     update: "Update"
     complete: "Complete"
     assignee: "Assignee"
+    add_task: "Add task"
   subjects:
     finish: "Finish"
     subject: "Subject"

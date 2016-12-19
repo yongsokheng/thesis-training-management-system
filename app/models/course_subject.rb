@@ -10,13 +10,14 @@ class CourseSubject < ApplicationRecord
   after_create :update_subject_course
 
   ATTRIBUTES_PARAMS = [:subject_name, :image, :subject_description, :subject_content,
-    :course_id, :row_order_position]
+    :course_id, :row_order_position, tasks_attributes: [:id, :name, :description, :_destroy]]
 
   has_many :activities, as: :trackable, class_name: "PublicActivity::Activity", dependent: :destroy
 
   belongs_to :subject
   belongs_to :course
   has_many :user_subjects, dependent: :destroy
+  has_many :users, through: :user_subjects, dependent: :destroy
   has_many :tasks, dependent: :destroy
 
   delegate :name, to: :course, prefix: true, allow_nil: true

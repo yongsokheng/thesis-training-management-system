@@ -16,6 +16,14 @@ class Admin::CourseSubjectsController < ApplicationController
 
   def update
     if @course_subject.update_attributes course_subject_params
+      @course_subject.users.each do |user|
+        user_subject = UserSubject.find_by user_id: user.id, course_subject_id: @course_subject.id
+        @course_subject.tasks.each do |task|
+          UserTask.find_or_create_by(user_subject_id: user_subject.id,
+            user_id: user.id, task_id: task.id)
+        end
+      end
+
       respond_to do |format|
         format.js do
           render nothing: true

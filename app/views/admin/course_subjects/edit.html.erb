@@ -41,10 +41,16 @@
             </div>
           </div>
           <br>
+          <div class="task-list">
+            <%= f.fields_for :tasks do |builder| %>
+              <%= render "task_fields", f: builder %>
+            <% end %>
+            <strong><%= link_to_add_fields t("tasks.add_task"), f, :tasks %></strong>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-1 col-md-offset-10">
+        <div class="col-md-1 pull-right">
           <%= f.submit (f.object.new_record? ? t("subjects.buttons.admin.create")
             : t("subjects.buttons.admin.update")),
             class: "btn btn-primary text-right" %>
